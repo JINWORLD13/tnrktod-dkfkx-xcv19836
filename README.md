@@ -22,16 +22,10 @@ Currently maintaining and optimizing performance for ongoing service operation
 - **Integrations**: GPT API, Google OAuth, Toss Payment, i18next
 - **Infrastructure**: Google Cloud Platform (App Engine), GoDaddy
 
-### Tools
-- **Framework:** Vite  
+### Language & Library
 - **Language:** Javascript  
 - **Front-End Library:** React, Three.js, @reduxjs/toolkit, recharts, scss, Capacitor, Toss PG Payment, axios, @gltf-transform/cli, gltfjsx, react-spa-prerender, i18next  
 - **Back-End Library:** Node.js(Express.js), compression, jsonwebtoken, passport, axios  
-- **OAuth:** Google  
-- **AI:** GPT  
-- **DB:** MongoDB(mongoose)  
-- **Deploy:** GCP(App Engine)  
-- **Domain:** goDaddy  
 
 ### Front-End
 - Implemented 3D design pages using Three.js, troika-three-text, and gltfjsx libraries  
