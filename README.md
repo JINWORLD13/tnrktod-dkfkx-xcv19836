@@ -1,3 +1,4 @@
+This work is licensed under CC BY‑NC 4.0. Non‑commercial use only.
 # Portfolio
 ## Application Architecture Diagram
 <img width="1904" height="1449" alt="output" src="https://github.com/user-attachments/assets/f8b3fde7-c74b-425e-b980-5eb0f37944bd" />
