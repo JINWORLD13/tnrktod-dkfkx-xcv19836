@@ -1,0 +1,350 @@
+// 변수 정의
+$primary-blue: #3b82f6;
+$primary-green: #22c55e;
+$primary-purple: #8b5cf6;
+$primary-yellow: #facc15;
+$primary-orange: #f97316;
+$gray-600: #4b5563;
+$gray-800: #1f2937;
+$white: #ffffff;
+$shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.15);
+$border-radius: 0.75rem;
+
+// 믹스인: 반응형 그리드
+@mixin grid-cols($cols) {
+  display: grid;
+  grid-template-columns: repeat($cols, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+// 페이지 레이아웃
+.mypage {
+  min-height: calc(100vh - 120px);
+  background: linear-gradient(to bottom right, #f0f7ff, #e0e7ff);
+  padding: 1.5rem;
+  background-image: url('/assets/images/universe.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  color: $gray-800;
+
+  .container {
+    max-width: 80rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  // 페이지 헤더
+  .header {
+    text-align: center;
+    padding: 2.5rem 0;
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+
+      @media (min-width: 768px) {
+        font-size: 3.25rem;
+      }
+    }
+
+    p {
+      color: $gray-600;
+      font-size: 1.125rem;
+    }
+  }
+}
+
+// 카드 스타일
+.card {
+  box-shadow: $shadow-lg;
+  border: none;
+  background: rgba($white, 0.95); // 투명도 조정으로 가독성 향상
+  backdrop-filter: blur(6px);
+  border-radius: $border-radius;
+  overflow: hidden;
+
+  .card-header {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid rgba($gray-600, 0.1);
+
+    .card-title {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+
+      svg {
+        width: 1.75rem;
+        height: 1.75rem;
+      }
+    }
+  }
+
+  .card-content {
+    padding: 2rem;
+  }
+}
+
+// 사용자 정보 섹션
+.user-info {
+  background: rgba(goldenrod, 0.8); // goldenrod 대신 부드러운 색상
+  .user-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    @media (min-width: 640px) {
+      flex-direction: row;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .user-text {
+      flex: 1;
+
+      .user-name {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 0.75rem;
+
+        h2 {
+          font-size: 1.75rem;
+          font-weight: 700;
+          color: $gray-800;
+        }
+
+        .badge {
+          background: linear-gradient(to right, $primary-yellow, $primary-orange);
+          color: $white;
+          padding: 0.375rem 1rem;
+          border-radius: 0.375rem;
+          font-size: 0.875rem;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+        }
+      }
+
+      p {
+        color: $gray-600;
+        font-size: 1rem;
+      }
+    }
+
+    .user-icon {
+      width: 6rem;
+      height: 6rem;
+      background: linear-gradient(to right, $primary-blue, $primary-purple);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        width: 3rem;
+        height: 3rem;
+        color: $white;
+      }
+    }
+  }
+}
+
+// 이용권 섹션
+.tickets {
+  background: rgba(goldenrod, 0.8);
+  .ticket-grid {
+    @include grid-cols(2);
+
+    @media (min-width: 640px) {
+      @include grid-cols(3);
+    }
+
+    @media (min-width: 1024px) {
+      @include grid-cols(4);
+    }
+
+    @media (min-width: 1280px) {
+      @include grid-cols(7);
+    }
+
+    .ticket {
+      text-align: center;
+      padding: 1.25rem;
+      border: 1px solid rgba($gray-600, 0.1);
+      background: $white;
+      border-radius: $border-radius;
+      transition: transform 0.3s, box-shadow 0.3s;
+
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      .ticket-type {
+        padding: 0.5rem 1rem;
+        border-radius: 0.375rem;
+        font-size: 0.875rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+
+        &.blue { background: #dbeafe; color: #1e40af; }
+        &.green { background: #d1fae5; color: #065f46; }
+        &.purple { background: #ede9fe; color: #6b21a8; }
+        &.orange { background: #ffedd5; color: #c2410c; }
+        &.red { background: #fee2e2; color: #991b1b; }
+        &.indigo { background: #e0e7ff; color: #3730a3; }
+        &.yellow { background: #fef9c3; color: #854d0e; }
+      }
+
+      .ticket-count {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: $gray-800;
+      }
+
+      .ticket-unit {
+        font-size: 0.875rem;
+        color: $gray-600;
+      }
+    }
+  }
+}
+
+// 구매 실적 및 VIP 진행률
+.stats {
+  @media (min-width: 768px) {
+    @include grid-cols(2);
+  }
+
+  .purchase {
+    background: rgba(goldenrod, 0.8);
+    .amount {
+      text-align: center;
+      margin-bottom: 1.5rem;
+
+      .total {
+        font-size: 2rem;
+        font-weight: 700;
+        color: $primary-purple;
+      }
+
+      .label {
+        color: $gray-600;
+        font-size: 1rem;
+      }
+    }
+
+    .monthly {
+      background: rgba($white, 0.9);
+      border-radius: $border-radius;
+      padding: 1.25rem;
+
+      .row {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.875rem;
+        color: $gray-600;
+        margin-bottom: 0.75rem;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .vip-progress {
+    background: rgba(goldenrod, 0.8);
+    .progress {
+      text-align: center;
+      margin-bottom: 1.5rem;
+
+      .percentage {
+        font-size: 2rem;
+        font-weight: 700;
+        color: $primary-yellow;
+      }
+
+      .label {
+        color: $gray-600;
+        font-size: 1rem;
+      }
+    }
+
+    .progress-bar {
+      .bar {
+        width: 100%;
+        background: rgba($gray-600, 0.1);
+        border-radius: 9999px;
+        height: 1rem;
+        overflow: hidden;
+
+        .fill {
+          background: linear-gradient(to right, $primary-yellow, $primary-orange);
+          height: 100%;
+          border-radius: 9999px;
+          transition: width 0.5s ease-in-out;
+        }
+      }
+
+      .values {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.875rem;
+        color: $gray-600;
+        margin-top: 0.75rem;
+      }
+
+      .status {
+        text-align: center;
+        font-size: 1rem;
+        color: $gray-800;
+        font-weight: 500;
+        margin-top: 1rem;
+      }
+    }
+  }
+}
+
+// 추가 정보 섹션
+.extra-info {
+  background: rgba(goldenrod, 0.8);
+  .info-grid {
+    @include grid-cols(1);
+
+    @media (min-width: 640px) {
+      @include grid-cols(2);
+    }
+
+    @media (min-width: 1024px) {
+      @include grid-cols(4);
+    }
+
+    .info-box {
+      padding: 1.5rem;
+      border-radius: $border-radius;
+      text-align: center;
+
+      &.blue { background: #eff6ff; .value { color: $primary-blue; } }
+      &.green { background: #f0fdf4; .value { color: $primary-green; } }
+      &.purple { background: #f5f3ff; .value { color: $primary-purple; } }
+      &.orange { background: #fff7ed; .value { color: $primary-orange; } }
+
+      .value {
+        font-size: 1.75rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+
+      .label {
+        font-size: 0.875rem;
+        color: $gray-600;
+      }
+    }
+  }
+}

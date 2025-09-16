@@ -1,0 +1,450 @@
+@use '_App.module.scss';
+@use '_TarotCardSpreadForm.module.scss';
+
+.backdrop {
+  position: fixed;
+  top: 0px;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  // height: 100vh;
+  overflow: hidden;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.75);
+}
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
+  height: auto;
+  z-index: 100;
+  overflow: hidden;
+  @include App.flex-box-center(column);
+  justify-content: space-between;
+  border: 1px solid black;
+  background: transparent;
+  color: white;
+  & > ins {
+    z-index: 102;
+  }
+  & > h1 {
+    // 로딩중 화면
+    white-space: nowrap; //! 줄바꿈 무효
+    z-index: 101;
+    color: gold;
+  }
+  & > h2 {
+    // 로딩중 화면
+    white-space: nowrap; //! 줄바꿈 무효
+    z-index: 101;
+    color: gold;
+  }
+
+  & > div.btn-box {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+
+    & > button {
+      min-width: 60px;
+    }
+  }
+}
+.title {
+  width: 100%;
+  @include App.flex-box-center(row);
+  justify-content: start;
+  p {
+    @include App.dongle-font(1.8rem);
+    margin: 10px;
+    margin-left: 20px;
+  }
+}
+.modal-content {
+  width: 100%;
+  height: 100%;
+  margin-left: 40px;
+  @include App.dongle-font(1.7rem);
+}
+
+.title-japanese {
+  width: 100%;
+  @include App.flex-box-center(row);
+  justify-content: start;
+  margin-bottom: 10px;
+  p {
+    @include App.potta-font(1.4rem);
+    margin: 10px;
+    margin-left: 20px;
+  }
+}
+.modal-content-japanese {
+  width: 100%;
+  height: 100%;
+  margin-left: 40px;
+  @include App.potta-font(1.2rem);
+}
+
+//~ 디바이스
+@media (min-device-width: 1025px) and (max-device-width: 1366px) {
+}
+//~ 태블릿, 아이패드, 아이패드 프로
+@media (min-device-width: 769px) and (max-device-width: 1024px) {
+  .modal {
+    // width: 80%;
+    // height: 20%;
+    max-height: 400px;
+  }
+  .modal-content {
+    padding-right: 40px;
+  }
+  .modal-content-japanese {
+    padding-right: 40px;
+  }
+  .stripe-modal {
+    width: 100%;
+    max-width: 600px;
+    height: 35%;
+  }
+}
+//~ 481px ~ 768px 및 태블릿
+@media (min-device-width: 481px) and (max-device-width: 768px) {
+  .modal {
+    // width: 90%;
+    // max-height: 400px;
+  }
+  .modal-content {
+    padding-right: 40px;
+  }
+  .modal-content-japanese {
+    padding-right: 40px;
+  }
+  .stripe-modal {
+    width: 100%;
+    max-width: 600px;
+    height: 35%;
+  }
+}
+
+//~ IPhone 14 Pro Max(430px)
+@media only screen and (min-device-width: 415px) and (max-device-width: 480px) {
+  .modal {
+    // width: 100%;
+    // height: 30%;
+  }
+  .modal-content {
+    padding-right: 40px;
+  }
+  .modal-content-japanese {
+    padding-right: 40px;
+  }
+  .stripe-modal {
+    width: 100%;
+    height: 35%;
+  }
+}
+//~ 아이폰XR
+@media (min-device-width: 376px) and (max-device-width: 414px) {
+  .modal {
+    // width: 100%;
+    // height: 30%;
+  }
+  .modal-content {
+    padding-right: 40px;
+  }
+  .modal-content-japanese {
+    padding-right: 40px;
+  }
+  .stripe-modal {
+    width: 100%;
+    height: 40%;
+  }
+}
+//~ 아이폰 SE
+@media (min-device-width: 281px) and (max-device-width: 375px) {
+  .modal {
+    // width: 100%;
+    // height: 40%;
+  }
+  .modal-content {
+    padding-right: 40px;
+  }
+  .modal-content-japanese {
+    padding-right: 40px;
+  }
+  .stripe-modal {
+    width: 100%;
+    height: 40%;
+  }
+}
+//~ 갤럭시 폴드
+@media (max-device-width: 280px) {
+  .modal {
+    // width: 100%;
+    // height: 40%;
+  }
+  .modal-content {
+    padding-right: 40px;
+  }
+  .modal-content-japanese {
+    padding-right: 40px;
+  }
+  .stripe-modal {
+    width: 100%;
+    height: 40%;
+  }
+}
+
+//! 반응형 웹브라우저
+
+//~ 디바이스
+@media (min-width: 1025px) and (max-width: 1366px) {
+}
+//~ 태블릿, 아이패드, 아이패드 프로
+@media (min-width: 769px) and (max-width: 1024px) {
+  .modal {
+    // width: 80%;
+    // height: 20%;
+    max-height: 400px;
+  }
+  .modal-content {
+    padding-right: 40px;
+  }
+  .modal-content-japanese {
+    padding-right: 40px;
+  }
+  .stripe-modal {
+    width: 100%;
+    max-width: 600px;
+    height: 35%;
+  }
+}
+//~ 481px ~ 768px 및 태블릿
+@media (min-width: 481px) and (max-width: 768px) {
+  .modal {
+    // width: 90%;
+    // max-height: 400px;
+  }
+  .modal-content {
+    padding-right: 40px;
+  }
+  .modal-content-japanese {
+    padding-right: 40px;
+  }
+  .stripe-modal {
+    width: 100%;
+    max-width: 600px;
+    height: 35%;
+  }
+}
+
+//~ IPhone 14 Pro Max(430px)
+@media only screen and (min-width: 415px) and (max-width: 480px) {
+  .modal {
+    // width: 100%;
+    // height: 30%;
+  }
+  .modal-content {
+    padding-right: 40px;
+  }
+  .modal-content-japanese {
+    padding-right: 40px;
+  }
+  .stripe-modal {
+    width: 100%;
+    height: 35%;
+  }
+}
+//~ 아이폰XR
+@media (min-width: 376px) and (max-width: 414px) {
+  .modal {
+    // width: 100%;
+    // height: 30%;
+  }
+  .modal-content {
+    padding-right: 40px;
+  }
+  .modal-content-japanese {
+    padding-right: 40px;
+  }
+  .stripe-modal {
+    width: 100%;
+    height: 40%;
+  }
+}
+//~ 아이폰 SE
+@media (min-width: 281px) and (max-width: 375px) {
+  .modal {
+    // width: 100%;
+    // height: 40%;
+  }
+  .modal-content {
+    padding-right: 40px;
+  }
+  .modal-content-japanese {
+    padding-right: 40px;
+  }
+  .stripe-modal {
+    width: 100%;
+    height: 40%;
+  }
+}
+//~ 갤럭시 폴드
+@media (max-width: 280px) {
+  .modal {
+    // width: 100%;
+    // height: 40%;
+  }
+  .modal-content {
+    padding-right: 40px;
+  }
+  .modal-content-japanese {
+    padding-right: 40px;
+  }
+  .stripe-modal {
+    width: 100%;
+    height: 40%;
+  }
+}
+
+//* 아이패드 프로 가로
+@media screen and (orientation: landscape) and (min-device-width: 1025px) and (max-device-width: 1366px) {
+  div.backdrop {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    // height: 100vh;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.75);
+  }
+  div.modal {
+    // max-width: 100%;
+    // max-height: 90%;
+  }
+  div.stripe-modal {
+    width: 60%;
+    height: 60%;
+  }
+}
+
+//* 태블릿 아이패드, 아이패드 프로 가로
+@media screen and (orientation: landscape) and (min-device-width: 933px) and (max-device-width: 1024px) {
+  div.backdrop {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    // height: 100vh;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.75);
+  }
+  div.modal {
+    // width: 600px;
+    // height: 200px;
+    // max-width: 100%;
+    // max-height: 90%;
+  }
+  div.stripe-modal {
+    width: 60%;
+    height: 60%;
+  }
+}
+//* IPhon 14 Pro Max 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 897px) and (max-device-width: 932px) {
+  div.backdrop {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    // height: 100vh;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.75);
+  }
+  div.modal {
+    // width: 600px;
+    // height: 200px;
+    // max-width: 100%;
+    // max-height: 90%;
+  }
+  div.stripe-modal {
+    width: 60%;
+    height: 60%;
+  }
+}
+//* 아이폰XR 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 668px) and (max-device-width: 896px) {
+  div.backdrop {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    // height: 100vh;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.75);
+  }
+  div.modal {
+    // width: 600px;
+    // height: 200px;
+    // max-width: 100%;
+    // max-height: 90%;
+  }
+  div.stripe-modal {
+    width: 60%;
+    height: 60%;
+  }
+}
+//* 아이폰SE 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 654px) and (max-device-width: 667px) {
+  div.backdrop {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    // height: 100vh;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.75);
+  }
+  div.modal {
+    // width: 550px;
+    // height: 200px;
+    // max-width: 100%;
+    // max-height: 90%;
+  }
+  div.stripe-modal {
+    width: 60%;
+    height: 60%;
+  }
+}
+
+//* 갤럭시 폴드 가로모드
+@media screen and (orientation: landscape) and (max-device-width: 653px) {
+  div.backdrop {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    // height: 100vh;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.75);
+  }
+  div.modal {
+    // width: 500px;
+    // height: 180px;
+    // max-width: 100%;
+    // max-height: 90%;
+  }
+  div.stripe-modal {
+    width: 60%;
+    height: 60%;
+  }
+}

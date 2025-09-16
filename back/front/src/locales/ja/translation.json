@@ -1,0 +1,699 @@
+{
+  "header": {
+    "logo": "Cosmos Tarot",
+    "principle": "タロの原則",
+    "spread": "スプレッド",
+    "mypage": "マイページ",
+    "logout": "ログアウト",
+    "login": "ログイン",
+    "register": "新規登録",
+    "more": "詳しく見る",
+    "language": "言語",
+    "help": "ヘルプ"
+  },
+  "footer": {
+    "quotation1-1": "貴方の運命と未来は、貴方の内面の",
+    "quotation1-2": "変化と、選択にかかっています。",
+    "quotation2-1": "カードは心とそれに基づく運勢を読み、",
+    "quotation2-2": "知的・事実的なものは読みません。",
+    "quotation3-1": "通常、深層、真剣タロは、表面的な心、",
+    "quotation3-2": "内、さらに深い内なる心を読みます。"
+  },
+  "page_title": {
+    "mypage": "マイページ",
+    "refund": "返金"
+  },
+  "page": {
+    "threejs": {
+      "title": "コスモスタロット - 可愛いお友達と一緒のタロット時間",
+      "metaDescription": "心の答えを見つける静かな時間、可愛いキャラクターのお友達と24時間いつでもタロット相談を受けてみてください。複雑な心を整理し、内面の声に耳を傾ける特別な空間です。",
+      "keywords": "可愛いキャラクター, 24時間タロット, 心の相談, タロットの友達, ヒーリングタロット, キャラクターとの会話, 心の整理",
+      "mainHeading": "可愛いお友達と一緒のタロット時間",
+      "intro": {
+        "paragraph1": "コスモスタロットの特別なキャラクターのお友達があなたを待っています。心が複雑な時、一人だけの時間が必要な時、いつでも気軽にお越しください。",
+        "paragraph2": "このページでは生き生きとしたキャラクターと一緒に、より親しみやすく温かいタロット体験ができます。時間に追われることなく、誰の視線も気にせず、ひたすら自分だけに集中できる瞬間をプレゼントします。"
+      },
+      "pageFeatures": {
+        "title": "キャラクターページの特別さ",
+        "characterCompanion": {
+          "title": "温かい仲間",
+          "description": "一人ではなく、可愛いお友達と一緒のタロット時間。まるで長年の友人と会話するように、気軽に心を打ち明けることができます。"
+        },
+        "visualComfort": {
+          "title": "心地よい視覚体験",
+          "description": "柔らかく親しみやすいキャラクターが一緒にいることで、緊張感なく自然にタロット相談に集中できます。"
+        },
+        "emotionalConnection": {
+          "title": "感情的な絆",
+          "description": "単なるテキストではなく、表情や動きのあるキャラクターとの交流で、より温かい相談体験を感じてください。"
+        }
+      },
+      "whenToVisit": {
+        "title": "こんな瞬間にキャラクターのお友達を訪ねてください",
+        "bedtime": "眠る前に一日を整理し、心を慰めたい時",
+        "worry": "悩みが多くて誰かと話したいけれど、負担のない相手が必要な時",
+        "newStart": "新しいスタートの前で勇気が必要な時",
+        "dailyBreak": "忙しい日常の中で少し休みながら心を振り返りたい時"
+      },
+      "experience": {
+        "title": "どんな体験ができるでしょうか",
+        "description": "キャラクターのお友達がいるこの空間は、まるで居心地の良いカフェで親しい友人とお茶を飲みながら話すような安らぎを与えてくれます。複雑な機能や難しい説明なしに、自然にカードを選んでメッセージを受け取る過程が、より温かく意味深く感じられることでしょう。"
+      },
+      "accessibility": {
+        "title": "いつでも気軽に",
+        "description": "スマートフォン、タブレット、パソコンのどこからでも、スムーズに動くキャラクターのお友達に会えます。技術的な複雑さは後回しにして、心のコミュニケーションだけに集中できるよう最適化されています。"
+      },
+      "philosophy": {
+        "title": "私たちの心構え",
+        "description": "コスモスタロットは答えを押し付けるのではなく、あなたの心の中にすでにあった答えを見つけるのを手伝う温かい仲間です。キャラクターのお友達も同じように、判断したり評価したりせず、ただあなたの話に耳を傾け、一緒にいる存在です。"
+      },
+      "invitation": {
+        "description": "忙しい一日の中で少し立ち止まって自分自身と向き合いたい時、あるいは新しい一日を始めながら心の準備をしたい時。可愛いキャラクターのお友達は、いつでもあなたのそばで静かに待っています。"
+      },
+      "noscript": {
+        "title": "コスモスタロットキャラクター",
+        "message1": "キャラクターのお友達と一緒のタロット体験には、JavaScriptが必要です。",
+        "message2": "ブラウザでJavaScriptを有効にしてから、また会いましょう。"
+      }
+    },
+    "mypage": {
+      "title": "マイページ - 私のタロットジャーニー",
+      "metaDescription": "個人タロットリーディング記録管理、統計分析。最大3ヶ月間保管される専用タロット相談履歴とパターンを確認してください。",
+      "keywords": "マイページ, タロット相談記録, タロット相談統計, 個人タロットデータ, タロットパターン分析",
+      "mainHeading": "私のタロットジャーニー",
+      "intro": {
+        "paragraph1": "マイページで自分だけのタロットジャーニーを振り返ってみてください。過去の相談記録から個人別カード統計まで、あなたのタロットストーリーがすべて整理されています。",
+        "paragraph2": "最大3ヶ月間保管されるリーディング記録を通じて、過去のアドバイスを再確認し、自分だけのタロットパターンを発見して個人的成長の歩みを感じてみてください。"
+      },
+      "sections": {
+        "title": "マイページ構成",
+        "history": "相談記録",
+        "statistics": "私のタロット相談統計",
+        "profile": "プロフィール"
+      },
+      "features": {
+        "title": "マイページ主要機能",
+        "recordManagement": {
+          "title": "記録管理",
+          "description": "過去のタロットリーディング結果をテーマ別および質問の対象別に整理して確認し、希望する記録はいつでも削除できます。"
+        },
+        "statisticalAnalysis": {
+          "title": "統計分析",
+          "description": "個人別メジャーカードとマイナーカードの出現頻度をテーマ別および質問の対象別に整理してグラフで視覚化し、あなた独自のタロットパターンを把握できます。"
+        }
+      },
+      "dataManagement": {
+        "title": "データ保管及び管理",
+        "description": "すべての相談記録は最大3ヶ月間安全に保管され、いつでも希望する記録を選択して削除できます。"
+      },
+      "personalGrowth": {
+        "title": "個人成長追跡",
+        "description": "時間が経つにつれて変化するあなたのタロットパターンを通じて、内面の変化と成長を確認できます。どのカードがよく出るか、どのようなテーマの質問を多くするかを分析し、自己省察のツールとして活用してください。"
+      },
+      "privacy": {
+        "title": "個人情報保護",
+        "description": "マイページのすべての情報は本人のみがアクセスでき、タロットリーディング内容と個人設定は完全にプライベートで管理されます。いつでもすべてのデータを削除したり、アカウントを退会したりする権利を保障します。"
+      }
+    },
+    "etc": {
+      "title": "その他 - タロットのすべて",
+      "metaDescription": "タロットを学ぶから利用規約、タロットの歴史まで。コスモスタロットのすべての情報と学習資料を一箇所で確認してください。",
+      "keywords": "タロットを学ぶ, 利用規約, タロットの歴史, タロット学習, タロット知識, その他",
+      "mainHeading": "タロットのすべて",
+      "intro": {
+        "paragraph1": "コスモスタロットのその他セクションで、タロットについての深い知識を探検してみてください。初心者のための学習資料から、タロットの長い歴史まで、すべての情報が体系的に整理されています。",
+        "paragraph2": "タロットを初めて接する方のための親切なガイドと共に、サービス利用に必要な規約情報も透明に提供します。タロットの神秘的な世界をより深く理解してみてください。"
+      },
+      "sections": {
+        "title": "その他構成",
+        "learnTarot": "タロットを学ぶ",
+        "terms": "利用規約",
+        "history": "タロットの歴史"
+      },
+      "features": {
+        "title": "その他主要コンテンツ",
+        "learnTarot": {
+          "title": "タロットを学ぶ",
+          "description": "タロットカードの基本概念から各カードの意味、スプレッド方法まで段階別に学習できます。初心者も簡単に従うことができる親切なガイドを提供します。"
+        },
+        "termsService": {
+          "title": "利用規約",
+          "description": "コスモスタロットサービス利用時に知っておくべきすべての規約と政策を透明に公開します。個人情報処理方針、サービス利用規則などを明確に確認できます。"
+        },
+        "tarotHistory": {
+          "title": "タロットの歴史",
+          "description": "数百年のタロット歴史と伝統を紹介します。タロットカードの起源から現代的解釈まで、タロットの深いルーツを理解できます。"
+        }
+      },
+      "educational": {
+        "title": "学習資料の特徴",
+        "description": "複雑で難しいタロット知識を誰でも簡単に理解できるよう段階別に構成しました。理論的説明と実用的なヒントをバランスよく提供し、タロットを初めて接する方も負担なく学習できます。"
+      },
+      "transparency": {
+        "title": "透明な情報提供",
+        "description": "サービスに関連するすべての情報をユーザーが簡単に見つけて理解できるよう整理しました。規約内容からタロットの歴史的背景まで、気になるすべてのことを明確に提供します。"
+      }
+    },
+    "principle": {
+      "meta": {
+        "title": "タロットカードの原理：ユングの集合的無意識理論",
+        "description": "カール・グスタフ・ユングの集合的無意識と共時性原理に基づくタロットカードの科学的解釈。AIタロットの原理と正しい活用法を学びましょう。",
+        "keywords": "ユング心理学, 集合的無意識, 共時性原理, タロットカード原理, AIタロット, カール・グスタフ・ユング, タロット理論, 無意識の繋がり, タロット解釈, 心理学的タロット, 無料タロット, タロットカード, 恋愛タロット, 今日の運勢, タロットアプリ"
+      },
+      "header": {
+        "mainTitle": "タロットの原理",
+        "subtitle": "カール・グスタフ・ユングの心理学的アプローチで理解するタロットカードの科学的原理"
+      },
+      "sections": {
+        "theory": {
+          "title": "集合的無意識理論",
+          "content": "精神科医であり心理学者でもあるカール・グスタフ・ユングは、人類が共有する集合的無意識の領域をタロットカードを通じて理解できると考えました。彼の理論によると、集合的無意識はすべての人類が共通して持つ特性であり、私たちは無意識の深い領域でお互いに繋がっています。"
+        },
+        "synchronicity": {
+          "title": "共時性の原理",
+          "content": "ユングはこのような観点を基に「共時性の原理」を発展させました。これは偶然に同時に起こる出来事が、実際には無意識的な繋がりを通じて深い関係を持っているということです。",
+          "application": {
+            "title": "タロットでの共時性の適用",
+            "content": "彼はこの原理をタロットカードに適用し、カードを選択する瞬間に質問者の無意識とカードの間に特別な繋がりが生まれると説明しました。"
+          }
+        },
+        "practical": {
+          "title": "実際の活用原理",
+          "methods": {
+            "title": "様々な選択方式の有効性",
+            "intro": "このような原理により、以下のような方式がすべて有効です：",
+            "item1": "直接カードを引く場合",
+            "item2": "他の人が代わりに引いてくれる場合",
+            "item3": "名前を言わずに質問だけを考えて集中して選択する場合"
+          },
+          "energy": {
+            "title": "瞬間的エネルギーの重要性",
+            "content": "注目すべき点は、タロットカードが質問するその瞬間のエネルギーを基準に結果を示すということです。人間の感情や状況は継続的に変化する可能性があるため、これを念頭に置いて解釈する必要があります。"
+          }
+        },
+        "interpretation": {
+          "title": "正しいタロット解釈方法",
+          "additional": {
+            "title": "追加確認の活用",
+            "content": "答えが曖昧に感じられる場合は、2〜3回程度追加でカードを確認することも役立ちます。"
+          },
+          "caution": {
+            "title": "健全な活用のための注意事項",
+            "content": "ただし、過度な依存は精神的健康に悪影響を与える可能性があるため、適切な範囲内で活用してください。"
+          }
+        },
+        "conclusion": {
+          "title": "心理学的アプローチ",
+          "content": "コスモスタロットもこのようなユングの理論を基に、ユーザーの無意識的選択と瞬間的エネルギーを反映して意味のある洞察を提供します。科学的根拠と心理学的理解に基づくタロットカードは、単純な占いを超えて自己省察のツールとして活用できます。"
+        }
+      }
+    }
+  },
+  "more": {
+    "home": "ホーム"
+  },
+  "mypage": {
+    "user-info": "会員情報",
+    "user-voucher-info": "保有利用券",
+    "user": "情報",
+    "user-info-withdraw": "退会",
+    "tarot-history-info": "占い履歴",
+    "business-info": "事業情報",
+    "terms-of-service": "利用規約",
+    "user-name": "名前",
+    "user-email": "メール",
+    "user-account": "ID",
+    "point": "ポイント",
+    "voucher": "利用券",
+    "voucher-1": "1枚券",
+    "voucher-2": "2枚券",
+    "voucher-3": "3枚券",
+    "voucher-4": "4枚券",
+    "voucher-5": "5枚券",
+    "voucher-6": "6枚券",
+    "voucher-7": "7枚券",
+    "voucher-8": "8枚券",
+    "voucher-9": "9枚券",
+    "voucher-10": "10枚券",
+    "voucher-11": "11枚券",
+    "voucher-13": "13枚券",
+    "tarot-history": "タロット占い履歴",
+    "tarot-history-today": "今日の占い回数",
+    "tarot-history-this-week": "今週の占い回数",
+    "tarot-history-this-month": "今月の占い回数",
+    "tarot-history-total": "総占い回数",
+    "times": "回",
+    "ready": "準備中",
+    "question": "質問：",
+    "question-today": "今日",
+    "question-this-week": "今週",
+    "question-this-month": "今月",
+    "question-three-months": "過去3ヶ月",
+    "question-this-year": "今年",
+    "question-total": "総質問数",
+    "statistics": "占い統計",
+    "statistics-total": "総合統計",
+    "statistics-theme": "テーマ別統計",
+    "statistics-target": "質問対象別統計",
+    "statistics-question-matter": "題材別統計",
+    "statistics-question-topic": "テーマ別統計",
+    "chart-major-total": "全体のメジャーカード",
+    "chart-minor-total": "全体のマイナーカード",
+    "chart-major-this-month": "今月のメジャーカード",
+    "chart-minor-this-month": "今月のマイナーカード",
+    "chart-major-this-week": "今週のメジャーカード",
+    "chart-minor-this-week": "今週のマイナーカード",
+    "chart-major-today": "今日のメジャーカード",
+    "chart-minor-today": "今日のマイナーカード",
+    "chart-cups-total": "全体のカップ",
+    "chart-swords-total": "全体のソード",
+    "chart-wands-total": "全体のワンド",
+    "chart-pentacles-total": "全体のペンタクル",
+    "chart-cups-this-month": "今月のカップ",
+    "chart-swords-this-month": "今月のソード",
+    "chart-wands-this-month": "今月のワンド",
+    "chart-pentacles-this-month": "今月のペンタクル",
+    "chart-cups-this-week": "今週のカップ",
+    "chart-swords-this-week": "今週のソード",
+    "chart-wands-this-week": "今週のワンド",
+    "chart-pentacles-this-week": "今週のペンタクル",
+    "chart-cups-today": "今日のカップ",
+    "chart-swords-today": "今日のソード",
+    "chart-wands-today": "今日のワンド",
+    "chart-pentacles-today": "今日のペンタクル",
+    "tarot-explanation": "タロ概要",
+    "tarot-learning": "タロ学び"
+  },
+  "chart": {
+    "statistics-total": "全体"
+  },
+  "product": {
+    "cosmos_vouchers_1": "シングルカードリーディングの利用券",
+    "cosmos_vouchers_2": "ツーカードリーディングの利用券",
+    "cosmos_voucher_3": "スリーカードリーディングの利用券",
+    "cosmos_vouchers_4": "フォーカードリーディングの利用券",
+    "cosmos_vouchers_5": "ファイブカードリーディングの利用券",
+    "cosmos_vouchers_6": "シックスカードリーディングの利用券",
+    "cosmos_vouchers_7": "セブンカードリーディングの利用券",
+    "cosmos_vouchers_8": "エイトカードリーディングの利用券",
+    "cosmos_vouchers_9": "ナインカードリーディングの利用券",
+    "cosmos_voucher_10": "テンカードリーディングの利用券",
+    "cosmos_vouchers_11": "イレブンカードリーディングの利用券",
+    "cosmos_vouchers_12": "トゥエルブカードリーディングの利用券",
+    "cosmos_vouchers_13": "サーティーンカードリーディングの利用券",
+    "cosmos_vouchers_event_package_expired_title": "8月限定感謝お得パック",
+    "cosmos_vouchers_event_package_expired": "🌟 カード利用券（1、2、3、4、5、6、10枚券）各10枚＋3枚券・10枚券ボーナス10枚！合計90枚の限定パック！\n⚠️ 先着50名様で販売終了！\n⚠️ 本パッククーポンは8月25日23:59（購入時の現地時間）で失効します。",
+    "cosmos_vouchers_bundle_package_newbie_title": "初心者パック",
+    "cosmos_vouchers_bundle_package_newbie": "🌟 カード利用券(1、2、3、4、5、6、10枚券)各4枚ずつ計28枚限定パック！\n⚠️ アカウント1回のみ購入制限！\n",
+    "cosmos_vouchers_bundle_package_1_title": "I パック",
+    "cosmos_vouchers_bundle_package_1": "🌟 1枚券 10枚 パック!\n🔥 10% 割引!\n",
+    "cosmos_vouchers_bundle_package_2_title": "II パック",
+    "cosmos_vouchers_bundle_package_2": "🌟 2枚券 10枚 パック!\n🔥 10% 割引!\n",
+    "cosmos_vouchers_bundle_package_3_title": "III パック",
+    "cosmos_vouchers_bundle_package_3": "🌟 3枚券 10枚 パック!\n🔥 10% 割引!\n",
+    "cosmos_vouchers_bundle_package_4_title": "IV パック",
+    "cosmos_vouchers_bundle_package_4": "🌟 4枚券 10枚 パック!\n🔥 10% 割引!\n",
+    "cosmos_vouchers_bundle_package_5_title": "V パック",
+    "cosmos_vouchers_bundle_package_5": "🌟 5枚券 10枚 パック!\n🔥 10% 割引!\n",
+    "cosmos_vouchers_bundle_package_6_title": "VI パック",
+    "cosmos_vouchers_bundle_package_6": "🌟 6枚券 10枚 パック!\n🔥 10% 割引!\n",
+    "cosmos_vouchers_bundle_package_10_title": "X パック",
+    "cosmos_vouchers_bundle_package_10": "🌟 10枚券 10枚 パック!\n🔥 10% 割引!\n"
+  },
+  "daily-tarot": {
+    "card": "今日のタロット占い",
+    "message": "今日のメッセージ",
+    "positive-meaning": "ポジティブな影響",
+    "negative-meaning": "注意すべき点",
+    "keyword": "キーワード"
+  },
+  "refund": {
+    "notification": "Google Playストアからダウンロードしたアプリを通じて購入した利用券を除く全ての利用券は、購入金額の70%が部分払い戻しされ、購入日から180日以内に保有されている利用券に限り、払い戻しが可能です。具体的な払い戻し手続きと基準は、会社の運営方針(払い戻しポリシー)に従いますので、「マイページ > 情報 > 購入 > ポリシー」に移動して、払い戻しポリシーを参照してください。ご参考に、利用券の使用時には、ウェブサイトで購入した利用券を先に使用し、その後、Google Playストアのアプリで購入した利用券を使用することになります。",
+    "user-voucher-info": "環払い可能な利用券",
+    "caution": "最低3米ドル以上の返金が可能。",
+    "total-price": "返金総額",
+    "order-id": "注文番号",
+    "voucher-name": "利用券名",
+    "amount": "枚数",
+    "each-list-price": "個別購入金額",
+    "purchase-date": "購入日",
+    "due-date": "満了日",
+    "unit": "枚券",
+    "sale-percentage": "当時の割引率",
+    "original-price": "当時の原価",
+    "quantity": "数量",
+    "total": "全体",
+    "money": "米ドル"
+  },
+  "order": {
+    "order_number": "注文番号",
+    "order_point": "注文ポイント",
+    "order_vouchers": "注文利用券",
+    "order_amount": "支払い金額",
+    "order_success": "支払い成功",
+    "order_pending": "支払い待ち"
+  },
+  "card": {
+    "master": "マスター",
+    "visa": "ビザ",
+    "union_pay": "ユニオンペイ",
+    "american_express": "アメリカンエクスプレス",
+    "jcb": "JCB"
+  },
+  "alert_modal": {
+    "notice": "お知らせ",
+    "delete_tarot_history": "タロット占いの履歴を削除しますか？",
+    "delete_user": "会員を退会しますか？"
+  },
+  "charge_modal": {
+    "charge": "ポイントをチャージしますか？",
+    "out-of-point": "ポイントが不足しています。ポイントをチャージしますか？",
+    "comming-soon": "更新予定です。",
+    "purchase": "利用券を購入しますか？",
+    "out-of-voucher": "利用券が不足しています。利用券を購入しますか？"
+  },
+  "in_app_purchase_modal": {
+    "owned": "保有"
+  },
+  "blink_modal": {
+    "login": "ログインしてください。",
+    "copy": "コピー完了",
+    "save": "保存完了",
+    "charging_KRW": "最低チャージ金額は1,000ウォン以上です。",
+    "charging_USD": "最低チャージ金額は1USD以上です。",
+    "fill-in-on-question": "質問欄に内容をご入力ください。",
+    "over-in-on-question": "質問が文字数制限を超えました。",
+    "unavailable-voucher": "現在ご利用いただけない利用券です。",
+    "unavailable-which-tarot": "サービス開始予定です。",
+    "speed-tarot-notification": "※ プロ向け占いです（解説なし）。",
+    "spread": "スプレッド : ",
+    "none": "無し",
+    "card-position": "枚目のカード"
+  },
+  "manual_modal": {
+    "tarot-manual-title": "<利用案内>",
+    "tarot-question-instruction-title": "<質問作成の手引き>"
+  },
+  "refund_policy_modal": {
+    "refund_policy-title": "<払い戻し規約>"
+  },
+  "time": {
+    "ad_reset_time": "広告リセットまでの時間：",
+    "remaining_ad_views": "残りの広告視聴回数："
+  },
+  "talk": {
+    "hello": "",
+    "welcome": "Welcome to Cosmos Tarot",
+    "welcome-temp": "Cosmos Tarotへようこそ！",
+    "click_instruction": "水晶玉を押して始めてください。",
+    "click_instruction-temp": "人のこころや運勢を見るには\n水晶玉を押してください。",
+    "choose_spread": "左にある本が利用案内です。",
+    "usage": "",
+    "usage-old": "また、隠れてる残りの機能も\nよく探してみてください！",
+    "time_normal": "分析のため、\n約5秒から20秒かかる予定です。",
+    "time_deep": "\t精密な分析のため、\n約20秒から1分かかる予定です。",
+    "time_serious": "\t精密な分析のため、\n約30秒から2分かかる予定です。",
+    "time_deep_one": "\t精密な分析のため、\n約10秒から30秒かかる予定です。",
+    "time_serious_one": "\t精密な分析のため、\n約10秒から1分かかる予定です。",
+    "you_know": "ご存知ですか？",
+    "tarot1": "タロットカードは心と感情を読み\n取る強力なツールです。",
+    "tarot2": "タロットの原理をクリックして\n\tタロットカードについて\n\t\t詳しく理解してください。",
+    "hello_vertical": "",
+    "welcome_vertical": "Welcome to Cosmos Tarot",
+    "welcome_vertical-temp": "Cosmos Tarotへようこそ！",
+    "click_instruction_vertical": "水晶玉を押して始めてください。",
+    "click_instruction_vertical-temp": "人のこころや運勢を見るには\n水晶玉を押してください。",
+    "choose_spread_vertical": "左にある本が利用案内です。",
+    "usage_vertical-old": "また、隠れてる残りの機能も\nよく探してみてください！",
+    "usage_vertical": "また、横モードでも便利に\n楽しめます！",
+    "wait_vertical": "\tしばらくお待ちください。",
+    "time_normal_vertical": "  分析のため、\n   5秒から20秒かかる予定です。",
+    "time_deep_vertical": "  精密な分析のため、\n   20秒から1分かかる予定です。",
+    "time_serious_vertical": "  精密な分析のため、\n   30秒から2分かかる予定です。",
+    "time_deep_one_vertical": "  精密な分析のため、\n   10秒から30秒かかる予定です。",
+    "time_serious_one_vertical": "  精密な分析のため、\n   10秒から1分かかる予定です。",
+    "you_know_vertical": "   ご存知ですか？",
+    "tarot1_vertical": "   タロットは心と感情を読み\n   取る強力なツールです。",
+    "tarot2_vertical": "   タロットの原理をクリックし、\n   タロットカードについて\n   詳しく理解してください。"
+  },
+  "instruction": {
+    "speed_modal_card": "質問を考えてデッキをクリックし、「カード選択」でカードを選んでください。",
+    "speed_modal_card_not_computer": "質問を考えてデッキをクリック、「カード選択」でカードを選択。",
+    "tarot_modal_card": "質問を考えてデッキをクリックし、「カード選択」でカードを選んでください。",
+    "tarot_modal_card_not_computer": "質問を考えてデッキをクリック、「カード選択」でカードを選択。",
+    "tarot_modal_question": "必要な質問欄に入力してください。",
+    "tarot_modal_question-temp": "詳細な回答のために必要な質問欄に内容を入力してください。",
+    "tarot_modal_question2": "詳しく具体的に質問すると、より正確な回答が得られます。",
+    "tarot_modal_question3": "事実に基づいた内容のみを入力してください。",
+    "tarot_modal_question_card": "確認後、『シャッフル』を押してください。",
+    "tarot_modal_question_card_not_computer": "確認後、『シャッフル』を押してください。",
+    "tarot_modal_question_card-temp": "質問の内容を確認し、シャッフルを押してください。",
+    "tarot_modal_question_card_not_computer-temp": "質問の内容を確認し、シャッフルを押してください。",
+    "tarot_modal_question_card2": "質問内容を直す場合は、再作成を押して修正してください。",
+    "tarot_modal_question_card_not_computer2": "質問内容を直す場合は、再作成を押して修正してください。",
+    "tarot_modal_question_card3": "推測や仮定の場合は、その旨を明確にしてください。",
+    "tarot_modal_question_card_not_computer3": "推測や仮定の場合は、その旨を明確にしてください。",
+    "tarot_modal_statics": "テーマまたは質問の対象欄に情報を入力すると、マイページで占い統計をご利用いただけます。",
+    "loading": "読み込み中...",
+    "coming_soon": "サービスは準備中です。",
+    "network-warnings": "Wi-Fi速度が遅い場合や公共Wi-Fiを使用している場合、ネットワークの遅延によりコンテンツの利用に支障が生じる可能性があります。安定した利用のため、高速なネットワークの使用をお勧めします。",
+    "ads-voucher": "通常タロット無料モードスプレッドリーディング利用券1~3EA。\nこの利用券は広告を視聴した端末に保存されます。アプリを削除すると利用券も初期化されますのでご注意ください。",
+    "ads-remover": "3日間広告フリーパス",
+    "ads-remover-description": "通常タロ無料モード広告、スピードタロ広告、バナー広告を3日間表示されないようにします。"
+  },
+  "question": {
+    "spreadTitle": "スプレッドの種類: ",
+    "question_topic": "テーマ(省略可): ",
+    "subject": "質問の対象(省略可): ",
+    "object": "対象の相対(省略可): ",
+    "relationships": "関係(省略可): ",
+    "theme": "テーマの例: ",
+    "theme-description": "内心、愛、人間関係、職業、進路、意思決定、良心など(事実的X、知的X)",
+    "category": "カテゴリーを選択: ",
+    "situation": "質問内容の背景(省略可): ",
+    "question": "質問(必須入力): ",
+    "inner_feelings": "内心",
+    "love": "愛",
+    "human_relationships": "人間関係",
+    "finance": "財政",
+    "occupation": "職業",
+    "career": "進路",
+    "decision_making": "意思決定",
+    "omitted": "省略",
+    "six_principle_instruction": "400字以内で、簡単に質問の内容を記入してください。可能であれば、誰が、何を、いつ、どこで、なぜ、どのようにを詳しくかつ簡潔に記入してください。\n\n例1）彼(又は私)の心は？\n例2）彼女に対する彼の気持ちは？\n",
+    "six_principle_instruction_options": "700字以内で、簡単に質問の内容を記入してください。可能であれば、誰が、何を、いつ、どこで、なぜ、どのようにを詳しくかつ簡潔に記入してください。\n\n例1）彼(又は私)の心は？\n例2）彼女に対する彼の気持ちは？\n",
+    "question_topic_instruction": "例)彼(又は私)の本心",
+    "entity_or_individual_subject_instruction": "例)彼(又は私)",
+    "entity_or_individual_object_instruction": "例)相手又は物",
+    "relationship_instruction_subject": "例)彼氏",
+    "relationship_instruction_object": "例)彼女",
+    "relationship_instruction_subject_full": "例)彼氏",
+    "relationship_instruction_object_full": "例)彼女",
+    "situation_instruction": "400文字以内で質問に関する背景を記入してください。例えば、質問の対象、対象の相手（該当する場合）、第三者（該当する場合）、および周囲の状況などをできるだけ簡潔に表現してください。",
+    "first_option_instruction": "例)告白するか",
+    "second_option_instruction": "例)告白しないか",
+    "third_option_instruction1": "例)関係発展",
+    "third_option_instruction2": "例)現状維持",
+    "third_option_instruction3": "例)距離を置く",
+    "relationship_subject": "質問の対象: ",
+    "relationship_object": "対象の相手: ",
+    "first_option": "選択肢1: ",
+    "second_option": "選択肢2: ",
+    "third_option": "選択肢3: "
+  },
+  "title": {
+    "single": "シングルカード(一般)",
+    "two": "ツーカード(一般)",
+    "two_choice": "二者択一",
+    "three": "スリーカード(一般)",
+    "three_time": "過去、現在、未来",
+    "three_solution": "問題解決",
+    "three_a_day": "朝、昼、夕方",
+    "three_choice": "三者択一",
+    "four": "フォーカード(一般)",
+    "five": "ファイブカード(一般)",
+    "five_relationship": "関係分析",
+    "six-day": "六日間の流れ",
+    "six-week": "六週間の流れ",
+    "six-month": "六ヶ月の流れ",
+    "celtic_cross": "ケルティッククロス",
+    "single_speed_mode": "シングルカード",
+    "two_speed_mode": "ツーカード",
+    "three_speed_mode": "スリーカード",
+    "four_speed_mode": "フォーカード",
+    "five_speed_mode": "ファイブカード",
+    "five_relationship_speed_mode": "関係分析",
+    "six_speed_mode": "シックスカード",
+    "celtic_cross_speed_mode": "ケルティッククロス",
+    "ads": "◎",
+    "comprehensive": "総合解釈"
+  },
+  "durumagi": {
+    "cards-meaning": "※ カード別の意味 : ",
+    "cards-meaning-for-ads": "カード別の意味 ： ",
+    "key-word": "ア. カードのキーワード ：",
+    "card-positive-meaning": "イ. カードの象徴的な意味（ポジティブな意味） ：",
+    "card-negative-meaning": "ウ. カードの象徴的な意味（ネガティブな意味） ：",
+    "fortune-telling": "エ. カードリーディングの例示 ：",
+    "major": "メジャーカード",
+    "minor": "マイナーカード",
+    "card-order": "番目のカード"
+  },
+  "description": {
+    "single": "主要な内容の簡潔な概要",
+    "two": "二つの主要な側面またはオプションの総合分析。",
+    "two_choice": "質問に二つの選択肢を設けて二者択一。",
+    "three": "三つの主要な側面またはオプションの総合分析。明確な結果。広く活用。お勧め。",
+    "three_time": "時間の変化を見る。カードの順番で過去、現在、未来を表示。",
+    "three_solution": "現在直面している問題分析と解決のアドバイス。",
+    "three_a_day": "一日の朝、昼、夕方ごとの運勢または心の状態を確認。",
+    "three_choice": "質問に三つの選択肢を設けて三者択一。",
+    "four": "四つの主要な側面または時間帯、オプションの総合分析。お勧め。",
+    "five_relationship": "二人の個別の状態、現在の関係、課題、そして将来の方向性を包括的に照らし出す。",
+    "six-day": "今日から6日間の知りたい運勢または心の流れを確認。",
+    "six-week": "今週から6週間の知りたい運勢または心の流れを確認。",
+    "six-month": "今月から6ヶ月間の知りたい運勢または心の流れを確認。",
+    "celtic_cross": "一つの対象の現在における内外的状況と将来を最も詳細に見る分析。お勧め。",
+    "single_speed_mode": "一般的な概要の確認用。主要な内容を明確に理解するためにお勧め。",
+    "two_speed_mode": "二つの主要な側面またはオプションの総合分析。選択順で内容を決め二者択一可能。",
+    "three_speed_mode": "三つの主要な側面または時間帯、オプションの総合分析。明確な結果。広く活用。",
+    "four_speed_mode": "四つの主要な側面または時間帯、オプションの総合分析。",
+    "five_relationship_speed_mode": "二人の個別の状態、現在の関係、課題、そして将来の方向性を包括的に照らし出す。",
+    "six_speed_mode": "6日、6週間、または6ヶ月の知りたい運勢または心の流れを確認。",
+    "celtic_cross_speed_mode": "一つの対象の現在における内外的状況と潜在的な将来を最も詳細に見る分析。"
+  },
+  "button": {
+    "simple-input": "簡易入力",
+    "detailed-input": "詳細入力",
+    "confirm": "確認",
+    "close": "閉じる",
+    "submit": "提出",
+    "rewrite": "再作成",
+    "cancel": "取消",
+    "select": "カード選択",
+    "shuffle": "シャッフル",
+    "text-save": "保存",
+    "copy": "複製",
+    "delete": "削除",
+    "signin": "ログイン",
+    "google_signin": "Google ログイン",
+    "signup": "会員登録",
+    "withdraw": "退会",
+    "modify": "情報修正",
+    "purchase": "購入",
+    "pay": "支払う",
+    "tarot-manual": "利用案内",
+    "home": "ホーム",
+    "mypage": "マイページ",
+    "refund-policy": "ポリシー",
+    "price-info": "価格情報",
+    "paypal": "ペイパル",
+    "vouchers": "利用券モード",
+    "ads": "無料モード",
+    "refund": "返金",
+    "apply": "申し込む",
+    "refunding": "返金処理中...",
+    "restore-purchases": "復元",
+    "loading": "読み込み中",
+    "view-ads": "広告視聴",
+    "view-ads-for-interpretation": "詳しいタロットカード解釈を見る",
+    "view-card-meaning": "カードの意味を見る",
+    "close-card-meaning": "カードの意味を閉じる"
+  },
+  "unit": {
+    "ea": "枚",
+    "money": "円",
+    "kind-of-voucher": "券",
+    "times": "回"
+  },
+  "voucher": {
+    "one-card": "カード1枚券",
+    "two-cards": "カード2枚券",
+    "three-cards": "カード3枚券",
+    "four-cards": "カード4枚券",
+    "five-cards": "カード5枚券",
+    "six-cards": "カード6枚券",
+    "seven-cards": "カード7枚券",
+    "eight-cards": "カード8枚券",
+    "nine-cards": "カード9枚券",
+    "ten-cards": "カード10枚券",
+    "eleven-cards": "カード11枚券",
+    "thirteen-cards": "カード13枚券",
+    "one-card-name": "I券",
+    "two-cards-name": "II券",
+    "three-cards-name": "III券",
+    "four-cards-name": "IV券",
+    "five-cards-name": "V券",
+    "six-cards-name": "VI券",
+    "seven-cards-name": "VII券",
+    "eight-cards-name": "VIII券",
+    "nine-cards-name": "IX券",
+    "ten-cards-name": "X券",
+    "eleven-cards-name": "XI券",
+    "thirteen-cards-name": "XIII券",
+    "required-voucher": "必要な利用券",
+    "remaining-voucher": "所持利用券"
+  },
+  "tab": {
+    "speed_tarot": "速タロ",
+    "normal_question_tarot": "通常タロ",
+    "deep_question_tarot": "深層タロ",
+    "serious_question_tarot": "真剣タロ"
+  },
+  "error": {
+    "error_happened": "エラーが発生しました"
+  },
+  "ad": {
+    "label": "広告",
+    "reward": "報酬"
+  },
+  "notice": {
+    "title": "お知らせ",
+    "content": [
+      "🔥 メガパック限定販売！🔥",
+      "たった50名様だけに提供される特別なメガパック",
+      "8月25日までご利用可能！"
+    ],
+    "closeButtonAriaLabel": "ポップアップを閉じる",
+    "confirmButton": "確認",
+    "hideFor7Days": "7日間表示しない"
+  },
+  "user": {
+    "register_success": "登録が完了しました",
+    "register_fail": "登録エラーが発生しました",
+    "modified_success": "ユーザー情報の変更が完了しました",
+    "modified_fail": "ユーザー情報の変更に失敗しました",
+    "withdraw_success": "退会が完了しました",
+    "withdraw_fail": "退会に失敗しました",
+    "login_success": "ログインが成功しました",
+    "login_fail": "ログインに失敗しました",
+    "retry_sign_up": "もう一度ログインしてください",
+    "user_info_fail": "ユーザー情報の取得に失敗しました"
+  },
+  "meta": {
+    "name": "コスモスタロット",
+    "title": "コスモスタロット – 心の秘密を紐解きます",
+    "description": "いつでもどこでも正確な24時間タロット占い！今日の運勢1枚無料！私の運命の行方は？無料タロットでラブ・仕事・将来を覗き見。コスモスタロットで宇宙が教える秘密と出会おう。",
+    "keywords": "無料タロット, タロットカード, AIタロット, タロット占い, タロットアプリ, 恋愛タロット, 今日の運勢, 今日のタロット, 恋愛相談, 心読みタロット, 仕事運タロット, 無料占い, 占いアプリ, 恋愛運, 金運, 仕事運, 健康運, 心理カウンセリング, 相性, 四柱推命, 占術, 心のタロット, 相手の気持ち, 恋愛の悩み, 別れのタロット, ワンオラクル, 人工知能タロット, モバイルタロット, オンラインタロット, タロットリーディング, カード占い, 運命, 愛の運勢",
+    "author": "JINWORLD",
+    "ogTitle": "コスモスタロット – 心の秘密を紐解きます",
+    "ogDescription": "いつでもどこでも正確な24時間タロット占い！今日の運勢1枚無料！私の運命の行方は？無料タロットでラブ・仕事・将来を覗き見。コスモスタロットで宇宙が教える秘密と出会おう。",
+    "twitterTitle": "コスモスタロット – 心の秘密を紐解きます",
+    "twitterDescription": "いつでもどこでも正確な24時間タロット占い！今日の運勢1枚無料！私の運命の行方は？無料タロットでラブ・仕事・将来を覗き見。コスモスタロットで宇宙が教える秘密と出会おう。"
+  },
+  "interpretation": {
+    "comprehensive_interpretation": "🔮 総合解釈",
+    "individual_card_interpretation": "🔮 個別カード解釈",
+    "unknown_card": "不明なカード",
+    "unknown_direction": "不明な方向",
+    "unknown_position": "不明な位置",
+    "unknown_keyword": "不明なキーワード",
+    "no_interpretation": "解釈がありません。"
+  },
+  "content": {
+    "chart_content": "A. メジャーカード（Major）\n\n意味：\nメジャーカードは人生の重要なテーマと大きな影響力を表します。\nメジャーカードの総数（22枚）は、マイナーカードの総数（56枚）の約39％に相当します。したがって、統計的にメジャーカードが出る確率は低くなります。一般的に25～30％程度が現れますが、個人と状況によって異なる場合があります。メジャーカードがこの割合より相対的に多く出る場合、以下のような意味を持ちます：\n1. 該当カテゴリー（質問の題材、質問主体など）において重要な状況や感情が作用しています。\n2. 現在の状況が「大きな影響を及ぼす」重要な時期であることを示します。\n3. マイナーカードよりもより強力なエネルギーやメッセージを含んでいる可能性があります。\n例えば、愛という特定のカテゴリーでメジャーカードが多く出た場合、現在の関係が人生の重要な転換点にあるか、深い感情的な経験をしていることを意味する可能性があります。また、現在の人生が大きな転換点にあるか、重要な個人的成長の機会が近づいていることを示す可能性があります。\n\n~\n\nB. マイナーカード（Minor）\n意味：\nマイナーカードは日常的な側面と具体的な出来事を表します。各カードは日常的な状況、感情、状態などをより詳細に表現します。\nタロットカードでマイナーカードが多く出ることは、以下のような意味を持つ可能性があります：\n1. 現在の状況が劇的な変化なく日常的に進行しています。\n2. カテゴリー別に主に日常的な問題や決定に焦点を当てています。\n3. 概して大きな変化よりも日常的な状況や漸進的な変化を表す傾向があります。\nこれは日常の小さな選択が集まって時間が経つにつれて大きな変化を生み出す可能性があることを示唆することもあります。\n\n~\n\nC. 元素別の意味：\n1. 火（ワンドスート）：\n   - シンボル：松明、かがり火、炎\n   - 色：赤、オレンジ\n   - 季節：夏\n   - 方向：南\n   - 時間：正午\n   - 意味：\n     * エネルギー：活力、情熱、推進力、生命力\n     * 創造性：インスピレーション、アイデアの火花、芸術的衝動\n     * 変化：急激な転換、浄化、再生\n     * 意志：決断力、勇気、自己主張\n     * 成長：拡張、発展、野心\n     * 行動：即座の反応、衝動、冒険、活発な進行、情熱的な推進\n   - ポジティブな特性：情熱、自信、リーダーシップ、創造性、新しい機会\n   - ネガティブな特性：攻撃性、衝動性、過度な自信\n   - 関連職業：起業家、アーティスト、アスリート、指導者\n   - 身体部位：頭、目、神経系\n2. 水（カップスート）：\n   - シンボル：カップ、杯、聖杯\n   - 色：青、ターコイズ\n   - 季節：秋\n   - 方向：西\n   - 時間：夕暮れ\n   - 意味：\n     * 感情：感覚、情緒、ムード、直感\n     * 関係：愛、友情、家族の絆\n     * 想像力：夢、ファンタジー、創造的インスピレーション\n     * 癒し：情緒的回復、許し、和解\n     * 流れ：適応性、柔軟性、変化への受容、自然な流れ\n     * 無意識：深い内面、潜在意識、隠された欲望\n   - ポジティブな特性：共感、直感、創造性、感受性\n   - ネガティブな特性：感情的不安定、過度な空想、現実逃避\n   - 関連職業：カウンセラー、アーティスト、看護師、料理人\n   - 身体部位：胸、心臓、リンパ系\n3. 空気（ソードスート）：\n   - シンボル：剣、刀、短剣\n   - 色：黄色、空色\n   - 季節：春\n   - 方向：東\n   - 時間：夜明け\n   - 意味：\n     * 知性：論理、分析、客観性、明確性\n     * コミュニケーション：言語、文章、教育、情報交換\n     * 思考：アイデア、概念、哲学、知識\n     * 真実：正直、透明性、倫理、正義\n     * 葛藤：論争、挑戦、対立、克服\n     * 決定：選択、判断、分別力\n     * スピード：速さ\n   - ポジティブな特性：知的明晰さ、分析力、公平性、洞察力\n   - ネガティブな特性：冷淡さ、批判的、過度な分析、優柔不断\n   - 関連職業：作家、弁護士、科学者、教師\n   - 身体部位：肺、呼吸器、神経系\n4. 地（ペンタクルスート）：\n   - シンボル：コイン、五角形、星\n   - 色：緑、茶色\n   - 季節：冬\n   - 方向：北\n   - 時間：真夜中\n   - 意味：\n     * 物質世界：財物、所有、資源、豊かさ\n     * 実用性：現実性、実質的スキル、効率性\n     * 安定性：安全、信頼性、慎重さ、持続性\n     * 健康：身体的ウェルビーイング、栄養、体力\n     * 仕事：職業、経歴、生産性、達成\n     * 自然：環境、生態系、植物、動物\n     * 結実：確実で具体的な結果\n   - ポジティブな特性：信頼性、忍耐、実用性、勤勉さ\n   - ネガティブな特性：物質主義、頑固さ、変化への抵抗\n   - 関連職業：銀行員、農夫、建築家、環境専門家\n   - 身体部位：手、足、筋肉、骨\n\n~\n\nD. 特定の元素が多く出る時：\n該当元素の特性と領域に注目する必要があります。例えば、ワンド（火）カードが多く出る場合、情熱、創造性、行動のエネルギーが強く作用していることを意味します。これは新しい始まりやプロジェクトに適した時期である可能性があり、このエネルギーを建設的に活用することが重要です。\n\n~\n\nE. 複数の元素がバランスよく出る時：\nこれは現在の状況が様々な側面でバランスの取れた影響を受けていることを示します。人生の様々な領域が調和的に作用している可能性が高いです。\n\n~\n\nF. 特定の元素が不足する時：\n不足している元素の特性を意識的に補完または開発する必要がある可能性があります。例えば、水（カップ）カードが少なく出る場合、感情的側面や関係により注意を払う必要がある可能性があります。",
+    "principle_content": "精神科医であり心理学者であるカール・グスタフ・ユングは、人類が共有する集合的無意識の領域をタロットカードを通じて理解できると考えました。彼の理論によると、集合的無意識はすべての人類が共通して持っている特性であり、私たちは無意識の深い領域で互いにつながっています。ユングはこの観点をもとに「同時性の原理」を発展させました。これは、偶然に同時に発生する出来事が、実際には無意識的なつながりを通じて深い関係を持っているということです。彼はこの原理をタロットカードに適用し、カードを選ぶ瞬間に質問者の無意識とカードの間に特別なつながりが生まれると説明しました。この原理に従って、直接カードを引くか、他人に代わりに引いてもらうか、さらには名前を述べずに質問だけを考えながら集中して選んでも、意味のある結果を得ることができます。注目すべき点は、タロットカードが質問するその瞬間のエネルギーを基準に結果を示すということです。人間の感情と状況は常に変化する可能性があるため、これを念頭に置いて解釈する必要があります。回答が曖昧に感じられる場合は、2～3回程度追加でカードを確認することも役立つかもしれません。ただし、過度の依存は精神健康に悪影響を及ぼす可能性があるため、適切な範囲内で活用することをお勧めします。",
+    "explanation_content": "タロットの世界：歴史、意味、解釈のガイド",
+    "learning_tarot_content": "タロットを学ぶ"
+  }
+}

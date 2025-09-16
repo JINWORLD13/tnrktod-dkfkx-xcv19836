@@ -1,0 +1,118 @@
+@use '_App.module.scss';
+
+.footer {
+  @include App.no-select; 
+  width: 100vw;
+  height: 80px;
+  padding: 10px;
+  @include App.flex-box-center(column);
+  background-color: rgb(39, 3, 39);   /* 더 어두운 나무색 */
+  background-image: 
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,.03) 50%, 
+      transparent 50%
+    ),
+    linear-gradient(
+      rgba(255,255,255,.05) 50%, 
+      transparent 50%
+    );
+  background-size: 50px 50px;
+  color: white;
+  position: relative;
+}
+.email {
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+.quotation {
+  width: 100%;
+  text-align: center;
+  @include App.dongle-font(1.5rem);
+  line-height: 0.9;
+}
+.quotation-japanese {
+  width: 90%;
+  text-align: center;
+  @include App.potta-font(0.9rem);
+}
+a {
+  text-decoration: none;
+}
+a:visited {
+  color: white;
+}
+
+//~ 디바이스
+@media (min-device-width: 1025px) and (max-device-width: 1366px) {
+  .footer {
+  }
+}
+
+//~ 태블릿, 아이패드, 아이패드 프로
+@media (min-device-width: 769px) and (max-device-width: 1024px) {
+  .footer {
+  }
+}
+//~ 481px ~ 768px 및 태블릿
+@media (min-device-width: 481px) and (max-device-width: 768px) {
+  .footer {
+  }
+}
+//~ IPhone 14 Pro Max(430px)
+@media only screen and (min-device-width: 415px) and (max-device-width: 480px) {
+  .footer {
+  }
+}
+//~ 아이폰XR
+@media (min-device-width: 654px) and (max-device-width: 414px) {
+  .footer {
+    display: none;
+  }
+}
+
+//~ 아이폰 SE
+@media (min-device-width: 281px) and (max-device-width: 375px) {
+  .footer {
+  }
+} //~ 갤럭시 폴드
+@media (max-device-width: 280px) {
+  .footer {
+  }
+}
+
+//* 아이패드 프로 가로
+@media screen and (orientation: landscape) and (min-device-width: 1025px) and (max-device-width: 1366px) {
+  .footer {
+  }
+}
+
+//* 태블릿 아이패드, 아이패드 프로 가로
+@media screen and (orientation: landscape) and (min-device-width: 933px) and (max-device-width: 1024px) {
+}
+
+//* IPhon 14 Pro Max 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 897px) and (max-device-width: 932px) {
+  .footer {
+    display: none;
+  }
+}
+
+//* 아이폰XR 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 668px) and (max-device-width: 896px) {
+  .footer {
+    display: none;
+  }
+}
+
+//* 아이폰SE 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 654px) and (max-device-width: 667px) {
+  .footer {
+    display: none;
+  }
+} //* 갤럭시 폴드 가로모드
+@media screen and (orientation: landscape) and (max-device-width: 653px) {
+  .footer {
+    display: none;
+  }
+}

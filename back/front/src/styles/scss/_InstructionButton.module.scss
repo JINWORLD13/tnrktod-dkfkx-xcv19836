@@ -1,0 +1,40 @@
+@use '_App.module.scss';
+@use '_TarotCardSpreadForm.module.scss';
+
+%btn {
+  width: 18px;
+  height: 18px;
+  text-align: center; // 가로 중앙 정렬
+  line-height: 18px; // 버튼 높이와 동일하게 설정하여 세로 중앙 정렬
+  padding: 1px;
+  border-radius: 5px;
+  border: 1px rgb(177, 40, 40) solid;
+  color: gold;
+  background-color: rgb(177, 40, 40);
+  cursor: pointer;
+}
+%btn-hover {
+  border: 1px rgb(177, 40, 40) solid;
+  color: rgb(177, 40, 40);
+  background-color: gold;
+  cursor: pointer;
+}
+.btn {
+  @include App.no-select;
+  @include App.no-drag;
+  @extend %btn;
+  @include App.dongle-font(1.5rem);
+}
+.btn:hover {
+  @extend %btn-hover;
+}
+.btn-japanese {
+  @include App.no-select;
+  @include App.no-drag;
+  @extend %btn;
+  line-height: 10px;
+  @include App.potta-font(0.9rem);
+}
+.btn-japanese:hover {
+  @extend %btn-hover;
+}

@@ -1,0 +1,56 @@
+@use '_App.module.scss';
+@use '_TarotCardSpreadForm.module.scss';
+
+%btn {
+  width: auto;
+  height: auto;
+  padding: 7px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  border: none;
+  border-radius: 25px;
+  border: 3px rgb(177, 40, 40) solid;
+  color: gold;
+  background-color: rgb(177, 40, 40);
+  cursor: pointer;
+  line-height: 1.2;
+}
+%btn-hover {
+  border: 3px rgb(177, 40, 40) solid;
+  color: rgb(177, 40, 40);
+  background-color: gold;
+  cursor: pointer;
+}
+.btn {
+  @include App.no-select;
+  @include App.no-drag;
+  @extend %btn;
+  @include App.dongle-font(1.5rem);
+}
+.btn:hover {
+  @extend %btn-hover;
+}
+.btn-japanese {
+  @include App.no-select;
+  @include App.no-drag;
+  @extend %btn;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  @include App.potta-font(0.9rem);
+}
+.btn-japanese:hover {
+  @extend %btn-hover;
+}
+
+
+
+/* TimeLockButton.jsx의 scss */
+.container-lock {
+  text-align: center;
+  padding: 20px;
+}
+button.locked,
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

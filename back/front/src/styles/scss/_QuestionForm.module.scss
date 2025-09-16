@@ -1,0 +1,3831 @@
+@use '_App.module.scss';
+
+%menu-box {
+  width: auto;
+  height: 100%;
+  padding: 15px;
+  @include App.flex-box-center(row);
+  @include App.card-border();
+  border: 1px solid goldenrod;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  background-color: goldenrod;
+  cursor: pointer;
+}
+%menu-box-item {
+  width: 100%;
+  height: auto;
+  @include App.flex-box-center(column);
+  overflow: auto;
+  background-color: rgb(218, 165, 32, 0.5);
+  border-bottom: 2px solid goldenrod;
+  color: black;
+  opacity: 1;
+  cursor: pointer;
+  line-height: 1;
+}
+%menu-box-item-child {
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  @include App.flex-box-center(row);
+  justify-content: space-between;
+}
+%menu-box-item-grandchild {
+  width: 70%;
+  @include App.flex-box-center(column);
+  justify-content: start;
+  align-items: start;
+}
+%menu-box-item-grandchild-child {
+  @include App.flex-box-center(column);
+  justify-content: start;
+}
+%menu-box-item-second-child {
+  width: 100%;
+  height: auto;
+  padding-right: 10px;
+  padding-bottom: 8px;
+  text-align: end;
+  @include App.flex-box-center(row);
+  justify-content: end;
+}
+%menu-box-item-button {
+  @include App.no-select;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  border: none;
+  border-radius: 50px;
+  font-size: 1em;
+  color: gold;
+  background-color: rgb(177, 40, 40);
+}
+
+.user-info3-body {
+  width: 100%;
+  max-height: 80%;
+  flex-grow: 1;
+  position: relative;
+  @include App.flex-box-center(row);
+  .user-info3-body-center {
+    width: 95%;
+    height: 90%;
+    
+  }
+}
+.tarot-history-record {
+  @include App.no-select;
+  width: auto;
+  @include App.dongle-font(2rem);
+  text-align: end;
+  margin-right: 10px;
+  position: absolute;
+  top:0;
+  right: 10px;
+  color: gold;
+}
+.tarot-history-record-bottom {
+  @include App.no-select;
+  width: auto;
+  @include App.dongle-font(2rem);
+  text-align: end;
+  margin-right: 10px;
+  position: absolute;
+  bottom:10px;
+  right: 0;
+  color: gold;
+}
+// 리스트
+.tarot-info {
+  width: 100%;
+  height: 100%;
+  @include App.scrollBar-custom-className(
+    tarot-history,
+    10px,
+    10px,
+    rgb(177, 40, 40),
+    goldenrod
+  );
+}
+.tarot-history-menu-container {
+  width: 100%;
+  height: 10%;
+  max-height: 50px;
+  @include App.flex-box-center(row);
+  justify-content: start;
+  @include App.no-select;
+}
+.tarot-history-menu-box {
+  @extend %menu-box;
+  @include App.dongle-font(1.3em);
+}
+.tarot-history-menu-box:hover {
+  @include App.dongle-font(1.3em);
+  background-color: rgb(218, 165, 32, 0.5);
+}
+.tarot-history-menu-box:active {
+  color: gold;
+}
+.tarot-history-menu-box-clicked {
+  background-color: rgb(218, 165, 32, 0.5);
+}
+
+.tarot-history {
+  width: 100%;
+  height: 90%;
+  overflow-y: auto;
+  border: 3px solid rgb(218, 165, 32, 0.5);
+}
+
+.tarot-history-item {
+  @extend %menu-box-item;
+  @include App.dongle-font(1.9rem);
+  & > div:nth-child(1) {
+    @extend %menu-box-item-child;
+
+    & > div:nth-child(1) {
+      @extend %menu-box-item-grandchild;
+      & > div:nth-child(1) {
+        @extend %menu-box-item-grandchild-child;
+      }
+    }
+    & > div:nth-child(2) {
+      width: 30%;
+      text-align: end;
+    }
+  }
+  & > div:nth-child(2) {
+    @extend %menu-box-item-second-child;
+    button {
+      @include App.no-select;
+      @extend %menu-box-item-button;
+      @include App.dongle-font(1.5rem);
+    }
+
+    button:hover {
+      color: rgb(177, 40, 40);
+      @include App.dongle-font(1.5rem);
+      background-color: gold;
+    }
+  }
+}
+
+.tarot-history-record-japanese {
+  @include App.no-select;
+  width: auto;
+  @include App.potta-font(1.25rem);
+  text-align: end;
+  margin-right: 10px;
+  position: absolute;
+  top:0;
+  right: 10px;
+  color: gold;
+}
+.tarot-history-record-bottom-japanese {
+  @include App.no-select;
+  width: auto;
+  @include App.potta-font(1.25rem);
+  text-align: end;
+  margin-right: 10px;
+  position: absolute;
+  bottom:20px;
+  right: 0;
+  color: gold;
+}
+.user-info3-body-japanese {
+  width: 100%;
+  max-height: 80%;
+  flex-grow: 1;
+  position: relative;
+  @include App.flex-box-center(row);
+  overflow: auto;
+  .user-info3-body-center-japanese {
+    width: 95%;
+    height: 90%;
+  }
+}
+// 유저정보 버튼
+.user-info3-bottom-japanese {
+  @include App.flex-box-center(row);
+  justify-content: end;
+}
+// 리스트
+.tarot-info-japanese {
+  width: 100%;
+  height: 100%;
+  @include App.scrollBar-custom-className(
+    tarot-history-japanese,
+    10px,
+    10px,
+    rgb(177, 40, 40),
+    goldenrod
+  );
+}
+.tarot-history-menu-container-japanese {
+  @include App.no-select;
+  width: 100%;
+  height: 12%;
+  max-height: 50px;
+  @include App.flex-box-center(row);
+  justify-content: start;
+}
+.tarot-history-menu-box-japanese {
+  @extend %menu-box;
+  @include App.potta-font(1.4rem);
+}
+.tarot-history-menu-box-japanese:hover {
+  @include App.potta-font(1.4rem);
+  background-color: rgb(218, 165, 32, 0.5);
+}
+.tarot-history-menu-box-japanese:active {
+  color: gold;
+}
+.tarot-history-menu-box-clicked-japanese {
+  background-color: rgb(218, 165, 32, 0.5);
+}
+
+.tarot-history-japanese {
+  width: 100%;
+  height: 90%;
+  overflow-y: auto;
+  border: 3px solid rgb(218, 165, 32, 0.5);
+}
+.tarot-history-item-japanese {
+  @extend %menu-box-item;
+  @include App.potta-font(1.6em);
+
+  & > div:nth-child(1) {
+    @extend %menu-box-item-child;
+
+    & > div:nth-child(1) {
+      @extend %menu-box-item-grandchild;
+      & > div:nth-child(1) {
+        @extend %menu-box-item-grandchild-child;
+      }
+    }
+    & > div:nth-child(2) {
+      width: 30%;
+      text-align: end;
+    }
+  }
+  & > div:nth-child(2) {
+    @extend %menu-box-item-second-child;
+
+    button {
+      @include App.no-select;
+      @extend %menu-box-item-button;
+      @include App.potta-font(1.3rem);
+    }
+
+    button:hover {
+      color: rgb(177, 40, 40);
+      @include App.potta-font(1.3rem);
+      background-color: gold;
+    }
+  }
+}
+
+// h2.h2 {
+//   @include App.flex-box-center(row);
+//   @include App.no-select;
+//   @include App.dongle-font(2.9rem);
+// }
+// h2.h2-japanese {
+//   @include App.flex-box-center(row);
+//   @include App.potta-font(1.7rem);
+//   line-height: 2.5;
+// }
+
+.font-japanese {
+  @include App.potta-font(0.7em);
+}
+.font-english {
+  @include App.dongle-font(1.6em);
+}
+
+.korean-dongle-font {
+  @include App.dongle-font(2.5rem);
+}
+.japanese-potta-font {
+  @include App.potta-font(1.3rem);
+  line-height: 2;
+}
+.korean-dongle-font2 {
+  @include App.dongle-font(1.7rem);
+}
+.japanese-potta-font2 {
+  @include App.potta-font(1.1rem);
+  line-height: 2;
+}
+
+.invisible {
+  display: none;
+}
+
+//~ 디바이스
+@media (min-device-width: 1025px) and (max-device-width: 1366px) {
+  h2.h2 {
+    @include App.flex-box-center(row);
+  }
+  .user-info3-body {
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    padding: 5px;
+    @include App.flex-box-center(row);
+
+    .user-info3-body-center {
+      width: 95%;
+      height: 70vh;
+    }
+  }
+
+  // 리스트
+  .tarot-info {
+    width: 100%;
+    height: 100%;
+    @include App.scrollBar-custom-className(
+      tarot-history,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  .tarot-history-menu-container {
+    width: 100%;
+    height: 10%;
+    max-height: 50px;
+    @include App.flex-box-center(row);
+    justify-content: start;
+  }
+  .tarot-history-menu-box {
+    width: auto;
+    height: 100%;
+    // border-radius: 0;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    @include App.dongle-font(2rem);
+  }
+  .tarot-history-menu-box:hover {
+    @include App.dongle-font(2rem);
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history-menu-box:active {
+    color: gold;
+  }
+  .tarot-history-menu-box-clicked {
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history {
+    width: 100%;
+    height: 80%;
+    overflow-y: auto;
+  }
+
+  .tarot-history-item {
+    @include App.dongle-font(2.2rem);
+    & > div:nth-child(1) {
+      & > div:nth-child(1) {
+        & > div:nth-child(1) {
+        }
+      }
+      & > div:nth-child(2) {
+      }
+    }
+    & > div:nth-child(2) {
+      button {
+        @include App.no-select;
+        @include App.dongle-font(1.8rem);
+      }
+      button:hover {
+        @include App.dongle-font(1.8rem);
+      }
+    }
+  }
+
+  //! 일본어 버전
+  h2.h2-japanese {
+    @include App.flex-box-center(row);
+  }
+  .user-info3-body-japanese {
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    padding: 5px;
+    @include App.flex-box-center(row);
+
+    .user-info3-body-center-japanese {
+      width: 95%;
+      height: 70vh;
+    }
+  }
+
+  // 리스트
+  .tarot-info-japanese {
+    width: 100%;
+    height: 100%;
+    @include App.scrollBar-custom-className(
+      tarot-history-japanese,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  .tarot-history-menu-container-japanese {
+    width: 100%;
+    height: 12%;
+    max-height: 50px;
+    @include App.flex-box-center(row);
+    justify-content: start;
+  }
+  .tarot-history-menu-box-japanese {
+    width: auto;
+    height: 100%;
+    // border-radius: 0;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    @include App.potta-font(1.4rem);
+  }
+  .tarot-history-menu-box-japanese:hover {
+    @include App.potta-font(1.4rem);
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history-menu-box-japanese:active {
+    color: gold;
+  }
+  .tarot-history-menu-box-clicked-japanese {
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history-japanese {
+    width: 100%;
+    height: 80%;
+    overflow-y: auto;
+  }
+
+  .tarot-history-item-japanese {
+    @include App.potta-font(1.3rem);
+    & > div:nth-child(1) {
+      & > div:nth-child(1) {
+        & > div:nth-child(1) {
+        }
+      }
+      & > div:nth-child(2) {
+      }
+    }
+    & > div:nth-child(2) {
+      button {
+        @include App.no-select;
+        @include App.potta-font(1.3rem);
+      }
+      button:hover {
+        @include App.potta-font(1.3rem);
+      }
+    }
+  }
+  .korean-dongle-font {
+    @include App.dongle-font(2.5rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.3rem);
+    line-height: 2;
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.7rem);
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(1.1rem);
+    line-height: 2;
+  }
+}
+
+//~ 태블릿, 아이패드, 아이패드 프로
+@media (min-device-width: 769px) and (max-device-width: 1024px) {
+  h2.h2 {
+    @include App.flex-box-center(row);
+    @include App.dongle-font(2.7rem);
+  }
+  .user-info3-body {
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    padding: 5px;
+    @include App.flex-box-center(row);
+
+    .user-info3-body-center {
+      width: 95%;
+      height: 70vh;
+    }
+  }
+
+  // 리스트
+  .tarot-info {
+    width: 100%;
+    height: 100%;
+    @include App.scrollBar-custom-className(
+      tarot-history,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  .tarot-history-menu-container {
+    width: 100%;
+    height: 10%;
+    max-height: 40px;
+    @include App.flex-box-center(row);
+    justify-content: start;
+  }
+  .tarot-history-menu-box {
+    width: auto;
+    height: 100%;
+    // border-radius: 0;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    @include App.dongle-font(1.5rem);
+  }
+  .tarot-history-menu-box:hover {
+    @include App.dongle-font(1.5rem);
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history-menu-box:active {
+    color: gold;
+  }
+  .tarot-history-menu-box-clicked {
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history {
+    width: 100%;
+    height: 80%;
+    overflow-y: auto;
+  }
+
+  .tarot-history-item {
+    @include App.dongle-font(1.8rem);
+    & > div:nth-child(1) {
+      & > div:nth-child(1) {
+        & > div:nth-child(1) {
+        }
+      }
+      & > div:nth-child(2) {
+      }
+    }
+    & > div:nth-child(2) {
+      button {
+        @include App.no-select;
+        @include App.dongle-font(1.5rem);
+      }
+      button:hover {
+        @include App.dongle-font(1.5rem);
+      }
+    }
+  }
+
+  //! 일본어 버전
+  h2.h2-japanese {
+    @include App.flex-box-center(row);
+    @include App.potta-font(1.5rem);
+  }
+  .user-info3-body-japanese {
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    padding: 5px;
+    @include App.flex-box-center(row);
+
+    .user-info3-body-center-japanese {
+      width: 95%;
+      height: 70vh;
+    }
+  }
+
+  // 리스트
+  .tarot-info-japanese {
+    width: 100%;
+    height: 100%;
+    @include App.scrollBar-custom-className(
+      tarot-history-japanese,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  .tarot-history-menu-container-japanese {
+    width: 100%;
+    height: 12%;
+    max-height: 50px;
+    @include App.flex-box-center(row);
+    justify-content: start;
+  }
+  .tarot-history-menu-box-japanese {
+    width: auto;
+    height: 100%;
+    // border-radius: 0;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    @include App.potta-font(1.2rem);
+  }
+  .tarot-history-menu-box-japanese:hover {
+    @include App.potta-font(1.2rem);
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history-menu-box-japanese:active {
+    color: gold;
+  }
+  .tarot-history-menu-box-clicked-japanese {
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history-japanese {
+    width: 100%;
+    height: 80%;
+    overflow-y: auto;
+  }
+
+  .tarot-history-item-japanese {
+    @include App.potta-font(1.3rem);
+    & > div:nth-child(1) {
+      & > div:nth-child(1) {
+        & > div:nth-child(1) {
+        }
+      }
+      & > div:nth-child(2) {
+      }
+    }
+    & > div:nth-child(2) {
+      button {
+        @include App.no-select;
+        @include App.potta-font(1.3rem);
+      }
+      button:hover {
+        @include App.potta-font(1.3rem);
+      }
+    }
+  }
+  orean-dongle-font {
+    @include App.dongle-font(2.5rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.3rem);
+    line-height: 2;
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.7rem);
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(1.1rem);
+    line-height: 2;
+  }
+}
+
+//~ 481px ~ 768px 및 태블릿
+@media (min-device-width: 481px) and (max-device-width: 768px) {
+  h2.h2 {
+    @include App.flex-box-center(row);
+    @include App.dongle-font(2.4rem);
+  }
+  .user-info3-body {
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    padding: 5px;
+    @include App.flex-box-center(row);
+
+    .user-info3-body-center {
+      width: 95%;
+      height: 70vh;
+    }
+  }
+
+  // 리스트
+  .tarot-info {
+    width: 100%;
+    height: 100%;
+    @include App.scrollBar-custom-className(
+      tarot-history,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  .tarot-history-menu-container {
+    width: 100%;
+    height: 10%;
+    max-height: 40px;
+    @include App.flex-box-center(row);
+    justify-content: start;
+  }
+  .tarot-history-menu-box {
+    width: auto;
+    height: 100%;
+    // border-radius: 0;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    @include App.dongle-font(1.4rem);
+  }
+  .tarot-history-menu-box:hover {
+    @include App.dongle-font(1.4rem);
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history-menu-box:active {
+    color: gold;
+  }
+  .tarot-history-menu-box-clicked {
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history {
+    width: 100%;
+    height: 80%;
+    overflow-y: auto;
+  }
+
+  .tarot-history-item {
+    @include App.dongle-font(1.5rem);
+    & > div:nth-child(1) {
+      & > div:nth-child(1) {
+        & > div:nth-child(1) {
+        }
+      }
+      & > div:nth-child(2) {
+      }
+    }
+    & > div:nth-child(2) {
+      button {
+        @include App.no-select;
+        @include App.dongle-font(1.4rem);
+      }
+      button:hover {
+        @include App.dongle-font(1.4rem);
+      }
+    }
+  }
+
+  //! 일본어 버전
+  h2.h2-japanese {
+    @include App.flex-box-center(row);
+    @include App.potta-font(1.4rem);
+  }
+  .user-info3-body-japanese {
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    padding: 5px;
+    @include App.flex-box-center(row);
+
+    .user-info3-body-center-japanese {
+      width: 95%;
+      height: 70vh;
+    }
+  }
+
+  // 리스트
+  .tarot-info-japanese {
+    width: 100%;
+    height: 100%;
+    @include App.scrollBar-custom-className(
+      tarot-history-japanese,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  .tarot-history-menu-container-japanese {
+    width: 100%;
+    height: 12%;
+    max-height: 50px;
+    @include App.flex-box-center(row);
+    justify-content: start;
+  }
+  .tarot-history-menu-box-japanese {
+    width: auto;
+    height: 100%;
+    // border-radius: 0;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    @include App.potta-font(1.2rem);
+  }
+  .tarot-history-menu-box-japanese:hover {
+    @include App.potta-font(1.2rem);
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history-menu-box-japanese:active {
+    color: gold;
+  }
+  .tarot-history-menu-box-clicked-japanese {
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history-japanese {
+    width: 100%;
+    height: 80%;
+    overflow-y: auto;
+  }
+
+  .tarot-history-item-japanese {
+    @include App.potta-font(1.2rem);
+    & > div:nth-child(1) {
+      & > div:nth-child(1) {
+        & > div:nth-child(1) {
+        }
+      }
+      & > div:nth-child(2) {
+      }
+    }
+    & > div:nth-child(2) {
+      button {
+        @include App.no-select;
+        @include App.potta-font(1.2rem);
+      }
+      button:hover {
+        @include App.potta-font(1.2rem);
+      }
+    }
+  }
+  .korean-dongle-font {
+    @include App.dongle-font(2.4rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.3rem);
+    line-height: 2;
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.7rem);
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(1.1rem);
+    line-height: 2;
+  }
+}
+
+//~ IPhone 14 Pro Max(430px)
+@media only screen and (min-device-width: 415px) and (max-device-width: 480px) {
+  h2.h2 {
+    @include App.flex-box-center(row);
+    @include App.dongle-font(2.4rem);
+  }
+  .user-info3-body {
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    padding: 5px;
+    @include App.flex-box-center(row);
+
+    .user-info3-body-center {
+      width: 95%;
+      height: 70vh;
+    }
+  }
+
+  // 리스트
+  .tarot-info {
+    width: 100%;
+    height: 100%;
+    @include App.scrollBar-custom-className(
+      tarot-history,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  .tarot-history-menu-container {
+    width: 100%;
+    height: 10%;
+    max-height: 40px;
+    @include App.flex-box-center(row);
+    justify-content: start;
+  }
+  .tarot-history-menu-box {
+    width: auto;
+    height: 100%;
+    // border-radius: 0;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    @include App.dongle-font(1.4rem);
+  }
+  .tarot-history-menu-box:hover {
+    @include App.dongle-font(1.4rem);
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history-menu-box:active {
+    color: gold;
+  }
+  .tarot-history-menu-box-clicked {
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history {
+    width: 100%;
+    height: 80%;
+    overflow-y: auto;
+  }
+
+  .tarot-history-item {
+    @include App.dongle-font(1.5rem);
+    & > div:nth-child(1) {
+      & > div:nth-child(1) {
+        & > div:nth-child(1) {
+        }
+      }
+      & > div:nth-child(2) {
+      }
+    }
+    & > div:nth-child(2) {
+      button {
+        @include App.no-select;
+        @include App.dongle-font(1.4rem);
+      }
+      button:hover {
+        @include App.dongle-font(1.4rem);
+      }
+    }
+  }
+
+  //! 일본어 버전
+  h2.h2-japanese {
+    @include App.flex-box-center(row);
+    @include App.potta-font(1.4rem);
+  }
+  .user-info3-body-japanese {
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    padding: 5px;
+    @include App.flex-box-center(row);
+
+    .user-info3-body-center-japanese {
+      width: 95%;
+      height: 70vh;
+    }
+  }
+
+  // 리스트
+  .tarot-info-japanese {
+    width: 100%;
+    height: 100%;
+    @include App.scrollBar-custom-className(
+      tarot-history-japanese,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  .tarot-history-menu-container-japanese {
+    width: 100%;
+    height: 12%;
+    max-height: 40px;
+    @include App.flex-box-center(row);
+    justify-content: start;
+  }
+  .tarot-history-menu-box-japanese {
+    width: auto;
+    height: 100%;
+    // border-radius: 0;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    @include App.potta-font(1.2rem);
+  }
+  .tarot-history-menu-box-japanese:hover {
+    @include App.potta-font(1.2rem);
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history-menu-box-japanese:active {
+    color: gold;
+  }
+  .tarot-history-menu-box-clicked-japanese {
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history-japanese {
+    width: 100%;
+    height: 80%;
+    overflow-y: auto;
+  }
+
+  .tarot-history-item-japanese {
+    @include App.potta-font(1.1rem);
+    & > div:nth-child(1) {
+      & > div:nth-child(1) {
+        & > div:nth-child(1) {
+        }
+      }
+      & > div:nth-child(2) {
+      }
+    }
+    & > div:nth-child(2) {
+      button {
+        @include App.no-select;
+        @include App.potta-font(1.1rem);
+      }
+      button:hover {
+        @include App.potta-font(1.1rem);
+      }
+    }
+  }
+  .korean-dongle-font {
+    @include App.dongle-font(2.2rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.2rem);
+    line-height: 2;
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.5rem);
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(1rem);
+    line-height: 2;
+  }
+}
+//~ 아이폰XR
+@media (min-device-width: 376px) and (max-device-width: 414px) {
+  h2.h2 {
+    @include App.flex-box-center(row);
+    @include App.dongle-font(2.3rem);
+  }
+  .user-info3-body {
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    padding: 5px;
+    @include App.flex-box-center(row);
+
+    .user-info3-body-center {
+      width: 95%;
+      height: 70vh;
+    }
+  }
+  .tarot-history-record {
+    @include App.dongle-font(1.9rem);
+  }
+  // 리스트
+  .tarot-info {
+    width: 100%;
+    height: 100%;
+    @include App.scrollBar-custom-className(
+      tarot-history,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  .tarot-history-menu-container {
+    width: 100%;
+    height: 10%;
+    max-height: 40px;
+    @include App.flex-box-center(row);
+    justify-content: start;
+  }
+  .tarot-history-menu-box {
+    width: auto;
+    height: 100%;
+    // border-radius: 0;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    @include App.dongle-font(1.4rem);
+  }
+  .tarot-history-menu-box:hover {
+    @include App.dongle-font(1.4rem);
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history-menu-box:active {
+    color: gold;
+  }
+  .tarot-history-menu-box-clicked {
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history {
+    width: 100%;
+    height: 80%;
+    overflow-y: auto;
+  }
+
+  .tarot-history-item {
+    @include App.dongle-font(1.5rem);
+    & > div:nth-child(1) {
+      & > div:nth-child(1) {
+        & > div:nth-child(1) {
+        }
+      }
+      & > div:nth-child(2) {
+      }
+    }
+    & > div:nth-child(2) {
+      button {
+        @include App.no-select;
+        @include App.dongle-font(1.4rem);
+      }
+      button:hover {
+        @include App.dongle-font(1.4rem);
+      }
+    }
+  }
+
+  //! 일본어 버전
+  h2.h2-japanese {
+    @include App.flex-box-center(row);
+    @include App.potta-font(1.4rem);
+  }
+  .user-info3-body-japanese {
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    padding: 5px;
+    @include App.flex-box-center(row);
+
+    .user-info3-body-center-japanese {
+      width: 95%;
+      height: 70vh;
+    }
+  }
+
+  // 리스트
+  .tarot-info-japanese {
+    width: 100%;
+    height: 100%;
+    @include App.scrollBar-custom-className(
+      tarot-history-japanese,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  .tarot-history-menu-container-japanese {
+    width: 100%;
+    height: 10%;
+    max-height: 30px;
+    @include App.flex-box-center(row);
+    justify-content: start;
+  }
+  .tarot-history-menu-box-japanese {
+    width: auto;
+    height: 100%;
+    // border-radius: 0;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    @include App.potta-font(1.05rem);
+  }
+  .tarot-history-menu-box-japanese:hover {
+    @include App.potta-font(1.05rem);
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history-menu-box-japanese:active {
+    color: gold;
+  }
+  .tarot-history-menu-box-clicked-japanese {
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history-japanese {
+    width: 100%;
+    height: 80%;
+    overflow-y: auto;
+  }
+
+  .tarot-history-item-japanese {
+    @include App.potta-font(1rem);
+    & > div:nth-child(1) {
+      & > div:nth-child(1) {
+        & > div:nth-child(1) {
+        }
+      }
+      & > div:nth-child(2) {
+      }
+    }
+    & > div:nth-child(2) {
+      button {
+        @include App.no-select;
+        @include App.potta-font(1rem);
+      }
+      button:hover {
+        @include App.potta-font(1rem);
+      }
+    }
+  }
+  .korean-dongle-font {
+    @include App.dongle-font(2.2rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.2rem);
+    line-height: 2;
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.5rem);
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(1rem);
+    line-height: 2;
+  }
+}
+
+//~ 아이폰 SE
+@media (min-device-width: 281px) and (max-device-width: 375px) {
+  h2.h2 {
+    @include App.flex-box-center(row);
+    @include App.dongle-font(2.3rem);
+  }
+  .user-info3-body {
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    padding: 5px;
+    @include App.flex-box-center(row);
+
+    .user-info3-body-center {
+      width: 95%;
+      height: 70vh;
+    }
+  }
+  .tarot-history-record {
+    @include App.dongle-font(1.8rem);
+  }
+  // 리스트
+  .tarot-info {
+    width: 100%;
+    height: 100%;
+    @include App.scrollBar-custom-className(
+      tarot-history,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  .tarot-history-menu-container {
+    width: 100%;
+    height: 10%;
+    max-height: 30px;
+    @include App.flex-box-center(row);
+    justify-content: start;
+  }
+  .tarot-history-menu-box {
+    width: auto;
+    height: 100%;
+    // border-radius: 0;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    @include App.dongle-font(1.4rem);
+  }
+  .tarot-history-menu-box:hover {
+    @include App.dongle-font(1.4rem);
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history-menu-box:active {
+    color: gold;
+  }
+  .tarot-history-menu-box-clicked {
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history {
+    width: 100%;
+    height: 80%;
+    overflow-y: auto;
+  }
+
+  .tarot-history-item {
+    @include App.dongle-font(1.4rem);
+    & > div:nth-child(1) {
+      & > div:nth-child(1) {
+        & > div:nth-child(1) {
+        }
+      }
+      & > div:nth-child(2) {
+      }
+    }
+    & > div:nth-child(2) {
+      button {
+        @include App.no-select;
+        @include App.dongle-font(1.2rem);
+      }
+      button:hover {
+        @include App.dongle-font(1.2rem);
+      }
+    }
+  }
+
+  //! 일본어 버전
+  h2.h2-japanese {
+    @include App.flex-box-center(row);
+    @include App.potta-font(1.2rem);
+  }
+  .tarot-history-record-japanese {
+    @include App.potta-font(1.1rem);
+  }
+  .user-info3-body-japanese {
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    padding: 5px;
+    @include App.flex-box-center(row);
+
+    .user-info3-body-center-japanese {
+      width: 95%;
+      height: 70vh;
+    }
+  }
+
+  // 리스트
+  .tarot-info-japanese {
+    width: 100%;
+    height: 100%;
+    @include App.scrollBar-custom-className(
+      tarot-history-japanese,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  .tarot-history-menu-container-japanese {
+    width: 100%;
+    height: 10%;
+    max-height: 30px;
+    @include App.flex-box-center(row);
+    justify-content: start;
+  }
+  .tarot-history-menu-box-japanese {
+    width: auto;
+    height: 100%;
+    // border-radius: 0;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    @include App.potta-font(1rem);
+  }
+  .tarot-history-menu-box-japanese:hover {
+    @include App.potta-font(1rem);
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history-menu-box-japanese:active {
+    color: gold;
+  }
+  .tarot-history-menu-box-clicked-japanese {
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history-japanese {
+    width: 100%;
+    height: 80%;
+    overflow-y: auto;
+  }
+
+  .tarot-history-item-japanese {
+    @include App.potta-font(0.8rem);
+    & > div:nth-child(1) {
+      & > div:nth-child(1) {
+        & > div:nth-child(1) {
+        }
+      }
+      & > div:nth-child(2) {
+      }
+    }
+    & > div:nth-child(2) {
+      button {
+        @include App.no-select;
+        @include App.potta-font(0.8rem);
+      }
+      button:hover {
+        @include App.potta-font(0.8rem);
+      }
+    }
+  }
+  .korean-dongle-font {
+    @include App.dongle-font(1.8rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.1rem);
+    line-height: 2;
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.4rem);
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(0.9rem);
+    line-height: 2;
+  }
+}
+
+//~ 갤럭시 폴드
+@media (max-device-width: 280px) {
+  h2.h2 {
+    @include App.flex-box-center(row);
+    @include App.dongle-font(1.8rem);
+  }
+  .user-info3-body {
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    padding: 5px;
+    @include App.flex-box-center(row);
+
+    .user-info3-body-center {
+      width: 95%;
+      height: 70vh;
+    }
+  }
+  .tarot-history-record {
+    @include App.dongle-font(1.6rem);
+  }
+
+  // 리스트
+  .tarot-info {
+    width: 100%;
+    height: 100%;
+    @include App.scrollBar-custom-className(
+      tarot-history,
+      5px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  .tarot-history-menu-container {
+    width: 100%;
+    height: 10%;
+    max-height: 30px;
+    @include App.flex-box-center(row);
+    justify-content: start;
+  }
+  .tarot-history-menu-box {
+    width: auto;
+    height: 100%;
+    // border-radius: 0;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    @include App.dongle-font(1.05rem);
+  }
+  .tarot-history-menu-box:hover {
+    @include App.dongle-font(1.05rem);
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history-menu-box:active {
+    color: gold;
+  }
+  .tarot-history-menu-box-clicked {
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history {
+    width: 100%;
+    height: 80%;
+    overflow-y: auto;
+  }
+
+  .tarot-history-item {
+    @include App.dongle-font(1.2rem);
+    & > div:nth-child(1) {
+      & > div:nth-child(1) {
+        & > div:nth-child(1) {
+        }
+      }
+      & > div:nth-child(2) {
+      }
+    }
+    & > div:nth-child(2) {
+      button {
+        @include App.no-select;
+        @include App.dongle-font(0.8rem);
+      }
+      button:hover {
+        @include App.dongle-font(0.8rem);
+      }
+    }
+  }
+
+  //! 일본어 버전
+  h2.h2-japanese {
+    @include App.flex-box-center(row);
+    @include App.potta-font(1.1rem);
+  }
+  .tarot-history-record-japanese {
+    @include App.potta-font(1rem);
+  }
+  .user-info3-body-japanese {
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    padding: 5px;
+    @include App.flex-box-center(row);
+
+    .user-info3-body-center-japanese {
+      width: 95%;
+      height: 70vh;
+    }
+  }
+
+  // 리스트
+  .tarot-info-japanese {
+    width: 100%;
+    height: 100%;
+    @include App.scrollBar-custom-className(
+      tarot-history-japanese,
+      5px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  .tarot-history-menu-container-japanese {
+    width: 100%;
+    height: 10%;
+    max-height: 30px;
+    @include App.flex-box-center(row);
+    justify-content: start;
+  }
+  .tarot-history-menu-box-japanese {
+    width: auto;
+    height: 100%;
+    // border-radius: 0;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    @include App.potta-font(0.8rem);
+  }
+  .tarot-history-menu-box-japanese:hover {
+    @include App.potta-font(0.8rem);
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history-menu-box-japanese:active {
+    color: gold;
+  }
+  .tarot-history-menu-box-clicked-japanese {
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history-japanese {
+    width: 100%;
+    height: 80%;
+    overflow-y: auto;
+  }
+
+  .tarot-history-item-japanese {
+    @include App.potta-font(0.7rem);
+    & > div:nth-child(1) {
+      & > div:nth-child(1) {
+        & > div:nth-child(1) {
+        }
+      }
+      & > div:nth-child(2) {
+      }
+    }
+    & > div:nth-child(2) {
+      button {
+        @include App.no-select;
+        @include App.potta-font(0.7rem);
+      }
+      button:hover {
+        @include App.potta-font(0.7rem);
+      }
+    }
+  }
+  .korean-dongle-font {
+    @include App.dongle-font(1.8rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1rem);
+    line-height: 2;
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.3rem);
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(0.8rem);
+    line-height: 2;
+  }
+}
+
+//! 반응형 웹브라우저
+//~ 디바이스
+@media (min-width: 1025px) and (max-width: 1366px) {
+  h2.h2 {
+    @include App.flex-box-center(row);
+  }
+  .user-info3-body {
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    padding: 5px;
+    @include App.flex-box-center(row);
+
+    .user-info3-body-center {
+      width: 95%;
+      height: 70vh;
+    }
+  }
+
+  // 리스트
+  .tarot-info {
+    width: 100%;
+    height: 100%;
+    @include App.scrollBar-custom-className(
+      tarot-history,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  .tarot-history-menu-container {
+    width: 100%;
+    height: 10%;
+    max-height: 50px;
+    @include App.flex-box-center(row);
+    justify-content: start;
+  }
+  .tarot-history-menu-box {
+    width: auto;
+    height: 100%;
+    // border-radius: 0;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    @include App.dongle-font(2rem);
+  }
+  .tarot-history-menu-box:hover {
+    @include App.dongle-font(2rem);
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history-menu-box:active {
+    color: gold;
+  }
+  .tarot-history-menu-box-clicked {
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history {
+    width: 100%;
+    height: 80%;
+    overflow-y: auto;
+  }
+
+  .tarot-history-item {
+    @include App.dongle-font(2.2rem);
+    & > div:nth-child(1) {
+      & > div:nth-child(1) {
+        & > div:nth-child(1) {
+        }
+      }
+      & > div:nth-child(2) {
+      }
+    }
+    & > div:nth-child(2) {
+      button {
+        @include App.no-select;
+        @include App.dongle-font(1.8rem);
+      }
+      button:hover {
+        @include App.dongle-font(1.8rem);
+      }
+    }
+  }
+
+  //! 일본어 버전
+  h2.h2-japanese {
+    @include App.flex-box-center(row);
+  }
+  .user-info3-body-japanese {
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    padding: 5px;
+    @include App.flex-box-center(row);
+
+    .user-info3-body-center-japanese {
+      width: 95%;
+      height: 70vh;
+    }
+  }
+
+  // 리스트
+  .tarot-info-japanese {
+    width: 100%;
+    height: 100%;
+    @include App.scrollBar-custom-className(
+      tarot-history-japanese,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  .tarot-history-menu-container-japanese {
+    width: 100%;
+    height: 12%;
+    max-height: 50px;
+    @include App.flex-box-center(row);
+    justify-content: start;
+  }
+  .tarot-history-menu-box-japanese {
+    width: auto;
+    height: 100%;
+    // border-radius: 0;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    @include App.potta-font(1.4rem);
+  }
+  .tarot-history-menu-box-japanese:hover {
+    @include App.potta-font(1.4rem);
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history-menu-box-japanese:active {
+    color: gold;
+  }
+  .tarot-history-menu-box-clicked-japanese {
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history-japanese {
+    width: 100%;
+    height: 80%;
+    overflow-y: auto;
+  }
+
+  .tarot-history-item-japanese {
+    @include App.potta-font(1.3rem);
+    & > div:nth-child(1) {
+      & > div:nth-child(1) {
+        & > div:nth-child(1) {
+        }
+      }
+      & > div:nth-child(2) {
+      }
+    }
+    & > div:nth-child(2) {
+      button {
+        @include App.no-select;
+        @include App.potta-font(1.3rem);
+      }
+      button:hover {
+        @include App.potta-font(1.3rem);
+      }
+    }
+  }
+  .korean-dongle-font {
+    @include App.dongle-font(2.5rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.3rem);
+    line-height: 2;
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.7rem);
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(1.1rem);
+    line-height: 2;
+  }
+}
+
+//~ 태블릿, 아이패드, 아이패드 프로
+@media (min-width: 769px) and (max-width: 1024px) {
+  h2.h2 {
+    @include App.flex-box-center(row);
+    @include App.dongle-font(2.7rem);
+  }
+  .user-info3-body {
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    padding: 5px;
+    @include App.flex-box-center(row);
+
+    .user-info3-body-center {
+      width: 95%;
+      height: 70vh;
+    }
+  }
+
+  // 리스트
+  .tarot-info {
+    width: 100%;
+    height: 100%;
+    @include App.scrollBar-custom-className(
+      tarot-history,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  .tarot-history-menu-container {
+    width: 100%;
+    height: 10%;
+    max-height: 40px;
+    @include App.flex-box-center(row);
+    justify-content: start;
+  }
+  .tarot-history-menu-box {
+    width: auto;
+    height: 100%;
+    // border-radius: 0;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    @include App.dongle-font(1.5rem);
+  }
+  .tarot-history-menu-box:hover {
+    @include App.dongle-font(1.5rem);
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history-menu-box:active {
+    color: gold;
+  }
+  .tarot-history-menu-box-clicked {
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history {
+    width: 100%;
+    height: 80%;
+    overflow-y: auto;
+  }
+
+  .tarot-history-item {
+    @include App.dongle-font(1.8rem);
+    & > div:nth-child(1) {
+      & > div:nth-child(1) {
+        & > div:nth-child(1) {
+        }
+      }
+      & > div:nth-child(2) {
+      }
+    }
+    & > div:nth-child(2) {
+      button {
+        @include App.no-select;
+        @include App.dongle-font(1.5rem);
+      }
+      button:hover {
+        @include App.dongle-font(1.5rem);
+      }
+    }
+  }
+
+  //! 일본어 버전
+  h2.h2-japanese {
+    @include App.flex-box-center(row);
+    @include App.potta-font(1.5rem);
+  }
+  .user-info3-body-japanese {
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    padding: 5px;
+    @include App.flex-box-center(row);
+
+    .user-info3-body-center-japanese {
+      width: 95%;
+      height: 70vh;
+    }
+  }
+
+  // 리스트
+  .tarot-info-japanese {
+    width: 100%;
+    height: 100%;
+    @include App.scrollBar-custom-className(
+      tarot-history-japanese,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  .tarot-history-menu-container-japanese {
+    width: 100%;
+    height: 12%;
+    max-height: 50px;
+    @include App.flex-box-center(row);
+    justify-content: start;
+  }
+  .tarot-history-menu-box-japanese {
+    width: auto;
+    height: 100%;
+    // border-radius: 0;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    @include App.potta-font(1.2rem);
+  }
+  .tarot-history-menu-box-japanese:hover {
+    @include App.potta-font(1.2rem);
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history-menu-box-japanese:active {
+    color: gold;
+  }
+  .tarot-history-menu-box-clicked-japanese {
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history-japanese {
+    width: 100%;
+    height: 80%;
+    overflow-y: auto;
+  }
+
+  .tarot-history-item-japanese {
+    @include App.potta-font(1.3rem);
+    & > div:nth-child(1) {
+      & > div:nth-child(1) {
+        & > div:nth-child(1) {
+        }
+      }
+      & > div:nth-child(2) {
+      }
+    }
+    & > div:nth-child(2) {
+      button {
+        @include App.no-select;
+        @include App.potta-font(1.3rem);
+      }
+      button:hover {
+        @include App.potta-font(1.3rem);
+      }
+    }
+  }
+  orean-dongle-font {
+    @include App.dongle-font(2.5rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.3rem);
+    line-height: 2;
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.7rem);
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(1.1rem);
+    line-height: 2;
+  }
+}
+
+//~ 481px ~ 768px 및 태블릿
+@media (min-width: 481px) and (max-width: 768px) {
+  h2.h2 {
+    @include App.flex-box-center(row);
+    @include App.dongle-font(2.4rem);
+  }
+  .user-info3-body {
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    padding: 5px;
+    @include App.flex-box-center(row);
+
+    .user-info3-body-center {
+      width: 95%;
+      height: 70vh;
+    }
+  }
+
+  // 리스트
+  .tarot-info {
+    width: 100%;
+    height: 100%;
+    @include App.scrollBar-custom-className(
+      tarot-history,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  .tarot-history-menu-container {
+    width: 100%;
+    height: 10%;
+    max-height: 40px;
+    @include App.flex-box-center(row);
+    justify-content: start;
+  }
+  .tarot-history-menu-box {
+    width: auto;
+    height: 100%;
+    // border-radius: 0;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    @include App.dongle-font(1.4rem);
+  }
+  .tarot-history-menu-box:hover {
+    @include App.dongle-font(1.4rem);
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history-menu-box:active {
+    color: gold;
+  }
+  .tarot-history-menu-box-clicked {
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history {
+    width: 100%;
+    height: 80%;
+    overflow-y: auto;
+  }
+
+  .tarot-history-item {
+    @include App.dongle-font(1.5rem);
+    & > div:nth-child(1) {
+      & > div:nth-child(1) {
+        & > div:nth-child(1) {
+        }
+      }
+      & > div:nth-child(2) {
+      }
+    }
+    & > div:nth-child(2) {
+      button {
+        @include App.no-select;
+        @include App.dongle-font(1.4rem);
+      }
+      button:hover {
+        @include App.dongle-font(1.4rem);
+      }
+    }
+  }
+
+  //! 일본어 버전
+  h2.h2-japanese {
+    @include App.flex-box-center(row);
+    @include App.potta-font(1.4rem);
+  }
+  .user-info3-body-japanese {
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    padding: 5px;
+    @include App.flex-box-center(row);
+
+    .user-info3-body-center-japanese {
+      width: 95%;
+      height: 70vh;
+    }
+  }
+
+  // 리스트
+  .tarot-info-japanese {
+    width: 100%;
+    height: 100%;
+    @include App.scrollBar-custom-className(
+      tarot-history-japanese,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  .tarot-history-menu-container-japanese {
+    width: 100%;
+    height: 12%;
+    max-height: 50px;
+    @include App.flex-box-center(row);
+    justify-content: start;
+  }
+  .tarot-history-menu-box-japanese {
+    width: auto;
+    height: 100%;
+    // border-radius: 0;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    @include App.potta-font(1.2rem);
+  }
+  .tarot-history-menu-box-japanese:hover {
+    @include App.potta-font(1.2rem);
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history-menu-box-japanese:active {
+    color: gold;
+  }
+  .tarot-history-menu-box-clicked-japanese {
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history-japanese {
+    width: 100%;
+    height: 80%;
+    overflow-y: auto;
+  }
+
+  .tarot-history-item-japanese {
+    @include App.potta-font(1.2rem);
+    & > div:nth-child(1) {
+      & > div:nth-child(1) {
+        & > div:nth-child(1) {
+        }
+      }
+      & > div:nth-child(2) {
+      }
+    }
+    & > div:nth-child(2) {
+      button {
+        @include App.no-select;
+        @include App.potta-font(1.2rem);
+      }
+      button:hover {
+        @include App.potta-font(1.2rem);
+      }
+    }
+  }
+  .korean-dongle-font {
+    @include App.dongle-font(2.4rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.3rem);
+    line-height: 2;
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.7rem);
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(1.1rem);
+    line-height: 2;
+  }
+}
+
+//~ IPhone 14 Pro Max(430px)
+@media only screen and (min-width: 415px) and (max-width: 480px) {
+  h2.h2 {
+    @include App.flex-box-center(row);
+    @include App.dongle-font(2.4rem);
+  }
+  .user-info3-body {
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    padding: 5px;
+    @include App.flex-box-center(row);
+
+    .user-info3-body-center {
+      width: 95%;
+      height: 70vh;
+    }
+  }
+
+  // 리스트
+  .tarot-info {
+    width: 100%;
+    height: 100%;
+    @include App.scrollBar-custom-className(
+      tarot-history,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  .tarot-history-menu-container {
+    width: 100%;
+    height: 10%;
+    max-height: 40px;
+    @include App.flex-box-center(row);
+    justify-content: start;
+  }
+  .tarot-history-menu-box {
+    width: auto;
+    height: 100%;
+    // border-radius: 0;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    @include App.dongle-font(1.4rem);
+  }
+  .tarot-history-menu-box:hover {
+    @include App.dongle-font(1.4rem);
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history-menu-box:active {
+    color: gold;
+  }
+  .tarot-history-menu-box-clicked {
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history {
+    width: 100%;
+    height: 80%;
+    overflow-y: auto;
+  }
+
+  .tarot-history-item {
+    @include App.dongle-font(1.5rem);
+    & > div:nth-child(1) {
+      & > div:nth-child(1) {
+        & > div:nth-child(1) {
+        }
+      }
+      & > div:nth-child(2) {
+      }
+    }
+    & > div:nth-child(2) {
+      button {
+        @include App.no-select;
+        @include App.dongle-font(1.4rem);
+      }
+      button:hover {
+        @include App.dongle-font(1.4rem);
+      }
+    }
+  }
+
+  //! 일본어 버전
+  h2.h2-japanese {
+    @include App.flex-box-center(row);
+    @include App.potta-font(1.4rem);
+  }
+  .user-info3-body-japanese {
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    padding: 5px;
+    @include App.flex-box-center(row);
+
+    .user-info3-body-center-japanese {
+      width: 95%;
+      height: 70vh;
+    }
+  }
+
+  // 리스트
+  .tarot-info-japanese {
+    width: 100%;
+    height: 100%;
+    @include App.scrollBar-custom-className(
+      tarot-history-japanese,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  .tarot-history-menu-container-japanese {
+    width: 100%;
+    height: 12%;
+    max-height: 40px;
+    @include App.flex-box-center(row);
+    justify-content: start;
+  }
+  .tarot-history-menu-box-japanese {
+    width: auto;
+    height: 100%;
+    // border-radius: 0;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    @include App.potta-font(1.2rem);
+  }
+  .tarot-history-menu-box-japanese:hover {
+    @include App.potta-font(1.2rem);
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history-menu-box-japanese:active {
+    color: gold;
+  }
+  .tarot-history-menu-box-clicked-japanese {
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history-japanese {
+    width: 100%;
+    height: 80%;
+    overflow-y: auto;
+  }
+
+  .tarot-history-item-japanese {
+    @include App.potta-font(1.1rem);
+    & > div:nth-child(1) {
+      & > div:nth-child(1) {
+        & > div:nth-child(1) {
+        }
+      }
+      & > div:nth-child(2) {
+      }
+    }
+    & > div:nth-child(2) {
+      button {
+        @include App.no-select;
+        @include App.potta-font(1.1rem);
+      }
+      button:hover {
+        @include App.potta-font(1.1rem);
+      }
+    }
+  }
+  .korean-dongle-font {
+    @include App.dongle-font(2.2rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.2rem);
+    line-height: 2;
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.5rem);
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(1rem);
+    line-height: 2;
+  }
+}
+//~ 아이폰XR
+@media (min-width: 376px) and (max-width: 414px) {
+  h2.h2 {
+    @include App.flex-box-center(row);
+    @include App.dongle-font(2.3rem);
+  }
+  .user-info3-body {
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    padding: 5px;
+    @include App.flex-box-center(row);
+
+    .user-info3-body-center {
+      width: 95%;
+      height: 70vh;
+    }
+  }
+  .tarot-history-record {
+    @include App.dongle-font(1.9rem);
+  }
+  // 리스트
+  .tarot-info {
+    width: 100%;
+    height: 100%;
+    @include App.scrollBar-custom-className(
+      tarot-history,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  .tarot-history-menu-container {
+    width: 100%;
+    height: 10%;
+    max-height: 40px;
+    @include App.flex-box-center(row);
+    justify-content: start;
+  }
+  .tarot-history-menu-box {
+    width: auto;
+    height: 100%;
+    // border-radius: 0;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    @include App.dongle-font(1.4rem);
+  }
+  .tarot-history-menu-box:hover {
+    @include App.dongle-font(1.4rem);
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history-menu-box:active {
+    color: gold;
+  }
+  .tarot-history-menu-box-clicked {
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history {
+    width: 100%;
+    height: 80%;
+    overflow-y: auto;
+  }
+
+  .tarot-history-item {
+    @include App.dongle-font(1.5rem);
+    & > div:nth-child(1) {
+      & > div:nth-child(1) {
+        & > div:nth-child(1) {
+        }
+      }
+      & > div:nth-child(2) {
+      }
+    }
+    & > div:nth-child(2) {
+      button {
+        @include App.no-select;
+        @include App.dongle-font(1.4rem);
+      }
+      button:hover {
+        @include App.dongle-font(1.4rem);
+      }
+    }
+  }
+
+  //! 일본어 버전
+  h2.h2-japanese {
+    @include App.flex-box-center(row);
+    @include App.potta-font(1.4rem);
+  }
+  .user-info3-body-japanese {
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    padding: 5px;
+    @include App.flex-box-center(row);
+
+    .user-info3-body-center-japanese {
+      width: 95%;
+      height: 70vh;
+    }
+  }
+
+  // 리스트
+  .tarot-info-japanese {
+    width: 100%;
+    height: 100%;
+    @include App.scrollBar-custom-className(
+      tarot-history-japanese,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  .tarot-history-menu-container-japanese {
+    width: 100%;
+    height: 10%;
+    max-height: 30px;
+    @include App.flex-box-center(row);
+    justify-content: start;
+  }
+  .tarot-history-menu-box-japanese {
+    width: auto;
+    height: 100%;
+    // border-radius: 0;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    @include App.potta-font(1.05rem);
+  }
+  .tarot-history-menu-box-japanese:hover {
+    @include App.potta-font(1.05rem);
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history-menu-box-japanese:active {
+    color: gold;
+  }
+  .tarot-history-menu-box-clicked-japanese {
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history-japanese {
+    width: 100%;
+    height: 80%;
+    overflow-y: auto;
+  }
+
+  .tarot-history-item-japanese {
+    @include App.potta-font(1rem);
+    & > div:nth-child(1) {
+      & > div:nth-child(1) {
+        & > div:nth-child(1) {
+        }
+      }
+      & > div:nth-child(2) {
+      }
+    }
+    & > div:nth-child(2) {
+      button {
+        @include App.no-select;
+        @include App.potta-font(1rem);
+      }
+      button:hover {
+        @include App.potta-font(1rem);
+      }
+    }
+  }
+  .korean-dongle-font {
+    @include App.dongle-font(2.2rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.2rem);
+    line-height: 2;
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.5rem);
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(1rem);
+    line-height: 2;
+  }
+}
+
+//~ 아이폰 SE
+@media (min-width: 281px) and (max-width: 375px) {
+  h2.h2 {
+    @include App.flex-box-center(row);
+    @include App.dongle-font(2.3rem);
+  }
+  .user-info3-body {
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    padding: 5px;
+    @include App.flex-box-center(row);
+
+    .user-info3-body-center {
+      width: 95%;
+      height: 70vh;
+    }
+  }
+  .tarot-history-record {
+    @include App.dongle-font(1.8rem);
+  }
+  // 리스트
+  .tarot-info {
+    width: 100%;
+    height: 100%;
+    @include App.scrollBar-custom-className(
+      tarot-history,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  .tarot-history-menu-container {
+    width: 100%;
+    height: 10%;
+    max-height: 30px;
+    @include App.flex-box-center(row);
+    justify-content: start;
+  }
+  .tarot-history-menu-box {
+    width: auto;
+    height: 100%;
+    // border-radius: 0;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    @include App.dongle-font(1.4rem);
+  }
+  .tarot-history-menu-box:hover {
+    @include App.dongle-font(1.4rem);
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history-menu-box:active {
+    color: gold;
+  }
+  .tarot-history-menu-box-clicked {
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history {
+    width: 100%;
+    height: 80%;
+    overflow-y: auto;
+  }
+
+  .tarot-history-item {
+    @include App.dongle-font(1.4rem);
+    & > div:nth-child(1) {
+      & > div:nth-child(1) {
+        & > div:nth-child(1) {
+        }
+      }
+      & > div:nth-child(2) {
+      }
+    }
+    & > div:nth-child(2) {
+      button {
+        @include App.no-select;
+        @include App.dongle-font(1.2rem);
+      }
+      button:hover {
+        @include App.dongle-font(1.2rem);
+      }
+    }
+  }
+
+  //! 일본어 버전
+  h2.h2-japanese {
+    @include App.flex-box-center(row);
+    @include App.potta-font(1.2rem);
+  }
+  .tarot-history-record-japanese {
+    @include App.potta-font(1.1rem);
+  }
+  .user-info3-body-japanese {
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    padding: 5px;
+    @include App.flex-box-center(row);
+
+    .user-info3-body-center-japanese {
+      width: 95%;
+      height: 70vh;
+    }
+  }
+
+  // 리스트
+  .tarot-info-japanese {
+    width: 100%;
+    height: 100%;
+    @include App.scrollBar-custom-className(
+      tarot-history-japanese,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  .tarot-history-menu-container-japanese {
+    width: 100%;
+    height: 10%;
+    max-height: 30px;
+    @include App.flex-box-center(row);
+    justify-content: start;
+  }
+  .tarot-history-menu-box-japanese {
+    width: auto;
+    height: 100%;
+    // border-radius: 0;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    @include App.potta-font(1rem);
+  }
+  .tarot-history-menu-box-japanese:hover {
+    @include App.potta-font(1rem);
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history-menu-box-japanese:active {
+    color: gold;
+  }
+  .tarot-history-menu-box-clicked-japanese {
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history-japanese {
+    width: 100%;
+    height: 80%;
+    overflow-y: auto;
+  }
+
+  .tarot-history-item-japanese {
+    @include App.potta-font(0.8rem);
+    & > div:nth-child(1) {
+      & > div:nth-child(1) {
+        & > div:nth-child(1) {
+        }
+      }
+      & > div:nth-child(2) {
+      }
+    }
+    & > div:nth-child(2) {
+      button {
+        @include App.no-select;
+        @include App.potta-font(0.8rem);
+      }
+      button:hover {
+        @include App.potta-font(0.8rem);
+      }
+    }
+  }
+  .korean-dongle-font {
+    @include App.dongle-font(1.8rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.1rem);
+    line-height: 2;
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.4rem);
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(0.9rem);
+    line-height: 2;
+  }
+}
+
+//~ 갤럭시 폴드
+@media (max-width: 280px) {
+  h2.h2 {
+    @include App.flex-box-center(row);
+    @include App.dongle-font(1.8rem);
+  }
+  .user-info3-body {
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    padding: 5px;
+    @include App.flex-box-center(row);
+
+    .user-info3-body-center {
+      width: 95%;
+      height: 70vh;
+    }
+  }
+  .tarot-history-record {
+    @include App.dongle-font(1.6rem);
+  }
+
+  // 리스트
+  .tarot-info {
+    width: 100%;
+    height: 100%;
+    @include App.scrollBar-custom-className(
+      tarot-history,
+      5px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  .tarot-history-menu-container {
+    width: 100%;
+    height: 10%;
+    max-height: 30px;
+    @include App.flex-box-center(row);
+    justify-content: start;
+  }
+  .tarot-history-menu-box {
+    width: auto;
+    height: 100%;
+    // border-radius: 0;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    @include App.dongle-font(1.05rem);
+  }
+  .tarot-history-menu-box:hover {
+    @include App.dongle-font(1.05rem);
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history-menu-box:active {
+    color: gold;
+  }
+  .tarot-history-menu-box-clicked {
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history {
+    width: 100%;
+    height: 80%;
+    overflow-y: auto;
+  }
+
+  .tarot-history-item {
+    @include App.dongle-font(1.2rem);
+    & > div:nth-child(1) {
+      & > div:nth-child(1) {
+        & > div:nth-child(1) {
+        }
+      }
+      & > div:nth-child(2) {
+      }
+    }
+    & > div:nth-child(2) {
+      button {
+        @include App.no-select;
+        @include App.dongle-font(0.8rem);
+      }
+      button:hover {
+        @include App.dongle-font(0.8rem);
+      }
+    }
+  }
+
+  //! 일본어 버전
+  h2.h2-japanese {
+    @include App.flex-box-center(row);
+    @include App.potta-font(1.1rem);
+  }
+  .tarot-history-record-japanese {
+    @include App.potta-font(1rem);
+  }
+  .user-info3-body-japanese {
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    padding: 5px;
+    @include App.flex-box-center(row);
+
+    .user-info3-body-center-japanese {
+      width: 95%;
+      height: 70vh;
+    }
+  }
+
+  // 리스트
+  .tarot-info-japanese {
+    width: 100%;
+    height: 100%;
+    @include App.scrollBar-custom-className(
+      tarot-history-japanese,
+      5px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  .tarot-history-menu-container-japanese {
+    width: 100%;
+    height: 10%;
+    max-height: 30px;
+    @include App.flex-box-center(row);
+    justify-content: start;
+  }
+  .tarot-history-menu-box-japanese {
+    width: auto;
+    height: 100%;
+    // border-radius: 0;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    @include App.potta-font(0.8rem);
+  }
+  .tarot-history-menu-box-japanese:hover {
+    @include App.potta-font(0.8rem);
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history-menu-box-japanese:active {
+    color: gold;
+  }
+  .tarot-history-menu-box-clicked-japanese {
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  .tarot-history-japanese {
+    width: 100%;
+    height: 80%;
+    overflow-y: auto;
+  }
+
+  .tarot-history-item-japanese {
+    @include App.potta-font(0.7rem);
+    & > div:nth-child(1) {
+      & > div:nth-child(1) {
+        & > div:nth-child(1) {
+        }
+      }
+      & > div:nth-child(2) {
+      }
+    }
+    & > div:nth-child(2) {
+      button {
+        @include App.no-select;
+        @include App.potta-font(0.7rem);
+      }
+      button:hover {
+        @include App.potta-font(0.7rem);
+      }
+    }
+  }
+  .korean-dongle-font {
+    @include App.dongle-font(1.8rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1rem);
+    line-height: 2;
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.3rem);
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(0.8rem);
+    line-height: 2;
+  }
+}
+
+//* 아이패드 프로 가로
+@media screen and (orientation: landscape) and (min-device-width: 1025px) and (max-device-width: 1366px) {
+  h2.h2 {
+    @include App.flex-box-center(row);
+  }
+  div.user-info3-body {
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    padding: 5px;
+    @include App.flex-box-center(row);
+    .user-info3-body-center {
+      width: 95%;
+      height: 70vh;
+    }
+  }
+
+  // 리스트
+  div.tarot-info {
+    width: 100%;
+    height: 100%;
+    @include App.scrollBar-custom-className(
+      tarot-history,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  div.tarot-history-menu-container {
+    width: 100%;
+    height: 15%;
+    max-height: 50px;
+    @include App.flex-box-center(row);
+    justify-content: start;
+  }
+  div.tarot-history-menu-box {
+    width: auto;
+    height: 100%;
+    // border-radius: 0;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    @include App.dongle-font(2rem);
+  }
+  divtarot-history-menu-box:hover {
+    @include App.dongle-font(2rem);
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  div.tarot-history-menu-box:active {
+    color: gold;
+  }
+  div.tarot-history-menu-box-clicked {
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  div.tarot-history {
+    width: 100%;
+    height: 83%;
+    overflow-y: auto;
+    border: 3px solid rgb(218, 165, 32, 0.5);
+  }
+
+  div.tarot-history-item {
+    @include App.dongle-font(2.1rem);
+    & > div:nth-child(1) {
+      & > div:nth-child(1) {
+        & > div:nth-child(1) {
+        }
+      }
+      & > div:nth-child(2) {
+      }
+    }
+    & > div:nth-child(2) {
+      button {
+        @include App.no-select;
+        @include App.dongle-font(1.8rem);
+      }
+      button:hover {
+        @include App.dongle-font(1.8rem);
+      }
+    }
+  }
+
+  h2.h2-japanese {
+    @include App.potta-font(1.4rem);
+  }
+  div.user-info3-body-japanese {
+    max-height:100%;
+    .user-info3-body-center-japanese {
+      width: 95%;
+      height: 70vh;
+    }
+  }
+  // 유저정보 버튼
+  div.user-info3-bottom-japanese {
+  }
+  // 리스트
+  div.tarot-info-japanese {
+    width: 100%;
+    height: 100%;
+    @include App.scrollBar-custom-className(
+      tarot-history-japanese,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  div.tarot-history-menu-container-japanese {
+    height: 15%;
+    max-height: 35px;
+  }
+  div.tarot-history-menu-box-japanese {
+    width: auto;
+    height: 100%;
+    // border-radius: 0;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    @include App.potta-font(1.3rem);
+  }
+  div.tarot-history-menu-box-japanese:hover {
+    @include App.potta-font(1.3rem);
+  }
+  div.tarot-history-menu-box-japanese:active {
+  }
+  div.tarot-history-menu-box-clicked-japanese {
+  }
+  div.tarot-history-japanese {
+    width: 100%;
+    height: 83%;
+    overflow-y: auto;
+  }
+  div.tarot-history-item-japanese {
+    @include App.potta-font(1.3rem);
+    & > div:nth-child(1) {
+      & > div:nth-child(1) {
+        & > div:nth-child(1) {
+        }
+      }
+      & > div:nth-child(2) {
+      }
+    }
+    & > div:nth-child(2) {
+      button {
+        @include App.no-select;
+        @include App.potta-font(1.3rem);
+      }
+
+      button:hover {
+        @include App.potta-font(1.3rem);
+      }
+    }
+  }
+}
+
+//* 태블릿 아이패드, 아이패드 프로 가로
+@media screen and (orientation: landscape) and (min-device-width: 933px) and (max-device-width: 1024px) {
+  h2.h2 {
+    @include App.flex-box-center(row);
+  }
+  div.user-info3-body {
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    padding: 5px;
+    @include App.flex-box-center(row);
+    .user-info3-body-center {
+      width: 95%;
+      height: 70vh;
+    }
+  }
+
+  // 리스트
+  div.tarot-info {
+    width: 100%;
+    height: 100%;
+    @include App.scrollBar-custom-className(
+      tarot-history,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  div.tarot-history-menu-container {
+    width: 100%;
+    height: 15%;
+    max-height: 45px;
+    @include App.flex-box-center(row);
+    justify-content: start;
+  }
+  div.tarot-history-menu-box {
+    width: auto;
+    height: 100%;
+    // border-radius: 0;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    @include App.dongle-font(2rem);
+  }
+  divtarot-history-menu-box:hover {
+    background-color: rgb(218, 165, 32, 0.5);
+    @include App.dongle-font(2rem);
+  }
+  div.tarot-history-menu-box:active {
+    color: gold;
+  }
+  div.tarot-history-menu-box-clicked {
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  div.tarot-history {
+    width: 100%;
+    height: 83%;
+    overflow-y: auto;
+    border: 3px solid rgb(218, 165, 32, 0.5);
+  }
+
+  div.tarot-history-item {
+    @include App.dongle-font(2.1rem);
+    & > div:nth-child(1) {
+      & > div:nth-child(1) {
+        & > div:nth-child(1) {
+        }
+      }
+      & > div:nth-child(2) {
+      }
+    }
+    & > div:nth-child(2) {
+      button {
+        @include App.no-select;
+        @include App.dongle-font(1.8rem);
+      }
+      button:hover {
+        @include App.dongle-font(1.8rem);
+      }
+    }
+  }
+
+  h2.h2-japanese {
+    @include App.potta-font(1.4rem);
+  }
+  div.user-info3-body-japanese {
+    max-height:100%;
+    .user-info3-body-center-japanese {
+      width: 95%;
+      height: 70vh;
+    }
+  }
+  // 유저정보 버튼
+  div.user-info3-bottom-japanese {
+  }
+  // 리스트
+  div.tarot-info-japanese {
+    width: 100%;
+    height: 100%;
+    @include App.scrollBar-custom-className(
+      tarot-history-japanese,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  div.tarot-history-menu-container-japanese {
+    height: 15%;
+    max-height: 35px;
+  }
+  div.tarot-history-menu-box-japanese {
+    width: auto;
+    height: 100%;
+    // border-radius: 0;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    @include App.potta-font(1.3rem);
+  }
+  div.tarot-history-menu-box-japanese:hover {
+    @include App.potta-font(1.3rem);
+  }
+  div.tarot-history-menu-box-japanese:active {
+  }
+  div.tarot-history-menu-box-clicked-japanese {
+  }
+  div.tarot-history-japanese {
+    width: 100%;
+    height: 83%;
+    overflow-y: auto;
+  }
+  div.tarot-history-item-japanese {
+    @include App.potta-font(1.3rem);
+    & > div:nth-child(1) {
+      & > div:nth-child(1) {
+        & > div:nth-child(1) {
+        }
+      }
+      & > div:nth-child(2) {
+      }
+    }
+    & > div:nth-child(2) {
+      button {
+        @include App.no-select;
+        @include App.potta-font(1.3rem);
+      }
+
+      button:hover {
+        @include App.potta-font(1.3rem);
+      }
+    }
+  }
+}
+
+//* IPhon 14 Pro Max 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 897px) and (max-device-width: 932px) {
+  h2.h2 {
+    @include App.flex-box-center(row);
+  }
+  div.user-info3-body {
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    padding: 5px;
+    @include App.flex-box-center(row);
+    .user-info3-body-center {
+      width: 95%;
+      height: 70vh;
+    }
+  }
+
+  // 리스트
+  div.tarot-info {
+    width: 100%;
+    height: 100%;
+    @include App.scrollBar-custom-className(
+      tarot-history,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  div.tarot-history-menu-container {
+    width: 100%;
+    height: 15%;
+    max-height: 40px;
+    @include App.flex-box-center(row);
+    justify-content: start;
+  }
+  div.tarot-history-menu-box {
+    width: auto;
+    height: 100%;
+    // border-radius: 0;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    @include App.dongle-font(1.6rem);
+  }
+  divtarot-history-menu-box:hover {
+    background-color: rgb(218, 165, 32, 0.5);
+    @include App.dongle-font(1.6rem);
+  }
+  div.tarot-history-menu-box:active {
+    color: gold;
+  }
+  div.tarot-history-menu-box-clicked {
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  div.tarot-history {
+    width: 100%;
+    height: 83%;
+    overflow-y: auto;
+    border: 3px solid rgb(218, 165, 32, 0.5);
+  }
+
+  div.tarot-history-item {
+    @include App.dongle-font(1.7rem);
+    & > div:nth-child(1) {
+      & > div:nth-child(1) {
+        & > div:nth-child(1) {
+        }
+      }
+      & > div:nth-child(2) {
+      }
+    }
+    & > div:nth-child(2) {
+      button {
+        @include App.no-select;
+        @include App.dongle-font(1.6rem);
+      }
+      button:hover {
+        @include App.dongle-font(1.6rem);
+      }
+    }
+  }
+
+  h2.h2-japanese {
+    @include App.potta-font(1.4rem);
+  }
+  div.user-info3-body-japanese {
+    max-height:100%;
+    .user-info3-body-center-japanese {
+      width: 95%;
+      height: 70vh;
+    }
+  }
+  // 유저정보 버튼
+  div.user-info3-bottom-japanese {
+  }
+  // 리스트
+  div.tarot-info-japanese {
+    width: 100%;
+    height: 100%;
+    @include App.scrollBar-custom-className(
+      tarot-history-japanese,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  div.tarot-history-menu-container-japanese {
+    height: 15%;
+    max-height: 35px;
+  }
+  div.tarot-history-menu-box-japanese {
+    width: auto;
+    height: 100%;
+    // border-radius: 0;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    @include App.potta-font(1rem);
+  }
+  div.tarot-history-menu-box-japanese:hover {
+    @include App.potta-font(1rem);
+  }
+  div.tarot-history-menu-box-japanese:active {
+  }
+  div.tarot-history-menu-box-clicked-japanese {
+  }
+  div.tarot-history-japanese {
+    width: 100%;
+    height: 83%;
+    overflow-y: auto;
+  }
+  div.tarot-history-item-japanese {
+    @include App.potta-font(1rem);
+    & > div:nth-child(1) {
+      & > div:nth-child(1) {
+        & > div:nth-child(1) {
+        }
+      }
+      & > div:nth-child(2) {
+      }
+    }
+    & > div:nth-child(2) {
+      button {
+        @include App.no-select;
+        @include App.potta-font(1rem);
+      }
+
+      button:hover {
+        @include App.potta-font(1rem);
+      }
+    }
+  }
+}
+
+//* 아이폰XR 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 668px) and (max-device-width: 896px) {
+  h2.h2 {
+    @include App.flex-box-center(row);
+  }
+  div.user-info3-body {
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    padding: 5px;
+    @include App.flex-box-center(row);
+    .user-info3-body-center {
+      width: 95%;
+      height: 70vh;
+    }
+  }
+
+  // 리스트
+  div.tarot-info {
+    width: 100%;
+    height: 100%;
+    @include App.scrollBar-custom-className(
+      tarot-history,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  div.tarot-history-menu-container {
+    width: 100%;
+    height: 15%;
+    max-height: 40px;
+    @include App.flex-box-center(row);
+    justify-content: start;
+  }
+  div.tarot-history-menu-box {
+    width: auto;
+    height: 100%;
+    // border-radius: 0;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    @include App.dongle-font(1.6rem);
+  }
+  divtarot-history-menu-box:hover {
+    @include App.dongle-font(1.6rem);
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  div.tarot-history-menu-box:active {
+    color: gold;
+  }
+  div.tarot-history-menu-box-clicked {
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  div.tarot-history {
+    width: 100%;
+    height: 83%;
+    overflow-y: auto;
+    border: 3px solid rgb(218, 165, 32, 0.5);
+  }
+
+  div.tarot-history-item {
+    @include App.dongle-font(1.7rem);
+    & > div:nth-child(1) {
+      & > div:nth-child(1) {
+        & > div:nth-child(1) {
+        }
+      }
+      & > div:nth-child(2) {
+      }
+    }
+    & > div:nth-child(2) {
+      button {
+        @include App.no-select;
+        @include App.dongle-font(1.6rem);
+      }
+      button:hover {
+        @include App.dongle-font(1.6rem);
+      }
+    }
+  }
+
+  h2.h2-japanese {
+    @include App.potta-font(1.4rem);
+  }
+  div.user-info3-body-japanese {
+    max-height:100%;
+    .user-info3-body-center-japanese {
+      width: 95%;
+      height: 70vh;
+    }
+  }
+  // 유저정보 버튼
+  div.user-info3-bottom-japanese {
+  }
+  // 리스트
+  div.tarot-info-japanese {
+    width: 100%;
+    height: 100%;
+    @include App.scrollBar-custom-className(
+      tarot-history-japanese,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  div.tarot-history-menu-container-japanese {
+    height: 15%;
+    max-height: 35px;
+  }
+  div.tarot-history-menu-box-japanese {
+    width: auto;
+    height: 100%;
+    // border-radius: 0;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    @include App.potta-font(1rem);
+  }
+  div.tarot-history-menu-box-japanese:hover {
+    @include App.potta-font(1rem);
+  }
+  div.tarot-history-menu-box-japanese:active {
+  }
+  div.tarot-history-menu-box-clicked-japanese {
+  }
+  div.tarot-history-japanese {
+    width: 100%;
+    height: 83%;
+    overflow-y: auto;
+  }
+  div.tarot-history-item-japanese {
+    @include App.potta-font(1rem);
+    & > div:nth-child(1) {
+      & > div:nth-child(1) {
+        & > div:nth-child(1) {
+        }
+      }
+      & > div:nth-child(2) {
+      }
+    }
+    & > div:nth-child(2) {
+      button {
+        @include App.no-select;
+        @include App.potta-font(1rem);
+      }
+
+      button:hover {
+        @include App.potta-font(1rem);
+      }
+    }
+  }
+}
+//* 아이폰SE 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 654px) and (max-device-width: 667px) {
+  h2.h2 {
+    @include App.flex-box-center(row);
+  }
+  div.user-info3-body {
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    padding: 5px;
+    @include App.flex-box-center(row);
+    .user-info3-body-center {
+      width: 95%;
+      height: 70vh;
+    }
+  }
+
+  // 리스트
+  div.tarot-info {
+    width: 100%;
+    height: 100%;
+    @include App.scrollBar-custom-className(
+      tarot-history,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  div.tarot-history-menu-container {
+    width: 100%;
+    height: 15%;
+    max-height: 40px;
+    @include App.flex-box-center(row);
+    justify-content: start;
+  }
+  div.tarot-history-menu-box {
+    width: auto;
+
+    height: 100%;
+    // border-radius: 0;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    @include App.dongle-font(1.6rem);
+  }
+  divtarot-history-menu-box:hover {
+    @include App.dongle-font(1.6rem);
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  div.tarot-history-menu-box:active {
+    color: gold;
+  }
+  div.tarot-history-menu-box-clicked {
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  div.tarot-history {
+    width: 100%;
+    height: 83%;
+    overflow-y: auto;
+    border: 3px solid rgb(218, 165, 32, 0.5);
+  }
+
+  div.tarot-history-item {
+    @include App.dongle-font(1.5rem);
+    & > div:nth-child(1) {
+      & > div:nth-child(1) {
+        & > div:nth-child(1) {
+        }
+      }
+      & > div:nth-child(2) {
+      }
+    }
+    & > div:nth-child(2) {
+      button {
+        @include App.no-select;
+        @include App.dongle-font(1.3rem);
+      }
+      button:hover {
+        @include App.dongle-font(1.3rem);
+      }
+    }
+  }
+
+  h2.h2-japanese {
+    @include App.potta-font(1.4rem);
+  }
+  div.user-info3-body-japanese {
+    max-height:100%;
+    .user-info3-body-center-japanese {
+      width: 95%;
+      height: 70vh;
+    }
+  }
+  // 유저정보 버튼
+  div.user-info3-bottom-japanese {
+  }
+  // 리스트
+  div.tarot-info-japanese {
+    width: 100%;
+    height: 100%;
+    @include App.scrollBar-custom-className(
+      tarot-history-japanese,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  div.tarot-history-menu-container-japanese {
+    height: 15%;
+    max-height: 35px;
+  }
+  div.tarot-history-menu-box-japanese {
+    width: auto;
+    height: 100%;
+    // border-radius: 0;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    @include App.potta-font(1rem);
+  }
+  div.tarot-history-menu-box-japanese:hover {
+    @include App.potta-font(1rem);
+  }
+  div.tarot-history-menu-box-japanese:active {
+  }
+  div.tarot-history-menu-box-clicked-japanese {
+  }
+  div.tarot-history-japanese {
+    width: 100%;
+    height: 83%;
+    overflow-y: auto;
+  }
+  div.tarot-history-item-japanese {
+    @include App.potta-font(1rem);
+    & > div:nth-child(1) {
+      & > div:nth-child(1) {
+        & > div:nth-child(1) {
+        }
+      }
+      & > div:nth-child(2) {
+      }
+    }
+    & > div:nth-child(2) {
+      button {
+        @include App.no-select;
+        @include App.potta-font(0.8rem);
+      }
+
+      button:hover {
+        @include App.potta-font(0.8rem);
+      }
+    }
+  }
+}
+
+//* 갤럭시 폴드 가로모드
+@media screen and (orientation: landscape) and (max-device-width: 653px) {
+  h2.h2 {
+    @include App.flex-box-center(row);
+  }
+  div.user-info3-body {
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    padding: 5px;
+    @include App.flex-box-center(row);
+    .user-info3-body-center {
+      width: 95%;
+      height: 70vh;
+    }
+  }
+
+  // 리스트
+  div.tarot-info {
+    width: 100%;
+    height: 100%;
+    @include App.scrollBar-custom-className(
+      tarot-history,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  div.tarot-history-menu-container {
+    width: 100%;
+    height: 15%;
+    max-height: 40px;
+    @include App.flex-box-center(row);
+    justify-content: start;
+  }
+  div.tarot-history-menu-box {
+    width: auto;
+    height: 100%;
+    // border-radius: 0;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    @include App.dongle-font(1.6rem);
+  }
+  divtarot-history-menu-box:hover {
+    @include App.dongle-font(1.6rem);
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  div.tarot-history-menu-box:active {
+    color: gold;
+  }
+  div.tarot-history-menu-box-clicked {
+    background-color: rgb(218, 165, 32, 0.5);
+  }
+  div.tarot-history {
+    width: 100%;
+    height: 83%;
+    overflow-y: auto;
+    border: 3px solid rgb(218, 165, 32, 0.5);
+  }
+
+  div.tarot-history-item {
+    @include App.dongle-font(1.5rem);
+    & > div:nth-child(1) {
+      & > div:nth-child(1) {
+        & > div:nth-child(1) {
+        }
+      }
+      & > div:nth-child(2) {
+      }
+    }
+    & > div:nth-child(2) {
+      button {
+        @include App.no-select;
+        @include App.dongle-font(1.3rem);
+      }
+      button:hover {
+        @include App.dongle-font(1.3rem);
+      }
+    }
+  }
+
+  h2.h2-japanese {
+    @include App.potta-font(1.2rem);
+  }
+  div.user-info3-body-japanese {
+    max-height:100%;
+    .user-info3-body-center-japanese {
+      width: 95%;
+      height: 70vh;
+    }
+  }
+  // 유저정보 버튼
+  div.user-info3-bottom-japanese {
+  }
+  // 리스트
+  div.tarot-info-japanese {
+    width: 100%;
+    height: 100%;
+    @include App.scrollBar-custom-className(
+      tarot-history-japanese,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  div.tarot-history-menu-container-japanese {
+    height: 15%;
+    max-height: 35px;
+  }
+  div.tarot-history-menu-box-japanese {
+    width: auto;
+    height: 100%;
+    // border-radius: 0;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    @include App.potta-font(1rem);
+  }
+  div.tarot-history-menu-box-japanese:hover {
+    @include App.potta-font(1rem);
+  }
+  div.tarot-history-menu-box-japanese:active {
+  }
+  div.tarot-history-menu-box-clicked-japanese {
+  }
+  div.tarot-history-japanese {
+    width: 100%;
+    height: 83%;
+    overflow-y: auto;
+  }
+  div.tarot-history-item-japanese {
+    @include App.potta-font(1rem);
+    & > div:nth-child(1) {
+      & > div:nth-child(1) {
+        & > div:nth-child(1) {
+        }
+      }
+      & > div:nth-child(2) {
+      }
+    }
+    & > div:nth-child(2) {
+      button {
+        @include App.no-select;
+        @include App.potta-font(1rem);
+      }
+
+      button:hover {
+        @include App.potta-font(1rem);
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+# https://www.robotstxt.org/robotstxt.html
+# Allow all web crawlers access to all content
+User-agent: *
+Allow: /
+Sitemap: https://cosmos-tarot.com/sitemapindex.xml
+

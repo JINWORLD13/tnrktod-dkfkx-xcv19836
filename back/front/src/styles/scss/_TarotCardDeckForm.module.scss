@@ -1,0 +1,443 @@
+@use '_App.module.scss';
+@use '_TarotModal.module.scss';
+
+.button-container {
+  width: 80%;
+  height: 40px;
+  @include App.flex-box-center(row);
+  margin: auto;
+}
+
+.deck {
+  @include TarotModal.deck(0.75);
+  transition: all 0.5s ease; /* 카드 배열이 변경될 때 애니메이션 효과를 적용 */
+  & .card {
+    @include TarotModal.deck-card(0.75); //& deck 눕힌거 : 2/3
+    @include TarotModal.deck-margin(
+      -3px,
+      // -131.3px // TarotModal.deck의 height: 200px;, ratio가 0.65일 때.
+      //-157.3px  // TarotModal.deck의 height: 240px;, ratio가 0.65일 때.
+      -151.35px // TarotModal.deck의 height: 200px;, ratio가 0.75일 때.
+    ); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+  }
+  & .card:nth-child(-1) {
+    /* 카드의 제일 마지막(deck의 제일 위에 위치) */
+    @include TarotModal.deck-card(0.75);
+    z-index: 1;
+    @include TarotModal.deck-margin(-3px, -151.35px);
+  }
+  & .card img {
+    @include TarotModal.card-image(0);
+  }
+}
+
+//~ 디바이스
+@media (min-device-width: 1025px) and (max-device-width: 1366px) {
+}
+//~ 태블릿, 아이패드, 아이패드 프로
+@media (min-device-width: 769px) and (max-device-width: 1024px) {
+}
+//~ 481px ~ 768px 및 태블릿
+@media (min-device-width: 481px) and (max-device-width: 768px) {
+  .deck {
+    @include TarotModal.deck(0.75);
+    transition: all 0.5s ease; /* 카드 배열이 변경될 때 애니메이션 효과를 적용 */
+    & .card {
+      @include TarotModal.deck-card(0.75); //& deck 눕힌거 : 2/3
+      @include TarotModal.deck-margin(
+        -3px,
+        -151.35px
+      ); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+    }
+    & .card:nth-child(-1) {
+      /* 카드의 제일 마지막(deck의 제일 위에 위치) */
+      @include TarotModal.deck-card(0.75);
+      z-index: 1;
+      @include TarotModal.deck-margin(-3px, -151.35px);
+    }
+    & .card img {
+      @include TarotModal.card-image(0);
+    }
+  }
+}
+//~ IPhone 14 Pro Max(430px)
+@media only screen and (min-device-width: 415px) and (max-device-width: 480px) {
+  .deck {
+    @include TarotModal.deck(0.75);
+    transition: all 0.5s ease; /* 카드 배열이 변경될 때 애니메이션 효과를 적용 */
+    & .card {
+      @include TarotModal.deck-card(0.75); //& deck 눕힌거 : 2/3
+      @include TarotModal.deck-margin(
+        -3px,
+        -151.35px
+      ); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+    }
+    & .card:nth-child(-1) {
+      /* 카드의 제일 마지막(deck의 제일 위에 위치) */
+      @include TarotModal.deck-card(0.75);
+      z-index: 1;
+      @include TarotModal.deck-margin(-3px, -151.35px);
+    }
+    & .card img {
+      @include TarotModal.card-image(0);
+    }
+  }
+}
+//~ 아이폰XR
+@media (min-device-width: 376px) and (max-device-width: 414px) {
+  .deck {
+    @include TarotModal.deck(0.75);
+    transition: all 0.5s ease; /* 카드 배열이 변경될 때 애니메이션 효과를 적용 */
+    & .card {
+      @include TarotModal.deck-card(0.75); //& deck 눕힌거 : 2/3
+      @include TarotModal.deck-margin(
+        -3px,
+        -151.35px
+      ); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+    }
+    & .card:nth-child(-1) {
+      /* 카드의 제일 마지막(deck의 제일 위에 위치) */
+      @include TarotModal.deck-card(0.75);
+      z-index: 1;
+      @include TarotModal.deck-margin(-3px, -151.35px);
+    }
+    & .card img {
+      @include TarotModal.card-image(0);
+    }
+  }
+}
+//~ 아이폰 SE
+@media (min-device-width: 281px) and (max-device-width: 375px) {
+  .deck {
+    @include TarotModal.deck(0.55);
+    transition: all 0.5s ease; /* 카드 배열이 변경될 때 애니메이션 효과를 적용 */
+    & .card {
+      @include TarotModal.deck-card(0.55); //& deck 눕힌거 : 2/3
+      @include TarotModal.deck-margin(
+        -3px,
+        -111.25px // -133.1px // TarotModal.deck-card(0.55) 및 height 240px
+      ); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+    }
+    & .card:nth-child(-1) {
+      /* 카드의 제일 마지막(deck의 제일 위에 위치) */
+      @include TarotModal.deck-card(0.55);
+      z-index: 1;
+      @include TarotModal.deck-margin(-3px, -111.25px);
+    }
+    & .card img {
+      @include TarotModal.card-image(0);
+    }
+  }
+}
+
+//~ 갤럭시 폴드
+@media (max-device-width: 280px) {
+  .deck {
+    @include TarotModal.deck(0.5);
+    transition: all 0.5s ease; /* 카드 배열이 변경될 때 애니메이션 효과를 적용 */
+    & .card {
+      @include TarotModal.deck-card(0.5); //& deck 눕힌거 : 2/3
+      @include TarotModal.deck-margin(
+        -3px,
+        -101.2px // -121px // TarotModal.deck-card(0.5) 및 height 240px
+      ); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+    }
+    & .card:nth-child(-1) {
+      /* 카드의 제일 마지막(deck의 제일 위에 위치) */
+      @include TarotModal.deck-card(0.5);
+      z-index: 1;
+      @include TarotModal.deck-margin(-3px, -101.2px);
+    }
+    & .card img {
+      @include TarotModal.card-image(0);
+    }
+  }
+}
+
+//* 아이패드 프로 가로
+@media screen and (orientation: landscape) and (min-device-width: 1025px) and (max-device-width: 1366px) {
+  div.deck {
+    @include TarotModal.deck(0.6);
+    transition: all 0.5s ease; /* 카드 배열이 변경될 때 애니메이션 효과를 적용 */
+    & div.card {
+      @include TarotModal.deck-card(0.6); //& deck 눕힌거 : 2/3
+      @include TarotModal.deck-margin(
+        -3px,
+        // -145.2px // TarotModal.deck-card(0.5) 및 height 240px
+        -121.05px
+      ); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+    }
+    & div.card:nth-child(-1) {
+      /* 카드의 제일 마지막(deck의 제일 위에 위치) */
+      @include TarotModal.deck-card(0.6);
+      z-index: 1;
+      @include TarotModal.deck-margin(-3px, -121.05px);
+    }
+    & .card img {
+      @include TarotModal.card-image(0);
+    }
+  }
+}
+
+//* 태블릿 아이패드, 아이패드 프로 가로
+@media screen and (orientation: landscape) and (min-device-width: 933px) and (max-device-width: 1024px) {
+  div.deck {
+    @include TarotModal.deck(0.6);
+    transition: all 0.5s ease; /* 카드 배열이 변경될 때 애니메이션 효과를 적용 */
+    & div.card {
+      @include TarotModal.deck-card(0.6); //& deck 눕힌거 : 2/3
+      @include TarotModal.deck-margin(
+        -3px,
+        -121.05px
+      ); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+    }
+    & div.card:nth-child(-1) {
+      /* 카드의 제일 마지막(deck의 제일 위에 위치) */
+      @include TarotModal.deck-card(0.6);
+      z-index: 1;
+      @include TarotModal.deck-margin(-3px, -121.05px);
+    }
+    & .card img {
+      @include TarotModal.card-image(0);
+    }
+  }
+}
+
+//* IPhon 14 Pro Max 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 897px) and (max-device-width: 932px) {
+  div.deck {
+    @include TarotModal.deck(0.6);
+    transition: all 0.5s ease; /* 카드 배열이 변경될 때 애니메이션 효과를 적용 */
+    & div.card {
+      @include TarotModal.deck-card(0.6); //& deck 눕힌거 : 2/3
+      @include TarotModal.deck-margin(
+        -3px,
+        -121.05px
+      ); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+    }
+    & div.card:nth-child(-1) {
+      /* 카드의 제일 마지막(deck의 제일 위에 위치) */
+      @include TarotModal.deck-card(0.6);
+      z-index: 1;
+      @include TarotModal.deck-margin(-3px, -121.05px);
+    }
+    & .card img {
+      @include TarotModal.card-image(0);
+    }
+  }
+}
+//* 아이폰XR 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 668px) and (max-device-width: 896px) {
+  div.deck {
+    @include TarotModal.deck(0.6);
+    transition: all 0.5s ease; /* 카드 배열이 변경될 때 애니메이션 효과를 적용 */
+    & div.card {
+      @include TarotModal.deck-card(0.6); //& deck 눕힌거 : 2/3
+      @include TarotModal.deck-margin(
+        -3px,
+        -121.05px
+      ); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+    }
+    & div.card:nth-child(-1) {
+      /* 카드의 제일 마지막(deck의 제일 위에 위치) */
+      @include TarotModal.deck-card(0.6);
+      z-index: 1;
+      @include TarotModal.deck-margin(-3px, -121.05px);
+    }
+    & .card img {
+      @include TarotModal.card-image(0);
+    }
+  }
+}
+//* 아이폰SE 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 654px) and (max-device-width: 667px) {
+  div.deck {
+    @include TarotModal.deck(0.55);
+    transition: all 0.5s ease; /* 카드 배열이 변경될 때 애니메이션 효과를 적용 */
+    & div.card {
+      @include TarotModal.deck-card(0.55); //& deck 눕힌거 : 2/3
+      @include TarotModal.deck-margin(
+        -3px,
+        -111.1px
+      ); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+      // border: 0.01px solid black !important;
+    }
+    & div.card:nth-child(-1) {
+      /* 카드의 제일 마지막(deck의 제일 위에 위치) */
+      @include TarotModal.deck-card(0.55);
+      z-index: 1;
+      @include TarotModal.deck-margin(-3px, -111.1px);
+    }
+    & .card img {
+      @include TarotModal.card-image(0);
+    }
+  }
+}
+
+//* 갤럭시 폴드 가로모드
+@media screen and (orientation: landscape) and (max-device-width: 653px) {
+  div.deck {
+    @include TarotModal.deck(0.4);
+    transition: all 0.5s ease; /* 카드 배열이 변경될 때 애니메이션 효과를 적용 */
+    & div.card {
+      @include TarotModal.deck-card(0.4); //& deck 눕힌거 : 2/3
+      @include TarotModal.deck-margin(
+        -3px,
+        // -97px // TarotModal.deck-card(0.4) 및 height 240px 
+        -81px 
+      ); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+      // border: 0.01px solid black !important;
+    }
+    & div.card:nth-child(-1) {
+      /* 카드의 제일 마지막(deck의 제일 위에 위치) */
+      @include TarotModal.deck-card(0.4);
+      z-index: 1;
+      @include TarotModal.deck-margin(-3px, -81px);
+    }
+    & .card img {
+      @include TarotModal.card-image(0);
+    }
+  }
+}
+
+// //* 아이패드 프로 가로
+// @media screen and (orientation: landscape) and (min-device-width: 1025px) and (max-device-width: 1366px) {
+//   div.deck {
+//     @include TarotModal.deck(0.6);
+//     transition: all 0.5s ease; /* 카드 배열이 변경될 때 애니메이션 효과를 적용 */
+//     & div.card {
+//       @include TarotModal.deck-card(0.6); //& deck 눕힌거 : 2/3
+//       @include TarotModal.deck-margin(
+//         -3px,
+//         -145.2px
+//       ); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+//     }
+//     & div.card:nth-child(-1) {
+//       /* 카드의 제일 마지막(deck의 제일 위에 위치) */
+//       @include TarotModal.deck-card(0.6);
+//       z-index: 1;
+//       @include TarotModal.deck-margin(-3px, -145.2px);
+//     }
+//     & .card img {
+//       @include TarotModal.card-image(0);
+//     }
+//   }
+// }
+
+// //* 태블릿 아이패드, 아이패드 프로 가로
+// @media screen and (orientation: landscape) and (min-device-width: 933px) and (max-device-width: 1024px) {
+//   div.deck {
+//     @include TarotModal.deck(0.6);
+//     transition: all 0.5s ease; /* 카드 배열이 변경될 때 애니메이션 효과를 적용 */
+//     & div.card {
+//       @include TarotModal.deck-card(0.6); //& deck 눕힌거 : 2/3
+//       @include TarotModal.deck-margin(
+//         -3px,
+//         -145.2px
+//       ); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+//     }
+//     & div.card:nth-child(-1) {
+//       /* 카드의 제일 마지막(deck의 제일 위에 위치) */
+//       @include TarotModal.deck-card(0.6);
+//       z-index: 1;
+//       @include TarotModal.deck-margin(-3px, -145.2px);
+//     }
+//     & .card img {
+//       @include TarotModal.card-image(0);
+//     }
+//   }
+// }
+
+// //* IPhon 14 Pro Max 가로모드
+// @media screen and (orientation: landscape) and (min-device-width: 897px) and (max-device-width: 932px) {
+//   div.deck {
+//     @include TarotModal.deck(0.6);
+//     transition: all 0.5s ease; /* 카드 배열이 변경될 때 애니메이션 효과를 적용 */
+//     & div.card {
+//       @include TarotModal.deck-card(0.6); //& deck 눕힌거 : 2/3
+//       @include TarotModal.deck-margin(
+//         -3px,
+//         -145.2px
+//       ); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+//     }
+//     & div.card:nth-child(-1) {
+//       /* 카드의 제일 마지막(deck의 제일 위에 위치) */
+//       @include TarotModal.deck-card(0.6);
+//       z-index: 1;
+//       @include TarotModal.deck-margin(-3px, -145.2px);
+//     }
+//     & .card img {
+//       @include TarotModal.card-image(0);
+//     }
+//   }
+// }
+// //* 아이폰XR 가로모드
+// @media screen and (orientation: landscape) and (min-device-width: 668px) and (max-device-width: 896px) {
+//   div.deck {
+//     @include TarotModal.deck(0.6);
+//     transition: all 0.5s ease; /* 카드 배열이 변경될 때 애니메이션 효과를 적용 */
+//     & div.card {
+//       @include TarotModal.deck-card(0.6); //& deck 눕힌거 : 2/3
+//       @include TarotModal.deck-margin(
+//         -3px,
+//         -145.2px
+//       ); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+//     }
+//     & div.card:nth-child(-1) {
+//       /* 카드의 제일 마지막(deck의 제일 위에 위치) */
+//       @include TarotModal.deck-card(0.6);
+//       z-index: 1;
+//       @include TarotModal.deck-margin(-3px, -145.2px);
+//     }
+//     & .card img {
+//       @include TarotModal.card-image(0);
+//     }
+//   }
+// }
+// //* 아이폰SE 가로모드
+// @media screen and (orientation: landscape) and (min-device-width: 654px) and (max-device-width: 667px) {
+//   div.deck {
+//     @include TarotModal.deck(0.6);
+//     transition: all 0.5s ease; /* 카드 배열이 변경될 때 애니메이션 효과를 적용 */
+//     & div.card {
+//       @include TarotModal.deck-card(0.6); //& deck 눕힌거 : 2/3
+//       @include TarotModal.deck-margin(
+//         -3px,
+//         -145.2px
+//       ); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+//     }
+//     & div.card:nth-child(-1) {
+//       /* 카드의 제일 마지막(deck의 제일 위에 위치) */
+//       @include TarotModal.deck-card(0.6);
+//       z-index: 1;
+//       @include TarotModal.deck-margin(-3px, -145.2px);
+//     }
+//     & .card img {
+//       @include TarotModal.card-image(0);
+//     }
+//   }
+// }
+
+// //* 갤럭시 폴드 가로모드
+// @media screen and (orientation: landscape) and (max-device-width: 653px) {
+//   div.deck {
+//     @include TarotModal.deck(0.4);
+//     transition: all 0.5s ease; /* 카드 배열이 변경될 때 애니메이션 효과를 적용 */
+//     & div.card {
+//       @include TarotModal.deck-card(0.4); //& deck 눕힌거 : 2/3
+//       @include TarotModal.deck-margin(
+//         -3px,
+//         -97px
+//       ); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+//     }
+//     & div.card:nth-child(-1) {
+//       /* 카드의 제일 마지막(deck의 제일 위에 위치) */
+//       @include TarotModal.deck-card(0.4);
+//       z-index: 1;
+//       @include TarotModal.deck-margin(-3px, -97px);
+//     }
+//     & .card img {
+//       @include TarotModal.card-image(0);
+//     }
+//   }
+// }

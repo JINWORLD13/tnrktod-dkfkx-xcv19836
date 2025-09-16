@@ -1,0 +1,807 @@
+@use '_App.module.scss';
+
+.container {
+  width: 100vw;
+  height: calc(100vh - 130px);
+  background-image: url('/assets/images/universe.jpg');
+  background-size: cover;
+  color: gold;
+  overflow: hidden;
+  @include App.flex-box-center(row);
+}
+.box {
+  width: 55%;
+  height: 100%;
+  background-image: url('/assets/images/durumagi1.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  position: relative;
+  @include App.scrollBar-custom-className(
+    content,
+    20px,
+    10px,
+    rgb(177, 40, 40),
+    goldenrod
+  );
+  @include App.scrollBar-custom-className(
+    content-japanese,
+    20px,
+    10px,
+    rgb(177, 40, 40),
+    goldenrod
+  );
+}
+.content {
+  width: 60%;
+  height: 65%;
+  @include App.position-absolute-center();
+  @include App.dongle-font(2rem);
+  color: black;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  h2 {
+    color: black;
+  }
+  // h3 {
+  //   @include App.dongle-font(2rem);
+  //   line-height: 1;
+  // }
+}
+.content-japanese { 
+  width: 60%;
+  height: 65%;
+  @include App.position-absolute-center();
+  @include App.potta-font(1.5rem);
+  line-height: 1.5;
+  color: black;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  h2 {
+    color: black;
+  }
+  // h3 {
+  //   @include App.potta-font(1.5rem);
+  // }
+}
+
+//~ 디바이스
+@media (min-device-width: 1025px) and (max-device-width: 1366px) {
+  .container {
+    background-image: url('/assets/images/universe.jpg');
+    @include App.flex-box-center(row);
+  }
+  .box {
+    width: 60%;
+    height: 80%;
+    background-image: url('/assets/images/durumagi.png');
+    @include App.scrollBar-custom-className(
+      content,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+    @include App.scrollBar-custom-className(
+      content-japanese,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  .content {
+    width: 68%;
+    height: 60%;
+    @include App.dongle-font(1.7rem);
+  }
+  .content-japanese {
+    width: 68%;
+    height: 60%;
+    @include App.potta-font(1.2rem);
+  }
+}
+//~ 태블릿, 아이패드, 아이패드 프로
+@media (min-device-width: 769px) and (max-device-width: 1024px) {
+  .container {
+    background-image: url('/assets/images/universe.jpg');
+    @include App.flex-box-center(row);
+  }
+  .box {
+    width: 100%;
+    height: 80%;
+    background-image: url('/assets/images/durumagi.png');
+    @include App.scrollBar-custom-className(
+      content,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+    @include App.scrollBar-custom-className(
+      content-japanese,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  .content {
+    width: 68%;
+    height: 60%;
+    @include App.dongle-font(1.7rem);
+  }
+  .content-japanese {
+    width: 68%;
+    height: 60%;
+    @include App.potta-font(1.2rem);
+  }
+}
+//~ 481px ~ 768px 및 태블릿
+@media (min-device-width: 481px) and (max-device-width: 768px) {
+  .container {
+    background-image: url('/assets/images/universe.jpg');
+    @include App.flex-box-center(row);
+  }
+  .box {
+    width: 100%;
+    height: 80%;
+    background-image: url('/assets/images/durumagi.png');
+    @include App.scrollBar-custom-className(
+      content,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+    @include App.scrollBar-custom-className(
+      content-japanese,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  .content {
+    width: 68%;
+    height: 60%;
+    @include App.dongle-font(1.7rem);
+  }
+  .content-japanese {
+    width: 68%;
+    height: 60%;
+    @include App.potta-font(1.2rem);
+  }
+}
+//~ IPhone 14 Pro Max(430px)
+@media only screen and (min-device-width: 415px) and (max-device-width: 480px) {
+  .container {
+    background-image: url('/assets/images/universe.jpg');
+    @include App.flex-box-center(row);
+  }
+  .box {
+    width: 100%;
+    height: 80%;
+    background-image: url('/assets/images/durumagi.png');
+    @include App.scrollBar-custom-className(
+      content,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+    @include App.scrollBar-custom-className(
+      content-japanese,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  .content {
+    width: 68%;
+    height: 60%;
+    @include App.dongle-font(1.7rem);
+  }
+  .content-japanese {
+    width: 68%;
+    height: 60%;
+    @include App.potta-font(1.2rem);
+  }
+}
+//~ 아이폰XR
+@media (min-device-width: 376px) and (max-device-width: 414px) {
+  .container {
+    background-image: url('/assets/images/universe.jpg');
+    @include App.flex-box-center(row);
+  }
+  .box {
+    width: 100%;
+    height: 80%;
+    background-image: url('/assets/images/durumagi.png');
+    @include App.scrollBar-custom-className(
+      content,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+    @include App.scrollBar-custom-className(
+      content-japanese,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  .content {
+    width: 68%;
+    height: 60%;
+    @include App.dongle-font(1.5rem);
+  }
+  .content-japanese {
+    width: 68%;
+    height: 60%;
+    @include App.potta-font(1.1rem);
+  }
+}
+//~ 아이폰 SE
+@media (min-device-width: 281px) and (max-device-width: 375px) {
+  .container {
+    background-image: url('/assets/images/universe.jpg');
+    @include App.flex-box-center(row);
+  }
+  .box {
+    width: 100%;
+    height: 80%;
+    background-image: url('/assets/images/durumagi.png');
+    @include App.scrollBar-custom-className(
+      content,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+    @include App.scrollBar-custom-className(
+      content-japanese,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  .content {
+    width: 68%;
+    height: 60%;
+    @include App.dongle-font(1.5rem);
+  }
+  .content-japanese {
+    width: 68%;
+    height: 60%;
+    @include App.potta-font(1rem);
+  }
+}
+
+//~ 갤럭시 폴드
+@media (max-device-width: 280px) {
+  .container {
+    background-image: url('/assets/images/universe.jpg');
+    @include App.flex-box-center(row);
+  }
+  .box {
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/images/durumagi2.png');
+    @include App.scrollBar-custom-className(
+      content,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+    @include App.scrollBar-custom-className(
+      content-japanese,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  .content {
+    width: 85%;
+    height: 68%;
+    @include App.dongle-font(1.5rem);
+  }
+  .content-japanese {
+    width: 85%;
+    height: 68%;
+    @include App.potta-font(1rem);
+  }
+}
+
+//! 반응형 웹사이트
+
+//~ 디바이스
+@media (min-width: 1025px) and (max-width: 1366px) {
+  .container {
+    background-image: url('/assets/images/universe.jpg');
+    @include App.flex-box-center(row);
+  }
+  .box {
+    width: 60%;
+    height: 80%;
+    background-image: url('/assets/images/durumagi.png');
+    @include App.scrollBar-custom-className(
+      content,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+    @include App.scrollBar-custom-className(
+      content-japanese,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  .content {
+    width: 68%;
+    height: 60%;
+    @include App.dongle-font(1.7rem);
+  }
+  .content-japanese {
+    width: 68%;
+    height: 60%;
+    @include App.potta-font(1.2rem);
+  }
+}
+//~ 태블릿, 아이패드, 아이패드 프로
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    background-image: url('/assets/images/universe.jpg');
+    @include App.flex-box-center(row);
+  }
+  .box {
+    width: 100%;
+    height: 80%;
+    background-image: url('/assets/images/durumagi.png');
+    @include App.scrollBar-custom-className(
+      content,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+    @include App.scrollBar-custom-className(
+      content-japanese,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  .content {
+    width: 68%;
+    height: 60%;
+    @include App.dongle-font(1.7rem);
+  }
+  .content-japanese {
+    width: 68%;
+    height: 60%;
+    @include App.potta-font(1.2rem);
+  }
+}
+//~ 481px ~ 768px 및 태블릿
+@media (min-width: 481px) and (max-width: 768px) {
+  .container {
+    background-image: url('/assets/images/universe.jpg');
+    @include App.flex-box-center(row);
+  }
+  .box {
+    width: 100%;
+    height: 80%;
+    background-image: url('/assets/images/durumagi.png');
+    @include App.scrollBar-custom-className(
+      content,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+    @include App.scrollBar-custom-className(
+      content-japanese,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  .content {
+    width: 68%;
+    height: 60%;
+    @include App.dongle-font(1.7rem);
+  }
+  .content-japanese {
+    width: 68%;
+    height: 60%;
+    @include App.potta-font(1.2rem);
+  }
+}
+//~ IPhone 14 Pro Max(430px)
+@media only screen and (min-width: 415px) and (max-width: 480px) {
+  .container {
+    background-image: url('/assets/images/universe.jpg');
+    @include App.flex-box-center(row);
+  }
+  .box {
+    width: 100%;
+    height: 80%;
+    background-image: url('/assets/images/durumagi.png');
+    @include App.scrollBar-custom-className(
+      content,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+    @include App.scrollBar-custom-className(
+      content-japanese,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  .content {
+    width: 68%;
+    height: 60%;
+    @include App.dongle-font(1.7rem);
+  }
+  .content-japanese {
+    width: 68%;
+    height: 60%;
+    @include App.potta-font(1.2rem);
+  }
+}
+//~ 아이폰XR
+@media (min-width: 376px) and (max-width: 414px) {
+  .container {
+    background-image: url('/assets/images/universe.jpg');
+    @include App.flex-box-center(row);
+  }
+  .box {
+    width: 100%;
+    height: 80%;
+    background-image: url('/assets/images/durumagi.png');
+    @include App.scrollBar-custom-className(
+      content,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+    @include App.scrollBar-custom-className(
+      content-japanese,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  .content {
+    width: 68%;
+    height: 60%;
+    @include App.dongle-font(1.5rem);
+  }
+  .content-japanese {
+    width: 68%;
+    height: 60%;
+    @include App.potta-font(1.1rem);
+  }
+}
+//~ 아이폰 SE
+@media (min-width: 281px) and (max-width: 375px) {
+  .container {
+    background-image: url('/assets/images/universe.jpg');
+    @include App.flex-box-center(row);
+  }
+  .box {
+    width: 100%;
+    height: 80%;
+    background-image: url('/assets/images/durumagi.png');
+    @include App.scrollBar-custom-className(
+      content,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+    @include App.scrollBar-custom-className(
+      content-japanese,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  .content {
+    width: 68%;
+    height: 60%;
+    @include App.dongle-font(1.5rem);
+  }
+  .content-japanese {
+    width: 68%;
+    height: 60%;
+    @include App.potta-font(1rem);
+  }
+}
+
+//~ 갤럭시 폴드
+@media (max-width: 280px) {
+  .container {
+    background-image: url('/assets/images/universe.jpg');
+    @include App.flex-box-center(row);
+  }
+  .box {
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/images/durumagi2.png');
+    @include App.scrollBar-custom-className(
+      content,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+    @include App.scrollBar-custom-className(
+      content-japanese,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  .content {
+    width: 85%;
+    height: 68%;
+    @include App.dongle-font(1.5rem);
+  }
+  .content-japanese {
+    width: 85%;
+    height: 68%;
+    @include App.potta-font(1rem);
+  }
+}
+
+//* 아이패드 프로 가로
+@media screen and (orientation: landscape) and (min-device-width: 1025px) and (max-device-width: 1366px) {
+  div.container {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('/assets/images/universe.jpg');
+    @include App.flex-box-center(row);
+  }
+  div.box {
+    width: 70%;
+    height: 85%;
+    background-image: url('/assets/images/durumagi1.png');
+    @include App.scrollBar-custom-className(
+      content,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+    @include App.scrollBar-custom-className(
+      content-japanese,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  div.content {
+    width: 60%;
+    height: 65%;
+    @include App.dongle-font(1.7rem);
+  }
+  div.content-japanese {
+    width: 60%;
+    height: 65%;
+    @include App.potta-font(1.2rem);
+  }
+}
+//* 태블릿 아이패드, 아이패드 프로 가로
+@media screen and (orientation: landscape) and (min-device-width: 933px) and (max-device-width: 1024px) {
+  div.container {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('/assets/images/universe.jpg');
+    @include App.flex-box-center(row);
+  }
+  div.box {
+    width: 70%;
+    height: 85%;
+    background-image: url('/assets/images/durumagi1.png');
+    @include App.scrollBar-custom-className(
+      content,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+    @include App.scrollBar-custom-className(
+      content-japanese,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  div.content {
+    width: 60%;
+    height: 65%;
+    @include App.dongle-font(1.7rem);
+  }
+  div.content-japanese {
+    width: 60%;
+    height: 65%;
+    @include App.potta-font(1.2rem);
+  }
+}
+
+//* IPhon 14 Pro Max 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 897px) and (max-device-width: 932px) {
+  div.container {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('/assets/images/universe.jpg');
+    @include App.flex-box-center(row);
+  }
+  div.box {
+    width: 55%;
+    height: 85%;
+    background-image: url('/assets/images/durumagi1.png');
+    @include App.scrollBar-custom-className(
+      content,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+    @include App.scrollBar-custom-className(
+      content-japanese,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  div.content {
+    width: 60%;
+    height: 65%;
+    @include App.dongle-font(1.7rem);
+  }
+  div.content-japanese {
+    width: 60%;
+    height: 65%;
+    @include App.potta-font(1.2rem);
+  }
+}
+//* 아이폰XR 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 668px) and (max-device-width: 896px) {
+  div.container {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('/assets/images/universe.jpg');
+    @include App.flex-box-center(row);
+  }
+  div.box {
+    width: 55%;
+    height: 85%;
+    background-image: url('/assets/images/durumagi1.png');
+    @include App.scrollBar-custom-className(
+      content,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+    @include App.scrollBar-custom-className(
+      content-japanese,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  div.content {
+    width: 60%;
+    height: 65%;
+    @include App.dongle-font(1.5rem);
+  }
+  div.content-japanese {
+    width: 60%;
+    height: 65%;
+    @include App.potta-font(1rem);
+  }
+}
+
+//* 아이폰SE 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 654px) and (max-device-width: 667px) {
+  div.container {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('/assets/images/universe.jpg');
+    @include App.flex-box-center(row);
+  }
+  div.box {
+    width: 75%;
+    height: 85%;
+    background-image: url('/assets/images/durumagi1.png');
+    @include App.scrollBar-custom-className(
+      content,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+    @include App.scrollBar-custom-className(
+      content-japanese,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  div.content {
+    width: 60%;
+    height: 65%;
+    @include App.dongle-font(1.5rem);
+  }
+  div.content-japanese {
+    width: 60%;
+    height: 65%;
+    @include App.potta-font(1rem);
+  }
+}
+
+//* 갤럭시 폴드 가로모드
+@media screen and (orientation: landscape) and (max-device-width: 653px) {
+  div.container {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('/assets/images/universe.jpg');
+    @include App.flex-box-center(row);
+  }
+  div.box {
+    width: 70%;
+    height: 85%;
+    background-image: url('/assets/images/durumagi2.png');
+    @include App.scrollBar-custom-className(
+      content,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+    @include App.scrollBar-custom-className(
+      content-japanese,
+      10px,
+      10px,
+      rgb(177, 40, 40),
+      goldenrod
+    );
+  }
+  div.content {
+    width: 85%;
+    height: 68%;
+    @include App.dongle-font(1.5rem);
+  }
+  div.content-japanese {
+    width: 85%;
+    height: 68%;
+    @include App.potta-font(1rem);
+  }
+}

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+>
+  <!-- 메인 페이지 -->
+  <url>
+    <loc>https://cosmos-tarot.com/ko</loc>
+    <lastmod>2025-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://cosmos-tarot.com/ko"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://cosmos-tarot.com/ja"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cosmos-tarot.com/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default"  href="https://cosmos-tarot.com/en"/>
+  </url>
+
+  <!-- 타로 원리 -->
+  <url>
+    <loc>https://cosmos-tarot.com/ko/tarot/principle</loc>
+    <lastmod>2025-08-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://cosmos-tarot.com/ko/tarot/principle"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://cosmos-tarot.com/ja/tarot/principle"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cosmos-tarot.com/en/tarot/principle"/>
+    <xhtml:link rel="alternate" hreflang="x-default"  href="https://cosmos-tarot.com/en/tarot/principle"/>
+  </url>
+
+  <!-- 기타 -->
+  <url>
+    <loc>https://cosmos-tarot.com/ko/etc</loc>
+    <lastmod>2025-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://cosmos-tarot.com/ko/etc"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://cosmos-tarot.com/ja/etc"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cosmos-tarot.com/en/etc"/>
+    <xhtml:link rel="alternate" hreflang="x-default"  href="https://cosmos-tarot.com/en/etc"/>
+  </url>
+
+  <!-- 기타 > 타로 설명 -->
+  <url>
+    <loc>https://cosmos-tarot.com/ko/etc/tarot/explanation</loc>
+    <lastmod>2025-07-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://cosmos-tarot.com/ko/etc/tarot/explanation"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://cosmos-tarot.com/ja/etc/tarot/explanation"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cosmos-tarot.com/en/etc/tarot/explanation"/>
+    <xhtml:link rel="alternate" hreflang="x-default"  href="https://cosmos-tarot.com/en/etc/tarot/explanation"/>
+  </url>
+
+  <!-- 기타 > 타로 학습 -->
+  <url>
+    <loc>https://cosmos-tarot.com/ko/etc/tarot/learning</loc>
+    <lastmod>2025-07-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://cosmos-tarot.com/ko/etc/tarot/learning"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://cosmos-tarot.com/ja/etc/tarot/learning"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cosmos-tarot.com/en/etc/tarot/learning"/>
+    <xhtml:link rel="alternate" hreflang="x-default"  href="https://cosmos-tarot.com/en/etc/tarot/learning"/>
+  </url>
+
+  <!-- 기타 > 사업정보 -->
+  <url>
+    <loc>https://cosmos-tarot.com/ko/etc/businessinfo</loc>
+    <lastmod>2025-07-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://cosmos-tarot.com/ko/etc/businessinfo"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://cosmos-tarot.com/ja/etc/businessinfo"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cosmos-tarot.com/en/etc/businessinfo"/>
+    <xhtml:link rel="alternate" hreflang="x-default"  href="https://cosmos-tarot.com/en/etc/businessinfo"/>
+  </url>
+
+  <!-- 마이페이지 및 차트 -->
+  <url>
+    <loc>https://cosmos-tarot.com/ko/mypage</loc>
+    <lastmod>2025-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://cosmos-tarot.com/ko/mypage"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://cosmos-tarot.com/ja/mypage"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cosmos-tarot.com/en/mypage"/>
+    <xhtml:link rel="alternate" hreflang="x-default"  href="https://cosmos-tarot.com/en/mypage"/>
+  </url>
+
+  <url>
+    <loc>https://cosmos-tarot.com/ko/mypage/chart/totalchart</loc>
+    <lastmod>2025-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://cosmos-tarot.com/ko/mypage/chart/totalchart"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://cosmos-tarot.com/ja/mypage/chart/totalchart"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cosmos-tarot.com/en/mypage/chart/totalchart"/>
+    <xhtml:link rel="alternate" hreflang="x-default"  href="https://cosmos-tarot.com/en/mypage/chart/totalchart"/>
+  </url>
+
+  <url>
+    <loc>https://cosmos-tarot.com/ko/mypage/chart/subjectchart</loc>
+    <lastmod>2025-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://cosmos-tarot.com/ko/mypage/chart/subjectchart"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://cosmos-tarot.com/ja/mypage/chart/subjectchart"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cosmos-tarot.com/en/mypage/chart/subjectchart"/>
+    <xhtml:link rel="alternate" hreflang="x-default"  href="https://cosmos-tarot.com/en/mypage/chart/subjectchart"/>
+  </url>
+
+  <url>
+    <loc>https://cosmos-tarot.com/ko/mypage/chart/questiontopicchart</loc>
+    <lastmod>2025-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://cosmos-tarot.com/ko/mypage/chart/questiontopicchart"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://cosmos-tarot.com/ja/mypage/chart/questiontopicchart"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cosmos-tarot.com/en/mypage/chart/questiontopicchart"/>
+    <xhtml:link rel="alternate" hreflang="x-default"  href="https://cosmos-tarot.com/en/mypage/chart/questiontopicchart"/>
+  </url>
+</urlset>

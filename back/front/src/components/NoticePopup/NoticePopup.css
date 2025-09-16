@@ -1,0 +1,283 @@
+@charset "UTF-8";
+.notice-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at center, rgba(138, 43, 226, 0.3) 0%, rgba(25, 25, 112, 0.6) 50%, rgba(0, 0, 0, 0.9) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100000;
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
+  animation: galaxyFadeIn 0.6s ease-out;
+}
+.notice-popup-overlay::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(2px 2px at 13px 27px, #fff, transparent), radial-gradient(1px 1px at 53px 64px, #fff, transparent), radial-gradient(1.5px 1.5px at 102px 18px, #fff, transparent), radial-gradient(2px 2px at 179px 83px, #fff, transparent), radial-gradient(1px 1px at 80px 95px, #fff, transparent);
+  background-repeat: repeat;
+  background-size: 230px 140px;
+  animation: starsTwinkle 3s ease-in-out infinite alternate;
+  opacity: 0.6;
+}
+
+.notice-popup {
+  background: linear-gradient(135deg, rgba(75, 0, 130, 0.95) 0%, rgba(138, 43, 226, 0.9) 25%, rgba(72, 61, 139, 0.9) 50%, rgba(106, 90, 205, 0.9) 75%, rgba(147, 112, 219, 0.95) 100%);
+  border-radius: 24px;
+  box-shadow: 0 30px 60px rgba(138, 43, 226, 0.4), 0 0 100px rgba(138, 43, 226, 0.2), inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow: hidden;
+  animation: cosmicSlideIn 0.6s ease-out;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  position: relative;
+}
+.notice-popup::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1) 1px, transparent 1px), radial-gradient(circle at 70% 80%, rgba(138, 43, 226, 0.2) 2px, transparent 2px), radial-gradient(circle at 20% 70%, rgba(147, 112, 219, 0.15) 1px, transparent 1px);
+  pointer-events: none;
+  border-radius: 20px;
+}
+.notice-popup::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, rgba(138, 43, 226, 0.6), rgba(147, 112, 219, 0.6), rgba(106, 90, 205, 0.6));
+  border-radius: 26px;
+  z-index: -1;
+  animation: cosmicGlow 2s ease-in-out infinite alternate;
+}
+.notice-popup__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px 5px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+}
+.notice-popup__title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #e6e6fa;
+  margin: 0;
+  text-shadow: 0 2px 8px rgba(138, 43, 226, 0.8);
+  font-family: "serif";
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 1;
+}
+.notice-popup__close-btn {
+  background: rgba(75, 0, 130, 0.7);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: #e6e6fa;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  position: relative;
+  z-index: 1;
+}
+.notice-popup__close-btn:hover {
+  background: rgba(138, 43, 226, 0.8);
+  transform: scale(1.1);
+  box-shadow: 0 4px 16px rgba(138, 43, 226, 0.5);
+}
+.notice-popup__content {
+  padding: 20px;
+  color: #f8f8ff;
+  line-height: 1.8;
+  position: relative;
+  z-index: 1;
+  text-align: start;
+  min-height: 120px;
+}
+.notice-popup__content .notice-popup__list {
+  margin: 0;
+}
+.notice-popup__content .notice-popup__list-item {
+  line-height: 1.5;
+  margin-bottom: 8px;
+  font-size: 1.3rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  font-weight: 500;
+  line-height: 1.6;
+  padding-left: 20px; /* 들여쓰기 */
+  list-style-type: none;
+}
+.notice-popup__content .notice-popup__list-item:first-child {
+  line-height: 1.5;
+  margin-bottom: 8px;
+  font-size: 1.3rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  font-weight: 500;
+  line-height: 1.6;
+  list-style-type: none;
+  padding-left: 0;
+}
+.notice-popup__footer {
+  display: flex;
+  flex-direction: column; /* 세로로 배치 */
+  justify-content: center;
+  align-items: center; /* 중앙 정렬 */
+  padding: 10px 20px 10px; /* 패딩 조정 */
+  position: relative;
+  z-index: 1;
+  gap: 12px; /* 버튼과 체크박스 간 간격 */
+}
+.notice-popup__checkbox-section {
+  width: 100%;
+  display: flex;
+  justify-content: center; /* 체크박스를 중앙 정렬 */
+}
+.notice-popup__checkbox-item {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 8px;
+}
+.notice-popup__checkbox {
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  min-height: 18px !important;
+  max-width: 18px !important;
+  max-height: 18px !important;
+  color: white;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 0px solid rgba(255, 255, 255, 0.4) !important;
+}
+.notice-popup__checkbox[data-state=checked] {
+  background: rgba(138, 43, 226, 0.8) !important;
+  border-color: rgb(138, 43, 226) !important;
+}
+.notice-popup__checkbox-label {
+  color: #e6e6fa;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.notice-popup__btn {
+  padding: 5px 8px;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  font-family: "serif";
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  min-width: 120px;
+}
+.notice-popup__btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+.notice-popup__btn:hover::before {
+  left: 100%;
+}
+.notice-popup__btn--primary {
+  background: linear-gradient(135deg, rgba(138, 43, 226, 0.9), rgba(147, 112, 219, 0.9));
+  color: white;
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 6px 20px rgba(138, 43, 226, 0.4);
+}
+.notice-popup__btn--primary:hover {
+  background: linear-gradient(135deg, rgb(147, 112, 219), rgb(138, 43, 226));
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(138, 43, 226, 0.6);
+}
+
+@keyframes galaxyFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes cosmicSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-40px) scale(0.8) rotateX(20deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg);
+  }
+}
+@keyframes starsTwinkle {
+  from {
+    opacity: 0.3;
+  }
+  to {
+    opacity: 0.8;
+  }
+}
+@keyframes cosmicGlow {
+  from {
+    opacity: 0.6;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media (max-width: 480px) {
+  .notice-popup {
+    width: 95%;
+    margin: 20px;
+  }
+  .notice-popup__header {
+    padding: 18px 20px 12px;
+  }
+  .notice-popup__content {
+    padding: 25px 20px;
+    min-height: 100px;
+  }
+  .notice-popup__content p {
+    font-size: 1.2rem;
+  }
+  .notice-popup__footer {
+    padding: 15px 20px 20px;
+    gap: 10px; /* 모바일에서 버튼과 체크박스 간 간격 조정 */
+  }
+  .notice-popup__title {
+    font-size: 0.9rem;
+  }
+  .notice-popup__checkbox-label {
+    font-size: 0.8rem;
+  }
+}/*# sourceMappingURL=NoticePopup.css.map */

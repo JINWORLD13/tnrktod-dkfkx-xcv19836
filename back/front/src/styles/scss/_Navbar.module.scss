@@ -1,0 +1,2636 @@
+@use '_App.module.scss';
+$NavHeight: 50px;
+$MenuItemWidthForGalaxyFold: 70%;
+$MenuItemWidthForIPhonSE: 55%;
+$MenuItemWidthForIPhonXR: 60%;
+$MenuItemWidthFor415To480: 60%;
+$MenuItemWidthFor481To768: 60%;
+$MenuItemWidthForTablet: 50%;
+$MenuItemWidthForIPadProHorizontal: 50%;
+
+.navbar {
+  width: 100vw;
+  height: $NavHeight;
+  padding: 15px;
+  padding-left: 0px;
+  padding-right: 0px;
+  vertical-align: middle;
+  // background: linear-gradient(
+  //   to bottom,
+  //   rgb(78, 6, 78),
+  //   black
+  // ); //! 기존 색생 : rgb(78, 6, 78), #4E064E
+  background-color: rgb(39, 3, 39); /* 더 어두운 나무색 */
+  background-image: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.03) 50%,
+      transparent 50%
+    ),
+    linear-gradient(rgba(255, 255, 255, 0.05) 50%, transparent 50%);
+  background-size: 50px 50px;
+  z-index: 100000;
+  position: relative;
+  color: gold;
+  @include App.dongle-font(1.8rem);
+  // padding-left: env(safe-area-inset-left, 20px);
+  -webkit-tap-highlight-color: transparent;
+  @include App.no-select;
+}
+
+// navbar 안, 전체를 담는 태그
+.container {
+  width: 100%;
+  height: 100%;
+  @include App.flex-box-center(row);
+}
+
+// 제목 태그
+.navbar > .container > div:nth-child(1) {
+  height: $NavHeight;
+  @include App.flex-box-center(column);
+  margin-left: 30px;
+  & > .link-tag-font-style {
+    height: 100%;
+    @include App.flex-box-center(column);
+    & > div {
+      height: 100%;
+      font-size: 2.2rem;
+      font-weight: 600;
+      @include App.flex-box-center(column);
+    }
+  }
+}
+// 여백
+.container > div:nth-child(2) {
+  @include App.flex-grow(1);
+  min-width: 10px;
+}
+// 여백 우측에 있는 메뉴박스
+.container > div.menu-container {
+  @include App.flex-box-center(row);
+  width: auto;
+  height: 100%;
+  // 메뉴박스 내 개별 메뉴들 기준 우측 여백
+  .empty {
+    width: 30px;
+  }
+}
+
+// 메뉴 개별 박스(link 태그나 그 대체 div를 감싸는 태그)
+div.menu-container > div.menu-box {
+  margin-right: 3%;
+}
+// 메뉴 제일 마지막 empty 공간
+div.menu-container > div.menu-box:last-child {
+  margin-right: 0%;
+  width: 0px;
+}
+
+// 개별 메뉴들을 담는 태그(Link와 Link대신 보여줄 div(text 담음)의 부모 태그)(언어설정 부분도 포함함)
+.container > div.menu-container > div.menu-box {
+  @include App.flex-box-center(row);
+  font-weight: 600;
+  width: auto;
+  height: 100%;
+  white-space: pre; // HTML에 작성된 공백을 그대로 유지하라는 의미
+  cursor: pointer;
+}
+
+.container > div.menu-container > div.menu-box > div:hover {
+  color: goldenrod;
+}
+
+// '언어설정'이라는 텍스트를 담은 div를 담는 컨테이너(.menu-box 도 있음.)
+.language-dropDown-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  // @include App.dongle-font(2em);
+}
+// className이 여러개면 마지막꺼로 하면 됨.
+.language-dropDown-container > div:hover {
+  color: goldenrod;
+}
+
+// 언어옵션들을 담은 박스
+.language-dropDown-box {
+  width: 140px;
+  height: auto;
+  background-color: rgb(0, 0, 0, 0);
+  @include App.flex-box-center(column);
+  position: absolute;
+  top: $NavHeight;
+  right: 0px;
+  z-index: 100000;
+  list-style-type: none;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  cursor: pointer;
+}
+// 영어, 한국어
+.language-dropDown-item {
+  height: 60px;
+  margin-left: 10px;
+  margin-right: 10px;
+  @include App.flex-box-center(row);
+  @include App.dongle-font(1.8rem);
+  border-bottom: 3px yellow solid;
+}
+
+// 일본어
+.japanese-language-dropDown-item {
+  height: 60px;
+  margin-left: 10px;
+  margin-right: 10px;
+  @include App.flex-box-center(row);
+  @include App.potta-font(1rem);
+}
+// 영어, 한국어
+.language-dropDown-item:hover {
+  color: goldenrod;
+}
+// 일본어
+.japanese-language-dropDown-item:hover {
+  color: goldenrod;
+}
+
+// Link 태그는 직접 className 적용해야 적용됨.
+.link-tag-font-style > div {
+  color: gold;
+}
+.link-tag-font-style > div:hover {
+  color: goldenrod;
+}
+.link-tag-font-style > div:visited {
+  color: gold;
+}
+
+// ? icon 용
+// ? 한글, 영어판
+// 아이콘(icon태그에 직접 거는 css.)
+.navbar > .container > div.menu-container > .icon-dropDown-container {
+  width: 50%;
+  position: relative;
+  @include App.dongle-font(1.5rem);
+  z-index: 100001;
+  font-size: 1.4rem;
+  //& 추가(아이폰 때문에)
+  position: absolute;
+  right: 30px;
+  width: auto;
+}
+
+// 메뉴들을 담는 태그
+.navbar > .container > div.menu-container > .icon-dropDown-box {
+  width: 40%;
+  max-width: 300px; //&&& 와 못봄(아래 일일이 적용하기).
+  padding-bottom: 30px;
+  background-color: rgb(0, 0, 0, 0.8);
+  border-left: 3px solid goldenrod;
+  border-right: 3px solid goldenrod;
+  border-bottom: 3px solid goldenrod;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  @include App.flex-box-center(column);
+  justify-content: start;
+  position: absolute;
+  top: $NavHeight;
+  right: 0px;
+  z-index: 100000;
+  list-style-type: none;
+
+  // margin-right: env(safe-area-inset-right, 20px);
+}
+
+// 각각의 개별 메뉴들을 담는 태그
+.navbar
+  > .container
+  > div.menu-container
+  > .icon-dropDown-box
+  > .icon-dropDown-item {
+  width: 70%;
+  max-width: 200px;
+  height: auto;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-bottom: 0.5px solid goldenrod;
+  @include App.flex-box-center(column);
+}
+
+.navbar
+  > .container
+  > div.menu-container
+  > .icon-dropDown-box
+  > .icon-dropDown-item
+  :last-child:hover {
+  color: goldenrod;
+  cursor: pointer;
+}
+
+// 개별 태그의 Link 태그 css
+.icon-dropDown-item > .link-tag-font-style > div {
+  color: gold;
+}
+.icon-dropDown-item > .link-tag-font-style > div:hover {
+  color: goldenrod;
+}
+.icon-dropDown-item > .link-tag-font-style > div:visited {
+  color: gold;
+}
+
+// 언어옵션들을 담은 박스
+.icon-language-dropDown-box {
+  width: 70%;
+  max-width: 200px;
+  background-color: rgb(0, 0, 0, 0);
+  @include App.flex-box-center(column);
+  align-items: end;
+}
+
+// 언어옵션 : 영어, 한국어
+.icon-language-dropDown-item {
+  height: auto;
+  margin-right: 0px;
+  @include App.flex-box-center(row);
+  justify-content: end;
+  @include App.dongle-font(1.8rem);
+  border-bottom: 0.5px solid goldenrod;
+  cursor: pointer;
+  line-height: 1;
+}
+.icon-language-dropDown-item:hover {
+  color: goldenrod;
+}
+
+// 언어옵션 : 일본어
+.japanese-icon-language-dropDown-item {
+  height: auto;
+  margin-right: 0px;
+  margin-top: 10px; //! 임시방편 원랜 10px임. 폰트 바꿔서 바꿈.
+  @include App.flex-box-center(row);
+  @include App.potta-font(1rem);
+  cursor: pointer;
+}
+.japanese-icon-language-dropDown-item:hover {
+  color: goldenrod;
+}
+
+//! 일본어 버전
+.navbar-japanese {
+  width: 100vw;
+  height: $NavHeight;
+  padding: 15px;
+  padding-left: 0px;
+  padding-right: 0px;
+  vertical-align: middle;
+  // background: linear-gradient(
+  //   to bottom,
+  //   rgb(78, 6, 78),
+  //   black
+  // ); //! 기존 색생 : rgb(78, 6, 78), #4E064E
+  background-color: rgb(39, 3, 39); /* 더 어두운 나무색 */
+  background-image: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.03) 50%,
+      transparent 50%
+    ),
+    linear-gradient(rgba(255, 255, 255, 0.05) 50%, transparent 50%);
+  background-size: 50px 50px;
+  z-index: 100000;
+  position: relative;
+  color: gold;
+  @include App.potta-font(1rem);
+  // padding-left: env(safe-area-inset-left, 20px);
+  -webkit-tap-highlight-color: transparent;
+}
+
+// 제목 태그
+.navbar-japanese > .container > div:nth-child(1) {
+  height: $NavHeight;
+  @include App.flex-box-center(column);
+  margin-left: 30px;
+  & > .link-tag-font-style {
+    height: 100%;
+    @include App.flex-box-center(column);
+    & > div {
+      height: 100%;
+      // @include App.potta-font(1.2rem);
+      @include App.dongle-font(2.2rem);
+      font-weight: 600;
+      @include App.flex-box-center(column);
+    }
+  }
+}
+// 여백 우측 메뉴 박스
+.navbar-japanese > .container > div.menu-container {
+  & > .empty {
+    width: 30px;
+  }
+}
+.navbar-japanese > .container > div.menu-container > div.menu-box > div:hover {
+  color: goldenrod;
+}
+
+// 영어, 한국어
+.language-dropDown-item-japanese {
+  height: 60px;
+  margin-left: 10px;
+  margin-right: 10px;
+  @include App.flex-box-center(row);
+  @include App.dongle-font(1.8rem);
+  border-bottom: 3px yellow solid;
+}
+
+// 일본어
+.japanese-language-dropDown-item-japanese {
+  height: 60px;
+  margin-left: 10px;
+  margin-right: 10px;
+  @include App.flex-box-center(row);
+  @include App.potta-font(1rem);
+}
+
+// 영어, 한국어
+.language-dropDown-item-japanese:hover {
+  color: goldenrod;
+}
+// 일본어
+.japanese-language-dropDown-item-japanese:hover {
+  color: goldenrod;
+}
+
+// ? icon용
+// ! 일본어 버전
+
+// 아이콘
+.navbar-japanese
+  > .container
+  > div.menu-container
+  > .icon-dropDown-container-japanese {
+  font-size: 1.4rem;
+  z-index: 100001;
+  //& 추가(아이폰 때문에)
+  position: absolute;
+  right: 30px;
+  width: auto;
+}
+
+// 아이콘 메뉴창
+.navbar-japanese > .container > div.menu-container > .icon-dropDown-box {
+  width: 70%;
+  max-width: 300px;
+  padding-bottom: 30px;
+  background-color: rgb(0, 0, 0, 0.8);
+  border-left: 3px solid goldenrod;
+  border-right: 3px solid goldenrod;
+  border-bottom: 3px solid goldenrod;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  @include App.flex-box-center(column);
+  justify-content: start;
+  position: absolute;
+  top: $NavHeight;
+  right: 0px;
+  z-index: 100000;
+  list-style-type: none;
+
+  // margin-right: env(safe-area-inset-right, 20px);
+}
+
+// 개별 메뉴 태그
+.navbar-japanese
+  > .container
+  > div.menu-container
+  > .icon-dropDown-box
+  > .icon-dropDown-item {
+  width: 70%;
+  margin-top: 10px;
+  padding-bottom: 10px;
+  @include App.potta-font(1rem);
+  border-bottom: 0.5px solid goldenrod;
+  @include App.flex-box-center(column);
+  cursor: pointer;
+}
+
+// 언어옵션들을 담은 박스 태그
+.navbar-japanese
+  > .container
+  > div.menu-container
+  > .icon-language-dropDown-box-japanese {
+  width: auto;
+  height: auto;
+  background-color: rgb(0, 0, 0, 0);
+  @include App.flex-box-center(column);
+  position: absolute;
+  top: 70px;
+  z-index: 100000;
+  list-style-type: none;
+  cursor: pointer;
+}
+
+// 언어옵션 : 영어, 한국어
+.icon-language-dropDown-item-japanese {
+  height: auto;
+  @include App.flex-box-center(row);
+  @include App.dongle-font(1.8rem);
+  border-bottom: 0.5px solid goldenrod;
+  cursor: pointer;
+  line-height: 1;
+}
+.icon-language-dropDown-item-japanese:hover {
+  color: goldenrod;
+}
+// 언어옵션 : 일본어
+.icon-japanese-language-dropDown-item-japanese {
+  height: auto;
+  margin-top: 10px; //! 임시방편 원랜 10px임. 폰트 바꿔서 바꿈.
+  @include App.flex-box-center(row);
+  @include App.potta-font(1rem);
+  cursor: pointer;
+}
+.icon-japanese-language-dropDown-item-japanese:hover {
+  color: goldenrod;
+}
+// 개별 태그의 Link 태그 css
+.icon-dropDown-item-japanese > .link-tag-font-style > div {
+  color: gold;
+}
+.icon-dropDown-item-japanese > .link-tag-font-style > div:hover {
+  color: goldenrod;
+}
+.icon-dropDown-item-japanese > .link-tag-font-style > div:visited {
+  color: gold;
+}
+
+
+
+//! 반응형 웹브라우저
+//~ 디바이스
+@media (min-width: 1025px) and (max-width: 1366px) {
+  .navbar {
+    width: 100vw;
+    height: $NavHeight;
+    @include App.dongle-font(1.8rem);
+  }
+  .container {
+  }
+  // 제목 태그
+  .navbar > .container > div:nth-child(1) > .link-tag-font-style > div {
+    @include App.dongle-font(2.2rem);
+    font-weight: 600;
+    @include App.flex-box-center(column);
+  }
+  // 제목 lINK 태그 감싸는 태그
+  .container > div:nth-child(1) {
+  }
+  // 제목-여백-메뉴박스 중 메뉴박스
+  .container > div.menu-container {
+    // 메뉴박스 내 개별 메뉴들 기준 우측 여백
+    .empty {
+    }
+  }
+  // 아이콘
+  .navbar > .container > div.menu-container > .icon-dropDown-container {
+    font-size: 1.4rem;
+  }
+  // 아이콘 메뉴 박스(위의 아이콘 태그하고 병렬임. 주의)
+  .navbar > .container > div.menu-container > .icon-dropDown-box {
+    width: 100%;
+    height: auto;
+    top: $NavHeight;
+  }
+
+  // 각각의 개별 메뉴들 태그
+  .navbar
+    > .container
+    > div.menu-container
+    > .icon-dropDown-box
+    > .icon-dropDown-item {
+    width: $MenuItemWidthForTablet;
+    height: auto;
+    margin-top: 10px;
+  }
+  // 각각의 개별 메뉴들 태그
+  .navbar
+    > .container
+    > div.menu-container
+    > .icon-dropDown-box
+    > .icon-dropDown-item:last-child {
+    width: $MenuItemWidthForTablet;
+    height: auto;
+  }
+  // 언어옵션들을 담은 박스
+  .icon-language-dropDown-box {
+    width: $MenuItemWidthForTablet;
+    @include App.flex-box-center(column);
+    align-items: end;
+  }
+  // 언어옵션 : 영어, 한국어
+  .icon-language-dropDown-item {
+    @include App.dongle-font(1.8rem);
+    height: auto;
+    margin-top: 10px;
+    margin-right: 0px;
+  }
+
+  // 언어옵션 : 일본어
+  .japanese-icon-language-dropDown-item {
+    @include App.potta-font(1rem);
+    height: auto;
+    margin-top: 10px; //! 임시방편 원랜 10px임. 폰트 바꿔서 바꿈.
+    margin-right: 0px;
+  }
+
+  //~ 1025px ~ 1366px
+  //! 일본어 버전
+  .navbar-japanese {
+    height: $NavHeight;
+    @include App.potta-font(1rem);
+  }
+  // 제목 태그
+  .navbar-japanese
+    > .container
+    > div:nth-child(1)
+    > .link-tag-font-style
+    > div {
+    // @include App.potta-font(1.2rem);
+    @include App.dongle-font(2.2rem);
+    font-weight: 600;
+    @include App.flex-box-center(column);
+  }
+
+  // 아이콘
+  .navbar-japanese
+    > .container
+    > div.menu-container
+    > .icon-dropDown-container-japanese {
+    font-size: 1.4rem;
+  }
+
+  // 아이콘메뉴박스
+  .navbar-japanese > .container > div.menu-container > .icon-dropDown-box {
+    width: $MenuItemWidthForTablet + 20%;
+    top: $NavHeight;
+  }
+
+  // 개별 메뉴들을 담는 태그(아이콘하고 병렬임. 종속아님.)
+  .navbar-japanese
+    > .container
+    > div.menu-container
+    > .icon-dropDown-box
+    > .icon-dropDown-item {
+    width: $MenuItemWidthForTablet + 10%;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    @include App.potta-font(1rem);
+  }
+
+  // 각각의 개별 메뉴들을 담는 태그 중 마지막 태그
+  .navbar-japanese
+    > .container
+    > div.menu-container
+    > .icon-dropDown-box
+    > .icon-dropDown-item:last-child {
+    width: $MenuItemWidthForTablet + 10%;
+    height: auto;
+  }
+
+  // 언어옵션들을 담은 박스
+  .icon-language-dropDown-box-japanese {
+    width: $MenuItemWidthForTablet + 10%;
+    @include App.flex-box-center(column);
+    align-items: end;
+  }
+
+  // 언어옵션 : 영어, 한국어
+  .icon-language-dropDown-item-japanese {
+    margin-top: 10px;
+    margin-right: 0px;
+    @include App.dongle-font(1.8rem);
+  }
+  // 언어옵션 : 일본어
+  .icon-japanese-language-dropDown-item-japanese {
+    margin-top: 10px; //! 임시방편 원랜 10px임. 폰트 바꿔서 바꿈.
+    margin-right: 0px;
+    @include App.potta-font(1rem);
+  }
+  .icon-language-dropDown-item-japanese:hover {
+    color: gold;
+  }
+}
+
+//~ 태블릿, 아이패드, 아이패드 프로
+@media (min-width: 769px) and (max-width: 1024px) {
+  .navbar {
+    width: 100vw;
+    height: $NavHeight;
+    @include App.dongle-font(2.5rem);
+  }
+  .container {
+  }
+  // 제목 태그
+  .navbar > .container > div:nth-child(1) > .link-tag-font-style > div {
+    @include App.dongle-font(2.2rem);
+    font-weight: 600;
+    @include App.flex-box-center(column);
+  }
+  // 제목 lINK 태그 감싸는 태그
+  .container > div:nth-child(1) {
+  }
+  // 제목-여백-메뉴박스 중 메뉴박스
+  .container > div.menu-container {
+    // 메뉴박스 내 개별 메뉴들 기준 우측 여백
+    .empty {
+    }
+  }
+  // 아이콘
+  .navbar > .container > div.menu-container > .icon-dropDown-container {
+    font-size: 1.4rem;
+  }
+  // 아이콘 메뉴 박스(위의 아이콘 태그하고 병렬임. 주의)
+  .navbar > .container > div.menu-container > .icon-dropDown-box {
+    width: 100%;
+    height: auto;
+    top: $NavHeight;
+  }
+
+  // 각각의 개별 메뉴들 태그
+  .navbar
+    > .container
+    > div.menu-container
+    > .icon-dropDown-box
+    > .icon-dropDown-item {
+    width: $MenuItemWidthForTablet;
+    height: auto;
+    margin-top: 10px;
+  }
+  // 각각의 개별 메뉴들 태그
+  .navbar
+    > .container
+    > div.menu-container
+    > .icon-dropDown-box
+    > .icon-dropDown-item:last-child {
+    width: $MenuItemWidthForTablet;
+    height: auto;
+  }
+  // 언어옵션들을 담은 박스
+  .icon-language-dropDown-box {
+    width: $MenuItemWidthForTablet;
+    @include App.flex-box-center(column);
+    align-items: end;
+  }
+  // 언어옵션 : 영어, 한국어
+  .icon-language-dropDown-item {
+    @include App.dongle-font(2.2rem);
+    height: auto;
+    margin-top: 10px;
+    margin-right: 0px;
+  }
+
+  // 언어옵션 : 일본어
+  .japanese-icon-language-dropDown-item {
+    @include App.potta-font(1.3rem);
+    height: auto;
+    margin-top: 10px; //! 임시방편 원랜 10px임. 폰트 바꿔서 바꿈.
+    margin-right: 0px;
+  }
+
+  //~ 769px ~ 1024px
+  //! 일본어 버전
+  .navbar-japanese {
+    height: $NavHeight;
+    @include App.potta-font(1.2rem);
+  }
+  // 제목 lINK 태그 감싸는 태그
+  .navbar-japanese
+    > .container
+    > div:nth-child(1)
+    > .link-tag-font-style
+    > div {
+    // @include App.potta-font(1.2rem);
+    @include App.dongle-font(2.2rem);
+    font-weight: 600;
+    @include App.flex-box-center(column);
+  }
+
+  // 아이콘
+  .navbar-japanese
+    > .container
+    > div.menu-container
+    > .icon-dropDown-container-japanese {
+    font-size: 1.4rem;
+  }
+
+  // 아이콘메뉴박스
+  .navbar-japanese > .container > div.menu-container > .icon-dropDown-box {
+    width: $MenuItemWidthForTablet + 20%;
+    top: $NavHeight;
+  }
+
+  // 각각의 개별 메뉴들을 담는 태그(아이콘하고 병렬임. 종속아님.)
+  .navbar-japanese
+    > .container
+    > div.menu-container
+    > .icon-dropDown-box
+    > .icon-dropDown-item {
+    width: $MenuItemWidthForTablet + 10%;
+    margin-top: 25px;
+    padding-bottom: 10px;
+    @include App.potta-font(1.4rem);
+  }
+
+  // 각각의 개별 메뉴들을 담는 태그 중 마지막 태그
+  .navbar-japanese
+    > .container
+    > div.menu-container
+    > .icon-dropDown-box
+    > .icon-dropDown-item:last-child {
+    width: $MenuItemWidthForTablet + 10%;
+    height: auto;
+  }
+
+  // 언어옵션들을 담은 박스
+  .icon-language-dropDown-box-japanese {
+    width: $MenuItemWidthForTablet + 10%;
+    @include App.flex-box-center(column);
+    align-items: end;
+  }
+
+  // 언어옵션 : 영어, 한국어
+  .icon-language-dropDown-item-japanese {
+    margin-top: 10px;
+    margin-right: 0px;
+    @include App.dongle-font(2.2rem);
+  }
+  // 언어옵션 : 일본어
+  .icon-japanese-language-dropDown-item-japanese {
+    margin-top: 10px; //! 임시방편 원랜 10px임. 폰트 바꿔서 바꿈.
+    margin-right: 0px;
+    @include App.potta-font(1.3rem);
+  }
+  .icon-language-dropDown-item-japanese:hover {
+    color: gold;
+  }
+}
+//~ 481px ~ 768px 및 태블릿
+@media (min-width: 481px) and (max-width: 768px) {
+  .navbar {
+    width: 100vw;
+    height: $NavHeight;
+    @include App.dongle-font(1.8rem);
+  }
+  .container {
+  }
+  // 제목 lINK 태그 감싸는 태그
+  .navbar > .container > div:nth-child(1) > .link-tag-font-style > div {
+    @include App.dongle-font(2.2rem);
+    font-weight: 600;
+    @include App.flex-box-center(column);
+  }
+  // 제목 lINK 태그 감싸는 태그
+  .container > div:nth-child(1) {
+  }
+  // 여백 우측 메뉴박스
+  .container > div.menu-container {
+    // 메뉴박스 내 개별 메뉴들 기준 우측 여백
+    .empty {
+    }
+  }
+  // 아이콘
+  .navbar > .container > div.menu-container > .icon-dropDown-container {
+    font-size: 1.4rem;
+  }
+  .navbar > .container > div.menu-container > .icon-dropDown-box {
+    width: $MenuItemWidthForIPhonSE;
+    height: auto;
+    padding-bottom: 30px;
+    background-color: rgb(0, 0, 0, 0.8);
+    border-left: 3px solid goldenrod;
+    border-right: 3px solid goldenrod;
+    border-bottom: 3px solid goldenrod;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    @include App.flex-box-center(column);
+    justify-content: start;
+    position: absolute;
+    top: $NavHeight;
+    right: 0px;
+    z-index: 100000;
+    list-style-type: none;
+  }
+  // 각각의 개별 메뉴들을 담는 태그
+  .icon-dropDown-item {
+    width: $MenuItemWidthForIPhonXR;
+    height: auto;
+    margin-top: 10px;
+  }
+  // 각각의 개별 메뉴들을 담는 태그
+  .icon-dropDown-item:last-child {
+    width: $MenuItemWidthForIPhonXR;
+    height: auto;
+  }
+  // 언어옵션들을 담은 박스
+  .icon-language-dropDown-box {
+    width: 80%;
+    height: auto;
+    background-color: rgb(0, 0, 0, 0);
+    @include App.flex-box-center(column);
+    align-items: end;
+    z-index: 100000;
+    list-style-type: none;
+    width: $MenuItemWidthForIPhonXR;
+  }
+  // 언어옵션 : 영어, 한국어
+  .icon-language-dropDown-item {
+    @include App.dongle-font(1.5rem);
+    height: auto;
+    margin-top: 10px;
+    margin-right: 0px;
+  }
+
+  // 언어옵션 : 일본어
+  .japanese-icon-language-dropDown-item {
+    @include App.potta-font(1rem);
+    height: auto;
+    margin-top: 10px; //! 임시방편 원랜 10px임. 폰트 바꿔서 바꿈.
+    margin-right: 0px;
+  }
+
+  //~ 아이폰XR
+  //! 일본어 버전
+  .navbar-japanese {
+    height: $NavHeight;
+    @include App.potta-font(1rem);
+  }
+  // 제목 lINK 태그 감싸는 태그
+  .navbar-japanese
+    > .container
+    > div:nth-child(1)
+    > .link-tag-font-style
+    > div {
+    // @include App.potta-font(1.2rem);
+    @include App.dongle-font(2.2rem);
+    // font-weight: 600;
+    @include App.flex-box-center(column);
+  }
+
+  // 아이콘
+  .navbar-japanese
+    > .container
+    > div.menu-container
+    > .icon-dropDown-container-japanese {
+    font-size: 1.4rem;
+  }
+
+  // 아이콘메뉴박스
+  .navbar-japanese > .container > div.menu-container > .icon-dropDown-box {
+    width: $MenuItemWidthForIPhonXR;
+    top: $NavHeight;
+  }
+
+  // 각각의 개별 메뉴들을 담는 태그(아이콘하고 병렬임. 종속아님.)
+  .navbar-japanese
+    > .container
+    > div.menu-container
+    > .icon-dropDown-box
+    > .icon-dropDown-item {
+    width: $MenuItemWidthForIPhonXR;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    @include App.potta-font(1.05rem);
+  }
+
+  // 언어옵션들을 담은 박스
+  .icon-language-dropDown-box-japanese {
+  }
+
+  // 언어옵션 : 영어, 한국어
+  .icon-language-dropDown-item-japanese {
+    margin-top: 10px;
+    @include App.dongle-font(1.5rem);
+    margin-right: 0px;
+  }
+  // 언어옵션 : 일본어
+  .icon-japanese-language-dropDown-item-japanese {
+    margin-top: 10px; //! 임시방편 원랜 10px임. 폰트 바꿔서 바꿈.
+    @include App.potta-font(1rem);
+    margin-right: 0px;
+  }
+  .icon-language-dropDown-item-japanese:hover {
+    color: gold;
+  }
+}
+
+//~ IPhone 14 Pro Max(430px)
+@media only screen and (min-width: 415px) and (max-width: 480px) {
+  .navbar {
+    width: 100vw;
+    height: $NavHeight;
+    @include App.dongle-font(1.8rem);
+  }
+  .container {
+  }
+  // 제목 lINK 태그 감싸는 태그
+  .navbar > .container > div:nth-child(1) > .link-tag-font-style > div {
+    @include App.dongle-font(2.2rem);
+    font-weight: 600;
+    @include App.flex-box-center(column);
+  }
+  // 제목 lINK 태그 감싸는 태그
+  .container > div:nth-child(1) {
+  }
+  // 여백 우측 메뉴박스
+  .container > div.menu-container {
+    // 메뉴박스 내 개별 메뉴들 기준 우측 여백
+    .empty {
+    }
+  }
+  // 아이콘
+  .navbar > .container > div.menu-container > .icon-dropDown-container {
+    font-size: 1.4rem;
+  }
+  .navbar > .container > div.menu-container > .icon-dropDown-box {
+    width: $MenuItemWidthForIPhonSE;
+    height: auto;
+    padding-bottom: 30px;
+    background-color: rgb(0, 0, 0, 0.8);
+    border-left: 3px solid goldenrod;
+    border-right: 3px solid goldenrod;
+    border-bottom: 3px solid goldenrod;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    @include App.flex-box-center(column);
+    justify-content: start;
+    position: absolute;
+    top: $NavHeight;
+    right: 0px;
+    z-index: 100000;
+    list-style-type: none;
+  }
+  // 각각의 개별 메뉴들을 담는 태그
+  .icon-dropDown-item {
+    width: $MenuItemWidthForIPhonXR;
+    height: auto;
+    margin-top: 10px;
+  }
+  // 각각의 개별 메뉴들을 담는 태그
+  .icon-dropDown-item:last-child {
+    width: $MenuItemWidthForIPhonXR;
+    height: auto;
+  }
+  // 언어옵션들을 담은 박스
+  .icon-language-dropDown-box {
+    width: 80%;
+    height: auto;
+    background-color: rgb(0, 0, 0, 0);
+    @include App.flex-box-center(column);
+    align-items: end;
+    z-index: 100000;
+    list-style-type: none;
+    width: $MenuItemWidthForIPhonXR;
+  }
+  // 언어옵션 : 영어, 한국어
+  .icon-language-dropDown-item {
+    @include App.dongle-font(1.5rem);
+    height: auto;
+    margin-top: 10px;
+    margin-right: 0px;
+  }
+
+  // 언어옵션 : 일본어
+  .japanese-icon-language-dropDown-item {
+    @include App.potta-font(1rem);
+    height: auto;
+    margin-top: 10px; //! 임시방편 원랜 10px임. 폰트 바꿔서 바꿈.
+    margin-right: 0px;
+  }
+
+  //~ 아이폰XR
+  //! 일본어 버전
+  .navbar-japanese {
+    height: $NavHeight;
+    @include App.potta-font(1rem);
+  }
+  // 제목 lINK 태그 감싸는 태그
+  .navbar-japanese
+    > .container
+    > div:nth-child(1)
+    > .link-tag-font-style
+    > div {
+    // @include App.potta-font(1.2rem);
+    @include App.dongle-font(2.2rem);
+    font-weight: 600;
+    @include App.flex-box-center(column);
+  }
+
+  // 아이콘
+  .navbar-japanese
+    > .container
+    > div.menu-container
+    > .icon-dropDown-container-japanese {
+    font-size: 1.4rem;
+  }
+
+  // 아이콘메뉴박스
+  .navbar-japanese > .container > div.menu-container > .icon-dropDown-box {
+    width: $MenuItemWidthForIPhonXR;
+    top: $NavHeight;
+  }
+
+  // 각각의 개별 메뉴들을 담는 태그(아이콘하고 병렬임. 종속아님.)
+  .navbar-japanese
+    > .container
+    > div.menu-container
+    > .icon-dropDown-box
+    > .icon-dropDown-item {
+    width: $MenuItemWidthForIPhonXR;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    @include App.potta-font(1.05rem);
+  }
+
+  // 언어옵션들을 담은 박스
+  .icon-language-dropDown-box-japanese {
+  }
+
+  // 언어옵션 : 영어, 한국어
+  .icon-language-dropDown-item-japanese {
+    margin-top: 10px;
+    @include App.dongle-font(1.5rem);
+    margin-right: 0px;
+  }
+  // 언어옵션 : 일본어
+  .icon-japanese-language-dropDown-item-japanese {
+    margin-top: 10px; //! 임시방편 원랜 10px임. 폰트 바꿔서 바꿈.
+    @include App.potta-font(1rem);
+    margin-right: 0px;
+  }
+  .icon-language-dropDown-item-japanese:hover {
+    color: gold;
+  }
+}
+
+//~ 아이폰XR
+@media (min-width: 376px) and (max-width: 414px) {
+  .navbar {
+    width: 100vw;
+    height: $NavHeight;
+    @include App.dongle-font(1.8rem);
+  }
+  .container {
+  }
+  // 제목 lINK 태그 감싸는 태그
+  .navbar > .container > div:nth-child(1) > .link-tag-font-style > div {
+    @include App.dongle-font(2.2rem);
+    font-weight: 600;
+    @include App.flex-box-center(column);
+  }
+  // 제목 lINK 태그 감싸는 태그
+  .container > div:nth-child(1) {
+  }
+  // 여백 우측 메뉴박스
+  .container > div.menu-container {
+    // 메뉴박스 내 개별 메뉴들 기준 우측 여백
+    .empty {
+    }
+  }
+  // 아이콘
+  .navbar > .container > div.menu-container > .icon-dropDown-container {
+    font-size: 1.4rem;
+  }
+  .navbar > .container > div.menu-container > .icon-dropDown-box {
+    width: $MenuItemWidthForIPhonSE;
+    height: auto;
+    padding-bottom: 30px;
+    background-color: rgb(0, 0, 0, 0.8);
+    border-left: 3px solid goldenrod;
+    border-right: 3px solid goldenrod;
+    border-bottom: 3px solid goldenrod;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    @include App.flex-box-center(column);
+    justify-content: start;
+    position: absolute;
+    top: $NavHeight;
+    right: 0px;
+    z-index: 100000;
+    list-style-type: none;
+  }
+  // 각각의 개별 메뉴들을 담는 태그
+  .icon-dropDown-item {
+    width: $MenuItemWidthForIPhonXR;
+    height: auto;
+    margin-top: 10px;
+  }
+  // 각각의 개별 메뉴들을 담는 태그
+  .icon-dropDown-item:last-child {
+    width: $MenuItemWidthForIPhonXR;
+    height: auto;
+  }
+  // 언어옵션들을 담은 박스
+  .icon-language-dropDown-box {
+    width: 80%;
+    height: auto;
+    background-color: rgb(0, 0, 0, 0);
+    @include App.flex-box-center(column);
+    align-items: end;
+    z-index: 100000;
+    list-style-type: none;
+    width: $MenuItemWidthForIPhonXR;
+  }
+  // 언어옵션 : 영어, 한국어
+  .icon-language-dropDown-item {
+    @include App.dongle-font(1.5rem);
+    height: auto;
+    margin-top: 10px;
+    margin-right: 0px;
+  }
+
+  // 언어옵션 : 일본어
+  .japanese-icon-language-dropDown-item {
+    @include App.potta-font(1rem);
+    height: auto;
+    margin-top: 10px; //! 임시방편 원랜 10px임. 폰트 바꿔서 바꿈.
+    margin-right: 0px;
+  }
+
+  //~ 아이폰XR
+  //! 일본어 버전
+  .navbar-japanese {
+    height: $NavHeight;
+    @include App.potta-font(1.2rem);
+  }
+  // 제목 lINK 태그 감싸는 태그
+  .navbar-japanese
+    > .container
+    > div:nth-child(1)
+    > .link-tag-font-style
+    > div {
+    // @include App.potta-font(1.2rem);
+    @include App.dongle-font(2.2rem);
+    font-weight: 600;
+    @include App.flex-box-center(column);
+  }
+
+  // 아이콘
+  .navbar-japanese
+    > .container
+    > div.menu-container
+    > .icon-dropDown-container-japanese {
+    font-size: 1.4rem;
+  }
+
+  // 아이콘메뉴박스
+  .navbar-japanese > .container > div.menu-container > .icon-dropDown-box {
+    width: $MenuItemWidthForIPhonXR;
+    top: $NavHeight;
+  }
+
+  // 각각의 개별 메뉴들을 담는 태그(아이콘하고 병렬임. 종속아님.)
+  .navbar-japanese
+    > .container
+    > div.menu-container
+    > .icon-dropDown-box
+    > .icon-dropDown-item {
+    width: $MenuItemWidthForIPhonXR;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    @include App.potta-font(1.05rem);
+  }
+
+  // 언어옵션들을 담은 박스
+  .icon-language-dropDown-box-japanese {
+  }
+
+  // 언어옵션 : 영어, 한국어
+  .icon-language-dropDown-item-japanese {
+    margin-top: 10px;
+    @include App.dongle-font(1.5rem);
+    margin-right: 0px;
+  }
+  // 언어옵션 : 일본어
+  .icon-japanese-language-dropDown-item-japanese {
+    margin-top: 10px; //! 임시방편 원랜 10px임. 폰트 바꿔서 바꿈.
+    @include App.potta-font(1rem);
+    margin-right: 0px;
+  }
+  .icon-language-dropDown-item-japanese:hover {
+    color: gold;
+  }
+}
+
+//~ 아이폰 SE
+@media (min-width: 281px) and (max-width: 375px) {
+  .navbar {
+    width: 100vw;
+    height: $NavHeight;
+    @include App.dongle-font(1.8rem);
+  }
+  .container {
+  }
+  // 제목 lINK 태그 감싸는 태그
+  .navbar > .container > div:nth-child(1) > .link-tag-font-style > div {
+    @include App.dongle-font(2.2rem);
+    font-weight: 600;
+    @include App.flex-box-center(column);
+  }
+  // 제목 lINK 태그 감싸는 태그
+  .container > div:nth-child(1) {
+  }
+  // 여백 우측 메뉴박스
+  .container > div.menu-container {
+    // 메뉴박스 내 개별 메뉴들 기준 우측 여백
+    .empty {
+    }
+  }
+  // 아이콘
+  .navbar > .container > div.menu-container > .icon-dropDown-container {
+    font-size: 1.4rem;
+  }
+  .navbar > .container > div.menu-container > .icon-dropDown-box {
+    width: $MenuItemWidthForIPhonSE;
+    height: auto;
+    padding-bottom: 30px;
+    background-color: rgb(0, 0, 0, 0.8);
+    border-left: 3px solid goldenrod;
+    border-right: 3px solid goldenrod;
+    border-bottom: 3px solid goldenrod;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    @include App.flex-box-center(column);
+    justify-content: start;
+    position: absolute;
+    top: $NavHeight;
+    right: 0px;
+    z-index: 100000;
+    list-style-type: none;
+  }
+  // 각각의 개별 메뉴들을 담는 태그
+  .icon-dropDown-item {
+    width: $MenuItemWidthForIPhonXR;
+    height: auto;
+    margin-top: 10px;
+  }
+  // 각각의 개별 메뉴들을 담는 태그
+  .icon-dropDown-item:last-child {
+    width: $MenuItemWidthForIPhonXR;
+    height: auto;
+  }
+  // 언어옵션들을 담은 박스
+  .icon-language-dropDown-box {
+    width: 80%;
+    height: auto;
+    background-color: rgb(0, 0, 0, 0);
+    @include App.flex-box-center(column);
+    align-items: end;
+    z-index: 100000;
+    list-style-type: none;
+    width: $MenuItemWidthForIPhonXR;
+  }
+  // 언어옵션 : 영어, 한국어
+  .icon-language-dropDown-item {
+    @include App.dongle-font(1.5rem);
+    height: auto;
+    margin-top: 10px;
+    margin-right: 0px;
+  }
+
+  // 언어옵션 : 일본어
+  .japanese-icon-language-dropDown-item {
+    @include App.potta-font(1rem);
+    height: auto;
+    margin-top: 10px; //! 임시방편 원랜 10px임. 폰트 바꿔서 바꿈.
+    margin-right: 0px;
+  }
+
+  //~ 아이폰XR
+  //! 일본어 버전
+  .navbar-japanese {
+    height: $NavHeight;
+    @include App.potta-font(1rem);
+  }
+  // 제목 lINK 태그 감싸는 태그
+  .navbar-japanese
+    > .container
+    > div:nth-child(1)
+    > .link-tag-font-style
+    > div {
+    // @include App.potta-font(1.2rem);
+    @include App.dongle-font(2.2rem);
+    font-weight: 600;
+    @include App.flex-box-center(column);
+  }
+
+  // 아이콘
+  .navbar-japanese
+    > .container
+    > div.menu-container
+    > .icon-dropDown-container-japanese {
+    font-size: 1.4rem;
+  }
+
+  // 아이콘메뉴박스
+  .navbar-japanese > .container > div.menu-container > .icon-dropDown-box {
+    width: $MenuItemWidthForIPhonSE;
+    top: $NavHeight;
+  }
+
+  // 각각의 개별 메뉴들을 담는 태그(아이콘하고 병렬임. 종속아님.)
+  .navbar-japanese
+    > .container
+    > div.menu-container
+    > .icon-dropDown-box
+    > .icon-dropDown-item {
+    width: $MenuItemWidthForIPhonXR;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    @include App.potta-font(1.05rem);
+  }
+
+  // 언어옵션들을 담은 박스
+  .icon-language-dropDown-box-japanese {
+  }
+
+  // 언어옵션 : 영어, 한국어
+  .icon-language-dropDown-item-japanese {
+    margin-top: 10px;
+    @include App.dongle-font(1.5rem);
+    margin-right: 0px;
+  }
+  // 언어옵션 : 일본어
+  .icon-japanese-language-dropDown-item-japanese {
+    margin-top: 10px; //! 임시방편 원랜 10px임. 폰트 바꿔서 바꿈.
+    @include App.potta-font(1rem);
+    margin-right: 0px;
+  }
+  .icon-language-dropDown-item-japanese:hover {
+    color: gold;
+  }
+}
+
+//~ 갤럭시 폴드
+@media (max-width: 280px) {
+  .navbar {
+    height: $NavHeight;
+    @include App.dongle-font(1.5rem);
+  }
+  .container {
+  }
+  // 제목 태그
+  .navbar > .container > div:nth-child(1) > .link-tag-font-style > div {
+    @include App.dongle-font(2.2rem);
+    font-weight: 600;
+    @include App.flex-box-center(column);
+  }
+  // 제목 lINK 태그 감싸는 태그
+  .container > div:nth-child(1) {
+  }
+  // 여백 우측 메뉴박스
+  .container > div.menu-container {
+    // 메뉴박스 내 개별 메뉴들 기준 우측 여백
+    .empty {
+    }
+  }
+  // 아이콘
+  .navbar > .container > div.menu-container > .icon-dropDown-container {
+  }
+  .navbar > .container > div.menu-container > .icon-dropDown-box {
+    width: $MenuItemWidthForGalaxyFold;
+    height: auto;
+    padding-bottom: 30px;
+    background-color: rgb(0, 0, 0, 0.8);
+    border-left: 3px solid goldenrod;
+    border-right: 3px solid goldenrod;
+    border-bottom: 3px solid goldenrod;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    @include App.flex-box-center(column);
+    justify-content: start;
+    position: absolute;
+    top: $NavHeight;
+    right: 0px;
+    z-index: 100000;
+    list-style-type: none;
+  }
+  .icon-language-dropDown-box {
+    width: 100%;
+    height: auto;
+    background-color: rgb(0, 0, 0, 0);
+    @include App.flex-box-center(column);
+    z-index: 100000;
+    list-style-type: none;
+  }
+  // 각각의 개별 메뉴들을 담는 태그
+  .icon-dropDown-item {
+    width: $MenuItemWidthForGalaxyFold;
+    height: auto;
+  }
+  // 각각의 개별 메뉴들을 담는 태그
+  .icon-dropDown-item:last-child {
+    width: $MenuItemWidthForGalaxyFold;
+    height: auto;
+  }
+  // 언어옵션들을 담은 박스
+  .icon-language-dropDown-box {
+    width: $MenuItemWidthForGalaxyFold;
+    @include App.flex-box-center(column);
+    align-items: end;
+  }
+  // 언어옵션 : 영어, 한국어
+  .icon-language-dropDown-item {
+    @include App.dongle-font(1.2rem);
+    height: auto;
+    margin-top: 10px;
+    margin-right: 0px;
+  }
+
+  // 언어옵션 : 일본어
+  .japanese-icon-language-dropDown-item {
+    @include App.potta-font(0.8rem);
+    height: auto;
+    margin-top: 10px; //! 임시방편 원랜 10px임. 폰트 바꿔서 바꿈.
+    margin-right: 0px;
+  }
+
+  //~ 갤럭시 폴드
+  //! 일본어 버전
+  .navbar-japanese {
+    height: $NavHeight;
+    @include App.potta-font(0.9rem);
+  }
+  // 제목 lINK 태그 감싸는 태그
+  .navbar-japanese
+    > .container
+    > div:nth-child(1)
+    > .link-tag-font-style
+    > div {
+    // @include App.potta-font(1.2rem);
+    @include App.dongle-font(2.2rem);
+    font-weight: 600;
+    @include App.flex-box-center(column);
+  }
+
+  // 아이콘
+  .navbar-japanese
+    > .container
+    > div.menu-container
+    > .icon-dropDown-container-japanese {
+    font-size: 1.25rem;
+  }
+
+  // 아이콘 메뉴박스(.icon-dropDown-box)
+
+  // 각각의 개별 메뉴들을 담는 태그(아이콘하고 병렬임. 종속아님.)
+  .navbar-japanese
+    > .container
+    > div.menu-container
+    > .icon-dropDown-box
+    > .icon-dropDown-item {
+    margin-top: 15px;
+    padding-bottom: 8px;
+    @include App.potta-font(0.9rem);
+  }
+
+  // 언어옵션들을 담은 박스
+  .icon-language-dropDown-box-japanese {
+    width: $MenuItemWidthForGalaxyFold;
+    @include App.flex-box-center(column);
+    align-items: end;
+  }
+
+  // 언어옵션 : 영어, 한국어
+  .icon-language-dropDown-item-japanese {
+    margin-top: 8px;
+    @include App.dongle-font(1.3rem);
+    margin-right: 0px;
+  }
+  // 언어옵션 : 일본어
+  .icon-japanese-language-dropDown-item-japanese {
+    margin-top: 15px; //! 임시방편 원랜 10px임. 폰트 바꿔서 바꿈.
+    @include App.potta-font(0.8rem);
+    margin-right: 0px;
+  }
+  .icon-language-dropDown-item-japanese:hover {
+    color: gold;
+  }
+}
+
+//* 아이패드 프로 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 1025px) and (max-device-width: 1366px) {
+  .navbar {
+    width: 100vw;
+    height: $NavHeight;
+    @include App.dongle-font(1.8rem);
+  }
+  .container {
+  }
+  // 제목 태그
+  .navbar > .container > div:nth-child(1) > .link-tag-font-style > div {
+    @include App.dongle-font(2.2rem);
+    font-weight: 600;
+    @include App.flex-box-center(column);
+  }
+  // 제목 lINK 태그 감싸는 태그
+  .container > div:nth-child(1) {
+  }
+  // 제목-여백-메뉴박스 중 메뉴박스
+  .container > div.menu-container {
+    // 메뉴박스 내 개별 메뉴들 기준 우측 여백
+    .empty {
+    }
+  }
+  // 아이콘
+  .navbar > .container > div.menu-container > .icon-dropDown-container {
+    font-size: 1.4rem;
+
+    // margin-right: env(safe-area-inset-right, 20px);
+  }
+  // 아이콘 메뉴 박스(위의 아이콘 태그하고 병렬임. 주의)
+  .navbar > .container > div.menu-container > .icon-dropDown-box {
+    width: 100%;
+    height: auto;
+    top: $NavHeight;
+  }
+
+  // 각각의 개별 메뉴들 태그
+  .navbar
+    > .container
+    > div.menu-container
+    > .icon-dropDown-box
+    > .icon-dropDown-item {
+    width: $MenuItemWidthForTablet;
+    height: auto;
+    margin-top: 10px;
+  }
+  // 각각의 개별 메뉴들 태그
+  .navbar
+    > .container
+    > div.menu-container
+    > .icon-dropDown-box
+    > .icon-dropDown-item:last-child {
+    width: $MenuItemWidthForTablet;
+    height: auto;
+  }
+  // 언어옵션들을 담은 박스
+  .icon-language-dropDown-box {
+    width: $MenuItemWidthForTablet;
+    @include App.flex-box-center(column);
+    align-items: end;
+  }
+  // 언어옵션 : 영어, 한국어
+  .icon-language-dropDown-item {
+    @include App.dongle-font(1.8rem);
+    height: auto;
+    margin-top: 10px;
+    margin-right: 0px;
+  }
+
+  // 언어옵션 : 일본어
+  .japanese-icon-language-dropDown-item {
+    @include App.potta-font(1rem);
+    height: auto;
+    margin-top: 10px; //! 임시방편 원랜 10px임. 폰트 바꿔서 바꿈.
+    margin-right: 0px;
+  }
+
+  //~ 1025px ~ 1366px
+  //! 일본어 버전
+  .navbar-japanese {
+    height: $NavHeight;
+    @include App.potta-font(1rem);
+  }
+  // 제목 태그
+  .navbar-japanese
+    > .container
+    > div:nth-child(1)
+    > .link-tag-font-style
+    > div {
+    // @include App.potta-font(1.2rem);
+    @include App.dongle-font(2.2rem);
+    font-weight: 600;
+    @include App.flex-box-center(column);
+  }
+
+  // 아이콘
+  .navbar-japanese
+    > .container
+    > div.menu-container
+    > .icon-dropDown-container-japanese {
+    font-size: 1.4rem;
+  }
+
+  // 아이콘메뉴박스
+  .navbar-japanese > .container > div.menu-container > .icon-dropDown-box {
+    width: $MenuItemWidthForTablet + 20%;
+    top: $NavHeight;
+
+    // margin-right: env(safe-area-inset-right, 20px);
+  }
+
+  // 개별 메뉴들을 담는 태그(아이콘하고 병렬임. 종속아님.)
+  .navbar-japanese
+    > .container
+    > div.menu-container
+    > .icon-dropDown-box
+    > .icon-dropDown-item {
+    width: $MenuItemWidthForTablet + 10%;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    @include App.potta-font(1rem);
+  }
+
+  // 각각의 개별 메뉴들을 담는 태그 중 마지막 태그
+  .navbar-japanese
+    > .container
+    > div.menu-container
+    > .icon-dropDown-box
+    > .icon-dropDown-item:last-child {
+    width: $MenuItemWidthForTablet + 10%;
+    height: auto;
+  }
+
+  // 언어옵션들을 담은 박스
+  .icon-language-dropDown-box-japanese {
+    width: $MenuItemWidthForTablet + 10%;
+    @include App.flex-box-center(column);
+    align-items: end;
+  }
+
+  // 언어옵션 : 영어, 한국어
+  .icon-language-dropDown-item-japanese {
+    margin-top: 10px;
+    margin-right: 0px;
+    @include App.dongle-font(1.8rem);
+  }
+  // 언어옵션 : 일본어
+  .icon-japanese-language-dropDown-item-japanese {
+    margin-top: 10px; //! 임시방편 원랜 10px임. 폰트 바꿔서 바꿈.
+    margin-bottom: 0px;
+    margin-right: 0px;
+    @include App.potta-font(1rem);
+    
+  }
+  .icon-language-dropDown-item-japanese:hover {
+    color: gold;
+  }
+}
+//* 태블릿 아이패드, 아이패드 프로 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 933px) and (max-device-width: 1024px) {
+  nav.navbar {
+    width: 100vw;
+    height: $NavHeight;
+    @include App.dongle-font(2.5rem);
+  }
+  div.container {
+  }
+  // 제목 태그
+  nav.navbar > .container > div:nth-child(1) > .link-tag-font-style > div {
+    @include App.dongle-font(2.2rem);
+    font-weight: 600;
+    @include App.flex-box-center(column);
+  }
+  // 제목 lINK 태그 감싸는 태그
+  div.container > div:nth-child(1) {
+  }
+  // 제목-여백-메뉴박스 중 메뉴박스
+  div.container > div.menu-container {
+    // 메뉴박스 내 개별 메뉴들 기준 우측 여백
+    .empty {
+    }
+  }
+  // 아이콘
+  nav.navbar > .container > div.menu-container > .icon-dropDown-container {
+    font-size: 1.4rem;
+  }
+  // 아이콘 메뉴 박스(위의 아이콘 태그하고 병렬임. 주의)
+  nav.navbar > .container > div.menu-container > .icon-dropDown-box {
+    width: 100%;
+    height: auto;
+    top: $NavHeight;
+
+    // margin-right: env(safe-area-inset-right, 20px);
+  }
+
+  // 각각의 개별 메뉴들 태그
+  nav.navbar
+    > .container
+    > div.menu-container
+    > .icon-dropDown-box
+    > .icon-dropDown-item {
+    width: $MenuItemWidthForTablet;
+    height: auto;
+    margin-top: 10px;
+  }
+  // 각각의 개별 메뉴들 태그
+  nav.navbar
+    > .container
+    > div.menu-container
+    > .icon-dropDown-box
+    > .icon-dropDown-item:last-child {
+    width: $MenuItemWidthForTablet;
+    height: auto;
+  }
+  // 언어옵션들을 담은 박스
+  div.icon-language-dropDown-box {
+    width: $MenuItemWidthForTablet;
+    @include App.flex-box-center(column);
+    align-items: end;
+  }
+  // 언어옵션 : 영어, 한국어
+  div.icon-language-dropDown-item {
+    @include App.dongle-font(2.2rem);
+    height: auto;
+    margin-top: 10px;
+    margin-right: 0px;
+  }
+
+  // 언어옵션 : 일본어
+  div.japanese-icon-language-dropDown-item {
+    @include App.potta-font(1.3rem);
+    height: auto;
+    margin-top: 10px; //! 임시방편 원랜 10px임. 폰트 바꿔서 바꿈.
+    margin-right: 0px;
+  }
+
+  //~ 933px ~ 1024px
+  //! 일본어 버전
+  nav.navbar-japanese {
+    height: $NavHeight;
+    @include App.potta-font(1.2rem);
+  }
+  // 제목 lINK 태그 감싸는 태그
+  nav.navbar-japanese
+    > .container
+    > div:nth-child(1)
+    > .link-tag-font-style
+    > div {
+    // @include App.potta-font(1.2rem);
+    @include App.dongle-font(2.2rem);
+    font-weight: 600;
+    @include App.flex-box-center(column);
+  }
+
+  // 아이콘
+  nav.navbar-japanese
+    > .container
+    > div.menu-container
+    > .icon-dropDown-container-japanese {
+    font-size: 1.4rem;
+  }
+
+  // 아이콘메뉴박스
+  nav.navbar-japanese > .container > div.menu-container > .icon-dropDown-box {
+    width: $MenuItemWidthForTablet + 20%;
+    top: $NavHeight;
+
+    // margin-right: env(safe-area-inset-right, 20px);
+  }
+
+  // 각각의 개별 메뉴들을 담는 태그(아이콘하고 병렬임. 종속아님.)
+  nav.navbar-japanese
+    > .container
+    > div.menu-container
+    > .icon-dropDown-box
+    > .icon-dropDown-item {
+    width: $MenuItemWidthForTablet + 10%;
+    margin-top: 25px;
+    padding-bottom: 10px;
+    @include App.potta-font(1.4rem);
+  }
+
+  // 각각의 개별 메뉴들을 담는 태그 중 마지막 태그
+  nav.navbar-japanese
+    > .container
+    > div.menu-container
+    > .icon-dropDown-box
+    > .icon-dropDown-item:last-child {
+    width: $MenuItemWidthForTablet + 10%;
+    height: auto;
+  }
+
+  // 언어옵션들을 담은 박스
+  div.icon-language-dropDown-box-japanese {
+    width: $MenuItemWidthForTablet + 10%;
+    @include App.flex-box-center(column);
+    align-items: end;
+  }
+
+  // 언어옵션 : 영어, 한국어
+  div.icon-language-dropDown-item-japanese {
+    margin-top: 10px;
+    margin-right: 0px;
+    @include App.dongle-font(2.2rem);
+  }
+  // 언어옵션 : 일본어
+  div.icon-japanese-language-dropDown-item-japanese {
+    margin-top: 10px; //! 임시방편 원랜 10px임. 폰트 바꿔서 바꿈.
+    margin-bottom: 0px;
+    margin-right: 0px;
+    @include App.potta-font(1.3rem);
+    
+  }
+  div.icon-language-dropDown-item-japanese:hover {
+    color: gold;
+  }
+  // nav.navbar {
+  //   background: transparent;
+  //   position: absolute;
+  //   @include App.dongle-font(2.5rem);
+  // }
+
+  // // 제목 태그
+  // nav.navbar > .container > div:nth-child(1) > .link-tag-font-style > div {
+  //   padding-top: 10px;
+  //   @include App.dongle-font(2.2rem);
+  //   font-weight: 600;
+  //   @include App.flex-box-center(column);
+  // }
+
+  // nav.navbar > .container > div.menu-container > .icon-dropDown-container {
+  //   z-index: 100001;
+  //   font-size: 1.4rem;
+  // }
+
+  // nav.navbar > .container > div.menu-container > div.icon-dropDown-box {
+  //   width: $MenuItemWidthForTablet;
+  //   top: 0;
+  //   z-index: 100000;
+  //   border-bottom-right-radius: 0%;
+  //   @include App.dongle-font(1.7rem);
+  // }
+
+  // // 언어옵션들을 담은 박스
+  // nav.navbar
+  //   > .container
+  //   > div.menu-container
+  //   > .icon-dropDown-box
+  //   > .icon-language-dropDown-box {
+  //   width: $MenuItemWidthForTablet;
+  //   max-width: 200px;
+  //   @include App.flex-box-center(row);
+  //   align-items: end;
+  // }
+
+  // // 언어옵션 : 영어, 한국어
+  // nav.navbar
+  //   > .container
+  //   > div.menu-container
+  //   > .icon-dropDown-box
+  //   > .icon-language-dropDown-box
+  //   > .icon-language-dropDown-item {
+  //   width: 30%;
+  //   height: 30px;
+  //   @include App.flex-box-center(row);
+  //   @include App.dongle-font(2.2rem);
+  //   border: 0.5px solid goldenrod;
+  //   cursor: pointer;
+  // }
+
+  // nav.navbar
+  //   > .container
+  //   > div.menu-container
+  //   > .icon-dropDown-box
+  //   > .icon-language-dropDown-box
+  //   > .japanese-icon-language-dropDown-item {
+  //   width: 30%;
+  //   height: 30px;
+  //   @include App.flex-box-center(row);
+  //   @include App.potta-font(1.3rem);
+  //   border: 0.5px solid goldenrod;
+  //   cursor: pointer;
+  // }
+
+  // //! 일본어 버전
+  // nav.navbar-japanese {
+  //   background: transparent;
+  //   position: absolute;
+  //   @include App.potta-font(1.2rem);
+  // }
+
+  // nav.navbar-japanese
+  //   > .container
+  //   > div.menu-container
+  //   > .icon-dropDown-container-japanese {
+  //   z-index: 100001;
+  //   font-size: 1.4rem;
+  // }
+
+  // nav.navbar-japanese
+  //   > .container
+  //   > div.menu-container
+  //   > div.icon-dropDown-box {
+  //   width: $MenuItemWidthForTablet + 20%;
+  //   max-width: 200px;
+  //   position: absolute;
+  //   top: 0;
+  //   z-index: 100000;
+  //   border-bottom-right-radius: 0%;
+  //   padding-right: 20px;
+  // }
+
+  // // 개별메뉴 박스
+  // nav.navbar-japanese
+  //   > .container
+  //   > div.menu-container
+  //   > div.icon-dropDown-box
+  //   > .icon-dropDown-item {
+  //   @include App.potta-font(1.4rem);
+  //   top: 0px;
+  //   width: $MenuItemWidthForTablet + 10%;
+  //   margin-top: 25px;
+  //   margin-left: 0px;
+  //   margin-right: 0px;
+  //   padding-bottom: 10px;
+  //   border-bottom: 0.5px solid goldenrod;
+  //   @include App.flex-box-center(column);
+  // }
+
+  // // 언어옵션들을 담은 박스
+  // nav.navbar-japanese
+  //   > .container
+  //   > div.menu-container
+  //   > .icon-dropDown-box
+  //   > .icon-language-dropDown-box {
+  //   width: $MenuItemWidthForTablet + 10%;
+  //   @include App.flex-box-center(row);
+  //   border-bottom-left-radius: 0%;
+  //   border-bottom-right-radius: 0%;
+  // }
+
+  // // 언어옵션 : 영어, 한국어
+  // nav.navbar-japanese
+  //   > .container
+  //   > .menu-container
+  //   > .icon-dropDown-box
+  //   > .icon-language-dropDown-box
+  //   > .icon-language-dropDown-item-japanese {
+  //   width: 30%;
+  //   height: 30px;
+  //   @include App.flex-box-center(row);
+  //   @include App.dongle-font(2.2rem);
+  //   border: 0.5px solid goldenrod;
+  //   cursor: pointer;
+  // }
+
+  // nav.navbar-japanese
+  //   > .container
+  //   > .menu-container
+  //   > .icon-dropDown-box
+  //   > .icon-language-dropDown-box
+  //   > .icon-japanese-language-dropDown-item-japanese {
+  //   width: 30%;
+  //   height: 30px;
+  //   @include App.flex-box-center(row);
+  //   @include App.potta-font(1.3rem);
+  //   border: 0.5px solid goldenrod;
+  //   cursor: pointer;
+  // }
+}
+
+//* IPhon14 Pro Max 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 897px) and (max-device-width: 932px) {
+  nav.navbar {
+    background: transparent;
+    position: absolute;
+  }
+  // 제목 태그
+  nav.navbar > .container > div:nth-child(1) > .link-tag-font-style > div {
+    padding-top: 10px;
+  }
+  
+  nav.navbar > .container > div.menu-container > .icon-dropDown-container {
+    z-index: 100001;
+    font-size: 1.3rem;
+  }
+
+  nav.navbar > .container > div.menu-container > div.icon-dropDown-box {
+    width: 25%;
+    top: 0;
+    z-index: 100000;
+    border-bottom-right-radius: 0%;
+    @include App.dongle-font(1.7rem);
+  }
+  // 개별메뉴 박스
+  nav.navbar
+    > .container
+    > div.menu-container
+    > .icon-dropDown-box
+    > .icon-dropDown-item {
+  }
+  // 언어옵션들을 담은 박스
+  nav.navbar
+    > .container
+    > div.menu-container
+    > .icon-dropDown-box
+    > .icon-language-dropDown-box {
+    width: 70%;
+    max-width: 200px;
+    @include App.flex-box-center(row);
+    align-items: end;
+
+    // margin-right: env(safe-area-inset-right, 20px);
+  }
+  // 언어옵션 : 영어, 한국어
+  nav.navbar
+    > .container
+    > div.menu-container
+    > .icon-dropDown-box
+    > .icon-language-dropDown-box
+    > .icon-language-dropDown-item {
+    width: 30%;
+    height: 30px;
+    @include App.flex-box-center(row);
+    @include App.dongle-font(1.2rem);
+    border: 0.5px solid goldenrod;
+    cursor: pointer;
+  }
+  nav.navbar
+    > .container
+    > div.menu-container
+    > .icon-dropDown-box
+    > .icon-language-dropDown-box
+    > .japanese-icon-language-dropDown-item {
+    width: 30%;
+    height: 30px;
+    @include App.flex-box-center(row);
+    @include App.potta-font(0.6rem);
+    border: 0.5px solid goldenrod;
+    cursor: pointer;
+  }
+
+  //! 일본어 버전
+  nav.navbar-japanese {
+    background: transparent;
+    position: absolute;
+  }
+  // 제목 태그
+  nav.navbar-japanese > .container > div:nth-child(1) > .link-tag-font-style > div {
+    padding-top: 10px;
+  }
+
+  nav.navbar-japanese
+    > .container
+    > div.menu-container
+    > .icon-dropDown-container-japanese {
+    z-index: 100001;
+    font-size: 1.3rem;
+  }
+
+  nav.navbar-japanese
+    > .container
+    > div.menu-container
+    > div.icon-dropDown-box {
+    width: 30%;
+    max-width: 200px;
+    position: absolute;
+    top: 0;
+    z-index: 100000;
+    border-bottom-right-radius: 0%;
+    padding-right: 20px;
+
+    // margin-right: env(safe-area-inset-right, 20px);
+  }
+  // 개별메뉴 박스
+  nav.navbar-japanese
+    > .container
+    > div.menu-container
+    > div.icon-dropDown-box
+    > .icon-dropDown-item {
+    @include App.potta-font(0.9rem);
+    top: 0px;
+    width: 75%;
+    margin-top: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+    border-bottom: 0.5px solid goldenrod;
+    @include App.flex-box-center(column);
+  }
+  // 언어옵션들을 담은 박스
+  nav.navbar-japanese
+    > .container
+    > div.menu-container
+    > .icon-dropDown-box
+    > .icon-language-dropDown-box {
+    width: 75%;
+    @include App.flex-box-center(row);
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+  }
+  // 언어옵션 : 영어, 한국어
+  nav.navbar-japanese
+    > .container
+    > .menu-container
+    > .icon-dropDown-box
+    > .icon-language-dropDown-box
+    > .icon-language-dropDown-item-japanese {
+    width: 30%;
+    height: 30px;
+    @include App.flex-box-center(row);
+    @include App.dongle-font(1.2rem);
+    border: 0.5px solid goldenrod;
+    cursor: pointer;
+  }
+  nav.navbar-japanese
+    > .container
+    > .menu-container
+    > .icon-dropDown-box
+    > .icon-language-dropDown-box
+    > .icon-japanese-language-dropDown-item-japanese {
+    width: 30%;
+    height: 30px;
+    @include App.flex-box-center(row);
+    @include App.potta-font(0.6rem);
+    border: 0.5px solid goldenrod;
+    cursor: pointer;
+    margin-top: 10px; //! 임시방편 원랜 10px임. 폰트 바꿔서 바꿈.
+    margin-bottom: 0px;
+  }
+}
+
+//* 아이폰XR 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 668px) and (max-device-width: 896px) {
+  nav.navbar {
+    background: transparent;
+    position: absolute;
+  }
+  // 제목 태그
+  nav.navbar > .container > div:nth-child(1) > .link-tag-font-style > div {
+    padding-top: 10px;
+  }
+  
+  nav.navbar > .container > div.menu-container > .icon-dropDown-container {
+    z-index: 100001;
+    font-size: 1.2rem;
+  }
+
+  nav.navbar > .container > div.menu-container > div.icon-dropDown-box {
+    width: 25%;
+    top: 0;
+    z-index: 100000;
+    border-bottom-right-radius: 0%;
+    @include App.dongle-font(1.7rem);
+
+    // margin-right: env(safe-area-inset-right, 20px);
+  }
+  // 개별메뉴 박스
+  nav.navbar
+    > .container
+    > div.menu-container
+    > .icon-dropDown-box
+    > .icon-dropDown-item {
+  }
+  // 언어옵션들을 담은 박스
+  nav.navbar
+    > .container
+    > div.menu-container
+    > .icon-dropDown-box
+    > .icon-language-dropDown-box {
+    width: 70%;
+    max-width: 200px;
+    @include App.flex-box-center(row);
+    align-items: end;
+  }
+  // 언어옵션 : 영어, 한국어
+  nav.navbar
+    > .container
+    > div.menu-container
+    > .icon-dropDown-box
+    > .icon-language-dropDown-box
+    > .icon-language-dropDown-item {
+    width: 30%;
+    height: 30px;
+    @include App.flex-box-center(row);
+    @include App.dongle-font(1.05rem);
+    border: 0.5px solid goldenrod;
+    cursor: pointer;
+  }
+  nav.navbar
+    > .container
+    > div.menu-container
+    > .icon-dropDown-box
+    > .icon-language-dropDown-box
+    > .japanese-icon-language-dropDown-item {
+    width: 30%;
+    height: 30px;
+    @include App.flex-box-center(row);
+    @include App.potta-font(0.6rem);
+    border: 0.5px solid goldenrod;
+    cursor: pointer;
+  }
+
+  //! 일본어 버전
+  nav.navbar-japanese {
+    background: transparent;
+    position: absolute;
+  }
+  // 제목 태그
+  nav.navbar-japanese > .container > div:nth-child(1) > .link-tag-font-style > div {
+    padding-top: 10px;
+  }
+  nav.navbar-japanese
+    > .container
+    > div.menu-container
+    > .icon-dropDown-container-japanese {
+    z-index: 100001;
+    font-size: 1.2rem;
+  }
+
+  nav.navbar-japanese
+    > .container
+    > div.menu-container
+    > div.icon-dropDown-box {
+    width: 30%;
+    max-width: 200px;
+    position: absolute;
+    top: 0;
+    z-index: 100000;
+    border-bottom-right-radius: 0%;
+    padding-right: 20px;
+
+    // margin-right: env(safe-area-inset-right, 20px);
+  }
+  // 개별메뉴 박스
+  nav.navbar-japanese
+    > .container
+    > div.menu-container
+    > div.icon-dropDown-box
+    > .icon-dropDown-item {
+    @include App.potta-font(0.9rem);
+    top: 0px;
+    width: 75%;
+    margin-top: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+    border-bottom: 0.5px solid goldenrod;
+    @include App.flex-box-center(column);
+  }
+  // 언어옵션들을 담은 박스
+  nav.navbar-japanese
+    > .container
+    > div.menu-container
+    > .icon-dropDown-box
+    > .icon-language-dropDown-box {
+    width: 75%;
+    @include App.flex-box-center(row);
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+  }
+  // 언어옵션 : 영어, 한국어
+  nav.navbar-japanese
+    > .container
+    > .menu-container
+    > .icon-dropDown-box
+    > .icon-language-dropDown-box
+    > .icon-language-dropDown-item-japanese {
+    width: 30%;
+    height: 30px;
+    @include App.flex-box-center(row);
+    @include App.dongle-font(1.05rem);
+    border: 0.5px solid goldenrod;
+    cursor: pointer;
+  }
+  nav.navbar-japanese
+    > .container
+    > .menu-container
+    > .icon-dropDown-box
+    > .icon-language-dropDown-box
+    > .icon-japanese-language-dropDown-item-japanese {
+    width: 30%;
+    height: 30px;
+    @include App.flex-box-center(row);
+    @include App.potta-font(0.6rem);
+    border: 0.5px solid goldenrod;
+    cursor: pointer;
+    margin-top: 10px; //! 임시방편 원랜 10px임. 폰트 바꿔서 바꿈.
+    margin-bottom: 0px;
+  }
+}
+
+//* 아이폰SE 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 654px) and (max-device-width: 667px) {
+  nav.navbar {
+    background: transparent;
+    position: absolute;
+  }
+  // 제목 태그
+  nav.navbar > .container > div:nth-child(1) > .link-tag-font-style > div {
+    padding-top: 10px;
+  }
+  
+  nav.navbar > .container > div.menu-container > .icon-dropDown-container {
+    z-index: 100001;
+    font-size: 1.2rem;
+  }
+
+  nav.navbar > .container > div.menu-container > .icon-dropDown-box {
+    width: 30%;
+    top: 0;
+    z-index: 100000;
+    border-bottom-right-radius: 0%;
+    @include App.dongle-font(1.7rem);
+
+    // margin-right: env(safe-area-inset-right, 20px);
+  }
+  // 개별메뉴 박스
+  nav.navbar
+    > .container
+    > div.menu-container
+    > .icon-dropDown-box
+    > .icon-dropDown-item {
+  }
+  // 언어옵션들을 담은 박스
+  nav.navbar
+    > .container
+    > div.menu-container
+    > .icon-dropDown-box
+    > .icon-language-dropDown-box {
+    width: 70%;
+    max-width: 200px;
+    @include App.flex-box-center(row);
+    align-items: end;
+  }
+  // 언어옵션 : 영어, 한국어
+  nav.navbar
+    > .container
+    > div.menu-container
+    > .icon-dropDown-box
+    > .icon-language-dropDown-box
+    > .icon-language-dropDown-item {
+    width: 30%;
+    height: 30px;
+    @include App.flex-box-center(row);
+    @include App.dongle-font(1.05rem);
+    border: 0.5px solid goldenrod;
+    cursor: pointer;
+  }
+  nav.navbar
+    > .container
+    > div.menu-container
+    > .icon-dropDown-box
+    > .icon-language-dropDown-box
+    > .japanese-icon-language-dropDown-item {
+    width: 30%;
+    height: 30px;
+    @include App.flex-box-center(row);
+    @include App.potta-font(0.6rem);
+    border: 0.5px solid goldenrod;
+    cursor: pointer;
+  }
+
+  //! 일본어 버전
+  nav.navbar-japanese {
+    background: transparent;
+    position: absolute;
+  }
+  // 제목 태그
+  nav.navbar-japanese > .container > div:nth-child(1) > .link-tag-font-style > div {
+    padding-top: 10px;
+  }
+  nav.navbar-japanese
+    > .container
+    > div.menu-container
+    > .icon-dropDown-container-japanese {
+    z-index: 100001;
+    font-size: 1.2rem;
+  }
+  nav.navbar-japanese
+    > .container
+    > div.menu-container
+    > div.icon-dropDown-box {
+    width: 30%;
+    max-width: 200px;
+    position: absolute;
+    top: 0;
+    z-index: 100000;
+    border-bottom-right-radius: 0%;
+    padding-right: 20px;
+
+    // margin-right: env(safe-area-inset-right, 20px);
+  }
+  // 개별메뉴 박스
+  nav.navbar-japanese
+    > .container
+    > div.menu-container
+    > div.icon-dropDown-box
+    > .icon-dropDown-item {
+    @include App.potta-font(0.9rem);
+    top: 0px;
+    width: 75%;
+    margin-top: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+    border-bottom: 0.5px solid goldenrod;
+    @include App.flex-box-center(column);
+  }
+  // 언어옵션들을 담은 박스
+  nav.navbar-japanese
+    > .container
+    > div.menu-container
+    > .icon-dropDown-box
+    > .icon-language-dropDown-box {
+    width: 75%;
+    @include App.flex-box-center(row);
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+    
+  }
+  // 언어옵션 : 영어, 한국어
+  nav.navbar-japanese
+    > .container
+    > .menu-container
+    > .icon-dropDown-box
+    > .icon-language-dropDown-box
+    > .icon-language-dropDown-item-japanese {
+    width: 30%;
+    height: 30px;
+    @include App.flex-box-center(row);
+    @include App.dongle-font(1.05rem);
+    border: 0.5px solid goldenrod;
+    cursor: pointer;
+  }
+  nav.navbar-japanese
+    > .container
+    > .menu-container
+    > .icon-dropDown-box
+    > .icon-language-dropDown-box
+    > .icon-japanese-language-dropDown-item-japanese {
+    width: 30%;
+    height: 30px;
+    @include App.flex-box-center(row);
+    @include App.potta-font(0.6rem);
+    border: 0.5px solid goldenrod;
+    cursor: pointer;
+    margin-top: 10px; //! 임시방편 원랜 10px임. 폰트 바꿔서 바꿈.
+    margin-bottom: 0px;
+  }
+}
+//* 갤럭시 폴드 가로모드
+@media screen and (orientation: landscape) and (max-device-width: 653px) {
+  nav.navbar {
+    background: transparent;
+    position: absolute;
+  }
+  // 제목 태그
+  nav.navbar > .container > div:nth-child(1) > .link-tag-font-style > div {
+    padding-top: 10px;
+  }
+  
+  // 아이콘
+  nav.navbar > .container > div.menu-container > .icon-dropDown-container {
+    z-index: 100001;
+    font-size: 1rem;
+  }
+
+  nav.navbar > .container > div.menu-container > .icon-dropDown-box {
+    width: 30%;
+    top: 0;
+    z-index: 100000;
+    border-bottom-right-radius: 0%;
+    @include App.dongle-font(1.7rem);
+
+    // margin-right: env(safe-area-inset-right, 20px);
+  }
+  // 개별메뉴 박스
+  nav.navbar
+    > .container
+    > div.menu-container
+    > .icon-dropDown-box
+    > .icon-dropDown-item {
+    margin-top: 0px;
+    padding-bottom: 0px;
+  }
+  nav.navbar
+    > .container
+    > div.menu-container
+    > .icon-dropDown-box
+    > .icon-dropDown-item:first-child {
+    margin-top: 3px;
+  }
+
+  // 언어옵션들을 담은 박스
+  .navbar
+    > .container
+    > div.menu-container
+    > .icon-dropDown-box
+    > .icon-language-dropDown-box {
+    width: 70%;
+    max-width: 200px;
+    @include App.flex-box-center(row);
+    align-items: end;
+  }
+  // 언어옵션 : 영어, 한국어
+  nav.navbar
+    > .container
+    > div.menu-container
+    > .icon-dropDown-box
+    > .icon-language-dropDown-box
+    > .icon-language-dropDown-item {
+    width: 30%;
+    height: 30px;
+    @include App.flex-box-center(row);
+    @include App.dongle-font(1.05rem);
+    border: 0.5px solid goldenrod;
+    cursor: pointer;
+  }
+  nav.navbar
+    > .container
+    > div.menu-container
+    > .icon-dropDown-box
+    > .icon-language-dropDown-box
+    > .japanese-icon-language-dropDown-item {
+    width: 30%;
+    height: 30px;
+    @include App.flex-box-center(row);
+    @include App.potta-font(0.6rem);
+    border: 0.5px solid goldenrod;
+    cursor: pointer;
+  }
+
+  //! 일본어 버전
+  nav.navbar-japanese {
+    background: transparent;
+    position: absolute;
+  }
+  // 제목 태그
+  nav.navbar-japanese > .container > div:nth-child(1) > .link-tag-font-style > div {
+    padding-top: 10px;
+  }
+  // 아이콘
+  nav.navbar-japanese
+    > .container
+    > div.menu-container
+    > .icon-dropDown-container-japanese {
+    z-index: 100001;
+    font-size: 1rem;
+  }
+
+  nav.navbar-japanese
+    > .container
+    > div.menu-container
+    > div.icon-dropDown-box {
+    width: 30%;
+    max-width: 200px;
+    position: absolute;
+    top: 0;
+    z-index: 100000;
+    border-bottom-right-radius: 0%;
+
+    // margin-right: env(safe-area-inset-right, 20px);
+  }
+  // 개별메뉴 박스
+  nav.navbar-japanese
+    > .container
+    > div.menu-container
+    > div.icon-dropDown-box
+    > .icon-dropDown-item {
+    @include App.potta-font(0.9rem);
+    top: 0px;
+    width: 75%;
+    margin-top: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+    border-bottom: 0.5px solid goldenrod;
+    @include App.flex-box-center(column);
+  }
+  // 언어옵션들을 담은 박스
+  nav.navbar-japanese
+    > .container
+    > div.menu-container
+    > .icon-dropDown-box
+    > .icon-language-dropDown-box {
+    width: 75%;
+    @include App.flex-box-center(row);
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+  }
+  // 언어옵션 : 영어, 한국어
+  nav.navbar-japanese
+    > .container
+    > .menu-container
+    > .icon-dropDown-box
+    > .icon-language-dropDown-box
+    > .icon-language-dropDown-item-japanese {
+    width: 30%;
+    height: 30px;
+    @include App.flex-box-center(row);
+    @include App.dongle-font(1.05rem);
+    border: 0.5px solid goldenrod;
+    cursor: pointer;
+  }
+  nav.navbar-japanese
+    > .container
+    > .menu-container
+    > .icon-dropDown-box
+    > .icon-language-dropDown-box
+    > .icon-japanese-language-dropDown-item-japanese {
+    width: 30%;
+    height: 30px;
+    @include App.flex-box-center(row);
+    @include App.potta-font(0.6rem);
+    border: 0.5px solid goldenrod;
+    cursor: pointer;
+    margin-top: 10px; //! 임시방편 원랜 10px임. 폰트 바꿔서 바꿈.
+    margin-bottom: 0px;
+  }
+}

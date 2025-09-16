@@ -1,0 +1,609 @@
+@use '../../Styles/scss/_App.module.scss';
+@use '../../Styles/scss/_TarotCardSpreadForm.module.scss';
+
+.container {
+  width: 100vw;
+  height: calc(100vh - 130px);
+  display: flex;
+  justify-content: center;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  position: relative;
+}
+
+.background {
+  width: 100vw;
+  max-width: 1290px;
+  min-width: 250px;
+  height: 100%;
+  min-height: Calc(100vh - 130px);
+  max-height: 1300px;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.8
+  ); // opacity 적용시 자식들까지 적용되고 해제가 되지 않음. 그래서 rgba의 4번째인자로 해당 css에만 적용시킴.
+  z-index: 10;
+  @include App.position-absolute-center();
+  top: 0px;
+  transform: translate(-50%, 0%);
+  color: gold;
+  @include App.flex-box-center(row);
+  overflow: auto;
+  div:first-child {
+  }
+  div:nth-child(2) {
+    p:first-child {
+    }
+  }
+
+  // * {
+  //   border: 1px solid red;
+  // }
+}
+
+.today-card {
+  width: 63px;
+  height: 63px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  @include App.flex-box-center(column);
+  border: 3px solid #663399;
+  border-radius: 20%;
+  z-index: 20;
+  background-color: #9370db; // 연한 분홍색 배경
+  @include App.dongle-font(1.5rem);
+  line-height: 0.7;
+  color: #ff8ba7;
+  text-shadow: -1.1px -1.1px 0 #663399, 1.1px -1.1px 0 #663399,
+    -1.1px 1.1px 0 #663399, 1.1px 1.1px 0 #663399;
+  cursor: grabbing;
+  user-select: none; // 드래그 방지
+  -webkit-user-select: none; // Safari 지원
+  -moz-user-select: none; // Firefox 지원
+  -ms-user-select: none; // IE 지원
+  padding-top: 0.3rem; /* 텍스트를 아래로 이동 */
+  &::before {
+    content: '♥';
+    color: #ff8ba7; // 하트 색상
+    text-shadow: -1px -1px 0 #663399,
+      // 좌상
+      1px -1px 0 #663399,
+      // 우상
+      -1px 1px 0 #663399,
+      // 좌하
+      1px 1px 0 #663399,
+      // 우하
+      0px 1px 0 #663399,
+      // 하
+      0px -1px 0 #663399,
+      // 상
+      1px 0px 0 #663399,
+      // 우
+      -1px 0px 0 #663399; // 좌
+    @include App.dongle-font(2.6rem);
+  }
+}
+.today-card:hover {
+  background-color: #3c1361;
+  color: #9b6b9b;
+  &::before {
+    color: red;
+  }
+}
+.spread {
+  width: 63px;
+  height: 63px;
+  position: absolute;
+  left: 0;
+  bottom: 63px;
+  @include App.flex-box-center(column);
+  border: 3px solid #663399;
+  border-radius: 20%;
+  z-index: 20;
+  background-color: #9370db;
+  @include App.dongle-font(1.5rem);
+  line-height: 0.7;
+  color: gold;
+  text-shadow: -1.1px -1.1px 0 #663399, 1.1px -1.1px 0 #663399,
+    -1.1px 1.1px 0 #663399, 1.1px 1.1px 0 #663399;
+  cursor: grabbing;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  padding-top: 2.45rem; /* 텍스트를 아래로 이동 */
+  &::before {
+    content: '★';
+    width: 20px; /* 직사각형 카드 크기 */
+    height: 30px; /* 카드 비율 */
+    background: linear-gradient(
+      135deg,
+      rgba(0, 0, 255, 0.9),
+      rgba(12, 12, 152, 0.8)
+    ); /* 텍스처 느낌의 그라디언트 */
+    border: 2px solid white; /* 카드 테두리 */
+    border-radius: 8px; /* 카드의 둥근 모서리 */
+    position: absolute;
+    top: 0.2rem;
+    left: 50%;
+    transform: translateX(-50%) perspective(200px) rotateY(5deg); /* 3D 효과 */
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4), inset 0 0 4px rgba(255, 255, 255, 0.3); /* 입체적 그림자와 내부 반사 */
+    color: white; /* 별 색상 */
+    text-shadow: -1px -1px 0 #663399, 1px -1px 0 #663399, -1px 1px 0 #663399,
+      1px 1px 0 #663399, 0px 1px 0 #663399, 0px -1px 0 #663399,
+      1px 0px 0 #663399, -1px 0px 0 #663399, 0 0 6px rgba(255, 255, 255, 0.6); /* 별 반짝임 */
+    @include App.dongle-font(2rem); /* 별 크기 조정 */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* 별을 카드 중앙에 배치 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 부드러운 호버 전환 */
+  }
+}
+
+.spread:hover {
+  background-color: #3c1361;
+  color: #9b6b9b;
+  &::before {
+    color: gold; /* 호버 시 별 색상 */
+    background: linear-gradient(
+      135deg,
+      rgba(12, 12, 152, 0.9),
+      rgba(0, 0, 100, 0.8)
+    ); /* 호버 시 더 진한 그라디언트 */
+    border-color: #f0f0f0; /* 호버 시 테두리 색상 */
+    transform: translateX(-50%) perspective(200px) rotateY(10deg) scale(1.05); /* 호버 시 약간 확대 및 회전 */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5), inset 0 0 5px rgba(255, 255, 255, 0.4); /* 호버 시 강한 그림자 */
+  }
+}
+.mypage {
+  width: 63px;
+  height: 63px;
+  position: absolute;
+  left: 0;
+  bottom: 126px;
+  @include App.flex-box-center(column);
+  border: 3px solid #663399;
+  border-radius: 20%;
+  z-index: 20;
+  background-color: #9370db;
+  @include App.dongle-font(1.5rem);
+  line-height: 0.7;
+  color: gold;
+  text-shadow: -1.1px -1.1px 0 #663399, 1.1px -1.1px 0 #663399,
+    -1.1px 1.1px 0 #663399, 1.1px 1.1px 0 #663399;
+  cursor: grabbing;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  padding-top: 2.4rem; /* 텍스트를 아래로 이동 */
+  &::before {
+    content: '★';
+    width: 44px; /* 펼쳐진 책 크기 (좌우 페이지 합친 너비) */
+    height: 30px; /* 책 높이 */
+    background: linear-gradient(
+      to right,
+      #f5f5f5 48%,
+      #ccc 48%,
+      #ccc 52%,
+      #f5f5f5 52%
+    ); /* 좌우 페이지와 중앙 접힘 효과 */
+    border: 2px solid #663399; /* 책 테두리 */
+    border-radius: 4px; /* 책의 둥근 모서리 */
+    position: absolute;
+    top: 0.2rem;
+    left: 50%;
+    transform: translateX(-50%); /* 중앙 정렬 */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), inset 0 0 5px rgba(0, 0, 0, 0.2); /* 그림자와 책 내부 음영 */
+    color: #663399; /* 별 색상 */
+    text-shadow: -1px -1px 0 #663399, 1px -1px 0 #663399, -1px 1px 0 #663399,
+      1px 1px 0 #663399, 0px 1px 0 #663399, 0px -1px 0 #663399,
+      1px 0px 0 #663399, -1px 0px 0 #663399;
+    @include App.dongle-font(2rem); /* 별 크기 조정 */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* 별을 책 중앙에 배치 */
+  }
+}
+
+.mypage:hover {
+  background-color: #3c1361;
+  color: #9b6b9b;
+  &::before {
+    color: gold; /* 호버 시 별 색상 */
+    background: linear-gradient(
+      to right,
+      #e0e0e0 48%,
+      #bbb 48%,
+      #bbb 52%,
+      #e0e0e0 52%
+    ); /* 호버 시 책 배경색 */
+    border-color: #f0f0f0; /* 호버 시 테두리 색상 */
+  }
+}
+.tarot-manual {
+  width: 63px;
+  height: 63px;
+  position: absolute;
+  left: 0;
+  bottom: 189px;
+  @include App.flex-box-center(column);
+  border: 3px solid #663399;
+  border-radius: 20%;
+  z-index: 20;
+  background-color: #9370db;
+  @include App.dongle-font(1.5rem);
+  line-height: 0.7;
+  color: gold;
+  text-shadow: -1.1px -1.1px 0 #663399, 1.1px -1.1px 0 #663399,
+    -1.1px 1.1px 0 #663399, 1.1px 1.1px 0 #663399;
+  cursor: grabbing;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  padding-top: 2.4rem; /* 텍스트를 아래로 이동 */
+  &::before {
+    content: '?';  /* 별 대신 물음표로 변경 */
+    width: 44px; /* 펼쳐진 책 크기 (좌우 페이지 합친 너비) */
+    height: 30px; /* 책 높이 */
+    background: linear-gradient(
+      to right,
+      #f5f5f5 48%,
+      #ccc 48%,
+      #ccc 52%,
+      #f5f5f5 52%
+    ); /* 좌우 페이지와 중앙 접힘 효과 */
+    border: 2px solid #663399; /* 책 테두리 */
+    border-radius: 4px; /* 책의 둥근 모서리 */
+    position: absolute;
+    top: 0.2rem;
+    left: 50%;
+    transform: translateX(-50%); /* 중앙 정렬 */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), inset 0 0 5px rgba(0, 0, 0, 0.2); /* 그림자와 책 내부 음영 */
+    color: #663399; /* 물음표 색상을 보라색으로 변경 */
+    text-shadow: none; /* 물음표는 텍스트 섀도우 제거 */
+    @include App.dongle-font(2rem); /* 물음표 크기 조정 */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* 물음표를 책 중앙에 배치 */
+    font-weight: bold; /* 물음표를 굵게 */
+  }
+}
+
+.tarot-manual:hover {
+  background-color: #3c1361;
+  color: #9b6b9b;
+  &::before {
+    color: #9370db; /* 호버 시 물음표 색상 */
+    background: linear-gradient(
+      to right,
+      #e0e0e0 48%,
+      #bbb 48%,
+      #bbb 52%,
+      #e0e0e0 52%
+    ); /* 호버 시 책 배경색 */
+    border-color: #f0f0f0; /* 호버 시 테두리 색상 */
+  }
+}
+.login {
+  width: 63px;
+  height: 63px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  @include App.flex-box-center(column);
+  border: 3px solid #663399;
+  border-radius: 20%;
+  z-index: 20;
+  background-color: #9370db; // 연한 분홍색 배경
+  @include App.dongle-font(1.5rem);
+  line-height: 0.7;
+  color: #ff8ba7;
+  text-shadow: -1.1px -1.1px 0 #663399, 1.1px -1.1px 0 #663399,
+    -1.1px 1.1px 0 #663399, 1.1px 1.1px 0 #663399;
+  cursor: grabbing;
+  user-select: none; // 드래그 방지
+  -webkit-user-select: none; // Safari 지원
+  -moz-user-select: none; // Firefox 지원
+  -ms-user-select: none; // IE 지원
+  padding-top: 2rem; /* 텍스트를 아래로 이동 */
+  &::before {
+    content: '🗝️';
+    color: #ff8ba7; // 하트 색상
+    text-shadow: -1px -1px 0 #663399,
+      // 좌상
+      1px -1px 0 #663399,
+      // 우상
+      -1px 1px 0 #663399,
+      // 좌하
+      1px 1px 0 #663399,
+      // 우하
+      0px 1px 0 #663399,
+      // 하
+      0px -1px 0 #663399,
+      // 상
+      1px 0px 0 #663399,
+      // 우
+      -1px 0px 0 #663399; // 좌
+    @include App.dongle-font(1.7rem);
+    position: absolute; /* 절대 위치 지정 */
+    top: 1.2rem; /* 위쪽에서  떨어짐 */
+  }
+}
+.login:hover {
+  background-color: #3c1361;
+  color: #9b6b9b;
+  &::before {
+    color: red;
+  }
+}
+
+.tarot-master-container {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 130px);
+}
+.charging {
+  background-color: rgb(255, 0, 0, 0.7) !important;
+  font-size: 1.2rem !important;
+}
+.unavailable-voucher {
+  background-color: rgb(150, 50, 255, 0.7) !important;
+  font-size: 1.2rem !important;
+}
+.unavailable-which-tarot {
+  background-color: rgba(76, 236, 143, 0.7) !important;
+  font-size: 1.2rem !important;
+}
+.which-spread {
+  // background-color: rgb(78, 6, 78, 0.7) !important;
+  color: gold !important;
+  // background-color: rgba(255, 215, 0, 0.7) !important;
+  background-color: rgb(78, 6, 78, 0.8) !important;
+  // border: 3px solid rgba(255, 215, 0, 0.7);
+  font-weight: bold;
+  font-size: 1.2rem !important;
+  // color: rgb(46, 46, 195) !important;
+  // text-shadow: -0.5px -0.5px 0 white, 0.5px -0.5px 0 white, -0.5px 0.5px 0 white,
+  //   0.5px 0.5px 0 white; /* 흰색 외곽선 */
+}
+.fill-in-the-question {
+  background-color: rgba(15, 15, 79, 0.837) !important;
+  font-size: 1.2rem !important;
+  // color: gold !important;
+  // border: 3px solid white;
+}
+.flex-grow {
+  @include App.flex-grow(1);
+}
+//~ 디바이스
+@media (min-device-width: 1025px) and (max-device-width: 1366px) {
+  .background {
+    flex-direction: column;
+  }
+}
+//~ 태블릿, 아이패드, 아이패드 프로
+@media (min-device-width: 769px) and (max-device-width: 1024px) {
+  .background {
+    flex-direction: column;
+  }
+}
+//~ 481px ~ 768px 및 태블릿
+@media (min-device-width: 481px) and (max-device-width: 768px) {
+  .background {
+    flex-direction: column;
+  }
+}
+
+//~ IPhone 14 Pro Max(430px)
+@media only screen and (min-device-width: 415px) and (max-device-width: 480px) {
+  .background {
+    flex-direction: column;
+  }
+  .charging {
+    background-color: rgb(255, 0, 0, 0.7) !important;
+    font-size: 1rem !important;
+  }
+  .unavailable-voucher {
+    background-color: rgb(150, 50, 255, 0.7) !important;
+    font-size: 1rem !important;
+  }
+}
+
+//~ 아이폰XR
+@media (min-device-width: 376px) and (max-device-width: 414px) {
+  .background {
+    flex-direction: column;
+  }
+  .charging {
+    background-color: rgb(255, 0, 0, 0.7) !important;
+    font-size: 0.9rem !important;
+  }
+  .unavailable-voucher {
+    background-color: rgb(150, 50, 255, 0.7) !important;
+    font-size: 0.9rem !important;
+  }
+}
+//~ 아이폰 SE
+@media (min-device-width: 281px) and (max-device-width: 375px) {
+  .background {
+    flex-direction: column;
+  }
+  .charging {
+    background-color: rgb(255, 0, 0, 0.7) !important;
+    font-size: 0.6rem !important;
+  }
+  .unavailable-voucher {
+    background-color: rgb(150, 50, 255, 0.7) !important;
+    font-size: 0.6rem !important;
+  }
+}
+
+//~ 갤럭시 폴드
+@media (max-device-width: 280px) {
+  .background {
+    flex-direction: column;
+  }
+  .charging {
+    background-color: rgb(255, 0, 0, 0.7) !important;
+    font-size: 0.6rem !important;
+  }
+  .unavailable-voucher {
+    background-color: rgb(150, 50, 255, 0.7) !important;
+    font-size: 0.6rem !important;
+  }
+}
+
+//! 반응형 웹브라우저
+//~ 디바이스
+@media (min-width: 1025px) and (max-width: 1366px) {
+  .background {
+    flex-direction: column;
+  }
+}
+//~ 태블릿, 아이패드, 아이패드 프로
+@media (min-width: 769px) and (max-width: 1024px) {
+  .background {
+    flex-direction: column;
+  }
+}
+//~ 481px ~ 768px 및 태블릿
+@media (min-width: 481px) and (max-width: 768px) {
+  .background {
+    flex-direction: column;
+  }
+}
+
+//~ IPhone 14 Pro Max(430px)
+@media only screen and (min-width: 415px) and (max-width: 480px) {
+  .background {
+    flex-direction: column;
+  }
+  .charging {
+    background-color: rgb(255, 0, 0, 0.7) !important;
+    font-size: 1rem !important;
+  }
+  .unavailable-voucher {
+    background-color: rgb(150, 50, 255, 0.7) !important;
+    font-size: 1rem !important;
+  }
+}
+
+//~ 아이폰XR
+@media (min-width: 376px) and (max-width: 414px) {
+  .background {
+    flex-direction: column;
+  }
+  .charging {
+    background-color: rgb(255, 0, 0, 0.7) !important;
+    font-size: 0.9rem !important;
+  }
+  .unavailable-voucher {
+    background-color: rgb(150, 50, 255, 0.7) !important;
+    font-size: 0.9rem !important;
+  }
+}
+//~ 아이폰 SE
+@media (min-width: 281px) and (max-width: 375px) {
+  .background {
+    flex-direction: column;
+  }
+  .charging {
+    background-color: rgb(255, 0, 0, 0.7) !important;
+    font-size: 0.6rem !important;
+  }
+  .unavailable-voucher {
+    background-color: rgb(150, 50, 255, 0.7) !important;
+    font-size: 0.6rem !important;
+  }
+}
+
+//~ 갤럭시 폴드
+@media (max-width: 280px) {
+  .background {
+    flex-direction: column;
+  }
+  .charging {
+    background-color: rgb(255, 0, 0, 0.7) !important;
+    font-size: 0.6rem !important;
+  }
+  .unavailable-voucher {
+    background-color: rgb(150, 50, 255, 0.7) !important;
+    font-size: 0.6rem !important;
+  }
+}
+
+//* 아이패드 프로 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 1025px) and (max-device-width: 1366px) {
+  .background {
+    flex-direction: row;
+  }
+}
+
+//* 태블릿 아이패드, 아이패드 프로 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 933px) and (max-device-width: 1024px) {
+  .background {
+    flex-direction: row;
+  }
+  // .container {
+  //   height: 100vh;
+  //   background: black;
+  // }
+  // .tarot-master-container {
+  //   height: 100vh;
+  // }
+}
+//* IPhon 14 Pro Max 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 897px) and (max-device-width: 932px) {
+  .background {
+    flex-direction: row;
+  }
+  .container {
+    height: 100vh;
+    background: black;
+  }
+  .tarot-master-container {
+    height: 100vh;
+  }
+} //* 아이폰XR 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 668px) and (max-device-width: 896px) {
+  .background {
+    flex-direction: row;
+  }
+  .container {
+    height: 100vh;
+    background: black;
+  }
+  .tarot-master-container {
+    height: 100vh;
+  }
+} //* 아이폰SE 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 654px) and (max-device-width: 667px) {
+  .background {
+    flex-direction: row;
+  }
+  .container {
+    height: 100vh;
+  }
+  .tarot-master-container {
+    height: 100vh;
+  }
+}
+//* 갤럭시 폴드 가로모드
+@media screen and (orientation: landscape) and (max-device-width: 653px) {
+  .background {
+    flex-direction: row;
+  }
+  .container {
+    height: 100vh;
+  }
+  .tarot-master-container {
+    height: calc(100vh + 10px);
+    position: absolute;
+    top: -10px;
+  }
+}

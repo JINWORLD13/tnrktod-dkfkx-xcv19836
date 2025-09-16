@@ -1,0 +1,96 @@
+@use '_TarotModal.module.scss';
+
+.choice-box{
+  width: 1150px;
+  height: 610px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+  -webkit-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+  -moz-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+  margin: auto;
+
+}
+.choice-spread {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.choice-spread:not(:first-child){
+  margin-top: -150px;
+}
+.choice-card {
+  @include TarotModal.choice-card(1);
+  
+}
+.choice-card:not(:first-child) {
+  /* 첫번째 요소를 제외한 모든 .item 클래스에 적용되는 스타일 */
+  margin-left: -150px; /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+}
+
+.choice-card:hover {
+  transform: translateY(
+    -20px
+  ); /* 마우스 호버 시 카드를 약간 위로 올려서 스프레드 효과 강조 */
+}
+.choice-card img {
+  @include TarotModal.card-image(0);
+}
+.spread-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-top: 0px;
+  background-color: rgba(157, 85, 18, 0.622);
+  border: 10px solid rgba(157, 85, 18, 0.622);
+  text-align: center;
+  width: 90%;
+  height: 100%;
+
+  & > div {
+    width: 180px;
+    height: 300px;
+    padding: 0px;
+    margin: 0px;
+  }
+
+  & div div {
+    width: 100%;  
+    height: 100%;
+    margin: auto;
+    padding: 10px;
+    background-color: white;
+    border-radius: 13px;
+    border: 1px solid black;
+  }
+  & div div img {
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    border-radius: 13px;
+  }
+}
+
+.invisible {
+  opacity: 0;
+  z-index: -1;
+}
+
+// 태블릿 디자인
+@media (max-width: 1200px) {
+}
+
+// 아래는 모바일 디자인
+@media (max-width: 768px) {
+}
+@media (max-width: 576px) {
+}

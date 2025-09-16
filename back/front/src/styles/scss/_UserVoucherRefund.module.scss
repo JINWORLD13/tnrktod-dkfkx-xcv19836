@@ -1,0 +1,1919 @@
+@use '_App.module.scss';
+
+%user-info-box-part {
+  @include App.flex-box-center(column);
+  align-items: start;
+}
+%user-info-box-part-japanese {
+  @include App.flex-box-center(column);
+  align-items: start;
+  line-height: 2;
+}
+%user-info-button-box {
+  @include App.flex-box-center(row);
+  justify-content: end;
+  align-items: end;
+}
+
+@mixin user-button-shape($width, $height) {
+  width: $width;
+  height: $height;
+  padding: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: none;
+  margin-right: 3px;
+  margin-bottom: 3px;
+  border-radius: 50px;
+  color: gold;
+  background-color: rgb(177, 40, 40);
+}
+
+h2 {
+  color: gold;
+}
+.input-container {
+  @include App.flex-box-center(row);
+  margin-right: 10px;
+  & > div:nth-child(1) {
+    min-width: 40px;
+    text-align: center;
+    color: gold;
+  }
+  & > div:nth-child(2) {
+    min-width: 50px;
+    text-align: center;
+    color: gold;
+  }
+}
+// 유저 정보
+.user-info1-body {
+  width: 100%;
+  color: black;
+  font-weight: 900;
+  @include App.flex-box-center(column);
+  line-height: 1.4;
+  // 유저 정보 내용 따로 폰트 사이즈 조절용
+  // @include App.dongle-font(1.5rem);
+}
+.user-info1-body-core {
+  @include App.flex-box-center(row);
+  // 유저정보 왼쪽박스(명함, 이메일, 포인트)
+}
+.user-info1-body-left {
+  width: auto;
+  // max-width: 10%;
+  @extend %user-info-box-part;
+  @include App.dongle-font(1.5rem);
+}
+//유저정보 오른쪽박스(이름, 이메일주소, 포인트액수)
+.user-info1-body-right {
+  width: auto;
+  // max-width: 90%;
+  @extend %user-info-box-part;
+  @include App.dongle-font(1.5rem);
+  & p {
+    @include App.dongle-font(1.5rem);
+  }
+}
+
+// 유저정보 버튼
+.user-info1-bottom {
+  width: 100%;
+  height: auto;
+  @extend %user-info-button-box;
+}
+.user-info1-bottom > button {
+  @include user-button-shape(auto, auto);
+  @include App.dongle-font(1.4rem);
+  border: 0px;
+  min-width: 50px;
+}
+
+.user-info1-bottom > button:hover {
+  color: rgb(177, 40, 40);
+  background-color: gold;
+  border: 0px;
+}
+
+//! 일본어 버전
+.h2-japanese {
+  color: gold;
+  margin-bottom: 2%;
+  line-height: 2;
+}
+
+.input-container-japanese {
+  @include App.flex-box-center(row);
+  margin-right: 10px;
+  & > div:nth-child(1) {
+    min-width: 40px;
+    text-align: center;
+    color: gold;
+  }
+  & > div:nth-child(2) {
+    min-width: 50px;
+    text-align: center;
+    color: gold;
+  }
+}
+.user-info1-body-japanese {
+  width: 100%;
+  color: black;
+  font-weight: 900;
+  @include App.flex-box-center(column);
+  // 유저 정보 내용 따로 폰트 사이즈 조절용
+}
+.user-info1-body-core-japanese {
+  @include App.flex-box-center(row);
+}
+.user-info1-body-left-japanese {
+  width: auto;
+  // max-width: 10%;
+  // height: 100%;
+  @extend %user-info-box-part-japanese;
+  @include App.potta-font(1.1rem);
+}
+.user-info1-body-right-japanese {
+  width: auto;
+  // max-width: 90%;
+  // height: 100%;
+  @extend %user-info-box-part-japanese;
+  @include App.potta-font(1.1rem);
+  & p {
+    @include App.potta-font(1.1rem);
+  }
+}
+// 유저정보 버튼
+.user-info1-bottom-japanese {
+  width: 100%;
+  height: auto;
+  @extend %user-info-button-box;
+}
+.user-info1-bottom-japanese > button {
+  @include user-button-shape(auto, auto);
+  @include App.potta-font(1.4rem);
+  border: 0px;
+  min-width: 50px;
+}
+
+.user-info1-bottom-japanese > button:hover {
+  color: rgb(177, 40, 40);
+  background-color: gold;
+  border: 0px;
+}
+
+.korean-dongle-font {
+  @include App.dongle-font(3rem);
+}
+.korean-dongle-font2 {
+  @include App.dongle-font(2.2rem);
+}
+.japanese-potta-font {
+  @include App.potta-font(1.5rem);
+  line-height: 3;
+}
+.japanese-potta-font2 {
+  @include App.potta-font(1.3rem);
+  line-height: 2.5;
+}
+
+//~ 디바이스
+@media (min-device-width: 1025px) and (max-device-width: 1366px) {
+  h2 {
+    color: gold;
+  }
+  // 유저 정보
+  .user-info1-body {
+    width: 100%;
+    color: black;
+    font-weight: 900;
+    @include App.flex-box-center(column);
+    // 유저 정보 내용 따로 폰트 사이즈 조절용
+  }
+  .user-info1-body-core {
+    @include App.flex-box-center(row);
+    // 유저정보 왼쪽박스(명함, 이메일, 포인트)
+  }
+  .user-info1-body-left {
+    width: auto;
+    // max-width: 20%;
+    @include App.dongle-font(1.5rem);
+  }
+  //유저정보 오른쪽박스(이름, 이메일주소, 포인트액수)
+  .user-info1-body-right {
+    width: auto;
+    // max-width: 80%;
+    @include App.dongle-font(1.5rem);
+    & p {
+      @include App.dongle-font(1.5rem);
+    }
+  }
+
+  // 유저정보 버튼
+  .user-info1-bottom {
+    width: 100%;
+    height: auto;
+  }
+  .user-info1-bottom > button {
+    @include user-button-shape(auto, auto);
+    // 버튼 따로 폰트 사이즈 조절용
+    @include App.dongle-font(1.5rem);
+  }
+
+  .user-info1-bottom > button:hover {
+    color: rgb(177, 40, 40);
+    background-color: gold;
+  }
+
+  // 일본판
+  .h2-japanese {
+    color: gold;
+    margin-bottom: 2%;
+  }
+  .user-info1-body-japanese {
+    width: 100%;
+    color: black;
+    font-weight: 900;
+    @include App.flex-box-center(column);
+    // 유저 정보 내용 따로 폰트 사이즈 조절용
+  }
+  .user-info1-body-core-japanese {
+    @include App.flex-box-center(row);
+  }
+  .user-info1-body-left-japanese {
+    width: auto;
+    // max-width: 20%;
+    @include App.potta-font(1.1rem);
+  }
+  .user-info1-body-right-japanese {
+    width: auto;
+    // max-width: 80%;
+    @include App.potta-font(1.1rem);
+    & p {
+      @include App.potta-font(1.1rem);
+    }
+  }
+  // 유저정보 버튼
+  .user-info1-bottom-japanese {
+    width: 100%;
+    height: auto;
+  }
+  .user-info1-bottom-japanese > button {
+    @include user-button-shape(auto, auto);
+    // 버튼 따로 폰트 사이즈 조절용
+    @include App.potta-font(1.4rem);
+  }
+
+  .user-info1-bottom-japanese > button:hover {
+    color: rgb(177, 40, 40);
+    background-color: gold;
+  }
+  .korean-dongle-font {
+    @include App.dongle-font(2.8rem);
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.8rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.4rem);
+    line-height: 2;
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(1.2rem);
+    line-height: 1.5;
+  }
+}
+
+//~ 태블릿, 아이패드, 아이패드 프로
+@media (min-device-width: 769px) and (max-device-width: 1024px) {
+  h2 {
+    color: gold;
+  }
+  // 유저 정보
+  .user-info1-body {
+    width: 100%;
+    color: black;
+    font-weight: 900;
+    @include App.flex-box-center(column);
+    // 유저 정보 내용 따로 폰트 사이즈 조절용
+  }
+  // 유저정보 왼쪽박스(명함, 이메일, 포인트)
+
+  .user-info1-body-core {
+    @include App.flex-box-center(row);
+    // 유저정보 왼쪽박스(명함, 이메일, 포인트)
+  }
+  .user-info1-body-left {
+    width: auto;
+    // max-width: 20%;
+    @include App.dongle-font(1.5rem);
+  }
+  //유저정보 오른쪽박스(이름, 이메일주소, 포인트액수)
+  .user-info1-body-right {
+    width: auto;
+    // max-width: 80%;
+    @include App.dongle-font(1.5rem);
+    & p {
+      @include App.dongle-font(1.5rem);
+    }
+  }
+
+  // 유저정보 버튼
+  .user-info1-bottom {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: end;
+  }
+  .user-info1-bottom > button {
+    @include user-button-shape(auto, auto);
+    // 버튼 따로 폰트 사이즈 조절용
+    @include App.dongle-font(1.5rem);
+    min-width: 50px;
+  }
+
+  .user-info1-bottom > button:hover {
+    color: rgb(177, 40, 40);
+    background-color: gold;
+  }
+
+  // 일본판
+  .h2-japanese {
+    color: gold;
+    margin-bottom: 2%;
+  }
+  .user-info1-body-japanese {
+    width: 100%;
+    color: black;
+    font-weight: 900;
+    @include App.flex-box-center(column);
+    // 유저 정보 내용 따로 폰트 사이즈 조절용
+  }
+  .user-info1-body-core-japanese {
+    @include App.flex-box-center(row);
+    // 유저정보 왼쪽박스(명함, 이메일, 포인트)
+  }
+  .user-info1-body-left-japanese {
+    width: auto;
+    // max-width: 20%;
+    @include App.potta-font(1.1rem);
+  }
+  .user-info1-body-right-japanese {
+    width: auto;
+    // max-width: 90%;
+    @include App.potta-font(1.1rem);
+    & p {
+      @include App.potta-font(1.1rem);
+    }
+  }
+  // 유저정보 버튼
+  .user-info1-bottom-japanese {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: end;
+  }
+  .user-info1-bottom-japanese > button {
+    @include user-button-shape(auto, auto);
+    // 버튼 따로 폰트 사이즈 조절용
+    @include App.potta-font(1.4rem);
+    min-width: 50px;
+  }
+
+  .user-info1-bottom-japanese > button:hover {
+    color: rgb(177, 40, 40);
+    background-color: gold;
+  }
+  .korean-dongle-font {
+    @include App.dongle-font(2.7rem);
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.7rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.4rem);
+    line-height: 1.5;
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(1.2rem);
+    line-height: 1.5;
+  }
+}
+
+//~ 481px ~ 768px 및 태블릿
+@media (min-device-width: 481px) and (max-device-width: 768px) {
+  h2 {
+    color: gold;
+  }
+  // 유저 정보
+  .user-info1-body {
+    width: 100%;
+    color: black;
+    font-weight: 900;
+    @include App.flex-box-center(column);
+    // 유저 정보 내용 따로 폰트 사이즈 조절용
+  }
+  // 유저정보 왼쪽박스(명함, 이메일, 포인트)
+
+  .user-info1-body-core {
+    @include App.flex-box-center(row);
+    // 유저정보 왼쪽박스(명함, 이메일, 포인트)
+  }
+  .user-info1-body-left {
+    width: auto;
+    // max-width: 20%;
+    @include App.dongle-font(1.5rem);
+  }
+  //유저정보 오른쪽박스(이름, 이메일주소, 포인트액수)
+  .user-info1-body-right {
+    width: auto;
+    // max-width: 80%;
+    @include App.dongle-font(1.5rem);
+    & p {
+      @include App.dongle-font(1.5rem);
+    }
+  }
+
+  // 유저정보 버튼
+  .user-info1-bottom {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: end;
+  }
+  .user-info1-bottom > button {
+    @include user-button-shape(auto, auto);
+    // 버튼 따로 폰트 사이즈 조절용
+    @include App.dongle-font(1.25rem);
+    min-width: 50px;
+  }
+
+  .user-info1-bottom > button:hover {
+    color: rgb(177, 40, 40);
+    background-color: gold;
+  }
+
+  // 일본판
+  .h2-japanese {
+    color: gold;
+    margin-bottom: 2%;
+  }
+  .user-info1-body-japanese {
+    width: 100%;
+    color: black;
+    font-weight: 900;
+    @include App.flex-box-center(column);
+    // 유저 정보 내용 따로 폰트 사이즈 조절용
+  }
+  .user-info1-body-core-japanese {
+    @include App.flex-box-center(row);
+    // 유저정보 왼쪽박스(명함, 이메일, 포인트)
+  }
+  .user-info1-body-left-japanese {
+    width: auto;
+    // max-width: 20%;
+    @include App.potta-font(1.1rem);
+  }
+  .user-info1-body-right-japanese {
+    width: auto;
+    // max-width: 80%;
+    @include App.potta-font(1.1rem);
+    & p {
+      @include App.potta-font(1.1rem);
+    }
+  }
+  // 유저정보 버튼
+  .user-info1-bottom-japanese {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: end;
+  }
+  .user-info1-bottom-japanese > button {
+    @include user-button-shape(auto, auto);
+    // 버튼 따로 폰트 사이즈 조절용
+    @include App.potta-font(1.3rem);
+    min-width: 50px;
+  }
+
+  .user-info1-bottom-japanese > button:hover {
+    color: rgb(177, 40, 40);
+    background-color: gold;
+  }
+  .korean-dongle-font {
+    @include App.dongle-font(2.7rem);
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.7rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.4rem);
+    line-height: 1.5;
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(1.2rem);
+    line-height: 1.5;
+  }
+}
+
+//~ IPhone 14 Pro Max(430px)
+@media (min-device-width: 415px) and (max-device-width: 480px) {
+  h2 {
+    color: gold;
+  }
+  // 유저 정보
+  .user-info1-body {
+    width: 100%;
+    color: black;
+    font-weight: 900;
+    @include App.flex-box-center(column);
+    // 유저 정보 내용 따로 폰트 사이즈 조절용
+  }
+  // 유저정보 왼쪽박스(명함, 이메일, 포인트)
+
+  .user-info1-body-core {
+    @include App.flex-box-center(row);
+    // 유저정보 왼쪽박스(명함, 이메일, 포인트)
+  }
+  .user-info1-body-left {
+    width: auto;
+    // max-width: 25%;
+    @include App.dongle-font(1.5rem);
+  }
+  //유저정보 오른쪽박스(이름, 이메일주소, 포인트액수)
+  .user-info1-body-right {
+    width: auto;
+    // max-width: 75%;
+    & p {
+      @include App.dongle-font(1.5rem);
+    }
+  }
+
+  // 유저정보 버튼
+  .user-info1-bottom {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: end;
+  }
+  .user-info1-bottom > button {
+    @include user-button-shape(auto, auto);
+    // 버튼 따로 폰트 사이즈 조절용
+    @include App.dongle-font(1.3rem);
+    min-width: 50px;
+  }
+
+  .user-info1-bottom > button:hover {
+    color: rgb(177, 40, 40);
+    background-color: gold;
+  }
+
+  // 일본판
+  .h2-japanese {
+    color: gold;
+    margin-bottom: 2%;
+  }
+  .user-info1-body-japanese {
+    width: 100%;
+    color: black;
+    font-weight: 900;
+    @include App.flex-box-center(column);
+    // 유저 정보 내용 따로 폰트 사이즈 조절용
+    @include App.potta-font(1rem);
+  }
+  .user-info1-body-core-japanese {
+    @include App.flex-box-center(row);
+    // 유저정보 왼쪽박스(명함, 이메일, 포인트)
+  }
+  .user-info1-body-left-japanese {
+    width: auto;
+    // max-width: 20%;
+    @include App.potta-font(1rem);
+  }
+  .user-info1-body-right-japanese {
+    width: auto;
+    // max-width: 80%;
+    @include App.potta-font(1rem);
+    & p {
+      @include App.potta-font(1rem);
+    }
+  }
+  // 유저정보 버튼
+  .user-info1-bottom-japanese {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: end;
+  }
+  .user-info1-bottom-japanese > button {
+    @include user-button-shape(auto, auto);
+    // 버튼 따로 폰트 사이즈 조절용
+    @include App.potta-font(1.2rem);
+    min-width: 50px;
+  }
+
+  .user-info1-bottom-japanese > button:hover {
+    color: rgb(177, 40, 40);
+    background-color: gold;
+  }
+  .korean-dongle-font {
+    @include App.dongle-font(2.4rem);
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.6rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.3rem);
+    line-height: 1.5;
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(1.2rem);
+    line-height: 1.5;
+  }
+}
+
+//~ 아이폰XR
+@media (min-device-width: 376px) and (max-device-width: 414px) {
+  h2 {
+    color: gold;
+  }
+  // 유저 정보
+  .user-info1-body {
+    width: 100%;
+    color: black;
+    font-weight: 900;
+    @include App.flex-box-center(column);
+    // 유저 정보 내용 따로 폰트 사이즈 조절용
+  }
+  // 유저정보 왼쪽박스(명함, 이메일, 포인트)
+
+  .user-info1-body-core {
+    @include App.flex-box-center(row);
+    // 유저정보 왼쪽박스(명함, 이메일, 포인트)
+  }
+  .user-info1-body-left {
+    width: auto;
+    // max-width: 20%;
+    @include App.dongle-font(1.5rem);
+  }
+  //유저정보 오른쪽박스(이름, 이메일주소, 포인트액수)
+  .user-info1-body-right {
+    width: auto;
+    // max-width: 80%;
+    & p {
+      @include App.dongle-font(1.5rem);
+    }
+  }
+
+  // 유저정보 버튼
+  .user-info1-bottom {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: end;
+  }
+  .user-info1-bottom > button {
+    @include user-button-shape(auto, auto);
+    // 버튼 따로 폰트 사이즈 조절용
+    @include App.dongle-font(1.2rem);
+  }
+
+  .user-info1-bottom > button:hover {
+    color: rgb(177, 40, 40);
+    background-color: gold;
+  }
+
+  // 일본판
+  .h2-japanese {
+    color: gold;
+    margin-bottom: 2%;
+  }
+  .user-info1-body-japanese {
+    width: 100%;
+    color: black;
+    font-weight: 900;
+    @include App.flex-box-center(column);
+    // 유저 정보 내용 따로 폰트 사이즈 조절용
+  }
+  .user-info1-body-core-japanese {
+    @include App.flex-box-center(row);
+    // 유저정보 왼쪽박스(명함, 이메일, 포인트)
+  }
+  .user-info1-body-left-japanese {
+    width: auto;
+    // max-width: 20%;
+    @include App.potta-font(0.95rem);
+  }
+  .user-info1-body-right-japanese {
+    width: auto;
+    // max-width: 80%;
+    @include App.potta-font(0.95rem);
+    & p {
+      @include App.potta-font(0.95rem);
+    }
+  }
+  // 유저정보 버튼
+  .user-info1-bottom-japanese {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: end;
+  }
+  .user-info1-bottom-japanese > button {
+    @include user-button-shape(auto, auto);
+    // 버튼 따로 폰트 사이즈 조절용
+    @include App.potta-font(1.2rem);
+  }
+
+  .user-info1-bottom-japanese > button:hover {
+    color: rgb(177, 40, 40);
+    background-color: gold;
+  }
+  .korean-dongle-font {
+    @include App.dongle-font(2.4rem);
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.6rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.3rem);
+    line-height: 1.5;
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(1.2rem);
+    line-height: 1.5;
+  }
+}
+
+//~ 아이폰 SE
+@media (min-device-width: 281px) and (max-device-width: 375px) {
+  h2 {
+    color: gold;
+  }
+  // 유저 정보
+  .user-info1-body {
+    width: 100%;
+    color: black;
+    font-weight: 900;
+    @include App.flex-box-center(column);
+    // 유저 정보 내용 따로 폰트 사이즈 조절용
+  }
+  // 유저정보 왼쪽박스(명함, 이메일, 포인트)
+
+  .user-info1-body-core {
+    @include App.flex-box-center(row);
+    // 유저정보 왼쪽박스(명함, 이메일, 포인트)
+  }
+  .user-info1-body-left {
+    width: auto;
+    // max-width: 15%;
+
+    @include App.dongle-font(1.4rem);
+  }
+  //유저정보 오른쪽박스(이름, 이메일주소, 포인트액수)
+  .user-info1-body-right {
+    width: auto;
+    // max-width: 85%;
+    & p {
+      @include App.dongle-font(1.4rem);
+    }
+  }
+
+  // 유저정보 버튼
+  .user-info1-bottom {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: end;
+  }
+  .user-info1-bottom > button {
+    @include user-button-shape(auto, auto);
+    // 버튼 따로 폰트 사이즈 조절용
+    @include App.dongle-font(1.2rem);
+  }
+
+  .user-info1-bottom > button:hover {
+    color: rgb(177, 40, 40);
+    background-color: gold;
+  }
+
+  // 일본판
+  .h2-japanese {
+    color: gold;
+    margin-bottom: 2%;
+  }
+  .user-info1-body-japanese {
+    width: 100%;
+    color: black;
+    font-weight: 900;
+    @include App.flex-box-center(column);
+    // 유저 정보 내용 따로 폰트 사이즈 조절용
+  }
+  .user-info1-body-core-japanese {
+    @include App.flex-box-center(row);
+    // 유저정보 왼쪽박스(명함, 이메일, 포인트)
+  }
+  .user-info1-body-left-japanese {
+    width: auto;
+    // max-width: 15%;
+    @include App.potta-font(0.75rem);
+  }
+  .user-info1-body-right-japanese {
+    width: auto;
+    // max-width: 80%;
+    @include App.potta-font(0.75rem);
+    & p {
+      @include App.potta-font(0.75rem);
+    }
+  }
+  // 유저정보 버튼
+  .user-info1-bottom-japanese {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: end;
+  }
+  .user-info1-bottom-japanese > button {
+    @include user-button-shape(auto, auto);
+    // 버튼 따로 폰트 사이즈 조절용
+    @include App.potta-font(0.9rem);
+  }
+
+  .user-info1-bottom-japanese > button:hover {
+    color: rgb(177, 40, 40);
+    background-color: gold;
+  }
+
+  .korean-dongle-font {
+    @include App.dongle-font(2.4rem);
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.6rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.3rem);
+    line-height: 1.5;
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(1.2rem);
+    line-height: 1.5;
+  }
+}
+
+//~ 갤럭시 폴드
+@media (max-device-width: 280px) {
+  h2 {
+    color: gold;
+  }
+  // 유저 정보
+  .user-info1-body {
+    width: 100%;
+    color: black;
+    font-weight: 900;
+    @include App.flex-box-center(column);
+    // 유저 정보 내용 따로 폰트 사이즈 조절용
+  }
+  // 유저정보 왼쪽박스(명함, 이메일, 포인트)
+
+  .user-info1-body-core {
+    @include App.flex-box-center(row);
+    // 유저정보 왼쪽박스(명함, 이메일, 포인트)
+  }
+  .user-info1-body-left {
+    width: auto;
+    // max-width: 15%;
+
+    @include App.dongle-font(1.1rem);
+  }
+  //유저정보 오른쪽박스(이름, 이메일주소, 포인트액수)
+  .user-info1-body-right {
+    width: auto;
+    // max-width: 85%;
+    & p {
+      @include App.dongle-font(1.1rem);
+    }
+  }
+
+  // 유저정보 버튼
+  .user-info1-bottom {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: end;
+  }
+  .user-info1-bottom > button {
+    @include user-button-shape(auto, auto);
+    // 버튼 따로 폰트 사이즈 조절용
+    @include App.dongle-font(1rem);
+    min-width: 36px;
+  }
+
+  .user-info1-bottom > button:hover {
+    color: rgb(177, 40, 40);
+    background-color: gold;
+  }
+
+  // 일본판
+  .h2-japanese {
+    color: gold;
+    margin-bottom: 2%;
+  }
+  .user-info1-body-japanese {
+    width: 100%;
+    color: black;
+    font-weight: 900;
+    @include App.flex-box-center(column);
+    // 유저 정보 내용 따로 폰트 사이즈 조절용
+  }
+  .user-info1-body-core-japanese {
+    @include App.flex-box-center(row);
+    // 유저정보 왼쪽박스(명함, 이메일, 포인트)
+  }
+  .user-info1-body-left-japanese {
+    width: auto;
+    // max-width: 15%;
+    @include App.potta-font(0.7rem);
+  }
+  .user-info1-body-right-japanese {
+    width: auto;
+    // max-width: 80%;
+    @include App.potta-font(0.7rem);
+    & p {
+      @include App.potta-font(0.7rem);
+    }
+  }
+  // 유저정보 버튼
+  .user-info1-bottom-japanese {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: end;
+  }
+  .user-info1-bottom-japanese > button {
+    @include user-button-shape(auto, auto);
+    // 버튼 따로 폰트 사이즈 조절용
+    @include App.potta-font(0.7rem);
+    min-width: 36px;
+  }
+
+  .user-info1-bottom-japanese > button:hover {
+    color: rgb(177, 40, 40);
+    background-color: gold;
+  }
+  .korean-dongle-font {
+    @include App.dongle-font(2.4rem);
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.5rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.3rem);
+    line-height: 1.5;
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(1.1rem);
+    line-height: 1.5;
+  }
+}
+
+//! 반응형 웹브라우저
+//~ 디바이스
+@media (min-width: 1025px) and (max-width: 1366px) {
+  h2 {
+    color: gold;
+  }
+  // 유저 정보
+  .user-info1-body {
+    width: 100%;
+    color: black;
+    font-weight: 900;
+    @include App.flex-box-center(column);
+    // 유저 정보 내용 따로 폰트 사이즈 조절용
+  }
+  .user-info1-body-core {
+    @include App.flex-box-center(row);
+    // 유저정보 왼쪽박스(명함, 이메일, 포인트)
+  }
+  .user-info1-body-left {
+    width: auto;
+    // max-width: 20%;
+    @include App.dongle-font(1.5rem);
+  }
+  //유저정보 오른쪽박스(이름, 이메일주소, 포인트액수)
+  .user-info1-body-right {
+    width: auto;
+    // max-width: 80%;
+    @include App.dongle-font(1.5rem);
+    & p {
+      @include App.dongle-font(1.5rem);
+    }
+  }
+
+  // 유저정보 버튼
+  .user-info1-bottom {
+    width: 100%;
+    height: auto;
+  }
+  .user-info1-bottom > button {
+    @include user-button-shape(auto, auto);
+    // 버튼 따로 폰트 사이즈 조절용
+    @include App.dongle-font(1.5rem);
+  }
+
+  .user-info1-bottom > button:hover {
+    color: rgb(177, 40, 40);
+    background-color: gold;
+  }
+
+  // 일본판
+  .h2-japanese {
+    color: gold;
+    margin-bottom: 2%;
+  }
+  .user-info1-body-japanese {
+    width: 100%;
+    color: black;
+    font-weight: 900;
+    @include App.flex-box-center(column);
+    // 유저 정보 내용 따로 폰트 사이즈 조절용
+  }
+  .user-info1-body-core-japanese {
+    @include App.flex-box-center(row);
+  }
+  .user-info1-body-left-japanese {
+    width: auto;
+    // max-width: 20%;
+    @include App.potta-font(1.1rem);
+  }
+  .user-info1-body-right-japanese {
+    width: auto;
+    // max-width: 80%;
+    @include App.potta-font(1.1rem);
+    & p {
+      @include App.potta-font(1.1rem);
+    }
+  }
+  // 유저정보 버튼
+  .user-info1-bottom-japanese {
+    width: 100%;
+    height: auto;
+  }
+  .user-info1-bottom-japanese > button {
+    @include user-button-shape(auto, auto);
+    // 버튼 따로 폰트 사이즈 조절용
+    @include App.potta-font(1.4rem);
+  }
+
+  .user-info1-bottom-japanese > button:hover {
+    color: rgb(177, 40, 40);
+    background-color: gold;
+  }
+  .korean-dongle-font {
+    @include App.dongle-font(2.8rem);
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.8rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.4rem);
+    line-height: 2;
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(1.3rem);
+    line-height: 1.5;
+  }
+}
+
+//~ 태블릿, 아이패드, 아이패드 프로
+@media (min-width: 769px) and (max-width: 1024px) {
+  h2 {
+    color: gold;
+  }
+  // 유저 정보
+  .user-info1-body {
+    width: 100%;
+    color: black;
+    font-weight: 900;
+    @include App.flex-box-center(column);
+    // 유저 정보 내용 따로 폰트 사이즈 조절용
+  }
+  // 유저정보 왼쪽박스(명함, 이메일, 포인트)
+
+  .user-info1-body-core {
+    @include App.flex-box-center(row);
+    // 유저정보 왼쪽박스(명함, 이메일, 포인트)
+  }
+  .user-info1-body-left {
+    width: auto;
+    // max-width: 20%;
+    @include App.dongle-font(1.5rem);
+  }
+  //유저정보 오른쪽박스(이름, 이메일주소, 포인트액수)
+  .user-info1-body-right {
+    width: auto;
+    // max-width: 80%;
+    @include App.dongle-font(1.5rem);
+    & p {
+      @include App.dongle-font(1.5rem);
+    }
+  }
+
+  // 유저정보 버튼
+  .user-info1-bottom {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: end;
+  }
+  .user-info1-bottom > button {
+    @include user-button-shape(auto, auto);
+    // 버튼 따로 폰트 사이즈 조절용
+    @include App.dongle-font(1.5rem);
+    min-width: 50px;
+  }
+
+  .user-info1-bottom > button:hover {
+    color: rgb(177, 40, 40);
+    background-color: gold;
+  }
+
+  // 일본판
+  .h2-japanese {
+    color: gold;
+    margin-bottom: 2%;
+  }
+  .user-info1-body-japanese {
+    width: 100%;
+    color: black;
+    font-weight: 900;
+    @include App.flex-box-center(column);
+    // 유저 정보 내용 따로 폰트 사이즈 조절용
+  }
+  .user-info1-body-core-japanese {
+    @include App.flex-box-center(row);
+    // 유저정보 왼쪽박스(명함, 이메일, 포인트)
+  }
+  .user-info1-body-left-japanese {
+    width: auto;
+    // max-width: 20%;
+    @include App.potta-font(1.1rem);
+  }
+  .user-info1-body-right-japanese {
+    width: auto;
+    // max-width: 90%;
+    @include App.potta-font(1.1rem);
+    & p {
+      @include App.potta-font(1.1rem);
+    }
+  }
+  // 유저정보 버튼
+  .user-info1-bottom-japanese {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: end;
+  }
+  .user-info1-bottom-japanese > button {
+    @include user-button-shape(auto, auto);
+    // 버튼 따로 폰트 사이즈 조절용
+    @include App.potta-font(1.4rem);
+    min-width: 50px;
+  }
+
+  .user-info1-bottom-japanese > button:hover {
+    color: rgb(177, 40, 40);
+    background-color: gold;
+  }
+  .korean-dongle-font {
+    @include App.dongle-font(2.7rem);
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.7rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.4rem);
+    line-height: 1.5;
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(1.2rem);
+    line-height: 1.5;
+  }
+}
+
+//~ 481px ~ 768px 및 태블릿
+@media (min-width: 481px) and (max-width: 768px) {
+  h2 {
+    color: gold;
+  }
+  // 유저 정보
+  .user-info1-body {
+    width: 100%;
+    color: black;
+    font-weight: 900;
+    @include App.flex-box-center(column);
+    // 유저 정보 내용 따로 폰트 사이즈 조절용
+  }
+  // 유저정보 왼쪽박스(명함, 이메일, 포인트)
+
+  .user-info1-body-core {
+    @include App.flex-box-center(row);
+    // 유저정보 왼쪽박스(명함, 이메일, 포인트)
+  }
+  .user-info1-body-left {
+    width: auto;
+    // max-width: 20%;
+    @include App.dongle-font(1.5rem);
+  }
+  //유저정보 오른쪽박스(이름, 이메일주소, 포인트액수)
+  .user-info1-body-right {
+    width: auto;
+    // max-width: 80%;
+    @include App.dongle-font(1.5rem);
+    & p {
+      @include App.dongle-font(1.5rem);
+    }
+  }
+
+  // 유저정보 버튼
+  .user-info1-bottom {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: end;
+  }
+  .user-info1-bottom > button {
+    @include user-button-shape(auto, auto);
+    // 버튼 따로 폰트 사이즈 조절용
+    @include App.dongle-font(1.25rem);
+    min-width: 50px;
+  }
+
+  .user-info1-bottom > button:hover {
+    color: rgb(177, 40, 40);
+    background-color: gold;
+  }
+
+  // 일본판
+  .h2-japanese {
+    color: gold;
+    margin-bottom: 2%;
+  }
+  .user-info1-body-japanese {
+    width: 100%;
+    color: black;
+    font-weight: 900;
+    @include App.flex-box-center(column);
+    // 유저 정보 내용 따로 폰트 사이즈 조절용
+  }
+  .user-info1-body-core-japanese {
+    @include App.flex-box-center(row);
+    // 유저정보 왼쪽박스(명함, 이메일, 포인트)
+  }
+  .user-info1-body-left-japanese {
+    width: auto;
+    // max-width: 20%;
+    @include App.potta-font(1.1rem);
+  }
+  .user-info1-body-right-japanese {
+    width: auto;
+    // max-width: 80%;
+    @include App.potta-font(1.1rem);
+    & p {
+      @include App.potta-font(1.1rem);
+    }
+  }
+  // 유저정보 버튼
+  .user-info1-bottom-japanese {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: end;
+  }
+  .user-info1-bottom-japanese > button {
+    @include user-button-shape(auto, auto);
+    // 버튼 따로 폰트 사이즈 조절용
+    @include App.potta-font(1.3rem);
+    min-width: 50px;
+  }
+
+  .user-info1-bottom-japanese > button:hover {
+    color: rgb(177, 40, 40);
+    background-color: gold;
+  }
+  .korean-dongle-font {
+    @include App.dongle-font(2.7rem);
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.7rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.4rem);
+    line-height: 1.5;
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(1.2rem);
+    line-height: 1.5;
+  }
+}
+
+//~ IPhone 14 Pro Max(430px)
+@media (min-width: 415px) and (max-width: 480px) {
+  h2 {
+    color: gold;
+  }
+  // 유저 정보
+  .user-info1-body {
+    width: 100%;
+    color: black;
+    font-weight: 900;
+    @include App.flex-box-center(column);
+    // 유저 정보 내용 따로 폰트 사이즈 조절용
+  }
+  // 유저정보 왼쪽박스(명함, 이메일, 포인트)
+
+  .user-info1-body-core {
+    @include App.flex-box-center(row);
+    // 유저정보 왼쪽박스(명함, 이메일, 포인트)
+  }
+  .user-info1-body-left {
+    width: auto;
+    // max-width: 25%;
+    @include App.dongle-font(1.5rem);
+  }
+  //유저정보 오른쪽박스(이름, 이메일주소, 포인트액수)
+  .user-info1-body-right {
+    width: auto;
+    // max-width: 75%;
+    & p {
+      @include App.dongle-font(1.5rem);
+    }
+  }
+
+  // 유저정보 버튼
+  .user-info1-bottom {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: end;
+  }
+  .user-info1-bottom > button {
+    @include user-button-shape(auto, auto);
+    // 버튼 따로 폰트 사이즈 조절용
+    @include App.dongle-font(1.3rem);
+    min-width: 50px;
+  }
+
+  .user-info1-bottom > button:hover {
+    color: rgb(177, 40, 40);
+    background-color: gold;
+  }
+
+  // 일본판
+  .h2-japanese {
+    color: gold;
+    margin-bottom: 2%;
+  }
+  .user-info1-body-japanese {
+    width: 100%;
+    color: black;
+    font-weight: 900;
+    @include App.flex-box-center(column);
+    // 유저 정보 내용 따로 폰트 사이즈 조절용
+    @include App.potta-font(1rem);
+  }
+  .user-info1-body-core-japanese {
+    @include App.flex-box-center(row);
+    // 유저정보 왼쪽박스(명함, 이메일, 포인트)
+  }
+  .user-info1-body-left-japanese {
+    width: auto;
+    // max-width: 20%;
+    @include App.potta-font(1rem);
+  }
+  .user-info1-body-right-japanese {
+    width: auto;
+    // max-width: 80%;
+    @include App.potta-font(1rem);
+    & p {
+      @include App.potta-font(1rem);
+    }
+  }
+  // 유저정보 버튼
+  .user-info1-bottom-japanese {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: end;
+  }
+  .user-info1-bottom-japanese > button {
+    @include user-button-shape(auto, auto);
+    // 버튼 따로 폰트 사이즈 조절용
+    @include App.potta-font(1.2rem);
+    min-width: 50px;
+  }
+
+  .user-info1-bottom-japanese > button:hover {
+    color: rgb(177, 40, 40);
+    background-color: gold;
+  }
+  .korean-dongle-font {
+    @include App.dongle-font(2.4rem);
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.6rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.3rem);
+    line-height: 1.5;
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(1.2rem);
+    line-height: 1.5;
+  }
+}
+
+//~ 아이폰XR
+@media (min-width: 376px) and (max-width: 414px) {
+  h2 {
+    color: gold;
+  }
+  // 유저 정보
+  .user-info1-body {
+    width: 100%;
+    color: black;
+    font-weight: 900;
+    @include App.flex-box-center(column);
+    // 유저 정보 내용 따로 폰트 사이즈 조절용
+  }
+  // 유저정보 왼쪽박스(명함, 이메일, 포인트)
+
+  .user-info1-body-core {
+    @include App.flex-box-center(row);
+    // 유저정보 왼쪽박스(명함, 이메일, 포인트)
+  }
+  .user-info1-body-left {
+    width: auto;
+    // max-width: 20%;
+    @include App.dongle-font(1.5rem);
+  }
+  //유저정보 오른쪽박스(이름, 이메일주소, 포인트액수)
+  .user-info1-body-right {
+    width: auto;
+    // max-width: 80%;
+    & p {
+      @include App.dongle-font(1.5rem);
+    }
+  }
+
+  // 유저정보 버튼
+  .user-info1-bottom {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: end;
+  }
+  .user-info1-bottom > button {
+    @include user-button-shape(auto, auto);
+    // 버튼 따로 폰트 사이즈 조절용
+    @include App.dongle-font(1.2rem);
+  }
+
+  .user-info1-bottom > button:hover {
+    color: rgb(177, 40, 40);
+    background-color: gold;
+  }
+
+  // 일본판
+  .h2-japanese {
+    color: gold;
+    margin-bottom: 2%;
+  }
+  .user-info1-body-japanese {
+    width: 100%;
+    color: black;
+    font-weight: 900;
+    @include App.flex-box-center(column);
+    // 유저 정보 내용 따로 폰트 사이즈 조절용
+  }
+  .user-info1-body-core-japanese {
+    @include App.flex-box-center(row);
+    // 유저정보 왼쪽박스(명함, 이메일, 포인트)
+  }
+  .user-info1-body-left-japanese {
+    width: auto;
+    // max-width: 20%;
+    @include App.potta-font(0.95rem);
+  }
+  .user-info1-body-right-japanese {
+    width: auto;
+    // max-width: 80%;
+    @include App.potta-font(0.95rem);
+    & p {
+      @include App.potta-font(0.95rem);
+    }
+  }
+  // 유저정보 버튼
+  .user-info1-bottom-japanese {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: end;
+  }
+  .user-info1-bottom-japanese > button {
+    @include user-button-shape(auto, auto);
+    // 버튼 따로 폰트 사이즈 조절용
+    @include App.potta-font(1.2rem);
+  }
+
+  .user-info1-bottom-japanese > button:hover {
+    color: rgb(177, 40, 40);
+    background-color: gold;
+  }
+  .korean-dongle-font {
+    @include App.dongle-font(2.4rem);
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.6rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.3rem);
+    line-height: 1.5;
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(1.2rem);
+    line-height: 1.5;
+  }
+}
+
+//~ 아이폰 SE
+@media (min-width: 281px) and (max-width: 375px) {
+  h2 {
+    color: gold;
+  }
+  // 유저 정보
+  .user-info1-body {
+    width: 100%;
+    color: black;
+    font-weight: 900;
+    @include App.flex-box-center(column);
+    // 유저 정보 내용 따로 폰트 사이즈 조절용
+  }
+  // 유저정보 왼쪽박스(명함, 이메일, 포인트)
+
+  .user-info1-body-core {
+    @include App.flex-box-center(row);
+    // 유저정보 왼쪽박스(명함, 이메일, 포인트)
+  }
+  .user-info1-body-left {
+    width: auto;
+    // max-width: 15%;
+
+    @include App.dongle-font(1.4rem);
+  }
+  //유저정보 오른쪽박스(이름, 이메일주소, 포인트액수)
+  .user-info1-body-right {
+    width: auto;
+    // max-width: 85%;
+    & p {
+      @include App.dongle-font(1.4rem);
+    }
+  }
+
+  // 유저정보 버튼
+  .user-info1-bottom {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: end;
+  }
+  .user-info1-bottom > button {
+    @include user-button-shape(auto, auto);
+    // 버튼 따로 폰트 사이즈 조절용
+    @include App.dongle-font(1.2rem);
+  }
+
+  .user-info1-bottom > button:hover {
+    color: rgb(177, 40, 40);
+    background-color: gold;
+  }
+
+  // 일본판
+  .h2-japanese {
+    color: gold;
+    margin-bottom: 2%;
+  }
+  .user-info1-body-japanese {
+    width: 100%;
+    color: black;
+    font-weight: 900;
+    @include App.flex-box-center(column);
+    // 유저 정보 내용 따로 폰트 사이즈 조절용
+  }
+  .user-info1-body-core-japanese {
+    @include App.flex-box-center(row);
+    // 유저정보 왼쪽박스(명함, 이메일, 포인트)
+  }
+  .user-info1-body-left-japanese {
+    width: auto;
+    // max-width: 15%;
+    @include App.potta-font(0.75rem);
+  }
+  .user-info1-body-right-japanese {
+    width: auto;
+    // max-width: 80%;
+    @include App.potta-font(0.75rem);
+    & p {
+      @include App.potta-font(0.75rem);
+    }
+  }
+  // 유저정보 버튼
+  .user-info1-bottom-japanese {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: end;
+  }
+  .user-info1-bottom-japanese > button {
+    @include user-button-shape(auto, auto);
+    // 버튼 따로 폰트 사이즈 조절용
+    @include App.potta-font(0.9rem);
+  }
+
+  .user-info1-bottom-japanese > button:hover {
+    color: rgb(177, 40, 40);
+    background-color: gold;
+  }
+
+  .korean-dongle-font {
+    @include App.dongle-font(2.4rem);
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.6rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.3rem);
+    line-height: 1.5;
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(1.2rem);
+    line-height: 1.5;
+  }
+}
+
+//~ 갤럭시 폴드
+@media (max-width: 280px) {
+  h2 {
+    color: gold;
+  }
+  // 유저 정보
+  .user-info1-body {
+    width: 100%;
+    color: black;
+    font-weight: 900;
+    @include App.flex-box-center(column);
+    // 유저 정보 내용 따로 폰트 사이즈 조절용
+  }
+  // 유저정보 왼쪽박스(명함, 이메일, 포인트)
+
+  .user-info1-body-core {
+    @include App.flex-box-center(row);
+    // 유저정보 왼쪽박스(명함, 이메일, 포인트)
+  }
+  .user-info1-body-left {
+    width: auto;
+    // max-width: 15%;
+
+    @include App.dongle-font(1.1rem);
+  }
+  //유저정보 오른쪽박스(이름, 이메일주소, 포인트액수)
+  .user-info1-body-right {
+    width: auto;
+    // max-width: 85%;
+    & p {
+      @include App.dongle-font(1.1rem);
+    }
+  }
+
+  // 유저정보 버튼
+  .user-info1-bottom {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: end;
+  }
+  .user-info1-bottom > button {
+    @include user-button-shape(auto, auto);
+    // 버튼 따로 폰트 사이즈 조절용
+    @include App.dongle-font(1rem);
+    min-width: 36px;
+  }
+
+  .user-info1-bottom > button:hover {
+    color: rgb(177, 40, 40);
+    background-color: gold;
+  }
+
+  // 일본판
+  .h2-japanese {
+    color: gold;
+    margin-bottom: 2%;
+  }
+  .user-info1-body-japanese {
+    width: 100%;
+    color: black;
+    font-weight: 900;
+    @include App.flex-box-center(column);
+    // 유저 정보 내용 따로 폰트 사이즈 조절용
+  }
+  .user-info1-body-core-japanese {
+    @include App.flex-box-center(row);
+    // 유저정보 왼쪽박스(명함, 이메일, 포인트)
+  }
+  .user-info1-body-left-japanese {
+    width: auto;
+    // max-width: 15%;
+    @include App.potta-font(0.7rem);
+  }
+  .user-info1-body-right-japanese {
+    width: auto;
+    // max-width: 80%;
+    @include App.potta-font(0.7rem);
+    & p {
+      @include App.potta-font(0.7rem);
+    }
+  }
+  // 유저정보 버튼
+  .user-info1-bottom-japanese {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: end;
+  }
+  .user-info1-bottom-japanese > button {
+    @include user-button-shape(auto, auto);
+    // 버튼 따로 폰트 사이즈 조절용
+    @include App.potta-font(0.7rem);
+    min-width: 36px;
+  }
+
+  .user-info1-bottom-japanese > button:hover {
+    color: rgb(177, 40, 40);
+    background-color: gold;
+  }
+  .korean-dongle-font {
+    @include App.dongle-font(2.4rem);
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.6rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.3rem);
+    line-height: 1.5;
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(1.1rem);
+    line-height: 1.5;
+  }
+}
+
+
+//* 아이패드 프로 가로
+@media screen and (orientation: landscape) and (min-device-width: 1025px) and (max-device-width: 1366px) {
+  .korean-dongle-font {
+    @include App.dongle-font(2.8rem);
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.8rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.4rem);
+    line-height: 2;
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(1.3rem);
+    line-height: 1.5;
+  }
+}
+//* 태블릿 아이패드, 아이패드 프로 가로
+@media screen and (orientation: landscape) and (min-device-width: 933px) and (max-device-width: 1024px) {
+  .korean-dongle-font {
+    @include App.dongle-font(2.7rem);
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.7rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.4rem);
+    line-height: 1.5;
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(1.2rem);
+    line-height: 1.5;
+  }
+}
+//* IPhon 14 Pro Max 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 897px) and (max-device-width: 932px) {
+  .korean-dongle-font {
+    @include App.dongle-font(2.4rem);
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.6rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.3rem);
+    line-height: 1.5;
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(1.2rem);
+    line-height: 1.5;
+  }
+}
+//* 아이폰XR 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 668px) and (max-device-width: 896px) {
+  .korean-dongle-font {
+    @include App.dongle-font(2.4rem);
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.6rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.3rem);
+    line-height: 1.5;
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(1.2rem);
+    line-height: 1.5;
+  }
+}
+//* 아이폰SE 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 654px) and (max-device-width: 667px) {
+  .korean-dongle-font {
+    @include App.dongle-font(2.4rem);
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.6rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.3rem);
+    line-height: 1.5;
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(1.2rem);
+    line-height: 1.5;
+  }
+}
+
+//* 갤럭시 폴드 가로모드
+@media screen and (orientation: landscape) and (max-device-width: 653px) {
+  // 유저 정보
+  // 유저정보 버튼
+  div.user-info1-bottom {
+    width: 100%;
+    height: auto;
+  }
+  div.user-info1-bottom > button {
+    @include user-button-shape(auto, auto);
+    @include App.dongle-font(1.5rem);
+    min-width: 50px;
+  }
+
+  div.user-info1-bottom > button:hover {
+    @include App.dongle-font(1.5rem);
+
+    color: rgb(177, 40, 40);
+    background-color: gold;
+  }
+
+  //! 일본판
+  // 유저정보 버튼
+  div.user-info1-bottom-japanese {
+    width: 100%;
+    height: auto;
+  }
+  div.user-info1-bottom-japanese > button {
+    @include user-button-shape(auto, auto);
+    @include App.potta-font(1.1rem);
+    min-width: 50px;
+  }
+
+  div.user-info1-bottom-japanese > button:hover {
+    color: rgb(177, 40, 40);
+    font-size: 1.1rem;
+    background-color: gold;
+  }
+  .korean-dongle-font {
+    @include App.dongle-font(2.4rem);
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.5rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.3rem);
+    line-height: 1.5;
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(1.1rem);
+    line-height: 1.5;
+  }
+}

@@ -1,0 +1,183 @@
+@use '_App.module.scss';
+
+.container {
+  @include App.flex-box-center(column);
+}
+.box {
+  @include App.flex-box-center(row);
+}
+
+//~ 갤럭시 폴드
+@media (max-device-width: 280px) {
+  .container {
+    @include App.flex-box-center(column);
+  }
+  .box {
+    @include App.flex-box-center(column);
+  }
+}
+
+//* 갤럭시 폴드 가로모드
+@media screen and (orientation: landscape) and (max-device-width: 653px) {
+}
+
+//~ 아이폰 SE
+@media (min-device-width: 281px) and (max-device-width: 375px) {
+  .container {
+    @include App.flex-box-center(column);
+  }
+  .box {
+    @include App.flex-box-center(column);
+  }
+}
+
+//* 아이폰SE 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 654px) and (max-device-width: 667px) {
+}
+
+//~ 아이폰XR
+@media (min-device-width: 376px) and (max-device-width: 414px) {
+  .container {
+    @include App.flex-box-center(column);
+  }
+  .box {
+    @include App.flex-box-center(column);
+  }
+}
+
+//* 아이폰XR 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 668px) and (max-device-width: 896px) {
+}
+
+//~ IPhone 14 Pro Max(430px)
+@media only screen and (min-device-width: 415px) and (max-device-width: 480px) {
+  .container {
+    @include App.flex-box-center(column);
+  }
+  .box:nth-child(2) {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+//* IPhon 14 Pro Max 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 897px) and (max-device-width: 932px) {
+}
+
+//~ 481px ~ 768px 및 태블릿
+@media (min-device-width: 481px) and (max-device-width: 768px) {
+  .container {
+    @include App.flex-box-center(column);
+  }
+  .box:nth-child(2) {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+//~ 태블릿, 아이패드, 아이패드 프로
+@media (min-device-width: 769px) and (max-device-width: 1024px) {
+  .container {
+    @include App.flex-box-center(column);
+  }
+  .box:nth-child(2) {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+//* 태블릿 아이패드, 아이패드 프로 가로
+@media screen and (orientation: landscape) and (min-device-width: 933px) and (max-device-width: 1024px) {
+}
+
+//~ 디바이스
+@media (min-device-width: 1025px) and (max-device-width: 1366px) {
+  .container {
+    @include App.flex-box-center(column);
+  }
+  .box:nth-child(2) {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+//* 아이패드 프로 가로
+@media screen and (orientation: landscape) and (min-device-width: 1025px) and (max-device-width: 1366px) {
+}
+
+//!
+
+//~ 갤럭시 폴드
+@media (max-width: 280px) {
+  .container {
+    @include App.flex-box-center(column);
+  }
+  .box {
+    @include App.flex-box-center(column);
+  }
+}
+
+//~ 아이폰 SE
+@media (min-width: 281px) and (max-width: 375px) {
+  .container {
+    @include App.flex-box-center(column);
+  }
+  .box {
+    @include App.flex-box-center(column);
+  }
+}
+
+//~ 아이폰XR
+@media (min-width: 376px) and (max-width: 414px) {
+  .container {
+    @include App.flex-box-center(column);
+  }
+  .box {
+    @include App.flex-box-center(column);
+  }
+}
+
+//~ IPhone 14 Pro Max(430px)
+@media only screen and (min-width: 415px) and (max-width: 480px) {
+  .container {
+    @include App.flex-box-center(column);
+  }
+  .box:nth-child(2) {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+//~ 481px ~ 768px 및 태블릿
+@media (min-width: 481px) and (max-width: 768px) {
+  .container {
+    @include App.flex-box-center(column);
+  }
+  .box:nth-child(2) {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+//~ 태블릿, 아이패드, 아이패드 프로
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    @include App.flex-box-center(column);
+  }
+  .box:nth-child(2) {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+//~ 디바이스
+@media (min-width: 1025px) and (max-width: 1366px) {
+  .container {
+    @include App.flex-box-center(column);
+  }
+}

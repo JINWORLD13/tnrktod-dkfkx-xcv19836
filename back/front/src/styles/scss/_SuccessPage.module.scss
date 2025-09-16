@@ -1,0 +1,875 @@
+@use '_App.module.scss';
+@use '_TarotCardSpreadForm.module.scss';
+
+%payment-container {
+  width: 80%;
+  max-width: 450px; // & 크기 이상해지면 없애거나 수정
+  height: 100%;
+  max-height: 450px;
+  //   /* 그림자 효과 */
+  //   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  background-image: url('/assets/images/durumagi2.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  // background-attachment: fixed;
+  background-color: transparent;
+  @include App.flex-box-center(column);
+}
+%payment-box {
+  width: 80%;
+  height: 70%;
+  position: relative;
+  @include App.flex-box-center(column);
+  justify-content: space-between;
+  overflow: hidden;
+}
+%payment-btn-box {
+  width: 100%;
+  height: auto;
+  @include App.flex-box-center(row);
+  justify-content: space-evenly;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+}
+@mixin payment-btn-hover($font-size, $font-weight) {
+  font-size: $font-size;
+  font-weight: $font-weight;
+  color: rgb(177, 40, 40);
+  background-color: gold;
+}
+@mixin payment-content-without-japanse(
+  $width,
+  $height,
+  $p-tag-margin-bottom,
+  $font-size
+) {
+  width: $width;
+  height: $height;
+  overflow-y: auto;
+  position: absolute;
+  top: 0%;
+  @include App.dongle-font($font-size);
+  color: black;
+  p {
+    margin-bottom: $p-tag-margin-bottom;
+  }
+}
+@mixin payment-content-japanse(
+  $width,
+  $height,
+  $p-tag-margin-bottom,
+  $font-size
+) {
+  width: $width;
+  height: $height;
+  overflow-y: auto;
+  position: absolute;
+  top: 0%;
+  @include App.potta-font($font-size);
+  color: black;
+  p {
+    margin-bottom: $p-tag-margin-bottom;
+  }
+}
+@include App.scrollBar-custom-className(
+  content,
+  5px,
+  10px,
+  rgb(177, 40, 40),
+  lightyellow
+);
+@include App.scrollBar-custom-className(
+  content-japanese,
+  5px,
+  10px,
+  rgb(177, 40, 40),
+  lightyellow
+);
+.container {
+  width: 100vw;
+  height: calc(100vh - 130px);
+  @include App.flex-box-center(row);
+  background-image: url('/assets/images/universe.jpg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.payment-container {
+  @extend %payment-container;
+
+  .payment-box {
+    @extend %payment-box;
+  }
+  .content {
+    @include payment-content-without-japanse(100%, 85%, 15px, 1.7rem);
+    & {
+      overflow-y: auto;
+    }
+    & > h2 {
+      color: black;
+    }
+  }
+  // .content {
+  //   @include payment-content-without-japanse(100%, 85%, 15px, 1.7rem);
+  //   overflow-y: auto;
+  //   & > h2 {
+  //     color: black;
+  //   }
+  // }
+  @include App.scrollBar-custom-className(
+    content,
+    20px,
+    10px,
+    rgb(177, 40, 40),
+    lightyellow
+  );
+}
+.btn-box {
+  @extend %payment-btn-box;
+  .home-btn,
+  .mypayge-btn {
+    width: 25%;
+    height: 100%;
+    font-size: 1.4rem;
+  }
+  .home-btn:hover,
+  .mypayge-btn:hover {
+    @include payment-btn-hover(1.4rem, 500);
+  }
+}
+
+.payment-container-japanese {
+  @extend %payment-container;
+  .payment-box-japanese {
+    @extend %payment-box;
+  }
+  .content-japanese {
+    @include payment-content-japanse(100%, 85%, 15px, 1.1rem);
+    & {
+      line-height: 2.2;
+      overflow-y: auto;
+    }
+    & > h2 {
+      color: black;
+    }
+  }
+  // .content-japanese {
+  //   @include payment-content-japanse(100%, 85%, 15px, 1.1rem);
+  //   line-height: 2.2;
+  //   overflow-y: auto;
+  //   & > h2 {
+  //     color: black;
+  //   }
+  // }
+  @include App.scrollBar-custom-className(
+    content-japanese,
+    20px,
+    10px,
+    rgb(177, 40, 40),
+    lightyellow
+  );
+}
+.btn-box-japanese {
+  @extend %payment-btn-box;
+
+  .home-btn-japanese,
+  .mypayge-btn-japanese {
+    width: 30%;
+    height: 100%;
+    font-size: 1rem;
+  }
+  .home-btn-japanese:hover,
+  .mypayge-btn-japanese:hover {
+    @include payment-btn-hover(1rem, 500);
+  }
+}
+
+.flex-grow {
+  @include App.flex-grow(1);
+}
+
+.korean-dongle-font {
+  @include App.dongle-font(3rem);
+}
+.korean-dongle-font2 {
+  @include App.dongle-font(2.2rem);
+}
+.japanese-potta-font {
+  @include App.potta-font(1.5rem);
+  line-height: 3;
+}
+.japanese-potta-font2 {
+  @include App.potta-font(1.2rem);
+  line-height: 2.5;
+}
+
+//~ 디바이스
+@media (min-device-width: 1025px) and (max-device-width: 1366px) {
+  .korean-dongle-font {
+    @include App.dongle-font(2.8rem);
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.8rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.4rem);
+    line-height: 2;
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(0.9rem);
+    line-height: 1.5;
+  }
+}
+//~ 태블릿, 아이패드, 아이패드 프로
+@media (min-device-width: 769px) and (max-device-width: 1024px) {
+  .korean-dongle-font {
+    @include App.dongle-font(2.7rem);
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.7rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.4rem);
+    line-height: 1.5;
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(1rem);
+    line-height: 1.5;
+  }
+}
+//~ 481px ~ 768px 및 태블릿
+@media (min-device-width: 481px) and (max-device-width: 768px) {
+  .korean-dongle-font {
+    @include App.dongle-font(2.7rem);
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.7rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.4rem);
+    line-height: 1.5;
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(1.1rem);
+    line-height: 1.5;
+  }
+}
+//~ IPhone 14 Pro Max(430px)
+@media only screen and (min-device-width: 415px) and (max-device-width: 480px) {
+  .korean-dongle-font {
+    @include App.dongle-font(2.4rem);
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.3rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.3rem);
+    line-height: 1.5;
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(0.9rem);
+    line-height: 1.5;
+  }
+}
+//~ 아이폰XR
+@media (min-device-width: 376px) and (max-device-width: 414px) {
+  .korean-dongle-font {
+    @include App.dongle-font(2.4rem);
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.3rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.3rem);
+    line-height: 1.5;
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(0.9rem);
+    line-height: 1.5;
+  }
+}
+//~ 아이폰 SE
+@media (min-device-width: 281px) and (max-device-width: 375px) {
+  .korean-dongle-font {
+    @include App.dongle-font(2.4rem);
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.3rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.3rem);
+    line-height: 1.5;
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(0.9rem);
+    line-height: 1.5;
+  }
+}
+//~ 갤럭시 폴드
+@media (max-device-width: 280px) {
+  .korean-dongle-font {
+    @include App.dongle-font(2.4rem);
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.3rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.3rem);
+    line-height: 1.5;
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(0.9rem);
+    line-height: 1.5;
+  }
+}
+
+//! 반응형 웹브라우저
+
+//~ 디바이스
+@media (min-width: 1025px) and (max-width: 1366px) {
+  .korean-dongle-font {
+    @include App.dongle-font(2.8rem);
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.8rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.4rem);
+    line-height: 2;
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(0.9rem);
+    line-height: 1.5;
+  }
+}
+//~ 태블릿, 아이패드, 아이패드 프로
+@media (min-width: 769px) and (max-width: 1024px) {
+  .korean-dongle-font {
+    @include App.dongle-font(2.7rem);
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.7rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.4rem);
+    line-height: 1.5;
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(1rem);
+    line-height: 1.5;
+  }
+}
+//~ 481px ~ 768px 및 태블릿
+@media (min-width: 481px) and (max-width: 768px) {
+  .korean-dongle-font {
+    @include App.dongle-font(2.7rem);
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.7rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.4rem);
+    line-height: 1.5;
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(1.1rem);
+    line-height: 1.5;
+  }
+}
+//~ IPhone 14 Pro Max(430px)
+@media only screen and (min-width: 415px) and (max-width: 480px) {
+  .korean-dongle-font {
+    @include App.dongle-font(2.4rem);
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.3rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.3rem);
+    line-height: 1.5;
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(0.9rem);
+    line-height: 1.5;
+  }
+}
+//~ 아이폰XR
+@media (min-width: 376px) and (max-width: 414px) {
+  .korean-dongle-font {
+    @include App.dongle-font(2.4rem);
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.3rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.3rem);
+    line-height: 1.5;
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(0.9rem);
+    line-height: 1.5;
+  }
+}
+//~ 아이폰 SE
+@media (min-width: 281px) and (max-width: 375px) {
+  .korean-dongle-font {
+    @include App.dongle-font(2.4rem);
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.3rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.3rem);
+    line-height: 1.5;
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(0.9rem);
+    line-height: 1.5;
+  }
+}
+//~ 갤럭시 폴드
+@media (max-width: 280px) {
+  .korean-dongle-font {
+    @include App.dongle-font(2.4rem);
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.3rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.3rem);
+    line-height: 1.5;
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(0.9rem);
+    line-height: 1.5;
+  }
+}
+
+//* 아이패드 프로 가로
+@media screen and (orientation: landscape) and (min-device-width: 1025px) and (max-device-width: 1366px) {
+  .korean-dongle-font {
+    @include App.dongle-font(2.8rem);
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.8rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.4rem);
+    line-height: 2;
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(0.9rem);
+    line-height: 1.5;
+  }
+}
+//* 태블릿 아이패드, 아이패드 프로 가로
+@media screen and (orientation: landscape) and (min-device-width: 933px) and (max-device-width: 1024px) {
+  .korean-dongle-font {
+    @include App.dongle-font(2.7rem);
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.7rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.4rem);
+    line-height: 1.5;
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(1.1rem);
+    line-height: 1.5;
+  }
+}
+//* IPhon 14 Pro Max 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 897px) and (max-device-width: 932px) {
+  div.container {
+    width: 100vw;
+    height: 100vh;
+    @include App.flex-box-center(row);
+  }
+  div.payment-container {
+    width: 80%;
+    height: 90%;
+    .payment-box {
+      height: 75%;
+    }
+    .content {
+      @include payment-content-without-japanse(100%, 85%, 15px, 1.7rem);
+      & {
+        overflow: hidden;
+      }
+      & > h2 {
+        color: black;
+      }
+    }
+    // .content {
+    //   @include payment-content-without-japanse(100%, 85%, 15px, 1.7rem);
+    //   overflow: hidden;
+    //   & > h2 {
+    //     color: black;
+    //   }
+    // }
+    @include App.scrollBar-custom-className(
+      content,
+      20px,
+      10px,
+      rgb(177, 40, 40),
+      lightyellow
+    );
+  }
+  div.btn-box {
+    height: auto;
+    .home-btn,
+    .mypayge-btn {
+      width: 25%;
+      height: 100%;
+      font-size: 1.4rem;
+    }
+    .home-btn:hover,
+    .mypayge-btn:hover {
+      @include payment-btn-hover(1.4rem, 500);
+    }
+  }
+
+  div.payment-container-japanese {
+    width: 80%;
+    height: 90%;
+    .payment-box-japanese {
+      height: 75%;
+    }
+    .content-japanese {
+      @include payment-content-japanse(100%, 85%, 15px, 1.1rem);
+      & {
+        line-height: 2.2;
+        overflow: hidden;
+      }
+      & > h2 {
+        color: black;
+      }
+    }
+    // .content-japanese {
+    //   @include payment-content-japanse(100%, 85%, 15px, 1.1rem);
+    //   line-height: 2.2;
+    //   overflow: hidden;
+    //   & > h2 {
+    //     color: black;
+    //   }
+    // }
+    @include App.scrollBar-custom-className(
+      content-japanese,
+      20px,
+      10px,
+      rgb(177, 40, 40),
+      lightyellow
+    );
+  }
+  div.btn-box-japanese {
+    height: auto;
+    .home-btn-japanese,
+    .mypayge-btn-japanese {
+      width: 30%;
+      height: 100%;
+      font-size: 1rem;
+    }
+    .home-btn-japanese:hover,
+    .mypayge-btn-japanese:hover {
+      @include payment-btn-hover(1rem, 500);
+    }
+  }
+  .korean-dongle-font {
+    @include App.dongle-font(2.4rem);
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.3rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.3rem);
+    line-height: 1.5;
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(0.9rem);
+    line-height: 1.5;
+  }
+}
+//* 아이폰XR 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 668px) and (max-device-width: 896px) {
+  div.container {
+    width: 100vw;
+    height: 100vh;
+    @include App.flex-box-center(row);
+  }
+  div.payment-container {
+    width: 80%;
+    height: 90%;
+    .payment-box {
+      height: 70%;
+    }
+    .content {
+      overflow: hidden;
+      line-height: 1.3;
+      @include payment-content-without-japanse(100%, 85%, 15px, 1.5rem);
+
+      & > h2 {
+        color: black;
+      }
+    }
+    @include App.scrollBar-custom-className(
+      content,
+      20px,
+      10px,
+      rgb(177, 40, 40),
+      lightyellow
+    );
+  }
+  div.btn-box {
+    height: auto;
+    .home-btn,
+    .mypayge-btn {
+      width: 25%;
+      height: 100%;
+      font-size: 1.4rem;
+    }
+    .home-btn:hover,
+    .mypayge-btn:hover {
+      @include payment-btn-hover(1.4rem, 500);
+    }
+  }
+
+  div.payment-container-japanese {
+    width: 80%;
+    height: 90%;
+    .payment-box-japanese {
+      height: 70%;
+    }
+    .content-japanese {
+      overflow: hidden;
+      line-height: 2;
+      @include payment-content-japanse(100%, 85%, 15px, 0.9rem);
+
+      & > h2 {
+        color: black;
+      }
+    }
+    @include App.scrollBar-custom-className(
+      content-japanese,
+      20px,
+      10px,
+      rgb(177, 40, 40),
+      lightyellow
+    );
+  }
+  div.btn-box-japanese {
+    height: auto;
+    .home-btn-japanese,
+    .mypayge-btn-japanese {
+      width: 30%;
+      height: 100%;
+      font-size: 1rem;
+    }
+    .home-btn-japanese:hover,
+    .mypayge-btn-japanese:hover {
+      @include payment-btn-hover(1rem, 500);
+    }
+  }
+  .korean-dongle-font {
+    @include App.dongle-font(2.4rem);
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.3rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.3rem);
+    line-height: 1.5;
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(0.9rem);
+    line-height: 1.5;
+  }
+}
+//* 아이폰SE 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 654px) and (max-device-width: 667px) {
+  div.container {
+    width: 100vw;
+    height: 100vh;
+    @include App.flex-box-center(row);
+  }
+  div.payment-container {
+    width: 80%;
+    height: 100%;
+    .payment-box {
+      height: 75%;
+    }
+    .content {
+      overflow: hidden;
+      @include payment-content-without-japanse(100%, 85%, 15px, 1.7rem);
+      & > h2 {
+        color: black;
+      }
+    }
+    @include App.scrollBar-custom-className(
+      content,
+      20px,
+      10px,
+      rgb(177, 40, 40),
+      lightyellow
+    );
+  }
+  div.btn-box {
+    height: auto;
+    .home-btn,
+    .mypayge-btn {
+      width: 25%;
+      height: 100%;
+      font-size: 1.4rem;
+    }
+    .home-btn:hover,
+    .mypayge-btn:hover {
+      @include payment-btn-hover(1.4rem, 500);
+    }
+  }
+
+  div.payment-container-japanese {
+    width: 80%;
+    height: 100%;
+    .payment-box-japanese {
+      height: 75%;
+    }
+    .content-japanese {
+      line-height: 2.2;
+      overflow: hidden;
+      @include payment-content-japanse(100%, 85%, 15px, 1.1rem);
+      
+      & > h2 {
+        color: black;
+      }
+    }
+    @include App.scrollBar-custom-className(
+      content-japanese,
+      20px,
+      10px,
+      rgb(177, 40, 40),
+      lightyellow
+    );
+  }
+  div.btn-box-japanese {
+    height: auto;
+    .home-btn-japanese,
+    .mypayge-btn-japanese {
+      width: 30%;
+      height: 100%;
+      font-size: 1rem;
+    }
+    .home-btn-japanese:hover,
+    .mypayge-btn-japanese:hover {
+      @include payment-btn-hover(1rem, 500);
+    }
+  }
+  .korean-dongle-font {
+    @include App.dongle-font(2.4rem);
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.3rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.3rem);
+    line-height: 1.5;
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(0.9rem);
+    line-height: 1.5;
+  }
+}
+//* 갤럭시 폴드 가로모드
+@media screen and (orientation: landscape) and (max-device-width: 653px) {
+  div.container {
+    width: 100vw;
+    height: 100vh;
+    @include App.flex-box-center(row);
+  }
+  div.payment-container {
+    width: 80%;
+    height: 100%;
+    .payment-box {
+      height: 75%;
+    }
+    .content {
+      overflow: hidden;
+      @include payment-content-without-japanse(100%, 85%, 15px, 1.3rem);
+      
+      & > h2 {
+        color: black;
+      }
+    }
+    @include App.scrollBar-custom-className(
+      content,
+      20px,
+      10px,
+      rgb(177, 40, 40),
+      lightyellow
+    );
+  }
+  div.btn-box {
+    height: auto;
+    .home-btn,
+    .mypayge-btn {
+      width: 25%;
+      height: 100%;
+      font-size: 1.4rem;
+    }
+    .home-btn:hover,
+    .mypayge-btn:hover {
+      @include payment-btn-hover(1.4rem, 500);
+    }
+  }
+
+  div.payment-container-japanese {
+    width: 80%;
+    height: 100%;
+    .payment-box-japanese {
+      height: 75%;
+    }
+    .content-japanese {
+      line-height: 2.2;
+      overflow: hidden;
+      @include payment-content-japanse(100%, 85%, 15px, 0.8rem);
+      
+      & > h2 {
+        color: black;
+      }
+    }
+    @include App.scrollBar-custom-className(
+      content-japanese,
+      20px,
+      10px,
+      rgb(177, 40, 40),
+      lightyellow
+    );
+  }
+  div.btn-box-japanese {
+    height: auto;
+    .home-btn-japanese,
+    .mypayge-btn-japanese {
+      width: 30%;
+      height: 100%;
+      font-size: 1rem;
+    }
+    .home-btn-japanese:hover,
+    .mypayge-btn-japanese:hover {
+      @include payment-btn-hover(1rem, 500);
+    }
+  }
+  .korean-dongle-font {
+    @include App.dongle-font(2.4rem);
+  }
+  .korean-dongle-font2 {
+    @include App.dongle-font(1.3rem);
+  }
+  .japanese-potta-font {
+    @include App.potta-font(1.3rem);
+    line-height: 1.5;
+  }
+  .japanese-potta-font2 {
+    @include App.potta-font(0.9rem);
+    line-height: 1.5;
+  }
+}

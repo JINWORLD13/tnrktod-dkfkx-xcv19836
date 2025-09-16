@@ -1,0 +1,86 @@
+@use '_App.module.scss';
+
+.container {
+  width: 100vw;
+  height: calc(100vh - 130px);
+  @include App.flex-box-center(row);
+  justify-content: space-evenly;
+  z-index: 10000000000000000000000000;
+  overflow: hidden;
+  background-color: white;
+}
+
+img {
+  //   background-color: rgb(0, 0, 0, 0.5);
+}
+
+//~ 481px ~ 768px 및 태블릿
+@media (min-device-width: 481px) and (max-device-width: 768px) {
+  .container {
+    @include App.flex-box-center(column);
+  }
+}
+
+//~ IPhone 14 Pro Max(430px)
+@media only screen and (min-device-width: 415px) and (max-device-width: 480px) {
+  .container {
+    @include App.flex-box-center(column);
+  }
+}
+//~ 아이폰XR
+@media (min-device-width: 376px) and (max-device-width: 414px) {
+  .container {
+    @include App.flex-box-center(column);
+  }
+}
+//~ 아이폰 SE
+@media (min-device-width: 281px) and (max-device-width: 375px) {
+  .container {
+    @include App.flex-box-center(column);
+  }
+}
+//~ 갤럭시 폴드
+@media (max-device-width: 280px) {
+  .container {
+    @include App.flex-box-center(column);
+  }
+}
+
+//* IPhon 14 Pro Max 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 897px) and (max-device-width: 932px) {
+  div.container {
+    width: 100vw;
+    height: 100vh;
+    @include App.flex-box-center(row);
+    justify-content: space-evenly;
+  }
+}
+//* 아이폰XR 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 668px) and (max-device-width: 896px) {
+  div.container {
+    width: 100vw;
+    height: 100vh;
+    @include App.flex-box-center(row);
+    justify-content: space-evenly;
+  }
+}
+
+//* 아이폰SE 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 654px) and (max-device-width: 667px) {
+  div.container {
+    width: 100vw;
+    height: 100vh;
+    @include App.flex-box-center(row);
+    justify-content: space-evenly;
+  }
+}
+
+//* 갤럭시 폴드 가로모드
+@media screen and (orientation: landscape) and (max-device-width: 653px) {
+  div.container {
+    width: 100vw;
+    height: 100vh;
+    @include App.flex-box-center(row);
+    justify-content: space-evenly;
+  }
+}

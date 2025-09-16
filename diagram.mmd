@@ -1,0 +1,171 @@
+---
+config:
+  layout: elk
+  theme: neutral
+  themeVariables:
+    background: '#ffffff'
+    primaryColor: '#f9f9f9'
+    primaryTextColor: '#000000'
+    primaryBorderColor: '#cccccc'
+    lineColor: '#333333'
+    sectionBkgColor: '#ffffff'
+    altSectionBkgColor: '#ffffff'
+    gridColor: '#ffffff'
+    c0: '#ffffff'
+    c1: '#ffffff'
+    c2: '#ffffff'
+    c3: '#ffffff'
+---
+flowchart TB
+    %% User Layer
+    subgraph UserLayer ["👥 User Layer"]
+        User["👤 User"]
+        Browser["🌐 Web Browser"]
+    end
+
+    %% Frontend Layer
+    subgraph Frontend ["💻 Frontend (React)"]
+        %% Page Layer
+        MyPage["👤 My Page"]
+        TarotPrinciple["📖 Tarot Principle"]
+        HomePage["🏠 Home Page"]
+        ETC["📖 ETC"]
+        
+        %% Component Layer  
+        TarotModal["🔮 Tarot Modal"]
+        AnswerModal["📖 Answer Modal"]
+        PurchaseModal["🛒 Purchase Modal"]
+        ThreeScene["🎮 3D Scene"]
+        
+        %% State Management
+        Redux["⚡ Redux Store"]
+        LocalStorage["💾 Local Storage"]
+        Cookie["💾 Cookie"]
+        CapacitorPreference["💾 Capacitor Preference"]
+    end
+
+    %% API Layer
+    subgraph APILayer ["🌐 API Layer"]
+        APIGateway["📡 Express.js Router"]
+        AuthMiddleware["🛡️ JWT Authentication"]
+    end
+
+    %% Backend Service Layer
+    subgraph Backend ["🖥️ Backend Services (Node.js)"]
+        %% Controller Layer
+        TarotController["🔮 Tarot Controller"]
+        UserController["👤 User Controller"]
+        ChargeController["💳 Charge Controller"]
+        
+        %% Service Layer
+        TarotService["🔮 Tarot Service"]
+        UserService["👤 User Service"]
+        ChargeService["💳 Charge Service"]
+        
+        %% DAO Layer
+        TarotDAO["🔮 Tarot DAO"]
+        UserDAO["👤 User DAO"]
+        ChargeDAO["💳 Charge DAO"]
+    end
+
+    %% AI Service Layer
+    subgraph AILayer ["🤖 AI Service Layer"]
+        AIInterpreter["🧠 AI Interpreter"]
+        OpenAI["💡 OpenAI GPT"]
+        SystemPrompt["⚙️ System Prompt"]
+        UserPrompt["👤 User Prompt"]
+        ResponseFormat["📋 Response Format"]
+    end
+
+    %% Data Layer
+    subgraph DataLayer ["💾 Data Layer"]
+        MongoDB[("🍃 MongoDB")]
+        Redis[("⚡ Redis Cache")]
+        UserCollection["👤 Users"]
+        TarotCollection["🔮 Tarots"]
+        ChargeCollection["💳 Charges"]
+        CounterCollection["📊 Counters"]
+    end
+
+    %% External Services
+    subgraph ExternalLayer ["🌍 External Services"]
+        GoogleAuth["🔐 Google OAuth"]
+        TossPayments["💳 Toss Payments"]
+        InAppPurchase["📱 In-App Purchase"]
+        GooglePlayConsole["🎮 Google Play Console"]
+    end
+
+    %% Connections
+    User --> Browser
+    Browser --> HomePage
+    Browser --> TarotPrinciple
+    Browser --> MyPage
+    Browser --> ETC
+    
+    HomePage --> ThreeScene
+    ThreeScene --> TarotModal
+    TarotModal --> AnswerModal
+    TarotModal --> PurchaseModal
+    MyPage --> AnswerModal
+    MyPage --> PurchaseModal
+    
+    TarotModal --> Cookie
+    TarotModal --> CapacitorPreference
+    Cookie --> APIGateway
+    CapacitorPreference --> APIGateway
+    PurchaseModal --> APIGateway
+    
+    APIGateway --> AuthMiddleware
+    AuthMiddleware --> TarotController
+    AuthMiddleware --> UserController
+    AuthMiddleware --> ChargeController
+    
+    TarotController --> TarotService
+    TarotController --> UserService
+    UserController --> UserService
+    ChargeController --> ChargeService
+    ChargeController --> UserService
+    
+    TarotService --> AIInterpreter
+    TarotService --> TarotDAO
+    TarotService --> Redis
+    UserService --> UserDAO
+    UserService --> Redis
+    UserService --> GoogleAuth
+    ChargeService --> ChargeDAO
+    ChargeService --> TossPayments
+    ChargeService --> InAppPurchase
+    
+    AIInterpreter --> SystemPrompt
+    AIInterpreter --> UserPrompt
+    AIInterpreter --> ResponseFormat
+    AIInterpreter --> OpenAI
+    
+    TarotDAO --> MongoDB
+    UserDAO --> MongoDB
+    ChargeDAO --> MongoDB
+    
+    MongoDB --> UserCollection
+    MongoDB --> TarotCollection
+    MongoDB --> ChargeCollection
+    MongoDB --> CounterCollection
+    
+    InAppPurchase --> GooglePlayConsole
+
+    %% Styling Classes
+    classDef userClass fill:#e1f5fe,stroke:#01579b,stroke-width:3px,color:#000
+    classDef frontendClass fill:#f3e5f5,stroke:#4a148c,stroke-width:2px,color:#000
+    classDef backendClass fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px,color:#000
+    classDef aiClass fill:#fff3e0,stroke:#e65100,stroke-width:2px,color:#000
+    classDef dataClass fill:#fce4ec,stroke:#880e4f,stroke-width:2px,color:#000
+    classDef externalClass fill:#fff8e1,stroke:#f57f17,stroke-width:2px,color:#000
+    classDef layerClass fill:#f5f5f5,stroke:#666,stroke-width:2px,color:#000
+
+    %% Apply Classes
+    class User,Browser userClass
+    class MyPage,HomePage,TarotPrinciple,ETC,TarotModal,AnswerModal,PurchaseModal,ThreeScene,Redux,LocalStorage,Cookie,CapacitorPreference frontendClass
+    class APIGateway,AuthMiddleware,TarotController,UserController,ChargeController,TarotService,UserService,ChargeService,TarotDAO,UserDAO,ChargeDAO backendClass
+    class AIInterpreter,OpenAI,SystemPrompt,UserPrompt,ResponseFormat aiClass
+    class MongoDB,Redis,UserCollection,TarotCollection,ChargeCollection,CounterCollection dataClass
+    class GoogleAuth,TossPayments,InAppPurchase,GooglePlayConsole externalClass
+    class UserLayer,Frontend,APILayer,Backend,AILayer,DataLayer,ExternalLayer layerClass

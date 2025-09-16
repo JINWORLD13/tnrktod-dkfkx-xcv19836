@@ -1,0 +1,45 @@
+# Portfolio
+## Application Architecture Diagram
+<img width="1904" height="1449" alt="output" src="https://github.com/user-attachments/assets/f8b3fde7-c74b-425e-b980-5eb0f37944bd" />
+
+## Project Overview:
+Developed a revenue-generating web service with PG payment (TOSS) functionality using Vite, React(JSX), Node.js, and PWA, deployed on GCP with goDaddy domain registration
+Converted to mobile app using Capacitor with in-app purchase implementation and published on Google Play Store
+Currently maintaining and optimizing performance for ongoing service operation
+
+## Project Features
+
+### Tools
+- **Framework:** Vite  
+- **Language:** Javascript  
+- **Front-End Library:** React, Three.js, @reduxjs/toolkit, recharts, scss, Capacitor, Toss PG Payment, axios, @gltf-transform/cli, gltfjsx, react-spa-prerender, i18next  
+- **Back-End Library:** Node.js(Express.js), compression, jsonwebtoken, passport, axios  
+- **OAuth:** Google  
+- **AI:** GPT  
+- **DB:** MongoDB(mongoose)  
+- **Deploy:** GCP(App Engine)  
+- **Domain:** goDaddy  
+
+### Front-End
+- Implemented 3D design pages using Three.js, troika-three-text, and gltfjsx libraries  
+- Created user content statistics graphs using recharts (accessible in mobile app's My Page statistics section after free usage through ad mode)  
+- Integrated Toss PG payment system  
+- SCSS modularization  
+- Custom AXIOS module implementation  
+- Multi-language service (Korean, English, Japanese) based on browser language settings using react-i18next  
+- Static page implementation using react-spa-prerender for crawling optimization  
+- Capacitor AdMob and IAP implementation  
+- Daily fortune service using Capacitor preferences  
+- Pre and runtime caching functionality and PWA implementation through VITE  
+
+### Back-End
+- Designed Controller-Service-DAO layered architecture using MongoDB(Mongoose) as ORM  
+- Implemented Mongoose TTL Index (Time To Live Index)  
+- Applied compression and helmet middleware globally for header security and optimization  
+- Implemented Google OAuth login authentication using passport.js and JWT (Access Token, Refresh Token)  
+- Implemented Content Security Policy through global middleware  
+- Integrated AI(GPT) functionality for user input analysis  
+
+### Deploy
+- Deployed through GCP App Engine  
+- Registered custom domain with goDaddy

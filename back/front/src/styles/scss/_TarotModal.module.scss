@@ -1,0 +1,7616 @@
+// @use '_App.module.scss';
+
+// @mixin card-size($ratio) {
+//   width: 170px * $ratio;
+//   height: 270px * $ratio;
+// }
+// @mixin deck-card-size($ratio) {
+//   width: 160px * $ratio;
+//   height: 200px * $ratio;
+// }
+
+// @mixin deck($ratio) {
+//   position: relative;
+//   width: 160px * $ratio;
+//   height: 200px * $ratio;
+// }
+// @mixin deck-card($ratio) {
+//   position: relative;
+//   @include deck-card-size($ratio);
+//   margin: auto;
+//   padding: 10px * $ratio;
+//   background-color: white;
+//   border-radius: 13px * $ratio;
+//   border: 0.1px solid black;
+//   position: relative;
+// }
+
+// @mixin card($ratio) {
+//   @include card-size($ratio); // & choice에도 적용됨
+//   margin: auto;
+//   padding: 10px * $ratio;
+//   background-color: white;
+//   border-radius: 13px * $ratio;
+//   border: 1px solid black;
+//   position: relative;
+//   z-index: 0;
+// }
+// @mixin spread-card($ratio) {
+//   @include card-size($ratio);
+//   margin: auto;
+//   background-color: white;
+//   border-radius: 13px * $ratio;
+//   position: relative;
+//   z-index: 0;
+// }
+
+// @mixin choice-card($ratio) {
+//   @include card($ratio);
+//   z-index: 1;
+//   opacity: 1;
+//   transition: transform 0.07s ease;
+//   transition: opacity 0.2s ease;
+// }
+
+// @mixin card-image($ratio) {
+//   margin: auto;
+//   width: 100%;
+//   height: 100%;
+//   border-radius: 13px * $ratio;
+// }
+
+// @mixin deck-margin($zero, $bottom) {
+//   margin-right: $zero;
+//   margin-bottom: $bottom; // & 덱 높이에 영향을 미치는 요소
+// }
+
+// @mixin shuffle-animation($shuffle-class) {
+//   animation: $shuffle-class 0.3s ease-in-out;
+// }
+
+// @mixin invisible() {
+//   opacity: 0;
+//   z-index: -1;
+// }
+// // _mixins.scss
+// // 기본적인 믹스인들을 별도 파일로 분리
+// @mixin base-container {
+//   width: 80%;
+//   min-width: auto;
+//   height: 37%; // 안내문구 없앤 후
+//   // height: 30%; // 안내문구 없애기 전
+//   min-height: auto;
+//   color: white;
+//   margin-left: auto;
+//   margin-right: auto;
+//   @include App.flex-box-center(row);
+// }
+
+// @mixin label-box {
+//   @include App.flex-box-center(row);
+//   justify-content: start;
+//   width: 100%;
+//   height: auto;
+//   font-weight: bold;
+//   text-align: start;
+// }
+
+// @mixin input-field($bg-color) {
+//   width: 78%;
+//   background-color: $bg-color;
+//   color: white;
+//   border: 2px solid white;
+//   border-radius: 10px;
+//   padding: 4px;
+// }
+// @mixin textarea-field($bg-color) {
+//   width: 100%;
+//   height: 100%;
+//   background-color: $bg-color;
+//   color: white;
+//   border: 2px solid white;
+//   border-radius: 10px;
+//   padding: 4px;
+// }
+// // _scrollbar.scss
+// // 스크롤바 스타일링을 위한 별도 믹스인
+// @mixin scrollbar-styling {
+//   &::-webkit-scrollbar {
+//     width: 10px;
+
+//     &-thumb,
+//     &-track {
+//       background-color: transparent;
+//       border-radius: 20px;
+//     }
+//   }
+// }
+// // _variables.scss
+// // 변수들을 별도 파일로 분리
+// $question-bg: rgb(46, 46, 195);
+// $submitted-bg: rgb(15, 15, 79);
+// $golden-text: gold;
+// // $theme-font-size: 0.9rem;
+
+// // _components.scss
+// // 재사용 가능한 컴포넌트 스타일
+// %container-compartment {
+//   width: 50%;
+//   height: 100%;
+//   @include App.flex-box-center(column);
+// }
+
+// %box-base {
+//   width: 100%;
+//   height: 100%;
+//   @include App.flex-grow(1);
+// }
+
+// %input-container {
+//   width: 100%;
+//   height: 100%;
+// }
+
+// %relationship-box {
+//   @include App.flex-box-center(row);
+
+//   .input-box-subject,
+//   .input-box-object {
+//     width: 50%;
+//     height: auto;
+
+//     .input-relationship {
+//       width: 50%;
+//     }
+//   }
+// }
+
+// %select-box-base {
+//   width: 100%;
+//   height: auto;
+
+//   & > div {
+//     color: $golden-text;
+//   }
+
+//   select {
+//     width: 180px;
+//     height: auto;
+//   }
+// }
+
+// %textarea-container {
+//   width: 100%;
+//   height: 100%;
+
+//   .label-box {
+//     @include label-box;
+//     max-height: 30%;
+//     margin-bottom: 3px;
+//   }
+
+//   .textarea-box {
+//     width: 100%;
+//     height: 70%;
+//   }
+// }
+
+// .korean-font-label {
+//   line-height: 1 !important;
+// }
+// .japanese-font-label {
+//   line-height: 1.3 !important;
+// }
+// .tarot-modal {
+//   width: 80vw;
+//   max-width: 1290px;
+//   min-width: 400px;
+//   height: 100%;
+//   min-height: Calc(100vh - 130px);
+//   max-height: 1300px;
+//   background-color: rgba(
+//     0,
+//     0,
+//     0,
+//     0.8
+//   ); // opacity 적용시 자식들까지 적용되고 해제가 되지 않음. 그래서 rgba의 4번째인자로 해당 css에만 적용시킴.
+//   z-index: 10;
+//   @include App.position-absolute-center();
+//   top: 0px;
+//   transform: translate(-50%, 0%);
+//   color: $golden-text;
+//   @include App.flex-box-center(column);
+//   overflow: auto;
+
+//   & > div:nth-child(2).choice-form {
+//     width: 100%;
+//     height: 100%;
+//   }
+//   & > div:nth-child(2).displacement-form {
+//     width: 100%;
+//     height: 100%;
+//   }
+//   & > div:nth-child(2).deck-form {
+//   }
+//   //! GudianceBox나 안내문
+//   & > h2 {
+//     border: thick double goldenrod;
+//     border-radius: 15px;
+//     padding: 5px;
+//     margin: 0;
+//     margin-left: 10px;
+//     margin-right: 10px;
+//   }
+//   & > div.guidance-box {
+//     border: thick double goldenrod;
+//     width: 90%;
+//     @include App.flex-box-center(row);
+//     border-radius: 15px;
+//     padding: 5px;
+//     margin-left: 10px;
+//     margin-right: 10px;
+//     padding: 10px;
+//     & > h2 {
+//       margin: 0;
+//     }
+//   }
+// }
+
+// .tarot-modal.question-tarot-modal-card {
+//   width: 80vw;
+//   max-width: 1290px;
+//   min-width: 400px;
+//   height: 100%;
+//   min-height: Calc(100vh - 130px);
+//   max-height: 1300px;
+//   background-color: rgba(
+//     0,
+//     0,
+//     0,
+//     0.8
+//   ); // opacity 적용시 자식들까지 적용되고 해제가 되지 않음. 그래서 rgba의 4번째인자로 해당 css에만 적용시킴.
+//   z-index: 10;
+//   @include App.position-absolute-center();
+//   top: 0px;
+//   transform: translate(-50%, 0%);
+//   color: $golden-text;
+//   @include App.flex-box-center(column);
+//   overflow: auto;
+//   & > div:nth-child(2).question-tarot-choice-form {
+//     width: 100%;
+//     height: 100%;
+//   }
+//   & > div:nth-child(2).question-tarot-deck-form {
+//     height: auto;
+//     margin-top: 0%;
+//   }
+//   //! GudianceBox나 안내문
+//   & > h2 {
+//     border: thick double goldenrod;
+//     border-radius: 15px;
+//     padding: 5px;
+//     margin: 0;
+//     margin-left: 10px;
+//     margin-right: 10px;
+//   }
+//   & > div.guidance-box {
+//     border: thick double goldenrod;
+//     @include App.flex-box-center(row);
+//     border-radius: 15px;
+//     padding: 5px;
+//     margin-left: 10px;
+//     margin-right: 10px;
+//     padding: 10px;
+//     & > h2 {
+//       margin: 0;
+//     }
+//   }
+//   /* 스크롤바 스타일링 */
+//   &::-webkit-scrollbar {
+//     width: 10px;
+//   }
+
+//   &::-webkit-scrollbar-thumb {
+//     background-color: purple;
+//     border-radius: 20px;
+//   }
+
+//   &::-webkit-scrollbar-track {
+//     background-color: transparent;
+//     border-radius: 20px;
+//   }
+// }
+// .question-topic-label {
+//   @include App.no-select;
+//   @include App.no-drag;
+//   color: $golden-text;
+// }
+// .subject-label {
+//   @include App.no-select;
+//   @include App.no-drag;
+//   color: $golden-text;
+// }
+// .object-label {
+//   @include App.no-select;
+//   @include App.no-drag;
+// }
+// .question-label {
+//   @include App.no-select;
+//   @include App.no-drag;
+//   color: $golden-text;
+// }
+
+// .btn-box {
+//   @include App.no-select;
+//   @include App.no-drag;
+//   @include App.flex-box-center(row);
+//   width: 100%;
+//   height: auto;
+//   justify-content: end;
+//   margin: 0;
+//   margin-bottom: 10px;
+//   & > .theme-example {
+//     color: $golden-text;
+//     // font-size: $theme-font-size;
+//     // border: 1px solid red;
+//   }
+
+//   .btn {
+//     @include App.no-select;
+//     @include App.no-drag;
+//     width: auto;
+//     height: auto;
+//     min-width: 70px; // & 최소 버튼 크기
+//     // font-size: 1.5rem;
+//     color: $golden-text;
+//     background-color: purple;
+//     border: 3px purple solid;
+//     margin-right: 10px;
+//   }
+
+//   .btn:hover {
+//     width: auto;
+//     height: auto;
+//     color: purple;
+//     border: 3px purple solid;
+//     // font-size: 1.5rem;
+//     font-weight: 500;
+//     background-color: $golden-text;
+//   }
+//   .btn-japanese {
+//     @include App.no-select;
+//     @include App.no-drag;
+//     width: auto;
+//     height: auto;
+//     min-width: 70px; // & 최소 버튼 크기
+//     // font-size: 1rem;
+//     border: 3px;
+//     background-color: purple;
+//     border: 3px purple solid;
+//     margin-right: 10px;
+//   }
+
+//   .btn-japanese:hover {
+//     width: auto;
+//     height: auto;
+//     // font-size: 1rem;
+//     border: 3px;
+//     color: purple;
+//     border: 3px purple solid;
+//     background-color: $golden-text;
+//   }
+// }
+// .input-mode-button-box {
+//   @include App.no-select;
+//   @include App.no-drag;
+//   @include App.flex-box-center(row);
+//   width: 100%;
+//   height: auto;
+//   margin: 0;
+//   margin-bottom: 10px;
+//   & > .theme-example {
+//     color: $golden-text;
+//     // font-size: $theme-font-size;
+//     // border: 1px solid red;
+//   }
+//   .selected-color {
+//     background-color: rgb(15, 15, 79) !important;
+//     color: white !important;
+//     transition: background-color 0.3s;
+//   }
+
+//   .normal-color {
+//     background-color: rgb(46, 46, 195) !important;
+//     color: white !important;
+//     transition: background-color 0.3s;
+//   }
+//   .input-mode-button {
+//     @include App.no-select;
+//     @include App.no-drag;
+//     width: auto;
+//     height: auto;
+//     min-width: 70px; // & 최소 버튼 크기
+//     // font-size: 1.5rem;
+//     color: white;
+//     background-color: rgb(46, 46, 195);
+//     border: 3px white solid;
+//     margin-right: 10px;
+//   }
+
+//   .input-mode-button:hover {
+//     width: auto;
+//     height: auto;
+//     // font-size: 1.5rem;
+//     font-weight: 500;
+//     color: white;
+//     border: 3px white solid;
+//     background-color: rgb(15, 15, 79);
+//   }
+//   .input-mode-button-japanese {
+//     @include App.no-select;
+//     @include App.no-drag;
+//     width: auto;
+//     height: auto;
+//     min-width: 70px; // & 최소 버튼 크기
+//     // font-size: 1rem;
+//     color: white;
+//     background-color: rgb(46, 46, 195);
+//     border: 3px white solid;
+//     margin-right: 10px;
+//     @include App.potta-font(1rem);
+//   }
+
+//   .input-mode-button-japanese:hover {
+//     width: auto;
+//     height: auto;
+//     // font-size: 1rem;
+//     color: white;
+//     border: 3px white solid;
+//     background-color: rgb(15, 15, 79);
+//   }
+// }
+
+// // main.scss
+// // 메인 스타일 파일
+// .question-container {
+//   @include base-container;
+
+//   & > .question-container-compartment:first-child {
+//     & > .question-box:first-child {
+//       display: none;
+//     }
+//   }
+
+//   .question-container-compartment {
+//     @extend %container-compartment;
+
+//     .question-box {
+//       @extend %box-base;
+
+//       .input-container {
+//         @extend %input-container;
+
+//         .label-box {
+//           @include label-box;
+//         }
+
+//         .input-box {
+//           width: 100%;
+//           height: auto;
+
+//           input {
+//             @include input-field($question-bg);
+//           }
+
+//           .input-box-relationship {
+//             @extend %relationship-box;
+
+//             .input-relationship {
+//               @include input-field($question-bg);
+//             }
+//           }
+//         }
+//       }
+
+//       .select-container {
+//         @extend %select-box-base;
+//         @include App.no-select;
+//         @include App.no-drag;
+//       }
+
+//       .textarea-container {
+//         @extend %textarea-container;
+
+//         textarea {
+//           resize: none;
+//           @include textarea-field($question-bg);
+//           @include App.flex-grow(1);
+//         }
+//       }
+//     }
+//   }
+// }
+
+// .submitted-container {
+//   @include base-container;
+
+//   & > .submitted-container-compartment:first-child {
+//     & > .submitted-box:first-child {
+//       display: none;
+//     }
+//   }
+
+//   .submitted-container-compartment {
+//     @extend %container-compartment;
+
+//     .submitted-box {
+//       @extend %box-base;
+
+//       .input-container {
+//         @extend %input-container;
+
+//         .label-box {
+//           @include label-box;
+//         }
+
+//         .input-box {
+//           width: 100%;
+//           height: auto;
+
+//           input {
+//             @include input-field($submitted-bg);
+//           }
+
+//           .input-box-relationship {
+//             @extend %relationship-box;
+//             @include App.no-select;
+//             @include App.no-drag;
+
+//             .input-relationship {
+//               @include input-field($submitted-bg);
+//             }
+//           }
+//         }
+//       }
+
+//       .select-container {
+//         @extend %select-box-base;
+//       }
+
+//       .textarea-container {
+//         @extend %textarea-container;
+
+//         textarea {
+//           resize: none;
+//           @include textarea-field($submitted-bg);
+//           @include App.flex-grow(1);
+
+//           @include scrollbar-styling;
+//         }
+//       }
+//     }
+//   }
+// }
+
+// .displacement-box {
+//   width: 100%;
+//   height: 100%;
+//   @include App.flex-box-center(column);
+//   position: relative;
+//   .btn-box {
+//     @include App.no-select;
+//     @include App.no-drag;
+//     position: absolute;
+//     bottom: 0;
+//   }
+// }
+
+// .displacement {
+//   width: auto;
+//   height: auto;
+//   @include App.flex-box-center(row);
+//   @include App.position-absolute-center();
+// }
+// .width-for-five-cards-relationship-spread {
+//   // width: 100%;
+// }
+// .flex-grow {
+//   @include App.flex-grow(1);
+// }
+// .flex-grow2 {
+//   @include App.flex-grow(2);
+// }
+// .flex-grow3 {
+//   @include App.flex-grow(3);
+// }
+// .flex-grow4 {
+//   @include App.flex-grow(4);
+// }
+// .invisible {
+//   @include invisible;
+// }
+// .none {
+//   display: none;
+// }
+// @include App.scrollBar-custom-className(
+//   tarot-modal,
+//   10px,
+//   10px,
+//   black,
+//   transparent
+// );
+// @include App.scrollBar-custom-tagName(textarea, 10px, 10px, purple, purple);
+
+// // //~ 디바이스
+// // @media (min-device-width: 1024px) and (max-device-width: 1366px) {
+// //   .korean-font-label {
+// //     line-height: 1 !important;
+// //   }
+// //   .japanese-font-label {
+// //     line-height: 1.8 !important;
+// //   }
+// //   .tarot-modal {
+// //     width: 100vw; //& max-width :1200px로 제한됨.
+// //     min-width: 100px;
+// //     height: 100%;
+// //     top: 0px;
+// //     @include App.flex-box-center(column);
+// //     overflow: auto;
+// //     & > div:nth-child(2).deck-form {
+// //       padding-top: 0%;
+// //     }
+// //     & > h2 {
+// //       margin: 0;
+// //       margin-left: 10px;
+// //       margin-right: 10px;
+// //     }
+// //   }
+// //   .tarot-modal.question-tarot-modal-card {
+// //     width: 100vw; //& max-width :1200px로 제한됨.
+// //     min-width: 100px;
+// //     height: 100%;
+// //     top: 0px;
+// //     justify-content: start;
+// //     & > div:nth-child(2).question-tarot-deck-form {
+// //       height: auto;
+// //       margin-top: 20%;
+// //     }
+// //     & > h2 {
+// //       margin: 0;
+// //       padding-left: 1%;
+// //       padding-right: 1%;
+// //     }
+// //     /* 스크롤바 스타일링 */
+// //     &::-webkit-scrollbar {
+// //       width: 10px;
+// //     }
+
+// //     &::-webkit-scrollbar-thumb {
+// //       background-color: purple;
+// //       border-radius: 20px;
+// //     }
+
+// //     &::-webkit-scrollbar-track {
+// //       background-color: transparent;
+// //       border-radius: 20px;
+// //     }
+// //   }
+// //   .btn-box {
+// //     @include App.no-select;
+// //     @include App.no-drag;
+// //     margin: 0;
+// //     margin-bottom: 10px;
+// //     & > .theme-example {
+// //       display: none;
+// //     }
+// //     .btn {
+// //       // font-size: 1.5rem;
+// //     }
+
+// //     .btn:hover {
+// //       // font-size: 1.5rem;
+// //     }
+// //     .btn-japanese {
+// //       // font-size: 1rem;
+// //     }
+
+// //     .btn-japanese:hover {
+// //       // font-size: 1rem;
+// //     }
+// //   }
+// //   .flex-grow {
+// //     @include App.flex-grow(1);
+// //   }
+// //   .flex-grow2 {
+// //     @include App.flex-grow(2);
+// //   }
+// //   .flex-grow3 {
+// //     @include App.flex-grow(3);
+// //   }
+// //   .question-container {
+// //     width: 90%;
+// //     height: auto;
+// //     @include App.flex-box-center(column);
+// //     justify-content: space-between;
+// //     & > .question-container-compartment:first-child {
+// //       & > .question-box:first-child {
+// //         display: block;
+// //       }
+// //     }
+// //     .question-container-compartment {
+// //       width: 100%;
+// //       justify-content: start;
+// //       .question-box {
+// //         margin-bottom: 3%;
+// //         .input-container {
+// //           .label-box {
+// //           }
+// //           .input-box {
+// //             input {
+// //               width: 50%;
+// //             }
+// //             .input-box-relationship {
+// //               @include App.flex-box-center(column);
+// //               .input-box-subject,
+// //               .input-box-object {
+// //                 width: 100%;
+// //                 .input-relationship {
+// //                   width: 50%;
+// //                 }
+// //               }
+// //             }
+// //           }
+// //         }
+// //         .select-container {
+// //           .label-box {
+// //           }
+// //           .select-box {
+// //             select {
+// //             }
+// //           }
+// //         }
+// //         .textarea-container {
+// //           height: auto;
+// //           .label-box {
+// //             height: auto;
+// //           }
+// //           .textarea-box {
+// //             textarea {
+// //               height: 100px;
+// //             }
+// //           }
+// //         }
+// //       }
+// //     }
+// //   }
+
+// //   .submitted-container {
+// //     width: 90%;
+// //     height: auto;
+// //     @include App.flex-box-center(column);
+// //     justify-content: start;
+// //     & > .submitted-container-compartment:first-child {
+// //       & > .submitted-box:first-child {
+// //         display: block;
+// //       }
+// //     }
+// //     .submitted-container-compartment {
+// //       width: 100%;
+// //       justify-content: start;
+// //       .submitted-box {
+// //         margin-bottom: 3%;
+// //         .input-container {
+// //           .label-box {
+// //           }
+// //           .input-box {
+// //             input {
+// //               width: 50%;
+// //             }
+// //             .input-box-relationship {
+// //               @include App.flex-box-center(column);
+// //               .input-box-subject,
+// //               .input-box-object {
+// //                 width: 100%;
+// //                 .input-relationship {
+// //                   width: 50%;
+// //                 }
+// //               }
+// //             }
+// //           }
+// //         }
+// //         .select-container {
+// //           .label-box {
+// //           }
+// //           .select-box {
+// //             select {
+// //             }
+// //           }
+// //         }
+// //         .textarea-container {
+// //           height: auto;
+// //           .label-box {
+// //             height: auto;
+// //           }
+// //           .textarea-box {
+// //             textarea {
+// //               height: 100px;
+// //             }
+// //           }
+// //         }
+// //       }
+// //     }
+// //   }
+// // }
+
+// // //~ 태블릿, 아이패드, 아이패드 프로
+// // @media (min-device-width: 768px) and (max-device-width: 1024px) {
+// //   .korean-font-label {
+// //     line-height: 1 !important;
+// //   }
+// //   .japanese-font-label {
+// //     line-height: 1.8 !important;
+// //   }
+// //   .tarot-modal {
+// //     width: 100vw; //& max-width :1200px로 제한됨.
+// //     min-width: 100px;
+// //     height: 100%;
+// //     top: 0px;
+// //     @include App.flex-box-center(column);
+// //     overflow: auto;
+// //     & > div:nth-child(2).deck-form {
+// //       padding-top: 0%;
+// //     }
+// //     & > h2 {
+// //       margin: 0;
+// //       margin-left: 10px;
+// //       margin-right: 10px;
+// //     }
+// //   }
+// //   .tarot-modal.question-tarot-modal-card {
+// //     width: 100vw; //& max-width :1200px로 제한됨.
+// //     min-width: 100px;
+// //     height: 100%;
+// //     top: 0px;
+// //     justify-content: start;
+// //     & > div:nth-child(2).question-tarot-deck-form {
+// //       height: auto;
+// //       margin-top: 20%;
+// //     }
+// //     & > h2 {
+// //       margin: 0;
+// //       padding-left: 1%;
+// //       padding-right: 1%;
+// //       margin-top: 10px;
+// //       margin-bottom: 10px;
+// //     }
+// //     // & > h2::before,
+// //     // & > h2::after {
+// //     //   content: '';
+// //     //   margin-top: 30px;
+// //     //   margin-bottom: 30px;
+// //     // }
+// //     /* 스크롤바 스타일링 */
+// //     &::-webkit-scrollbar {
+// //       width: 10px;
+// //     }
+
+// //     &::-webkit-scrollbar-thumb {
+// //       background-color: purple;
+// //       border-radius: 20px;
+// //     }
+
+// //     &::-webkit-scrollbar-track {
+// //       background-color: transparent;
+// //       border-radius: 20px;
+// //     }
+// //   }
+// //   .btn-box {
+// //     @include App.no-select;
+// //     @include App.no-drag;
+// //     margin: 0;
+// //     margin-bottom: 10px;
+// //     & > .theme-example {
+// //       display: none;
+// //     }
+// //     .btn {
+// //       // font-size: 1.5rem;
+// //     }
+
+// //     .btn:hover {
+// //       // font-size: 1.5rem;
+// //     }
+// //     .btn-japanese {
+// //       // font-size: 1rem;
+// //     }
+
+// //     .btn-japanese:hover {
+// //       // font-size: 1rem;
+// //     }
+// //   }
+// //   .flex-grow {
+// //     @include App.flex-grow(1);
+// //   }
+// //   .flex-grow2 {
+// //     @include App.flex-grow(2);
+// //   }
+// //   .flex-grow3 {
+// //     @include App.flex-grow(3);
+// //   }
+// //   .question-container {
+// //     width: 90%;
+// //     height: auto;
+// //     @include App.flex-box-center(column);
+// //     justify-content: space-between;
+// //     & > .question-container-compartment:first-child {
+// //       & > .question-box:first-child {
+// //         display: block;
+// //       }
+// //     }
+// //     .question-container-compartment {
+// //       width: 100%;
+// //       justify-content: start;
+// //       .question-box {
+// //         margin-bottom: 3%;
+// //         .input-container {
+// //           .label-box {
+// //           }
+// //           .input-box {
+// //             input {
+// //               width: 50%;
+// //             }
+// //             .input-box-relationship {
+// //               @include App.flex-box-center(column);
+// //               .input-box-subject,
+// //               .input-box-object {
+// //                 width: 100%;
+// //                 .input-relationship {
+// //                   width: 50%;
+// //                 }
+// //               }
+// //             }
+// //           }
+// //         }
+// //         .select-container {
+// //           .label-box {
+// //           }
+// //           .select-box {
+// //             select {
+// //             }
+// //           }
+// //         }
+// //         .textarea-container {
+// //           height: auto;
+// //           .label-box {
+// //             height: auto;
+// //           }
+// //           .textarea-box {
+// //             textarea {
+// //               height: 100px;
+// //             }
+// //           }
+// //         }
+// //       }
+// //     }
+// //   }
+
+// //   .submitted-container {
+// //     width: 90%;
+// //     height: auto;
+// //     @include App.flex-box-center(column);
+// //     justify-content: start;
+// //     & > .submitted-container-compartment:first-child {
+// //       & > .submitted-box:first-child {
+// //         display: block;
+// //       }
+// //     }
+// //     .submitted-container-compartment {
+// //       width: 100%;
+// //       justify-content: start;
+// //       .submitted-box {
+// //         margin-bottom: 3%;
+// //         .input-container {
+// //           .label-box {
+// //           }
+// //           .input-box {
+// //             input {
+// //               width: 50%;
+// //             }
+// //             .input-box-relationship {
+// //               @include App.flex-box-center(column);
+// //               .input-box-subject,
+// //               .input-box-object {
+// //                 width: 100%;
+// //                 .input-relationship {
+// //                   width: 50%;
+// //                 }
+// //               }
+// //             }
+// //           }
+// //         }
+// //         .select-container {
+// //           .label-box {
+// //           }
+// //           .select-box {
+// //             select {
+// //             }
+// //           }
+// //         }
+// //         .textarea-container {
+// //           height: auto;
+// //           .label-box {
+// //             height: auto;
+// //           }
+// //           .textarea-box {
+// //             textarea {
+// //               height: 100px;
+// //             }
+// //           }
+// //         }
+// //       }
+// //     }
+// //   }
+// // }
+
+// // //~ 480px ~ 768px 및 태블릿
+// // @media (min-device-width: 480px) and (max-device-width: 768px) {
+// //   .korean-font-label {
+// //     line-height: 1 !important;
+// //   }
+// //   .japanese-font-label {
+// //     line-height: 1.8 !important;
+// //   }
+// //   .tarot-modal {
+// //     width: 100vw; //& max-width :1200px로 제한됨.
+// //     min-width: 100px;
+// //     height: 100%;
+// //     top: 0px;
+// //     @include App.flex-box-center(column);
+// //     overflow: auto;
+// //     & > div:nth-child(2).deck-form {
+// //       padding-top: 0%;
+// //     }
+// //     & > h2 {
+// //       margin: 0;
+// //       margin-left: 10px;
+// //       margin-right: 10px;
+// //     }
+// //   }
+// //   .tarot-modal.question-tarot-modal-card {
+// //     width: 100vw; //& max-width :1200px로 제한됨.
+// //     min-width: 100px;
+// //     height: 100%;
+// //     top: 0px;
+// //     justify-content: start;
+// //     & > div:nth-child(2).question-tarot-deck-form {
+// //       height: auto;
+// //       margin-top: 20%;
+// //     }
+// //     & > h2 {
+// //       margin: 0;
+// //       padding-left: 1%;
+// //       padding-right: 1%;
+// //       margin-top: 10px;
+// //       margin-bottom: 10px;
+// //     }
+// //     // & > h2::before,
+// //     // & > h2::after {
+// //     //   content: '';
+// //     //   margin-top: 30px;
+// //     //   margin-bottom: 30px;
+// //     // }
+// //     /* 스크롤바 스타일링 */
+// //     &::-webkit-scrollbar {
+// //       width: 10px;
+// //     }
+
+// //     &::-webkit-scrollbar-thumb {
+// //       background-color: purple;
+// //       border-radius: 20px;
+// //     }
+
+// //     &::-webkit-scrollbar-track {
+// //       background-color: transparent;
+// //       border-radius: 20px;
+// //     }
+// //   }
+// //   .btn-box {
+// //     @include App.no-select;
+// //     @include App.no-drag;
+// //     margin: 0;
+// //     margin-bottom: 10px;
+// //     & > .theme-example {
+// //       display: none;
+// //     }
+// //     .btn {
+// //       // font-size: 1.5rem;
+// //     }
+
+// //     .btn:hover {
+// //       // font-size: 1.5rem;
+// //     }
+// //     .btn-japanese {
+// //       // font-size: 1rem;
+// //     }
+
+// //     .btn-japanese:hover {
+// //       // font-size: 1rem;
+// //     }
+// //   }
+// //   .flex-grow {
+// //     @include App.flex-grow(1);
+// //   }
+// //   .flex-grow2 {
+// //     @include App.flex-grow(2);
+// //   }
+// //   .flex-grow3 {
+// //     @include App.flex-grow(3);
+// //   }
+// //   .question-container {
+// //     width: 90%;
+// //     height: auto;
+// //     @include App.flex-box-center(column);
+// //     justify-content: space-between;
+// //     & > .question-container-compartment:first-child {
+// //       & > .question-box:first-child {
+// //         display: block;
+// //       }
+// //     }
+// //     .question-container-compartment {
+// //       width: 100%;
+// //       justify-content: start;
+// //       .question-box {
+// //         margin-bottom: 3%;
+// //         .input-container {
+// //           .label-box {
+// //           }
+// //           .input-box {
+// //             input {
+// //               width: 50%;
+// //             }
+// //             .input-box-relationship {
+// //               @include App.flex-box-center(column);
+// //               .input-box-subject,
+// //               .input-box-object {
+// //                 width: 100%;
+// //                 .input-relationship {
+// //                   width: 50%;
+// //                 }
+// //               }
+// //             }
+// //           }
+// //         }
+// //         .select-container {
+// //           .label-box {
+// //           }
+// //           .select-box {
+// //             select {
+// //             }
+// //           }
+// //         }
+// //         .textarea-container {
+// //           height: auto;
+// //           .label-box {
+// //             height: auto;
+// //           }
+// //           .textarea-box {
+// //             textarea {
+// //               height: 100px;
+// //             }
+// //           }
+// //         }
+// //       }
+// //     }
+// //   }
+
+// //   .submitted-container {
+// //     width: 90%;
+// //     height: auto;
+// //     @include App.flex-box-center(column);
+// //     justify-content: start;
+// //     & > .submitted-container-compartment:first-child {
+// //       & > .submitted-box:first-child {
+// //         display: block;
+// //       }
+// //     }
+// //     .submitted-container-compartment {
+// //       width: 100%;
+// //       justify-content: start;
+// //       .submitted-box {
+// //         margin-bottom: 3%;
+// //         .input-container {
+// //           .label-box {
+// //           }
+// //           .input-box {
+// //             input {
+// //               width: 50%;
+// //             }
+// //             .input-box-relationship {
+// //               @include App.flex-box-center(column);
+// //               .input-box-subject,
+// //               .input-box-object {
+// //                 width: 100%;
+// //                 .input-relationship {
+// //                   width: 50%;
+// //                 }
+// //               }
+// //             }
+// //           }
+// //         }
+// //         .select-container {
+// //           .label-box {
+// //           }
+// //           .select-box {
+// //             select {
+// //             }
+// //           }
+// //         }
+// //         .textarea-container {
+// //           height: auto;
+// //           .label-box {
+// //             height: auto;
+// //           }
+// //           .textarea-box {
+// //             textarea {
+// //               height: 100px;
+// //             }
+// //           }
+// //         }
+// //       }
+// //     }
+// //   }
+// // }
+
+// // //~ IPhone 14 Pro Max(430px)
+// // @media only screen and (min-device-width: 414px) and (max-device-width: 480px) {
+
+// //   .korean-font-label {
+// //     line-height: 1 !important;
+// //   }
+// //   .japanese-font-label {
+// //     line-height: 1.8 !important;
+// //   }
+
+// //   .tarot-modal {
+// //     width: 100vw; //& max-width :1200px로 제한됨.
+// //     min-width: 100px;
+// //     height: 100%;
+// //     top: 0px;
+// //     @include App.flex-box-center(column);
+// //     overflow: auto;
+// //     & > div:nth-child(2).deck-form {
+// //       padding-top: 0%;
+// //     }
+// //     & > h2 {
+// //       margin: 0;
+// //       margin-left: 10px;
+// //       margin-right: 10px;
+// //     }
+// //   }
+// //   .tarot-modal.question-tarot-modal-card {
+// //     width: 100vw; //& max-width :1200px로 제한됨.
+// //     min-width: 100px;
+// //     height: 100%;
+// //     top: 0px;
+// //     justify-content: start;
+// //     & > div:nth-child(2).question-tarot-deck-form {
+// //       height: auto;
+// //       margin-top: 20%;
+// //     }
+// //     & > h2 {
+// //       margin: 0;
+// //       padding-left: 1%;
+// //       padding-right: 1%;
+// //       margin-top: 10px;
+// //       margin-bottom: 10px;
+// //     }
+// //     // & > h2::before,
+// //     // & > h2::after {
+// //     //   content: '';
+// //     //   margin-top: 30px;
+// //     //   margin-bottom: 30px;
+// //     // }
+// //     /* 스크롤바 스타일링 */
+// //     &::-webkit-scrollbar {
+// //       width: 10px;
+// //     }
+
+// //     &::-webkit-scrollbar-thumb {
+// //       background-color: purple;
+// //       border-radius: 20px;
+// //     }
+
+// //     &::-webkit-scrollbar-track {
+// //       background-color: transparent;
+// //       border-radius: 20px;
+// //     }
+// //   }
+// //   .btn-box {
+// //     @include App.no-select;
+// //     @include App.no-drag;
+// //     margin: 0;
+// //     margin-bottom: 10px;
+// //     & > .theme-example {
+// //       display: none;
+// //     }
+// //     .btn {
+// //       // font-size: 1.5rem;
+// //     }
+
+// //     .btn:hover {
+// //       // font-size: 1.5rem;
+// //     }
+// //     .btn-japanese {
+// //       // font-size: 1rem;
+// //     }
+
+// //     .btn-japanese:hover {
+// //       // font-size: 1rem;
+// //     }
+// //   }
+// //   .flex-grow {
+// //     @include App.flex-grow(1);
+// //   }
+// //   .flex-grow2 {
+// //     @include App.flex-grow(2);
+// //   }
+// //   .flex-grow3 {
+// //     @include App.flex-grow(3);
+// //   }
+// //   .question-container {
+// //     width: 90%;
+// //     height: auto;
+// //     @include App.flex-box-center(column);
+// //     justify-content: space-between;
+// //     & > .question-container-compartment:first-child {
+// //       & > .question-box:first-child {
+// //         display: block;
+// //       }
+// //     }
+// //     .question-container-compartment {
+// //       width: 100%;
+// //       justify-content: start;
+// //       .question-box {
+// //         margin-bottom: 3%;
+// //         .input-container {
+// //           .label-box {
+// //           }
+// //           .input-box {
+// //             input {
+// //               width: 80%;
+// //             }
+// //             .input-box-relationship {
+// //               @include App.flex-box-center(column);
+// //               .input-box-subject,
+// //               .input-box-object {
+// //                 width: 100%;
+// //                 .input-relationship {
+// //                   width: 50%;
+// //                 }
+// //               }
+// //             }
+// //           }
+// //         }
+// //         .select-container {
+// //           .label-box {
+// //           }
+// //           .select-box {
+// //             select {
+// //             }
+// //           }
+// //         }
+// //         .textarea-container {
+// //           height: auto;
+// //           .label-box {
+// //             height: auto;
+// //           }
+// //           .textarea-box {
+// //             textarea {
+// //               height: 100px;
+// //             }
+// //           }
+// //         }
+// //       }
+// //     }
+// //   }
+
+// //   .submitted-container {
+// //     width: 90%;
+// //     height: auto;
+// //     @include App.flex-box-center(column);
+// //     justify-content: start;
+// //     & > .submitted-container-compartment:first-child {
+// //       & > .submitted-box:first-child {
+// //         display: block;
+// //       }
+// //     }
+// //     .submitted-container-compartment {
+// //       width: 100%;
+// //       justify-content: start;
+// //       .submitted-box {
+// //         margin-bottom: 3%;
+// //         .input-container {
+// //           .label-box {
+// //           }
+// //           .input-box {
+// //             input {
+// //               width: 80%;
+// //             }
+// //             .input-box-relationship {
+// //               @include App.flex-box-center(column);
+// //               .input-box-subject,
+// //               .input-box-object {
+// //                 width: 100%;
+// //                 .input-relationship {
+// //                   width: 50%;
+// //                 }
+// //               }
+// //             }
+// //           }
+// //         }
+// //         .select-container {
+// //           .label-box {
+// //           }
+// //           .select-box {
+// //             select {
+// //             }
+// //           }
+// //         }
+// //         .textarea-container {
+// //           height: auto;
+// //           .label-box {
+// //             height: auto;
+// //           }
+// //           .textarea-box {
+// //             textarea {
+// //               height: 100px;
+// //             }
+// //           }
+// //         }
+// //       }
+// //     }
+// //   }
+// // }
+
+// // //~ 아이폰XR
+// // @media (min-device-width: 375px) and (max-device-width: 414px) {
+
+// //   .korean-font-label {
+// //     line-height: 1 !important;
+// //   }
+// //   .japanese-font-label {
+// //     line-height: 1.8 !important;
+// //   }
+// //   .tarot-modal {
+// //     width: 100vw; //& max-width :1200px로 제한됨.
+// //     min-width: 100px;
+// //     height: 100%;
+// //     top: 0px;
+// //     @include App.flex-box-center(column);
+// //     overflow: auto;
+// //     & > div:nth-child(2).deck-form {
+// //       padding-top: 0%;
+// //     }
+// //     & > h2 {
+// //       margin: 0;
+// //       margin-left: 10px;
+// //       margin-right: 10px;
+// //     }
+// //   }
+// //   .tarot-modal.question-tarot-modal-card {
+// //     width: 100vw; //& max-width :1200px로 제한됨.
+// //     min-width: 100px;
+// //     height: 100%;
+// //     top: 0px;
+// //     justify-content: start;
+// //     & > div:nth-child(2).question-tarot-deck-form {
+// //       height: auto;
+// //       margin-top: 20%;
+// //     }
+// //     & > h2 {
+// //       margin: 0;
+// //       padding-left: 1%;
+// //       padding-right: 1%;
+// //       margin-top: 10px;
+// //       margin-bottom: 10px;
+// //     }
+// //     // & > h2::before,
+// //     // & > h2::after {
+// //     //   content: '';
+// //     //   margin-top: 30px;
+// //     //   margin-bottom: 30px;
+// //     // }
+// //     /* 스크롤바 스타일링 */
+// //     &::-webkit-scrollbar {
+// //       width: 10px;
+// //     }
+
+// //     &::-webkit-scrollbar-thumb {
+// //       background-color: purple;
+// //       border-radius: 20px;
+// //     }
+
+// //     &::-webkit-scrollbar-track {
+// //       background-color: transparent;
+// //       border-radius: 20px;
+// //     }
+// //   }
+// //   .btn-box {
+// //     @include App.no-select;
+// //     @include App.no-drag;
+// //     margin: 0;
+// //     margin-bottom: 10px;
+// //     & > .theme-example {
+// //       display: none;
+// //     }
+// //     .btn {
+// //       // font-size: 1.5rem;
+// //     }
+
+// //     .btn:hover {
+// //       // font-size: 1.5rem;
+// //     }
+// //     .btn-japanese {
+// //       // font-size: 1rem;
+// //     }
+
+// //     .btn-japanese:hover {
+// //       // font-size: 1rem;
+// //     }
+// //   }
+// //   .flex-grow {
+// //     @include App.flex-grow(1);
+// //   }
+// //   .flex-grow2 {
+// //     @include App.flex-grow(2);
+// //   }
+// //   .flex-grow3 {
+// //     @include App.flex-grow(3);
+// //   }
+// //   .question-container {
+// //     width: 90%;
+// //     height: auto;
+// //     @include App.flex-box-center(column);
+// //     justify-content: space-between;
+// //     & > .question-container-compartment:first-child {
+// //       & > .question-box:first-child {
+// //         display: block;
+// //       }
+// //     }
+// //     .question-container-compartment {
+// //       width: 100%;
+// //       justify-content: start;
+// //       .question-box {
+// //         margin-bottom: 3%;
+// //         .input-container {
+// //           .label-box {
+// //           }
+// //           .input-box {
+// //             input {
+// //               width: 80%;
+// //             }
+// //             .input-box-relationship {
+// //               @include App.flex-box-center(column);
+// //               .input-box-subject,
+// //               .input-box-object {
+// //                 width: 100%;
+// //                 .input-relationship {
+// //                   width: 70%;
+// //                 }
+// //               }
+// //             }
+// //           }
+// //         }
+// //         .select-container {
+// //           .label-box {
+// //           }
+// //           .select-box {
+// //             select {
+// //             }
+// //           }
+// //         }
+// //         .textarea-container {
+// //           height: auto;
+// //           .label-box {
+// //             height: auto;
+// //           }
+// //           .textarea-box {
+// //             textarea {
+// //               height: 100px;
+// //             }
+// //           }
+// //         }
+// //       }
+// //     }
+// //   }
+
+// //   .submitted-container {
+// //     width: 90%;
+// //     height: auto;
+// //     @include App.flex-box-center(column);
+// //     justify-content: start;
+// //     & > .submitted-container-compartment:first-child {
+// //       & > .submitted-box:first-child {
+// //         display: block;
+// //       }
+// //     }
+// //     .submitted-container-compartment {
+// //       width: 100%;
+// //       justify-content: start;
+// //       .submitted-box {
+// //         margin-bottom: 3%;
+// //         .input-container {
+// //           .label-box {
+// //           }
+// //           .input-box {
+// //             input {
+// //               width: 80%;
+// //             }
+// //             .input-box-relationship {
+// //               @include App.flex-box-center(column);
+// //               .input-box-subject,
+// //               .input-box-object {
+// //                 width: 100%;
+// //                 .input-relationship {
+// //                   width: 70%;
+// //                 }
+// //               }
+// //             }
+// //           }
+// //         }
+// //         .select-container {
+// //           .label-box {
+// //           }
+// //           .select-box {
+// //             select {
+// //             }
+// //           }
+// //         }
+// //         .textarea-container {
+// //           height: auto;
+// //           .label-box {
+// //             height: auto;
+// //           }
+// //           .textarea-box {
+// //             textarea {
+// //               height: 100px;
+// //             }
+// //           }
+// //         }
+// //       }
+// //     }
+// //   }
+// // }
+
+// // //~ 아이폰 SE
+// // @media (min-device-width: 281px) and (max-device-width: 375px) {
+
+// //   .korean-font-label {
+// //     line-height: 1 !important;
+// //   }
+// //   .japanese-font-label {
+// //     line-height: 1.8 !important;
+// //   }
+// //   .tarot-modal {
+// //     width: 100vw; //& max-width :1200px로 제한됨.
+// //     min-width: 100px;
+// //     height: 100%;
+// //     top: 0px;
+// //     @include App.flex-box-center(column);
+// //     overflow: auto;
+// //     & > div:nth-child(2).deck-form {
+// //       padding-top: 0%;
+// //     }
+// //     & > h2 {
+// //       margin: 0;
+// //       margin-left: 10px;
+// //       margin-right: 10px;
+// //     }
+// //   }
+// //   .tarot-modal.question-tarot-modal-card {
+// //     width: 100vw; //& max-width :1200px로 제한됨.
+// //     min-width: 100px;
+// //     height: 100%;
+// //     top: 0px;
+// //     justify-content: start;
+// //     & > div:nth-child(2).question-tarot-deck-form {
+// //       height: auto;
+// //       margin-top: 20%;
+// //     }
+// //     & > h2 {
+// //       margin: 0;
+// //       padding-left: 1%;
+// //       padding-right: 1%;
+// //       margin-top: 10px;
+// //       margin-bottom: 10px;
+// //     }
+// //     // & > h2::before,
+// //     // & > h2::after {
+// //     //   content: '';
+// //     //   margin-top: 30px;
+// //     //   margin-bottom: 30px;
+// //     // }
+// //     /* 스크롤바 스타일링 */
+// //     &::-webkit-scrollbar {
+// //       width: 10px;
+// //     }
+
+// //     &::-webkit-scrollbar-thumb {
+// //       background-color: purple;
+// //       border-radius: 20px;
+// //     }
+
+// //     &::-webkit-scrollbar-track {
+// //       background-color: transparent;
+// //       border-radius: 20px;
+// //     }
+// //   }
+// //   .btn-box {
+// //     @include App.no-select;
+// //     @include App.no-drag;
+// //     margin: 0;
+// //     margin-bottom: 10px;
+// //     & > .theme-example {
+// //       display: none;
+// //     }
+// //     .btn {
+// //       // font-size: 1.5rem;
+// //     }
+
+// //     .btn:hover {
+// //       // font-size: 1.5rem;
+// //     }
+// //     .btn-japanese {
+// //       // font-size: 0.9rem;
+// //     }
+
+// //     .btn-japanese:hover {
+// //       // font-size: 0.9rem;
+// //     }
+// //   }
+// //   .flex-grow {
+// //     @include App.flex-grow(1);
+// //   }
+// //   .flex-grow2 {
+// //     @include App.flex-grow(2);
+// //   }
+// //   .flex-grow3 {
+// //     @include App.flex-grow(3);
+// //   }
+// //   .question-container {
+// //     width: 90%;
+// //     height: auto;
+// //     @include App.flex-box-center(column);
+// //     justify-content: space-between;
+// //     & > .question-container-compartment:first-child {
+// //       & > .question-box:first-child {
+// //         display: block;
+// //       }
+// //     }
+// //     .question-container-compartment {
+// //       width: 100%;
+// //       justify-content: start;
+// //       .question-box {
+// //         margin-bottom: 3%;
+// //         .input-container {
+// //           .label-box {
+// //           }
+// //           .input-box {
+// //             input {
+// //               width: 80%;
+// //             }
+// //             .input-box-relationship {
+// //               @include App.flex-box-center(column);
+// //               .input-box-subject,
+// //               .input-box-object {
+// //                 width: 100%;
+// //                 .input-relationship {
+// //                   width: 70%;
+// //                 }
+// //               }
+// //             }
+// //           }
+// //         }
+// //         .select-container {
+// //           .label-box {
+// //           }
+// //           .select-box {
+// //             select {
+// //             }
+// //           }
+// //         }
+// //         .textarea-container {
+// //           height: auto;
+// //           .label-box {
+// //             height: auto;
+// //           }
+// //           .textarea-box {
+// //             textarea {
+// //               height: 100px;
+// //             }
+// //           }
+// //         }
+// //       }
+// //     }
+// //   }
+
+// //   .submitted-container {
+// //     width: 90%;
+// //     height: auto;
+// //     @include App.flex-box-center(column);
+// //     justify-content: start;
+// //     & > .submitted-container-compartment:first-child {
+// //       & > .submitted-box:first-child {
+// //         display: block;
+// //       }
+// //     }
+// //     .submitted-container-compartment {
+// //       width: 100%;
+// //       justify-content: start;
+// //       .submitted-box {
+// //         margin-bottom: 3%;
+// //         .input-container {
+// //           .label-box {
+// //           }
+// //           .input-box {
+// //             input {
+// //               width: 80%;
+// //             }
+// //             .input-box-relationship {
+// //               @include App.flex-box-center(column);
+// //               .input-box-subject,
+// //               .input-box-object {
+// //                 width: 100%;
+// //                 .input-relationship {
+// //                   width: 70%;
+// //                 }
+// //               }
+// //             }
+// //           }
+// //         }
+// //         .select-container {
+// //           .label-box {
+// //           }
+// //           .select-box {
+// //             select {
+// //             }
+// //           }
+// //         }
+// //         .textarea-container {
+// //           height: auto;
+// //           .label-box {
+// //             height: auto;
+// //           }
+// //           .textarea-box {
+// //             textarea {
+// //               height: 100px;
+// //             }
+// //           }
+// //         }
+// //       }
+// //     }
+// //   }
+// // }
+
+// // //~ 갤럭시 폴드
+// // @media (max-device-width: 281px) {
+
+// //   .korean-font-label {
+// //     line-height: 1 !important;
+// //   }
+// //   .japanese-font-label {
+// //     line-height: 1.8 !important;
+// //   }
+// //   .tarot-modal {
+// //     width: 100vw; //& max-width :1200px로 제한됨.
+// //     min-width: 100px;
+// //     height: 100%;
+// //     top: 0px;
+// //     @include App.flex-box-center(column);
+// //     overflow: auto;
+// //     & > div:nth-child(2).deck-form {
+// //       padding-top: 0%;
+// //     }
+// //     & > h2 {
+// //       margin: 0;
+// //       margin-left: 10px;
+// //       margin-right: 10px;
+// //     }
+// //   }
+// //   .tarot-modal.question-tarot-modal-card {
+// //     width: 100vw; //& max-width :1200px로 제한됨.
+// //     min-width: 100px;
+// //     height: 100%;
+// //     top: 0px;
+// //     justify-content: start;
+// //     & > div:nth-child(2).question-tarot-deck-form {
+// //       height: auto;
+// //       margin-top: 20%;
+// //     }
+// //     & > h2 {
+// //       margin: 0;
+// //       padding-left: 1%;
+// //       padding-right: 1%;
+// //       margin-top: 10px;
+// //       margin-bottom: 10px;
+// //     }
+// //     // & > h2::before,
+// //     // & > h2::after {
+// //     //   content: '';
+// //     //   margin-top: 30px;
+// //     //   margin-bottom: 30px;
+// //     // }
+// //     /* 스크롤바 스타일링 */
+// //     &::-webkit-scrollbar {
+// //       width: 10px;
+// //     }
+
+// //     &::-webkit-scrollbar-thumb {
+// //       background-color: purple;
+// //       border-radius: 20px;
+// //     }
+
+// //     &::-webkit-scrollbar-track {
+// //       background-color: transparent;
+// //       border-radius: 20px;
+// //     }
+// //   }
+// //   .btn-box {
+// //     @include App.no-select;
+// //     @include App.no-drag;
+// //     margin: 0;
+// //     margin-bottom: 10px;
+// //     & > .theme-example {
+// //       display: none;
+// //     }
+// //     .btn {
+// //       // font-size: 1.5rem;
+// //     }
+
+// //     .btn:hover {
+// //       // font-size: 1.5rem;
+// //     }
+// //     .btn-japanese {
+// //       // font-size: 0.8rem;
+// //     }
+
+// //     .btn-japanese:hover {
+// //       // font-size: 0.8rem;
+// //     }
+// //   }
+// //   .flex-grow {
+// //     @include App.flex-grow(1);
+// //   }
+// //   .flex-grow2 {
+// //     @include App.flex-grow(2);
+// //   }
+// //   .flex-grow3 {
+// //     @include App.flex-grow(3);
+// //   }
+// //   .question-container {
+// //     width: 90%;
+// //     height: auto;
+// //     @include App.flex-box-center(column);
+// //     justify-content: space-between;
+// //     & > .question-container-compartment:first-child {
+// //       & > .question-box:first-child {
+// //         display: block;
+// //       }
+// //     }
+// //     .question-container-compartment {
+// //       width: 100%;
+// //       justify-content: start;
+// //       .question-box {
+// //         margin-bottom: 3%;
+// //         .input-container {
+// //           .label-box {
+// //           }
+// //           .input-box {
+// //             input {
+// //               width: 80%;
+// //             }
+// //             .input-box-relationship {
+// //               @include App.flex-box-center(column);
+// //               .input-box-subject,
+// //               .input-box-object {
+// //                 width: 100%;
+// //                 .input-relationship {
+// //                   width: 50%;
+// //                 }
+// //               }
+// //             }
+// //           }
+// //         }
+// //         .select-container {
+// //           .label-box {
+// //           }
+// //           .select-box {
+// //             select {
+// //             }
+// //           }
+// //         }
+// //         .textarea-container {
+// //           height: auto;
+// //           .label-box {
+// //             height: auto;
+// //           }
+// //           .textarea-box {
+// //             textarea {
+// //               height: 100px;
+// //             }
+// //           }
+// //         }
+// //       }
+// //     }
+// //   }
+
+// //   .submitted-container {
+// //     width: 90%;
+// //     height: auto;
+// //     @include App.flex-box-center(column);
+// //     justify-content: start;
+// //     & > .submitted-container-compartment:first-child {
+// //       & > .submitted-box:first-child {
+// //         display: block;
+// //       }
+// //     }
+// //     .submitted-container-compartment {
+// //       width: 100%;
+// //       justify-content: start;
+// //       .submitted-box {
+// //         margin-bottom: 3%;
+// //         .input-container {
+// //           .label-box {
+// //           }
+// //           .input-box {
+// //             input {
+// //               width: 80%;
+// //             }
+// //             .input-box-relationship {
+// //               @include App.flex-box-center(column);
+// //               .input-box-subject,
+// //               .input-box-object {
+// //                 width: 100%;
+// //                 .input-relationship {
+// //                   width: 50%;
+// //                 }
+// //               }
+// //             }
+// //           }
+// //         }
+// //         .select-container {
+// //           .label-box {
+// //           }
+// //           .select-box {
+// //             select {
+// //             }
+// //           }
+// //         }
+// //         .textarea-container {
+// //           height: auto;
+// //           .label-box {
+// //             height: auto;
+// //           }
+// //           .textarea-box {
+// //             textarea {
+// //               height: 100px;
+// //             }
+// //           }
+// //         }
+// //       }
+// //     }
+// //   }
+// // }
+
+// //! 반응형 웹브라우저
+// //~ 디바이스
+// @media (min-width: 1024px) and (max-width: 1366px) {
+//   .korean-font-label {
+//     line-height: 1 !important;
+//   }
+//   .japanese-font-label {
+//     line-height: 1.8 !important;
+//   }
+//   .tarot-modal {
+//     width: 100vw; //& max-width :1200px로 제한됨.
+//     min-width: 100px;
+//     height: 100%;
+//     top: 0px;
+//     @include App.flex-box-center(column);
+//     overflow: auto;
+//     & > div:nth-child(2).deck-form {
+//       padding-top: 0%;
+//     }
+//     & > h2 {
+//       margin: 0;
+//       margin-left: 10px;
+//       margin-right: 10px;
+//     }
+//   }
+//   .tarot-modal.question-tarot-modal-card {
+//     width: 100vw; //& max-width :1200px로 제한됨.
+//     min-width: 100px;
+//     height: 100%;
+//     top: 0px;
+//     justify-content: start;
+//     & > div:nth-child(2).question-tarot-deck-form {
+//       height: auto;
+//       margin-top: 20%;
+//     }
+//     & > h2 {
+//       margin: 0;
+//       padding-left: 1%;
+//       padding-right: 1%;
+//     }
+//     /* 스크롤바 스타일링 */
+//     &::-webkit-scrollbar {
+//       width: 10px;
+//     }
+
+//     &::-webkit-scrollbar-thumb {
+//       background-color: purple;
+//       border-radius: 20px;
+//     }
+
+//     &::-webkit-scrollbar-track {
+//       background-color: transparent;
+//       border-radius: 20px;
+//     }
+//   }
+//   .btn-box {
+//     @include App.no-select;
+//     @include App.no-drag;
+//     margin: 0;
+//     margin-bottom: 10px;
+//     & > .theme-example {
+//       display: none;
+//     }
+//     .btn {
+//       // font-size: 1.5rem;
+//     }
+
+//     .btn:hover {
+//       // font-size: 1.5rem;
+//     }
+//     .btn-japanese {
+//       // font-size: 1rem;
+//     }
+
+//     .btn-japanese:hover {
+//       // font-size: 1rem;
+//     }
+//   }
+//   .flex-grow {
+//     @include App.flex-grow(1);
+//   }
+//   .flex-grow2 {
+//     @include App.flex-grow(2);
+//   }
+//   .flex-grow3 {
+//     @include App.flex-grow(3);
+//   }
+//   .question-container {
+//     width: 90%;
+//     height: auto;
+//     @include App.flex-box-center(column);
+//     justify-content: space-between;
+//     & > .question-container-compartment:first-child {
+//       & > .question-box:first-child {
+//         display: block;
+//       }
+//     }
+//     .question-container-compartment {
+//       width: 100%;
+//       justify-content: start;
+//       .question-box {
+//         margin-bottom: 3%;
+//         .input-container {
+//           .label-box {
+//           }
+//           .input-box {
+//             input {
+//               width: 50%;
+//             }
+//             .input-box-relationship {
+//               @include App.flex-box-center(column);
+//               .input-box-subject,
+//               .input-box-object {
+//                 width: 100%;
+//                 .input-relationship {
+//                   width: 50%;
+//                 }
+//               }
+//             }
+//           }
+//         }
+//         .select-container {
+//           .label-box {
+//           }
+//           .select-box {
+//             select {
+//             }
+//           }
+//         }
+//         .textarea-container {
+//           height: auto;
+//           .label-box {
+//             height: auto;
+//           }
+//           .textarea-box {
+//             textarea {
+//               height: 150px;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+
+//   .submitted-container {
+//     width: 90%;
+//     height: auto;
+//     @include App.flex-box-center(column);
+//     justify-content: start;
+//     & > .submitted-container-compartment:first-child {
+//       & > .submitted-box:first-child {
+//         display: block;
+//       }
+//     }
+//     .submitted-container-compartment {
+//       width: 100%;
+//       justify-content: start;
+//       .submitted-box {
+//         margin-bottom: 3%;
+//         .input-container {
+//           .label-box {
+//           }
+//           .input-box {
+//             input {
+//               width: 50%;
+//             }
+//             .input-box-relationship {
+//               @include App.flex-box-center(column);
+//               .input-box-subject,
+//               .input-box-object {
+//                 width: 100%;
+//                 .input-relationship {
+//                   width: 50%;
+//                 }
+//               }
+//             }
+//           }
+//         }
+//         .select-container {
+//           .label-box {
+//           }
+//           .select-box {
+//             select {
+//             }
+//           }
+//         }
+//         .textarea-container {
+//           height: auto;
+//           .label-box {
+//             height: auto;
+//           }
+//           .textarea-box {
+//             textarea {
+//               height: 150px;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// //~ 태블릿, 아이패드, 아이패드 프로
+// @media (min-width: 768px) and (max-width: 1024px) {
+//   .korean-font-label {
+//     line-height: 1 !important;
+//   }
+//   .japanese-font-label {
+//     line-height: 1.8 !important;
+//   }
+//   .tarot-modal {
+//     width: 100vw; //& max-width :1200px로 제한됨.
+//     min-width: 100px;
+//     height: 100%;
+//     top: 0px;
+//     @include App.flex-box-center(column);
+//     overflow: auto;
+//     & > div:nth-child(2).deck-form {
+//       padding-top: 0%;
+//     }
+//     & > h2 {
+//       margin: 0;
+//       margin-left: 10px;
+//       margin-right: 10px;
+//     }
+//   }
+//   .tarot-modal.question-tarot-modal-card {
+//     width: 100vw; //& max-width :1200px로 제한됨.
+//     min-width: 100px;
+//     height: 100%;
+//     top: 0px;
+//     justify-content: start;
+//     & > div:nth-child(2).question-tarot-deck-form {
+//       height: auto;
+//       margin-top: 20%;
+//     }
+//     & > h2 {
+//       margin: 0;
+//       padding-left: 1%;
+//       padding-right: 1%;
+//       margin-top: 10px;
+//       margin-bottom: 10px;
+//     }
+//     // & > h2::before,
+//     // & > h2::after {
+//     //   content: '';
+//     //   margin-top: 30px;
+//     //   margin-bottom: 30px;
+//     // }
+//     /* 스크롤바 스타일링 */
+//     &::-webkit-scrollbar {
+//       width: 10px;
+//     }
+
+//     &::-webkit-scrollbar-thumb {
+//       background-color: purple;
+//       border-radius: 20px;
+//     }
+
+//     &::-webkit-scrollbar-track {
+//       background-color: transparent;
+//       border-radius: 20px;
+//     }
+//   }
+//   .btn-box {
+//     @include App.no-select;
+//     @include App.no-drag;
+//     margin: 0;
+//     margin-bottom: 10px;
+//     & > .theme-example {
+//       display: none;
+//     }
+//     .btn {
+//       // font-size: 1.5rem;
+//     }
+
+//     .btn:hover {
+//       // font-size: 1.5rem;
+//     }
+//     .btn-japanese {
+//       // font-size: 1rem;
+//     }
+
+//     .btn-japanese:hover {
+//       // font-size: 1rem;
+//     }
+//   }
+//   .flex-grow {
+//     @include App.flex-grow(1);
+//   }
+//   .flex-grow2 {
+//     @include App.flex-grow(2);
+//   }
+//   .flex-grow3 {
+//     @include App.flex-grow(3);
+//   }
+//   .question-container {
+//     width: 90%;
+//     height: auto;
+//     @include App.flex-box-center(column);
+//     justify-content: space-between;
+//     & > .question-container-compartment:first-child {
+//       & > .question-box:first-child {
+//         display: block;
+//       }
+//     }
+//     .question-container-compartment {
+//       width: 100%;
+//       justify-content: start;
+//       .question-box {
+//         margin-bottom: 3%;
+//         .input-container {
+//           .label-box {
+//           }
+//           .input-box {
+//             input {
+//               width: 50%;
+//             }
+//             .input-box-relationship {
+//               @include App.flex-box-center(column);
+//               .input-box-subject,
+//               .input-box-object {
+//                 width: 100%;
+//                 .input-relationship {
+//                   width: 50%;
+//                 }
+//               }
+//             }
+//           }
+//         }
+//         .select-container {
+//           .label-box {
+//           }
+//           .select-box {
+//             select {
+//             }
+//           }
+//         }
+//         .textarea-container {
+//           height: auto;
+//           .label-box {
+//             height: auto;
+//           }
+//           .textarea-box {
+//             textarea {
+//               height: 150px;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+
+//   .submitted-container {
+//     width: 90%;
+//     height: auto;
+//     @include App.flex-box-center(column);
+//     justify-content: start;
+//     & > .submitted-container-compartment:first-child {
+//       & > .submitted-box:first-child {
+//         display: block;
+//       }
+//     }
+//     .submitted-container-compartment {
+//       width: 100%;
+//       justify-content: start;
+//       .submitted-box {
+//         margin-bottom: 3%;
+//         .input-container {
+//           .label-box {
+//           }
+//           .input-box {
+//             input {
+//               width: 50%;
+//             }
+//             .input-box-relationship {
+//               @include App.flex-box-center(column);
+//               .input-box-subject,
+//               .input-box-object {
+//                 width: 100%;
+//                 .input-relationship {
+//                   width: 50%;
+//                 }
+//               }
+//             }
+//           }
+//         }
+//         .select-container {
+//           .label-box {
+//           }
+//           .select-box {
+//             select {
+//             }
+//           }
+//         }
+//         .textarea-container {
+//           height: auto;
+//           .label-box {
+//             height: auto;
+//           }
+//           .textarea-box {
+//             textarea {
+//               height: 150px;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// //~ 480px ~ 768px 및 태블릿
+// @media (min-width: 480px) and (max-width: 768px) {
+//   .korean-font-label {
+//     line-height: 1 !important;
+//   }
+//   .japanese-font-label {
+//     line-height: 1.8 !important;
+//   }
+//   .tarot-modal {
+//     width: 100vw; //& max-width :1200px로 제한됨.
+//     min-width: 100px;
+//     height: 100%;
+//     top: 0px;
+//     @include App.flex-box-center(column);
+//     overflow: auto;
+//     & > div:nth-child(2).deck-form {
+//       padding-top: 0%;
+//     }
+//     & > h2 {
+//       margin: 0;
+//       margin-left: 10px;
+//       margin-right: 10px;
+//     }
+//   }
+//   .tarot-modal.question-tarot-modal-card {
+//     width: 100vw; //& max-width :1200px로 제한됨.
+//     min-width: 100px;
+//     height: 100%;
+//     top: 0px;
+//     justify-content: start;
+//     & > div:nth-child(2).question-tarot-deck-form {
+//       height: auto;
+//       margin-top: 20%;
+//     }
+//     & > h2 {
+//       margin: 0;
+//       padding-left: 1%;
+//       padding-right: 1%;
+//       margin-top: 10px;
+//       margin-bottom: 10px;
+//     }
+//     // & > h2::before,
+//     // & > h2::after {
+//     //   content: '';
+//     //   margin-top: 30px;
+//     //   margin-bottom: 30px;
+//     // }
+//     /* 스크롤바 스타일링 */
+//     &::-webkit-scrollbar {
+//       width: 10px;
+//     }
+
+//     &::-webkit-scrollbar-thumb {
+//       background-color: purple;
+//       border-radius: 20px;
+//     }
+
+//     &::-webkit-scrollbar-track {
+//       background-color: transparent;
+//       border-radius: 20px;
+//     }
+//   }
+//   .btn-box {
+//     @include App.no-select;
+//     @include App.no-drag;
+//     margin: 0;
+//     margin-bottom: 10px;
+//     & > .theme-example {
+//       display: none;
+//     }
+//     .btn {
+//       // font-size: 1.5rem;
+//     }
+
+//     .btn:hover {
+//       // font-size: 1.5rem;
+//     }
+//     .btn-japanese {
+//       // font-size: 1rem;
+//     }
+
+//     .btn-japanese:hover {
+//       // font-size: 1rem;
+//     }
+//   }
+//   .flex-grow {
+//     @include App.flex-grow(1);
+//   }
+//   .flex-grow2 {
+//     @include App.flex-grow(2);
+//   }
+//   .flex-grow3 {
+//     @include App.flex-grow(3);
+//   }
+//   .question-container {
+//     width: 90%;
+//     height: auto;
+//     @include App.flex-box-center(column);
+//     justify-content: space-between;
+//     & > .question-container-compartment:first-child {
+//       & > .question-box:first-child {
+//         display: block;
+//       }
+//     }
+//     .question-container-compartment {
+//       width: 100%;
+//       justify-content: start;
+//       .question-box {
+//         margin-bottom: 3%;
+//         .input-container {
+//           .label-box {
+//           }
+//           .input-box {
+//             input {
+//               width: 50%;
+//             }
+//             .input-box-relationship {
+//               @include App.flex-box-center(column);
+//               .input-box-subject,
+//               .input-box-object {
+//                 width: 100%;
+//                 .input-relationship {
+//                   width: 50%;
+//                 }
+//               }
+//             }
+//           }
+//         }
+//         .select-container {
+//           .label-box {
+//           }
+//           .select-box {
+//             select {
+//             }
+//           }
+//         }
+//         .textarea-container {
+//           height: auto;
+//           .label-box {
+//             height: auto;
+//           }
+//           .textarea-box {
+//             textarea {
+//               height: 130px;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+
+//   .submitted-container {
+//     width: 90%;
+//     height: auto;
+//     @include App.flex-box-center(column);
+//     justify-content: start;
+//     & > .submitted-container-compartment:first-child {
+//       & > .submitted-box:first-child {
+//         display: block;
+//       }
+//     }
+//     .submitted-container-compartment {
+//       width: 100%;
+//       justify-content: start;
+//       .submitted-box {
+//         margin-bottom: 3%;
+//         .input-container {
+//           .label-box {
+//           }
+//           .input-box {
+//             input {
+//               width: 50%;
+//             }
+//             .input-box-relationship {
+//               @include App.flex-box-center(column);
+//               .input-box-subject,
+//               .input-box-object {
+//                 width: 100%;
+//                 .input-relationship {
+//                   width: 50%;
+//                 }
+//               }
+//             }
+//           }
+//         }
+//         .select-container {
+//           .label-box {
+//           }
+//           .select-box {
+//             select {
+//             }
+//           }
+//         }
+//         .textarea-container {
+//           height: auto;
+//           .label-box {
+//             height: auto;
+//           }
+//           .textarea-box {
+//             textarea {
+//               height: 130px;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// //~ IPhone 14 Pro Max(430px)
+// @media only screen and (min-width: 414px) and (max-width: 480px) {
+//   .korean-font-label {
+//     line-height: 1 !important;
+//   }
+//   .japanese-font-label {
+//     line-height: 1.8 !important;
+//   }
+//   .tarot-modal {
+//     width: 100vw; //& max-width :1200px로 제한됨.
+//     min-width: 100px;
+//     height: 100%;
+//     top: 0px;
+//     @include App.flex-box-center(column);
+//     overflow: auto;
+//     & > div:nth-child(2).deck-form {
+//       padding-top: 0%;
+//     }
+//     & > h2 {
+//       margin: 0;
+//       margin-left: 10px;
+//       margin-right: 10px;
+//     }
+//   }
+//   .tarot-modal.question-tarot-modal-card {
+//     width: 100vw; //& max-width :1200px로 제한됨.
+//     min-width: 100px;
+//     height: 100%;
+//     top: 0px;
+//     justify-content: start;
+//     & > div:nth-child(2).question-tarot-deck-form {
+//       height: auto;
+//       margin-top: 20%;
+//     }
+//     & > h2 {
+//       margin: 0;
+//       padding-left: 1%;
+//       padding-right: 1%;
+//       margin-top: 10px;
+//       margin-bottom: 10px;
+//     }
+//     // & > h2::before,
+//     // & > h2::after {
+//     //   content: '';
+//     //   margin-top: 30px;
+//     //   margin-bottom: 30px;
+//     // }
+//     /* 스크롤바 스타일링 */
+//     &::-webkit-scrollbar {
+//       width: 10px;
+//     }
+
+//     &::-webkit-scrollbar-thumb {
+//       background-color: purple;
+//       border-radius: 20px;
+//     }
+
+//     &::-webkit-scrollbar-track {
+//       background-color: transparent;
+//       border-radius: 20px;
+//     }
+//   }
+//   .btn-box {
+//     @include App.no-select;
+//     @include App.no-drag;
+//     margin: 0;
+//     margin-bottom: 10px;
+//     & > .theme-example {
+//       display: none;
+//     }
+//     .btn {
+//       // font-size: 1.5rem;
+//     }
+
+//     .btn:hover {
+//       // font-size: 1.5rem;
+//     }
+//     .btn-japanese {
+//       // font-size: 1rem;
+//     }
+
+//     .btn-japanese:hover {
+//       // font-size: 1rem;
+//     }
+//   }
+//   .flex-grow {
+//     @include App.flex-grow(1);
+//   }
+//   .flex-grow2 {
+//     @include App.flex-grow(2);
+//   }
+//   .flex-grow3 {
+//     @include App.flex-grow(3);
+//   }
+//   .question-container {
+//     width: 90%;
+//     height: auto;
+//     @include App.flex-box-center(column);
+//     justify-content: space-between;
+//     & > .question-container-compartment:first-child {
+//       & > .question-box:first-child {
+//         display: block;
+//       }
+//     }
+//     .question-container-compartment {
+//       width: 100%;
+//       justify-content: start;
+//       .question-box {
+//         margin-bottom: 3%;
+//         .input-container {
+//           .label-box {
+//           }
+//           .input-box {
+//             input {
+//               width: 80%;
+//             }
+//             .input-box-relationship {
+//               @include App.flex-box-center(column);
+//               .input-box-subject,
+//               .input-box-object {
+//                 width: 100%;
+//                 .input-relationship {
+//                   width: 50%;
+//                 }
+//               }
+//             }
+//           }
+//         }
+//         .select-container {
+//           .label-box {
+//           }
+//           .select-box {
+//             select {
+//             }
+//           }
+//         }
+//         .textarea-container {
+//           height: auto;
+//           .label-box {
+//             height: auto;
+//           }
+//           .textarea-box {
+//             textarea {
+//               height: 120px;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+
+//   .submitted-container {
+//     width: 90%;
+//     height: auto;
+//     @include App.flex-box-center(column);
+//     justify-content: start;
+//     & > .submitted-container-compartment:first-child {
+//       & > .submitted-box:first-child {
+//         display: block;
+//       }
+//     }
+//     .submitted-container-compartment {
+//       width: 100%;
+//       justify-content: start;
+//       .submitted-box {
+//         margin-bottom: 3%;
+//         .input-container {
+//           .label-box {
+//           }
+//           .input-box {
+//             input {
+//               width: 80%;
+//             }
+//             .input-box-relationship {
+//               @include App.flex-box-center(column);
+//               .input-box-subject,
+//               .input-box-object {
+//                 width: 100%;
+//                 .input-relationship {
+//                   width: 50%;
+//                 }
+//               }
+//             }
+//           }
+//         }
+//         .select-container {
+//           .label-box {
+//           }
+//           .select-box {
+//             select {
+//             }
+//           }
+//         }
+//         .textarea-container {
+//           height: auto;
+//           .label-box {
+//             height: auto;
+//           }
+//           .textarea-box {
+//             textarea {
+//               height: 120px;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// //~ 아이폰XR
+// @media (min-width: 375px) and (max-width: 414px) {
+//   .korean-font-label {
+//     line-height: 1 !important;
+//   }
+//   .japanese-font-label {
+//     line-height: 1.8 !important;
+//   }
+//   .tarot-modal {
+//     width: 100vw; //& max-width :1200px로 제한됨.
+//     min-width: 100px;
+//     height: 100%;
+//     top: 0px;
+//     @include App.flex-box-center(column);
+//     overflow: auto;
+//     & > div:nth-child(2).deck-form {
+//       padding-top: 0%;
+//     }
+//     & > h2 {
+//       margin: 0;
+//       margin-left: 10px;
+//       margin-right: 10px;
+//     }
+//   }
+//   .tarot-modal.question-tarot-modal-card {
+//     width: 100vw; //& max-width :1200px로 제한됨.
+//     min-width: 100px;
+//     height: 100%;
+//     top: 0px;
+//     justify-content: start;
+//     & > div:nth-child(2).question-tarot-deck-form {
+//       height: auto;
+//       margin-top: 20%;
+//     }
+//     & > h2 {
+//       margin: 0;
+//       padding-left: 1%;
+//       padding-right: 1%;
+//       margin-top: 10px;
+//       margin-bottom: 10px;
+//     }
+//     // & > h2::before,
+//     // & > h2::after {
+//     //   content: '';
+//     //   margin-top: 30px;
+//     //   margin-bottom: 30px;
+//     // }
+//     /* 스크롤바 스타일링 */
+//     &::-webkit-scrollbar {
+//       width: 10px;
+//     }
+
+//     &::-webkit-scrollbar-thumb {
+//       background-color: purple;
+//       border-radius: 20px;
+//     }
+
+//     &::-webkit-scrollbar-track {
+//       background-color: transparent;
+//       border-radius: 20px;
+//     }
+//   }
+//   .btn-box {
+//     @include App.no-select;
+//     @include App.no-drag;
+//     margin: 0;
+//     margin-bottom: 10px;
+//     & > .theme-example {
+//       display: none;
+//     }
+//     .btn {
+//       // font-size: 1.5rem;
+//     }
+
+//     .btn:hover {
+//       // font-size: 1.5rem;
+//     }
+//     .btn-japanese {
+//       // font-size: 1rem;
+//     }
+
+//     .btn-japanese:hover {
+//       // font-size: 1rem;
+//     }
+//   }
+//   .flex-grow {
+//     @include App.flex-grow(1);
+//   }
+//   .flex-grow2 {
+//     @include App.flex-grow(2);
+//   }
+//   .flex-grow3 {
+//     @include App.flex-grow(3.5);
+//   }
+//   .flex-grow4 {
+//     @include App.flex-grow(5);
+//   }
+//   .question-container {
+//     width: 90%;
+//     height: auto;
+//     @include App.flex-box-center(column);
+//     justify-content: space-between;
+//     & > .question-container-compartment:first-child {
+//       & > .question-box:first-child {
+//         display: block;
+//       }
+//     }
+//     .question-container-compartment {
+//       width: 100%;
+//       justify-content: start;
+//       .question-box {
+//         margin-bottom: 3%;
+//         .input-container {
+//           .label-box {
+//           }
+//           .input-box {
+//             input {
+//               width: 80%;
+//             }
+//             .input-box-relationship {
+//               @include App.flex-box-center(column);
+//               .input-box-subject,
+//               .input-box-object {
+//                 width: 100%;
+//                 .input-relationship {
+//                   width: 70%;
+//                 }
+//               }
+//             }
+//           }
+//         }
+//         .select-container {
+//           .label-box {
+//           }
+//           .select-box {
+//             select {
+//             }
+//           }
+//         }
+//         .textarea-container {
+//           height: auto;
+//           .label-box {
+//             height: auto;
+//           }
+//           .textarea-box {
+//             textarea {
+//               height: 110px;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+
+//   .submitted-container {
+//     width: 90%;
+//     height: auto;
+//     @include App.flex-box-center(column);
+//     justify-content: start;
+//     & > .submitted-container-compartment:first-child {
+//       & > .submitted-box:first-child {
+//         display: block;
+//       }
+//     }
+//     .submitted-container-compartment {
+//       width: 100%;
+//       justify-content: start;
+//       .submitted-box {
+//         margin-bottom: 3%;
+//         .input-container {
+//           .label-box {
+//           }
+//           .input-box {
+//             input {
+//               width: 80%;
+//             }
+//             .input-box-relationship {
+//               @include App.flex-box-center(column);
+//               .input-box-subject,
+//               .input-box-object {
+//                 width: 100%;
+//                 .input-relationship {
+//                   width: 70%;
+//                 }
+//               }
+//             }
+//           }
+//         }
+//         .select-container {
+//           .label-box {
+//           }
+//           .select-box {
+//             select {
+//             }
+//           }
+//         }
+//         .textarea-container {
+//           height: auto;
+//           .label-box {
+//             height: auto;
+//           }
+//           .textarea-box {
+//             textarea {
+//               height: 110px;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// //~ 아이폰 SE
+// @media (min-width: 281px) and (max-width: 375px) {
+//   .korean-font-label {
+//     line-height: 1 !important;
+//   }
+//   .japanese-font-label {
+//     line-height: 1.8 !important;
+//   }
+//   .tarot-modal {
+//     width: 100vw; //& max-width :1200px로 제한됨.
+//     min-width: 100px;
+//     height: 100%;
+//     top: 0px;
+//     @include App.flex-box-center(column);
+//     overflow: auto;
+//     & > div:nth-child(2).deck-form {
+//       padding-top: 0%;
+//     }
+//     & > h2 {
+//       margin: 0;
+//       margin-left: 10px;
+//       margin-right: 10px;
+//     }
+//   }
+//   .tarot-modal.question-tarot-modal-card {
+//     width: 100vw; //& max-width :1200px로 제한됨.
+//     min-width: 100px;
+//     height: 100%;
+//     top: 0px;
+//     justify-content: start;
+//     & > div:nth-child(2).question-tarot-deck-form {
+//       height: auto;
+//       margin-top: 20%;
+//     }
+//     & > h2 {
+//       margin: 0;
+//       padding-left: 1%;
+//       padding-right: 1%;
+//       margin-top: 10px;
+//       margin-bottom: 10px;
+//     }
+//     // & > h2::before,
+//     // & > h2::after {
+//     //   content: '';
+//     //   margin-top: 30px;
+//     //   margin-bottom: 30px;
+//     // }
+//     /* 스크롤바 스타일링 */
+//     &::-webkit-scrollbar {
+//       width: 10px;
+//     }
+
+//     &::-webkit-scrollbar-thumb {
+//       background-color: purple;
+//       border-radius: 20px;
+//     }
+
+//     &::-webkit-scrollbar-track {
+//       background-color: transparent;
+//       border-radius: 20px;
+//     }
+//   }
+//   .btn-box {
+//     @include App.no-select;
+//     @include App.no-drag;
+//     margin: 0;
+//     margin-bottom: 10px;
+//     & > .theme-example {
+//       display: none;
+//     }
+//     .btn {
+//       // font-size: 1.5rem;
+//     }
+
+//     .btn:hover {
+//       // font-size: 1.5rem;
+//     }
+//     .btn-japanese {
+//       // font-size: 0.9rem;
+//     }
+
+//     .btn-japanese:hover {
+//       // font-size: 0.9rem;
+//     }
+//   }
+//   .flex-grow {
+//     @include App.flex-grow(1);
+//   }
+//   .flex-grow2 {
+//     @include App.flex-grow(2);
+//   }
+//   .flex-grow3 {
+//     @include App.flex-grow(3.5);
+//   }
+//   .question-container {
+//     width: 90%;
+//     height: auto;
+//     @include App.flex-box-center(column);
+//     justify-content: space-between;
+//     & > .question-container-compartment:first-child {
+//       & > .question-box:first-child {
+//         display: block;
+//       }
+//     }
+//     .question-container-compartment {
+//       width: 100%;
+//       justify-content: start;
+//       .question-box {
+//         margin-bottom: 3%;
+//         .input-container {
+//           .label-box {
+//           }
+//           .input-box {
+//             input {
+//               width: 80%;
+//             }
+//             .input-box-relationship {
+//               @include App.flex-box-center(column);
+//               .input-box-subject,
+//               .input-box-object {
+//                 width: 100%;
+//                 .input-relationship {
+//                   width: 70%;
+//                 }
+//               }
+//             }
+//           }
+//         }
+//         .select-container {
+//           .label-box {
+//           }
+//           .select-box {
+//             select {
+//             }
+//           }
+//         }
+//         .textarea-container {
+//           height: auto;
+//           .label-box {
+//             height: auto;
+//           }
+//           .textarea-box {
+//             textarea {
+//               height: 100px;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+
+//   .submitted-container {
+//     width: 90%;
+//     height: auto;
+//     @include App.flex-box-center(column);
+//     justify-content: start;
+//     & > .submitted-container-compartment:first-child {
+//       & > .submitted-box:first-child {
+//         display: block;
+//       }
+//     }
+//     .submitted-container-compartment {
+//       width: 100%;
+//       justify-content: start;
+//       .submitted-box {
+//         margin-bottom: 3%;
+//         .input-container {
+//           .label-box {
+//           }
+//           .input-box {
+//             input {
+//               width: 80%;
+//             }
+//             .input-box-relationship {
+//               @include App.flex-box-center(column);
+//               .input-box-subject,
+//               .input-box-object {
+//                 width: 100%;
+//                 .input-relationship {
+//                   width: 70%;
+//                 }
+//               }
+//             }
+//           }
+//         }
+//         .select-container {
+//           .label-box {
+//           }
+//           .select-box {
+//             select {
+//             }
+//           }
+//         }
+//         .textarea-container {
+//           height: auto;
+//           .label-box {
+//             height: auto;
+//           }
+//           .textarea-box {
+//             textarea {
+//               height: 100px;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// //~ 갤럭시 폴드
+// @media (max-width: 281px) {
+//   .korean-font-label {
+//     line-height: 1 !important;
+//   }
+//   .japanese-font-label {
+//     line-height: 1.8 !important;
+//   }
+//   .tarot-modal {
+//     width: 100vw; //& max-width :1200px로 제한됨.
+//     min-width: 100px;
+//     height: 100%;
+//     top: 0px;
+//     @include App.flex-box-center(column);
+//     overflow: auto;
+//     & > div:nth-child(2).deck-form {
+//       padding-top: 0%;
+//     }
+//     & > h2 {
+//       margin: 0;
+//       margin-left: 10px;
+//       margin-right: 10px;
+//     }
+//   }
+//   .tarot-modal.question-tarot-modal-card {
+//     width: 100vw; //& max-width :1200px로 제한됨.
+//     min-width: 100px;
+//     height: 100%;
+//     top: 0px;
+//     justify-content: start;
+//     & > div:nth-child(2).question-tarot-deck-form {
+//       height: auto;
+//       margin-top: 20%;
+//     }
+//     & > h2 {
+//       margin: 0;
+//       padding-left: 1%;
+//       padding-right: 1%;
+//       margin-top: 10px;
+//       margin-bottom: 10px;
+//     }
+//     // & > h2::before,
+//     // & > h2::after {
+//     //   content: '';
+//     //   margin-top: 30px;
+//     //   margin-bottom: 30px;
+//     // }
+//     /* 스크롤바 스타일링 */
+//     &::-webkit-scrollbar {
+//       width: 10px;
+//     }
+
+//     &::-webkit-scrollbar-thumb {
+//       background-color: purple;
+//       border-radius: 20px;
+//     }
+
+//     &::-webkit-scrollbar-track {
+//       background-color: transparent;
+//       border-radius: 20px;
+//     }
+//   }
+//   .btn-box {
+//     @include App.no-select;
+//     @include App.no-drag;
+//     margin: 0;
+//     margin-bottom: 10px;
+//     & > .theme-example {
+//       display: none;
+//     }
+//     .btn {
+//       // font-size: 1.5rem;
+//     }
+
+//     .btn:hover {
+//       // font-size: 1.5rem;
+//     }
+//     .btn-japanese {
+//       // font-size: 0.8rem;
+//     }
+
+//     .btn-japanese:hover {
+//       // font-size: 0.8rem;
+//     }
+//   }
+//   .flex-grow {
+//     @include App.flex-grow(1);
+//   }
+//   .flex-grow2 {
+//     @include App.flex-grow(2);
+//   }
+//   .flex-grow3 {
+//     @include App.flex-grow(3);
+//   }
+//   .question-container {
+//     width: 90%;
+//     height: auto;
+//     @include App.flex-box-center(column);
+//     justify-content: space-between;
+//     & > .question-container-compartment:first-child {
+//       & > .question-box:first-child {
+//         display: block;
+//       }
+//     }
+//     .question-container-compartment {
+//       width: 100%;
+//       justify-content: start;
+//       .question-box {
+//         margin-bottom: 3%;
+//         .input-container {
+//           .label-box {
+//           }
+//           .input-box {
+//             input {
+//               width: 80%;
+//             }
+//             .input-box-relationship {
+//               @include App.flex-box-center(column);
+//               .input-box-subject,
+//               .input-box-object {
+//                 width: 100%;
+//                 .input-relationship {
+//                   width: 50%;
+//                 }
+//               }
+//             }
+//           }
+//         }
+//         .select-container {
+//           .label-box {
+//           }
+//           .select-box {
+//             select {
+//             }
+//           }
+//         }
+//         .textarea-container {
+//           height: auto;
+//           .label-box {
+//             height: auto;
+//           }
+//           .textarea-box {
+//             textarea {
+//               height: 100px;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+
+//   .submitted-container {
+//     width: 90%;
+//     height: auto;
+//     @include App.flex-box-center(column);
+//     justify-content: start;
+//     & > .submitted-container-compartment:first-child {
+//       & > .submitted-box:first-child {
+//         display: block;
+//       }
+//     }
+//     .submitted-container-compartment {
+//       width: 100%;
+//       justify-content: start;
+//       .submitted-box {
+//         margin-bottom: 3%;
+//         .input-container {
+//           .label-box {
+//           }
+//           .input-box {
+//             input {
+//               width: 80%;
+//             }
+//             .input-box-relationship {
+//               @include App.flex-box-center(column);
+//               .input-box-subject,
+//               .input-box-object {
+//                 width: 100%;
+//                 .input-relationship {
+//                   width: 50%;
+//                 }
+//               }
+//             }
+//           }
+//         }
+//         .select-container {
+//           .label-box {
+//           }
+//           .select-box {
+//             select {
+//             }
+//           }
+//         }
+//         .textarea-container {
+//           .label-box {
+//           }
+//           .textarea-box {
+//             textarea {
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// //* 아이패드 프로 가로
+// @media screen and (orientation: landscape) and (min-device-width: 1024px) and (max-device-width: 1366px) {
+//   .korean-font-label {
+//     line-height: 1 !important;
+//   }
+//   .japanese-font-label {
+//     line-height: 1.8 !important;
+//   }
+//   div.tarot-modal {
+//     width: 100vw; //& max-width :1200px로 제한됨.
+//     min-width: 100px;
+//     height: 100%;
+//     top: 0px;
+//     @include App.flex-box-center(column);
+//     overflow: auto;
+//     * {
+//       margin: 0px;
+//     }
+//     & > div:nth-child(2).deck-form {
+//       padding-top: 0%;
+//     }
+//     & > h2 {
+//       margin: 0;
+//       margin-left: 10px;
+//       margin-right: 10px;
+//     }
+//     & > div.guidance-box {
+//       margin-top: 50px;
+//       margin-bottom: 10px;
+//       margin-left: 10px;
+//       margin-right: 10px;
+//       @include App.flex-box-center(row);
+
+//       & > h2 {
+//         margin: 0;
+//       }
+//     }
+//   }
+//   div.tarot-modal.question-tarot-modal-card {
+//     width: 100vw; //& max-width :1200px로 제한됨.
+//     min-width: 100px;
+//     height: 100%;
+//     top: 0px;
+//     justify-content: start;
+//     & > div:nth-child(2).question-tarot-deck-form {
+//       height: auto;
+//       margin-top: 20%;
+//     }
+//     & > h2 {
+//       margin: 0;
+//       padding-left: 1%;
+//       padding-right: 1%;
+//       margin-top: 10px;
+//       margin-bottom: 10px;
+//     }
+//     & > div.guidance-box {
+//       margin-top: 50px;
+//       margin-bottom: 10px;
+//       margin-left: 10px;
+//       margin-right: 10px;
+//       padding-left: 1%;
+//       padding-right: 1%;
+//       @include App.flex-box-center(row);
+
+//       & > h2 {
+//         margin: 0;
+//       }
+//     }
+//     // & > h2::before,
+//     // & > h2::after {
+//     //   content: '';
+//     //   margin-top: 30px;
+//     //   margin-bottom: 30px;
+//     // }
+
+//     /* 스크롤바 스타일링 */
+//     &::-webkit-scrollbar {
+//       width: 10px;
+//     }
+
+//     &::-webkit-scrollbar-thumb {
+//       background-color: purple;
+//       border-radius: 20px;
+//     }
+
+//     &::-webkit-scrollbar-track {
+//       background-color: transparent;
+//       border-radius: 20px;
+//     }
+//   }
+//   div.btn-box {
+//     @include App.no-select;
+//     @include App.no-drag;
+//     margin: 0;
+//     margin-bottom: 10px;
+//     & > .theme-example {
+//       display: none;
+//     }
+//     .btn {
+//       width: auto;
+//       height: auto;
+//       color: $golden-text;
+//       background-color: purple;
+//       border: 3px purple solid;
+//       margin-right: 5px;
+//     }
+
+//     .btn:hover {
+//       width: auto;
+//       height: auto;
+//       color: purple;
+//       border: 3px purple solid;
+//       font-weight: 500;
+//       background-color: $golden-text;
+//     }
+//     .btn-japanese {
+//       width: auto;
+//       height: auto;
+//       min-width: 70px; // & 최소 버튼 크기
+//       // font-size: 1rem;
+//       border: 3px;
+//       background-color: purple;
+//       border: 3px purple solid;
+//       margin-right: 10px;
+//     }
+
+//     .btn-japanese:hover {
+//       width: auto;
+//       height: auto;
+//       // font-size: 1rem;
+//       border: 3px;
+//       color: purple;
+//       border: 3px purple solid;
+//       background-color: $golden-text;
+//     }
+//   }
+//   div.flex-grow {
+//     @include App.flex-grow(1);
+//   }
+//   div.flex-grow2 {
+//     @include App.flex-grow(3);
+//   }
+//   div.flex-grow3 {
+//     @include App.flex-grow(3);
+//   }
+//   div.question-container {
+//     width: 90%;
+//     height: auto;
+//     @include App.flex-box-center(column);
+//     justify-content: space-between;
+//     & > .question-container-compartment:first-child {
+//       & > .question-box:first-child {
+//         display: block;
+//       }
+//     }
+//     .question-container-compartment {
+//       width: 100%;
+//       justify-content: start;
+//       .question-box {
+//         margin-bottom: 3%;
+//         .input-container {
+//           .label-box {
+//           }
+//           .input-box {
+//             input {
+//               width: 50%;
+//             }
+//             .input-box-relationship {
+//               @include App.flex-box-center(column);
+//               .input-box-subject,
+//               .input-box-object {
+//                 width: 100%;
+//                 .input-relationship {
+//                   width: 30%;
+//                 }
+//               }
+//             }
+//           }
+//         }
+//         .select-container {
+//           .label-box {
+//           }
+//           .select-box {
+//             select {
+//             }
+//           }
+//         }
+//         .textarea-container {
+//           .label-box {
+//           }
+//           .textarea-box {
+//             textarea {
+//               height: 150px;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+
+//   div.submitted-container {
+//     width: 90%;
+//     height: auto;
+//     @include App.flex-box-center(column);
+//     justify-content: start;
+//     & > .submitted-container-compartment:first-child {
+//       & > .submitted-box:first-child {
+//         display: block;
+//       }
+//     }
+//     .submitted-container-compartment {
+//       width: 100%;
+//       justify-content: start;
+//       .submitted-box {
+//         margin-bottom: 3%;
+//         .input-container {
+//           .label-box {
+//           }
+//           .input-box {
+//             input {
+//               width: 50%;
+//             }
+//             .input-box-relationship {
+//               @include App.flex-box-center(column);
+//               .input-box-subject,
+//               .input-box-object {
+//                 width: 100%;
+//                 .input-relationship {
+//                   width: 30%;
+//                 }
+//               }
+//             }
+//           }
+//         }
+//         .select-container {
+//           .label-box {
+//           }
+//           .select-box {
+//             select {
+//             }
+//           }
+//         }
+//         .textarea-container {
+//           .label-box {
+//           }
+//           .textarea-box {
+//             textarea {
+//               height: 150px;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// //* 태블릿 아이패드, 아이패드 프로 가로
+// @media screen and (orientation: landscape) and (min-device-width: 932px) and (max-device-width: 1024px) {
+//   div.tarot-modal {
+//     width: 100vw; //& max-width :1200px로 제한됨.
+//     min-width: 100px;
+//     height: 100%;
+//     top: 0px;
+//     @include App.flex-box-center(column);
+//     overflow: auto;
+//     * {
+//       margin: 0px;
+//     }
+//     & > div:nth-child(2).deck-form {
+//       padding-top: 0%;
+//     }
+//     & > h2 {
+//       margin: 0;
+//       margin-left: 10px;
+//       margin-right: 10px;
+//     }
+//     & > div.guidance-box {
+//       margin-top: 50px;
+//       margin-bottom: 10px;
+//       margin-left: 10px;
+//       margin-right: 10px;
+//       @include App.flex-box-center(row);
+
+//       & > h2 {
+//         margin: 0;
+//       }
+//     }
+//   }
+//   div.tarot-modal.question-tarot-modal-card {
+//     width: 100vw; //& max-width :1200px로 제한됨.
+//     min-width: 100px;
+//     height: 100%;
+//     top: 0px;
+//     justify-content: start;
+//     & > div:nth-child(2).question-tarot-deck-form {
+//       height: auto;
+//       margin-top: 20%;
+//     }
+//     & > h2 {
+//       margin: 0;
+//       padding-left: 1%;
+//       padding-right: 1%;
+//       margin-top: 10px;
+//       margin-bottom: 10px;
+//     }
+//     & > div.guidance-box {
+//       margin-top: 50px;
+//       margin-bottom: 10px;
+//       margin-left: 10px;
+//       margin-right: 10px;
+//       padding-left: 1%;
+//       padding-right: 1%;
+//       @include App.flex-box-center(row);
+
+//       & > h2 {
+//         margin: 0;
+//       }
+//     }
+//     // & > h2::before,
+//     // & > h2::after {
+//     //   content: '';
+//     //   margin-top: 30px;
+//     //   margin-bottom: 30px;
+//     // }
+//     /* 스크롤바 스타일링 */
+//     &::-webkit-scrollbar {
+//       width: 10px;
+//     }
+
+//     &::-webkit-scrollbar-thumb {
+//       background-color: purple;
+//       border-radius: 20px;
+//     }
+
+//     &::-webkit-scrollbar-track {
+//       background-color: transparent;
+//       border-radius: 20px;
+//     }
+//   }
+//   div.btn-box {
+//     @include App.no-select;
+//     @include App.no-drag;
+//     margin: 0;
+//     margin-bottom: 10px;
+//     & > .theme-example {
+//       display: none;
+//     }
+//     .btn {
+//       // font-size: 1.5rem;
+//     }
+
+//     .btn:hover {
+//       // font-size: 1.5rem;
+//     }
+//     .btn-japanese {
+//       width: auto;
+//       height: auto;
+//       min-width: 70px; // & 최소 버튼 크기
+//       // font-size: 1rem;
+//       border: 3px;
+//       background-color: purple;
+//       border: 3px purple solid;
+//       margin-right: 10px;
+//     }
+
+//     .btn-japanese:hover {
+//       width: auto;
+//       height: auto;
+//       // font-size: 1rem;
+//       border: 3px;
+//       color: purple;
+//       border: 3px purple solid;
+//       background-color: $golden-text;
+//     }
+//   }
+//   div.flex-grow {
+//     @include App.flex-grow(1);
+//   }
+//   div.flex-grow2 {
+//     @include App.flex-grow(3);
+//   }
+//   div.flex-grow3 {
+//     @include App.flex-grow(3);
+//   }
+//   div.question-container {
+//     width: 90%;
+//     height: auto;
+//     @include App.flex-box-center(column);
+//     justify-content: space-between;
+//     & > .question-container-compartment:first-child {
+//       & > .question-box:first-child {
+//         display: block;
+//       }
+//     }
+//     .question-container-compartment {
+//       width: 100%;
+//       justify-content: start;
+//       .question-box {
+//         margin-bottom: 3%;
+//         .input-container {
+//           .label-box {
+//           }
+//           .input-box {
+//             input {
+//               width: 50%;
+//             }
+//             .input-box-relationship {
+//               @include App.flex-box-center(column);
+//               .input-box-subject,
+//               .input-box-object {
+//                 width: 100%;
+//                 .input-relationship {
+//                   width: 30%;
+//                 }
+//               }
+//             }
+//           }
+//         }
+//         .select-container {
+//           .label-box {
+//           }
+//           .select-box {
+//             select {
+//             }
+//           }
+//         }
+//         .textarea-container {
+//           .label-box {
+//           }
+//           .textarea-box {
+//             textarea {
+//               height: 130px;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+
+//   div.submitted-container {
+//     width: 90%;
+//     height: auto;
+//     @include App.flex-box-center(column);
+//     justify-content: start;
+//     & > .submitted-container-compartment:first-child {
+//       & > .submitted-box:first-child {
+//         display: block;
+//       }
+//     }
+//     .submitted-container-compartment {
+//       width: 100%;
+//       justify-content: start;
+//       .submitted-box {
+//         margin-bottom: 3%;
+//         .input-container {
+//           .label-box {
+//           }
+//           .input-box {
+//             input {
+//               width: 50%;
+//             }
+//             .input-box-relationship {
+//               @include App.flex-box-center(column);
+//               .input-box-subject,
+//               .input-box-object {
+//                 width: 100%;
+//                 .input-relationship {
+//                   width: 30%;
+//                 }
+//               }
+//             }
+//           }
+//         }
+//         .select-container {
+//           .label-box {
+//           }
+//           .select-box {
+//             select {
+//             }
+//           }
+//         }
+//         .textarea-container {
+//           .label-box {
+//           }
+//           .textarea-box {
+//             textarea {
+//               height: 130px;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// //* IPhon 14 Pro Max 가로모드
+// @media screen and (orientation: landscape) and (min-device-width: 896px) and (max-device-width: 932px) {
+//   div.tarot-modal {
+//     width: 100vw; //& max-width :1200px로 제한됨.
+//     min-width: 100px;
+//     height: 100vh;
+//     top: 0px;
+//     @include App.flex-box-center(column);
+//     overflow: auto;
+//     & > div:nth-child(2).deck-form {
+//       padding-top: 0%;
+//     }
+//     & > h2 {
+//       margin: 0;
+//       margin-left: 10px;
+//       margin-right: 10px;
+//     }
+//     & > div.guidance-box {
+//       margin-top: 50px;
+//       margin-bottom: 10px;
+//       margin-left: 10px;
+//       margin-right: 10px;
+//       @include App.flex-box-center(row);
+
+//       & > h2 {
+//         margin: 0;
+//       }
+//     }
+//   }
+//   div.tarot-modal.question-tarot-modal-card {
+//     width: 100vw; //& max-width :1200px로 제한됨.
+//     min-width: 100px;
+//     height: 100vh;
+//     top: 0px;
+//     justify-content: start;
+//     & > div:nth-child(2).question-tarot-deck-form {
+//       height: auto;
+//       margin-top: 20%;
+//     }
+//     & > h2 {
+//       margin: 0;
+//       padding-left: 1%;
+//       padding-right: 1%;
+//       margin-top: 10px;
+//       margin-bottom: 10px;
+//     }
+//     & > div.guidance-box {
+//       margin-top: 50px;
+//       margin-bottom: 10px;
+//       margin-left: 10px;
+//       margin-right: 10px;
+//       padding-left: 1%;
+//       padding-right: 1%;
+//       @include App.flex-box-center(row);
+
+//       & > h2 {
+//         margin: 0;
+//       }
+//     }
+//     // & > h2::before,
+//     // & > h2::after {
+//     //   content: '';
+//     //   margin-top: 30px;
+//     //   margin-bottom: 30px;
+//     // }
+//     /* 스크롤바 스타일링 */
+//     &::-webkit-scrollbar {
+//       width: 10px;
+//     }
+
+//     &::-webkit-scrollbar-thumb {
+//       background-color: purple;
+//       border-radius: 20px;
+//     }
+
+//     &::-webkit-scrollbar-track {
+//       background-color: transparent;
+//       border-radius: 20px;
+//     }
+//   }
+//   div.btn-box {
+//     @include App.no-select;
+//     @include App.no-drag;
+//     margin: 0;
+//     margin-bottom: 10px;
+//     & > .theme-example {
+//       display: none;
+//     }
+//     .btn {
+//       width: auto;
+//       height: auto;
+//       color: $golden-text;
+//       background-color: purple;
+//       border: 3px purple solid;
+//       margin-right: 5px;
+//     }
+
+//     .btn:hover {
+//       width: auto;
+//       height: auto;
+//       color: purple;
+//       border: 3px purple solid;
+//       font-weight: 500;
+//       background-color: $golden-text;
+//     }
+//     .btn-japanese {
+//       width: auto;
+//       height: auto;
+//       min-width: 70px; // & 최소 버튼 크기
+//       // font-size: 1rem;
+//       border: 3px;
+//       background-color: purple;
+//       border: 3px purple solid;
+//       margin-right: 10px;
+//     }
+
+//     .btn-japanese:hover {
+//       width: auto;
+//       height: auto;
+//       // font-size: 1rem;
+//       border: 3px;
+//       color: purple;
+//       border: 3px purple solid;
+//       background-color: $golden-text;
+//     }
+//   }
+//   div.flex-grow {
+//     @include App.flex-grow(1);
+//   }
+//   div.flex-grow2 {
+//     @include App.flex-grow(3);
+//   }
+//   div.flex-grow3 {
+//     @include App.flex-grow(3);
+//   }
+//   div.question-container {
+//     width: 90%;
+//     height: auto;
+//     @include App.flex-box-center(column);
+//     justify-content: space-between;
+//     & > .question-container-compartment:first-child {
+//       & > .question-box:first-child {
+//         display: block;
+//       }
+//     }
+//     .question-container-compartment {
+//       width: 100%;
+//       justify-content: start;
+//       .question-box {
+//         margin-bottom: 3%;
+//         .input-container {
+//           .label-box {
+//           }
+//           .input-box {
+//             input {
+//               width: 50%;
+//             }
+//             .input-box-relationship {
+//               @include App.flex-box-center(column);
+//               .input-box-subject,
+//               .input-box-object {
+//                 width: 100%;
+//                 .input-relationship {
+//                   width: 30%;
+//                 }
+//               }
+//             }
+//           }
+//         }
+//         .select-container {
+//           .label-box {
+//           }
+//           .select-box {
+//             select {
+//             }
+//           }
+//         }
+//         .textarea-container {
+//           .label-box {
+//           }
+//           .textarea-box {
+//             textarea {
+//               height: 120px;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+
+//   div.submitted-container {
+//     width: 90%;
+//     height: auto;
+//     @include App.flex-box-center(column);
+//     justify-content: start;
+//     & > .submitted-container-compartment:first-child {
+//       & > .submitted-box:first-child {
+//         display: block;
+//       }
+//     }
+//     .submitted-container-compartment {
+//       width: 100%;
+//       justify-content: start;
+//       .submitted-box {
+//         margin-bottom: 3%;
+//         .input-container {
+//           .label-box {
+//           }
+//           .input-box {
+//             input {
+//               width: 50%;
+//             }
+//             .input-box-relationship {
+//               @include App.flex-box-center(column);
+//               .input-box-subject,
+//               .input-box-object {
+//                 width: 100%;
+//                 .input-relationship {
+//                   width: 30%;
+//                 }
+//               }
+//             }
+//           }
+//         }
+//         .select-container {
+//           .label-box {
+//           }
+//           .select-box {
+//             select {
+//             }
+//           }
+//         }
+//         .textarea-container {
+//           .label-box {
+//           }
+//           .textarea-box {
+//             textarea {
+//               height: 120px;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// //* 아이폰XR 가로모드
+// @media screen and (orientation: landscape) and (min-device-width: 667px) and (max-device-width: 896px) {
+//   .korean-dongle-font {
+//     line-height: 0.8 !important;
+//   }
+//   .japanese-potta-font {
+//     line-height: 1.3 !important;
+//   }
+//   div.tarot-modal {
+//     width: 100vw; //& max-width :1200px로 제한됨.
+//     min-width: 100px;
+//     height: 100vh;
+//     top: 0px;
+//     @include App.flex-box-center(column);
+//     overflow: auto;
+//     & > div:nth-child(2).deck-form {
+//       padding-top: 0%;
+//     }
+//     & > h2 {
+//       margin: 0;
+//       margin-left: 10px;
+//       margin-right: 10px;
+//     }
+//     & > div.guidance-box {
+//       margin-top: 50px;
+//       margin-bottom: 10px;
+//       margin-left: 10px;
+//       margin-right: 10px;
+//       @include App.flex-box-center(row);
+
+//       & > h2 {
+//         margin: 0;
+//       }
+//     }
+//   }
+//   div.tarot-modal.question-tarot-modal-card {
+//     width: 100vw; //& max-width :1200px로 제한됨.
+//     min-width: 100px;
+//     height: 100vh;
+//     top: 0px;
+//     justify-content: start;
+//     & > div:nth-child(2).question-tarot-deck-form {
+//       height: auto;
+//       margin-top: 20%;
+//     }
+//     & > h2 {
+//       margin: 0;
+//       padding-left: 1%;
+//       padding-right: 1%;
+//       margin-top: 10px;
+//       margin-bottom: 10px;
+//     }
+//     & > div.guidance-box {
+//       margin-top: 50px;
+//       margin-bottom: 10px;
+//       margin-left: 10px;
+//       margin-right: 10px;
+//       padding-left: 1%;
+//       padding-right: 1%;
+//       @include App.flex-box-center(row);
+
+//       & > h2 {
+//         margin: 0;
+//       }
+//     }
+//     // & > h2::before,
+//     // & > h2::after {
+//     //   content: '';
+//     //   margin-top: 30px;
+//     //   margin-bottom: 30px;
+//     // }
+//     /* 스크롤바 스타일링 */
+//     &::-webkit-scrollbar {
+//       width: 10px;
+//     }
+
+//     &::-webkit-scrollbar-thumb {
+//       background-color: purple;
+//       border-radius: 20px;
+//     }
+
+//     &::-webkit-scrollbar-track {
+//       background-color: transparent;
+//       border-radius: 20px;
+//     }
+//   }
+//   div.btn-box {
+//     @include App.no-select;
+//     @include App.no-drag;
+//     margin: 0;
+//     margin-bottom: 10px;
+//     & > .theme-example {
+//       display: none;
+//     }
+//     .btn {
+//       width: auto;
+//       height: auto;
+//       color: $golden-text;
+//       background-color: purple;
+//       border: 3px purple solid;
+//       margin-right: 5px;
+//     }
+
+//     .btn:hover {
+//       width: auto;
+//       height: auto;
+//       color: purple;
+//       border: 3px purple solid;
+//       font-weight: 500;
+//       background-color: $golden-text;
+//     }
+//     .btn-japanese {
+//       width: auto;
+//       height: auto;
+//       min-width: 70px; // & 최소 버튼 크기
+//       // font-size: 1rem;
+//       border: 3px;
+//       background-color: purple;
+//       border: 3px purple solid;
+//       margin-right: 10px;
+//     }
+
+//     .btn-japanese:hover {
+//       width: auto;
+//       height: auto;
+//       // font-size: 1rem;
+//       border: 3px;
+//       color: purple;
+//       border: 3px purple solid;
+//       background-color: $golden-text;
+//     }
+//   }
+//   div.flex-grow {
+//     @include App.flex-grow(1);
+//   }
+//   div.flex-grow2 {
+//     @include App.flex-grow(3);
+//   }
+//   div.flex-grow3 {
+//     @include App.flex-grow(3);
+//   }
+//   div.flex-grow4 {
+//     @include App.flex-grow(4.5);
+//   }
+//   div.question-container {
+//     width: 90%;
+//     height: auto;
+//     @include App.flex-box-center(column);
+//     justify-content: space-between;
+//     & > .question-container-compartment:first-child {
+//       & > .question-box:first-child {
+//         display: block;
+//       }
+//     }
+//     .question-container-compartment {
+//       width: 100%;
+//       justify-content: start;
+//       .question-box {
+//         margin-bottom: 3%;
+//         .input-container {
+//           .label-box {
+//           }
+//           .input-box {
+//             input {
+//               width: 50%;
+//             }
+//             .input-box-relationship {
+//               @include App.flex-box-center(column);
+//               .input-box-subject,
+//               .input-box-object {
+//                 width: 100%;
+//                 .input-relationship {
+//                   width: 30%;
+//                 }
+//               }
+//             }
+//           }
+//         }
+//         .select-container {
+//           .label-box {
+//           }
+//           .select-box {
+//             select {
+//             }
+//           }
+//         }
+//         .textarea-container {
+//           .label-box {
+//           }
+//           .textarea-box {
+//             textarea {
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+
+//   div.submitted-container {
+//     width: 90%;
+//     height: auto;
+//     @include App.flex-box-center(column);
+//     justify-content: start;
+//     & > .submitted-container-compartment:first-child {
+//       & > .submitted-box:first-child {
+//         display: block;
+//       }
+//     }
+//     .submitted-container-compartment {
+//       width: 100%;
+//       justify-content: start;
+//       .submitted-box {
+//         margin-bottom: 3%;
+//         .input-container {
+//           .label-box {
+//           }
+//           .input-box {
+//             input {
+//               width: 50%;
+//             }
+//             .input-box-relationship {
+//               @include App.flex-box-center(column);
+//               .input-box-subject,
+//               .input-box-object {
+//                 width: 100%;
+//                 .input-relationship {
+//                   width: 30%;
+//                 }
+//               }
+//             }
+//           }
+//         }
+//         .select-container {
+//           .label-box {
+//           }
+//           .select-box {
+//             select {
+//             }
+//           }
+//         }
+//         .textarea-container {
+//           .label-box {
+//           }
+//           .textarea-box {
+//             textarea {
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// //* 아이폰 SE 가로모드
+// @media screen and (orientation: landscape) and (min-device-width: 653px) and (max-device-width: 667px) {
+//   div.tarot-modal {
+//     width: 100vw; //& max-width :1200px로 제한됨.
+//     min-width: 100px;
+//     height: 100vh;
+//     top: 0px;
+//     @include App.flex-box-center(column);
+//     overflow: auto;
+//     & > div:nth-child(2).deck-form {
+//       padding-top: 0%;
+//     }
+//     & > h2 {
+//       margin: 0;
+//       margin-left: 10px;
+//       margin-right: 10px;
+//     }
+//     & > div.guidance-box {
+//       margin-top: 50px;
+//       margin-bottom: 10px;
+//       margin-left: 10px;
+//       margin-right: 10px;
+//       @include App.flex-box-center(row);
+
+//       & > h2 {
+//         margin: 0;
+//       }
+//     }
+//   }
+//   div.tarot-modal.question-tarot-modal-card {
+//     width: 100vw; //& max-width :1200px로 제한됨.
+//     min-width: 100px;
+//     height: 100vh;
+//     top: 0px;
+//     justify-content: start;
+//     & > div:nth-child(2).question-tarot-deck-form {
+//       height: auto;
+//       margin-top: 20%;
+//     }
+//     & > h2 {
+//       margin: 0;
+//       padding-left: 1%;
+//       padding-right: 1%;
+//       margin-top: 10px;
+//       margin-bottom: 10px;
+//     }
+//     & > div.guidance-box {
+//       margin-top: 50px;
+//       margin-bottom: 10px;
+//       margin-left: 10px;
+//       margin-right: 10px;
+//       padding-left: 1%;
+//       padding-right: 1%;
+//       @include App.flex-box-center(row);
+
+//       & > h2 {
+//         margin: 0;
+//       }
+//     }
+//     // & > h2::before,
+//     // & > h2::after {
+//     //   content: '';
+//     //   margin-top: 30px;
+//     //   margin-bottom: 30px;
+//     // }
+//     /* 스크롤바 스타일링 */
+//     &::-webkit-scrollbar {
+//       width: 10px;
+//     }
+
+//     &::-webkit-scrollbar-thumb {
+//       background-color: purple;
+//       border-radius: 20px;
+//     }
+
+//     &::-webkit-scrollbar-track {
+//       background-color: transparent;
+//       border-radius: 20px;
+//     }
+//   }
+//   div.btn-box {
+//     @include App.no-select;
+//     @include App.no-drag;
+//     margin: 0;
+//     margin-bottom: 10px;
+//     & > .theme-example {
+//       display: none;
+//     }
+//     .btn {
+//       width: auto;
+//       height: auto;
+//       color: $golden-text;
+//       background-color: purple;
+//       border: 3px purple solid;
+//       margin-right: 5px;
+//     }
+
+//     .btn:hover {
+//       width: auto;
+//       height: auto;
+//       color: purple;
+//       border: 3px purple solid;
+//       font-weight: 500;
+//       background-color: $golden-text;
+//     }
+//     .btn-japanese {
+//       width: auto;
+//       height: auto;
+//       min-width: 70px; // & 최소 버튼 크기
+//       // font-size: 1rem;
+//       border: 3px;
+//       background-color: purple;
+//       border: 3px purple solid;
+//       margin-right: 10px;
+//     }
+
+//     .btn-japanese:hover {
+//       width: auto;
+//       height: auto;
+//       // font-size: 1rem;
+//       border: 3px;
+//       color: purple;
+//       border: 3px purple solid;
+//       background-color: $golden-text;
+//     }
+//   }
+//   div.flex-grow {
+//     @include App.flex-grow(1);
+//   }
+//   div.flex-grow2 {
+//     @include App.flex-grow(2);
+//   }
+//   div.flex-grow3 {
+//     @include App.flex-grow(3);
+//   }
+//   div.flex-grow4 {
+//     @include App.flex-grow(5);
+//   }
+//   div.question-container {
+//     width: 90%;
+//     height: auto;
+//     @include App.flex-box-center(column);
+//     justify-content: space-between;
+//     & > .question-container-compartment:first-child {
+//       & > .question-box:first-child {
+//         display: block;
+//       }
+//     }
+//     .question-container-compartment {
+//       width: 100%;
+//       justify-content: start;
+//       .question-box {
+//         margin-bottom: 3%;
+//         .input-container {
+//           .label-box {
+//           }
+//           .input-box {
+//             input {
+//               width: 50%;
+//             }
+//             .input-box-relationship {
+//               @include App.flex-box-center(column);
+//               .input-box-subject,
+//               .input-box-object {
+//                 width: 100%;
+//                 .input-relationship {
+//                   width: 30%;
+//                 }
+//               }
+//             }
+//           }
+//         }
+//         .select-container {
+//           .label-box {
+//           }
+//           .select-box {
+//             select {
+//             }
+//           }
+//         }
+//         .textarea-container {
+//           .label-box {
+//           }
+//           .textarea-box {
+//             textarea {
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+
+//   div.submitted-container {
+//     width: 90%;
+//     height: auto;
+//     @include App.flex-box-center(column);
+//     justify-content: start;
+//     & > .submitted-container-compartment:first-child {
+//       & > .submitted-box:first-child {
+//         display: block;
+//       }
+//     }
+//     .submitted-container-compartment {
+//       width: 100%;
+//       justify-content: start;
+//       .submitted-box {
+//         margin-bottom: 3%;
+//         .input-container {
+//           .label-box {
+//           }
+//           .input-box {
+//             input {
+//               width: 50%;
+//             }
+//             .input-box-relationship {
+//               @include App.flex-box-center(column);
+//               .input-box-subject,
+//               .input-box-object {
+//                 width: 100%;
+//                 .input-relationship {
+//                   width: 30%;
+//                 }
+//               }
+//             }
+//           }
+//         }
+//         .select-container {
+//           .label-box {
+//           }
+//           .select-box {
+//             select {
+//             }
+//           }
+//         }
+//         .textarea-container {
+//           .label-box {
+//           }
+//           .textarea-box {
+//             textarea {
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// //* 갤럭시 폴드 가로모드
+// @media screen and (orientation: landscape) and (max-device-width: 653px) {
+//   div.tarot-modal {
+//     width: 100vw; //& max-width :1200px로 제한됨.
+//     min-width: 100px;
+//     height: 100vh;
+//     top: 10px;
+//     @include App.flex-box-center(column);
+//     overflow: auto;
+//     & > div:nth-child(2).deck-form {
+//       padding-top: 0%;
+//     }
+//     & > div:nth-child(2).displacement-form {
+//       & > .displacement-box > .displacement {
+//         width: auto;
+//         height: auto;
+//         padding: 0;
+//       }
+//     }
+//     & > h2 {
+//       margin: 0;
+//       margin-left: 10px;
+//       margin-right: 10px;
+//     }
+//     & > div.guidance-box {
+//       margin-top: 50px;
+//       margin-bottom: 10px;
+//       margin-left: 10px;
+//       margin-right: 10px;
+//       @include App.flex-box-center(row);
+
+//       & > h2 {
+//         margin: 0;
+//       }
+//     }
+//   }
+//   div.tarot-modal.question-tarot-modal-card {
+//     width: 100vw; //& max-width :1200px로 제한됨.
+//     min-width: 100px;
+//     height: 100vh;
+//     top: 10px;
+//     justify-content: start;
+//     & > div:nth-child(2).question-tarot-deck-form {
+//       height: auto;
+//       margin-top: 20%;
+//     }
+//     & > h2 {
+//       margin: 0;
+//       padding-left: 1%;
+//       padding-right: 1%;
+//       margin-top: 10px;
+//       margin-bottom: 10px;
+//     }
+//     & > div.guidance-box {
+//       margin-top: 50px;
+//       margin-bottom: 10px;
+//       margin-left: 10px;
+//       margin-right: 10px;
+//       padding-left: 1%;
+//       padding-right: 1%;
+//       @include App.flex-box-center(row);
+
+//       & > h2 {
+//         margin: 0;
+//       }
+//     }
+//     // & > h2::before,
+//     // & > h2::after {
+//     //   content: '';
+//     //   margin-top: 30px;
+//     //   margin-bottom: 30px;
+//     // }
+//     /* 스크롤바 스타일링 */
+//     &::-webkit-scrollbar {
+//       width: 10px;
+//     }
+
+//     &::-webkit-scrollbar-thumb {
+//       background-color: purple;
+//       border-radius: 20px;
+//     }
+
+//     &::-webkit-scrollbar-track {
+//       background-color: transparent;
+//       border-radius: 20px;
+//     }
+//   }
+//   div.btn-box {
+//     @include App.no-select;
+//     @include App.no-drag;
+//     height: 30px;
+//     margin: 0;
+//     margin-bottom: 10px;
+//     & > .theme-example {
+//       display: none;
+//     }
+//     //& 먹히는데, font 관련은 안먹힘. 아래 중첩 태그들은 아예 안먹힘.
+//     .btn {
+//       width: auto;
+//       height: auto;
+//       color: $golden-text;
+//       background-color: purple;
+//       border: 3px purple solid;
+//       margin-right: 5px;
+//     }
+
+//     .btn:hover {
+//       width: auto;
+//       height: auto;
+//       color: purple;
+//       border: 3px purple solid;
+//       font-weight: 500;
+//       background-color: $golden-text;
+//     }
+//     .btn-japanese {
+//       width: auto;
+//       height: auto;
+//       min-width: 70px; // & 최소 버튼 크기
+//       // font-size: 1rem;
+//       border: 3px;
+//       background-color: purple;
+//       border: 3px purple solid;
+//       margin-right: 10px;
+//     }
+
+//     .btn-japanese:hover {
+//       width: auto;
+//       height: auto;
+//       // font-size: 1rem;
+//       border: 3px;
+//       color: purple;
+//       border: 3px purple solid;
+//       background-color: $golden-text;
+//     }
+//   }
+//   div.flex-grow {
+//     @include App.flex-grow(1);
+//   }
+//   div.flex-grow2 {
+//     @include App.flex-grow(2);
+//   }
+//   div.flex-grow3 {
+//     @include App.flex-grow(3);
+//   }
+//   div.flex-grow4 {
+//     @include App.flex-grow(5);
+//   }
+//   div.question-container {
+//     width: 90%;
+//     height: auto;
+//     @include App.flex-box-center(column);
+//     justify-content: space-between;
+//     & > .question-container-compartment:first-child {
+//       & > .question-box:first-child {
+//         display: block;
+//       }
+//     }
+//     .question-container-compartment {
+//       width: 100%;
+//       justify-content: start;
+//       .question-box {
+//         margin-bottom: 3%;
+//         .input-container {
+//           .label-box {
+//           }
+//           .input-box {
+//             input {
+//               width: 50%;
+//             }
+//             .input-box-relationship {
+//               @include App.flex-box-center(column);
+//               .input-box-subject,
+//               .input-box-object {
+//                 width: 100%;
+//                 .input-relationship {
+//                   width: 30%;
+//                 }
+//               }
+//             }
+//           }
+//         }
+//         .select-container {
+//           .label-box {
+//           }
+//           .select-box {
+//             select {
+//             }
+//           }
+//         }
+//         .textarea-container {
+//           .label-box {
+//           }
+//           .textarea-box {
+//             textarea {
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+
+//   div.submitted-container {
+//     width: 90%;
+//     height: auto;
+//     @include App.flex-box-center(column);
+//     justify-content: start;
+//     & > .submitted-container-compartment:first-child {
+//       & > .submitted-box:first-child {
+//         display: block;
+//       }
+//     }
+//     .submitted-container-compartment {
+//       width: 100%;
+//       justify-content: start;
+//       .submitted-box {
+//         margin-bottom: 3%;
+//         .input-container {
+//           .label-box {
+//           }
+//           .input-box {
+//             input {
+//               width: 50%;
+//             }
+//             .input-box-relationship {
+//               @include App.flex-box-center(column);
+//               .input-box-subject,
+//               .input-box-object {
+//                 width: 100%;
+//                 .input-relationship {
+//                   width: 30%;
+//                 }
+//               }
+//             }
+//           }
+//         }
+//         .select-container {
+//           .label-box {
+//           }
+//           .select-box {
+//             select {
+//             }
+//           }
+//         }
+//         .textarea-container {
+//           .label-box {
+//           }
+//           .textarea-box {
+//             textarea {
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+@use '_App.module.scss';
+
+// Variables
+$question-bg: rgb(46, 46, 195);
+$submitted-bg: rgb(15, 15, 79);
+$golden-text: gold;
+$theme-text: white;
+
+// Base mixins
+@mixin card-size($ratio) {
+  width: 170px * $ratio;
+  height: 270px * $ratio;
+}
+@mixin deck-card-size($ratio) {
+  width: 160px * $ratio;
+  height: 200px * $ratio;
+}
+@mixin deck($ratio) {
+  position: relative;
+  @include deck-card-size($ratio);
+}
+
+@mixin deck-card($ratio) {
+  position: relative;
+  @include deck-card-size($ratio);
+  margin: auto;
+  padding: 10px * $ratio;
+  background-color: white;
+  border-radius: 13px * $ratio;
+  border: 0.1px solid black;
+}
+
+@mixin card($ratio) {
+  @include card-size($ratio);
+  margin: auto;
+  padding: 10px * $ratio;
+  background-color: white;
+  border-radius: 13px * $ratio;
+  border: 1px solid black;
+  position: relative;
+  z-index: 0;
+}
+
+@mixin spread-card($ratio) {
+  @include card-size($ratio);
+  margin: auto;
+  background-color: white;
+  border-radius: 13px * $ratio;
+  position: relative;
+  z-index: 0;
+}
+
+@mixin choice-card($ratio) {
+  @include card($ratio);
+  z-index: 1;
+  opacity: 1;
+  transition: transform 0.07s ease;
+  transition: opacity 0.2s ease;
+}
+
+@mixin card-image($ratio) {
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  border-radius: 13px * $ratio;
+}
+
+@mixin deck-margin($zero, $bottom) {
+  margin-right: $zero;
+  margin-bottom: $bottom;
+}
+@mixin shuffle-animation($shuffle-class) {
+  animation: $shuffle-class 0.3s ease-in-out;
+}
+@mixin invisible() {
+  opacity: 0;
+  z-index: -1;
+}
+
+@mixin base-container {
+  width: 80%;
+  min-width: auto;
+  height: 37%;
+  min-height: auto;
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
+  @include App.flex-box-center(row);
+}
+
+@mixin label-box {
+  @include App.flex-box-center(row);
+  justify-content: start;
+  width: 100%;
+  height: auto;
+  font-weight: bold;
+  text-align: start;
+}
+
+@mixin input-field($bg-color) {
+  width: 78%;
+  background-color: $bg-color;
+  color: white;
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 4px;
+}
+
+@mixin textarea-field($bg-color) {
+  width: 100%;
+  height: 100%;
+  background-color: $bg-color;
+  color: white;
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 4px;
+}
+
+@mixin scrollbar-styling {
+  &::-webkit-scrollbar {
+    width: 10px;
+    &-thumb,
+    &-track {
+      background-color: transparent;
+      border-radius: 20px;
+    }
+  }
+}
+
+// Component placeholders
+%container-compartment {
+  width: 50%;
+  height: 100%;
+  @include App.flex-box-center(column);
+}
+
+%box-base {
+  width: 100%;
+  height: 100%;
+  @include App.flex-grow(1);
+}
+
+%input-container {
+  width: 100%;
+  height: 100%;
+}
+
+%relationship-box {
+  @include App.flex-box-center(row);
+  .input-box-subject,
+  .input-box-object {
+    width: 50%;
+    height: auto;
+    .input-relationship {
+      width: 50%;
+    }
+  }
+}
+
+%select-box-base {
+  width: 100%;
+  height: auto;
+  //~ 기본 font 색상을 white로 설정
+  & > div {
+    color: $theme-text;
+  }
+  select {
+    width: 180px;
+    height: auto;
+  }
+}
+
+%textarea-container {
+  width: 100%;
+  height: 100%;
+  .label-box {
+    @include label-box;
+    max-height: 30%;
+    margin-bottom: 3px;
+  }
+  .textarea-box {
+    width: 100%;
+    height: 70%;
+  }
+}
+
+// Font line-height classes
+.korean-font-label {
+  line-height: 1 !important;
+}
+.japanese-font-label {
+  line-height: 1.3 !important;
+}
+
+// Modal styles
+.tarot-modal {
+  width: 80vw;
+  max-width: 1290px;
+  min-width: 400px;
+  height: 100%;
+  min-height: calc(100vh - 130px);
+  max-height: 1300px;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 10;
+  @include App.position-absolute-center();
+  top: 0px;
+  transform: translate(-50%, 0%);
+  color: $golden-text;
+  @include App.flex-box-center(column);
+  overflow: auto;
+
+  & > div:nth-child(2) {
+    &.choice-form,
+    &.displacement-form {
+      width: 100%;
+      height: 100%;
+    }
+    &.deck-form {
+    }
+  }
+
+  & > h2 {
+    border: thick double goldenrod;
+    border-radius: 15px;
+    padding: 5px;
+    margin: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  & > div.guidance-box {
+    border: thick double goldenrod;
+    width: 90%;
+    @include App.flex-box-center(row);
+    border-radius: 15px;
+    padding: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    & > h2 {
+      margin: 0;
+    }
+  }
+}
+
+.tarot-modal.question-tarot-modal-card {
+  width: 80vw;
+  max-width: 1290px;
+  min-width: 400px;
+  height: 100%;
+  min-height: calc(100vh - 130px);
+  max-height: 1300px;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 10;
+  @include App.position-absolute-center();
+  top: 0px;
+  transform: translate(-50%, 0%);
+  color: $golden-text;
+  @include App.flex-box-center(column);
+  overflow: auto;
+
+  & > div:nth-child(2) {
+    &.question-tarot-choice-form {
+      width: 100%;
+      height: 100%;
+    }
+    &.question-tarot-deck-form {
+      height: auto;
+      margin-top: 0%;
+    }
+  }
+
+  & > h2 {
+    border: thick double goldenrod;
+    border-radius: 15px;
+    padding: 5px;
+    margin: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  & > div.guidance-box {
+    border: thick double goldenrod;
+    @include App.flex-box-center(row);
+    border-radius: 15px;
+    padding: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    & > h2 {
+      margin: 0;
+    }
+  }
+
+  &::-webkit-scrollbar {
+    width: 10px;
+    &-thumb {
+      background-color: purple;
+      border-radius: 20px;
+    }
+    &-track {
+      background-color: transparent;
+      border-radius: 20px;
+    }
+  }
+}
+
+// Label styles
+.question-topic-label,
+.subject-label,
+.question-label {
+  @include App.no-select;
+  @include App.no-drag;
+  color: $golden-text;
+}
+
+.object-label {
+  @include App.no-select;
+  @include App.no-drag;
+}
+
+// Button styles
+.btn-box {
+  @include App.no-select;
+  @include App.no-drag;
+  @include App.flex-box-center(row);
+  width: 100%;
+  height: auto;
+  justify-content: end;
+  margin: 0;
+  margin-bottom: 10px;
+
+  & > .theme-example {
+    color: $theme-text;
+  }
+
+  .btn {
+    @include App.no-select;
+    @include App.no-drag;
+    width: auto;
+    height: auto;
+    min-width: 70px;
+    color: $golden-text;
+    background-color: purple;
+    border: 3px purple solid;
+    margin-right: 10px;
+
+    &:hover {
+      width: auto;
+      height: auto;
+      color: purple;
+      border: 3px purple solid;
+      font-weight: 500;
+      background-color: $golden-text;
+    }
+  }
+
+  .btn-japanese {
+    @include App.no-select;
+    @include App.no-drag;
+    width: auto;
+    height: auto;
+    min-width: 70px;
+    border: 3px;
+    background-color: purple;
+    border: 3px purple solid;
+    margin-right: 10px;
+
+    &:hover {
+      width: auto;
+      height: auto;
+      border: 3px;
+      color: purple;
+      border: 3px purple solid;
+      background-color: $golden-text;
+    }
+  }
+}
+
+.input-mode-button-box {
+  @include App.no-select;
+  @include App.no-drag;
+  @include App.flex-box-center(row);
+  width: 100%;
+  height: auto;
+  margin: 0;
+  margin-bottom: 10px;
+
+  & > .theme-example {
+    color: $theme-text;
+  }
+
+  .selected-color {
+    background-color: rgb(15, 15, 79) !important;
+    color: white !important;
+    transition: background-color 0.3s;
+  }
+
+  .normal-color {
+    background-color: rgb(46, 46, 195) !important;
+    color: white !important;
+    transition: background-color 0.3s;
+  }
+
+  .input-mode-button {
+    @include App.no-select;
+    @include App.no-drag;
+    width: auto;
+    height: auto;
+    min-width: 70px;
+    color: white;
+    background-color: rgb(46, 46, 195);
+    border: 3px white solid;
+    margin-right: 10px;
+
+    &:hover {
+      width: auto;
+      height: auto;
+      font-weight: 500;
+      color: white;
+      border: 3px white solid;
+      background-color: rgb(15, 15, 79);
+    }
+  }
+
+  .input-mode-button-japanese {
+    @include App.no-select;
+    @include App.no-drag;
+    width: auto;
+    height: auto;
+    min-width: 70px;
+    color: white;
+    background-color: rgb(46, 46, 195);
+    border: 3px white solid;
+    margin-right: 10px;
+    @include App.potta-font(1rem);
+
+    &:hover {
+      width: auto;
+      height: auto;
+      color: white;
+      border: 3px white solid;
+      background-color: rgb(15, 15, 79);
+    }
+  }
+}
+
+// Main container styles
+.question-container {
+  @include base-container;
+
+  & > .question-container-compartment:first-child {
+    & > .question-box:first-child {
+      display: none;
+      color: $theme-text;
+    }
+  }
+
+  .question-container-compartment {
+    @extend %container-compartment;
+
+    .question-box {
+      @extend %box-base;
+
+      .input-container {
+        @extend %input-container;
+        .label-box {
+          @include label-box;
+        }
+        .input-box {
+          width: 100%;
+          height: auto;
+          input {
+            @include input-field($question-bg);
+          }
+          .input-box-relationship {
+            @extend %relationship-box;
+            .input-relationship {
+              @include input-field($question-bg);
+            }
+          }
+        }
+      }
+
+      .select-container {
+        @extend %select-box-base;
+        @include App.no-select;
+        @include App.no-drag;
+      }
+
+      .textarea-container {
+        @extend %textarea-container;
+        textarea {
+          resize: none;
+          @include textarea-field($question-bg);
+          @include App.flex-grow(1);
+        }
+      }
+    }
+  }
+}
+
+.submitted-container {
+  @include base-container;
+
+  & > .submitted-container-compartment:first-child {
+    & > .submitted-box:first-child {
+      display: none;
+    }
+  }
+
+  .submitted-container-compartment {
+    @extend %container-compartment;
+
+    .submitted-box {
+      @extend %box-base;
+
+      .input-container {
+        @extend %input-container;
+        .label-box {
+          @include label-box;
+        }
+        .input-box {
+          width: 100%;
+          height: auto;
+          input {
+            @include input-field($submitted-bg);
+          }
+          .input-box-relationship {
+            @extend %relationship-box;
+            @include App.no-select;
+            @include App.no-drag;
+            .input-relationship {
+              @include input-field($submitted-bg);
+            }
+          }
+        }
+      }
+
+      .select-container {
+        @extend %select-box-base;
+      }
+
+      .textarea-container {
+        @extend %textarea-container;
+        textarea {
+          resize: none;
+          @include textarea-field($submitted-bg);
+          @include App.flex-grow(1);
+          @include scrollbar-styling;
+        }
+      }
+    }
+  }
+}
+
+.displacement-box {
+  width: 100%;
+  height: 100%;
+  @include App.flex-box-center(column);
+  position: relative;
+  .btn-box {
+    @include App.no-select;
+    @include App.no-drag;
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+.displacement {
+  width: auto;
+  height: auto;
+  @include App.flex-box-center(row);
+  @include App.position-absolute-center();
+}
+
+.width-for-five-cards-relationship-spread {
+  // width: 100%;
+}
+
+// Utility classes
+.flex-grow {
+  @include App.flex-grow(1);
+}
+.flex-grow2 {
+  @include App.flex-grow(2);
+}
+.flex-grow3 {
+  @include App.flex-grow(3);
+}
+.flex-grow4 {
+  @include App.flex-grow(4);
+}
+.invisible {
+  @include invisible;
+}
+.none {
+  display: none;
+}
+
+@include App.scrollBar-custom-className(
+  tarot-modal,
+  10px,
+  10px,
+  black,
+  transparent
+);
+@include App.scrollBar-custom-tagName(textarea, 10px, 10px, purple, purple);
+
+// Media queries - Desktop/Laptop
+@media (min-width: 1024px) and (max-width: 1366px) {
+  .korean-font-label {
+    line-height: 1 !important;
+  }
+  .japanese-font-label {
+    line-height: 1.8 !important;
+  }
+
+  .tarot-modal {
+    width: 100vw;
+    min-width: 100px;
+    height: 100%;
+    top: 0px;
+    @include App.flex-box-center(column);
+    overflow: auto;
+    & > div:nth-child(2).deck-form {
+      padding-top: 0%;
+    }
+    & > h2 {
+      margin: 0 10px;
+    }
+  }
+
+  .tarot-modal.question-tarot-modal-card {
+    width: 100vw;
+    min-width: 100px;
+    height: 100%;
+    top: 0px;
+    justify-content: start;
+    & > div:nth-child(2).question-tarot-deck-form {
+      height: auto;
+      margin-top: 20%;
+    }
+    & > h2 {
+      margin: 0;
+      padding: 0 1%;
+    }
+    &::-webkit-scrollbar {
+      width: 10px;
+      &-thumb {
+        background-color: purple;
+        border-radius: 20px;
+      }
+      &-track {
+        background-color: transparent;
+        border-radius: 20px;
+      }
+    }
+  }
+
+  .btn-box {
+    margin: 0 0 10px 0;
+    & > .theme-example {
+      display: none;
+    }
+  }
+
+  .flex-grow {
+    @include App.flex-grow(1);
+  }
+  .flex-grow2 {
+    @include App.flex-grow(2);
+  }
+  .flex-grow3 {
+    @include App.flex-grow(3);
+  }
+
+  .question-container,
+  .submitted-container {
+    width: 90%;
+    height: auto;
+    @include App.flex-box-center(column);
+    justify-content: space-between;
+
+    & > div:first-child > div:first-child {
+      display: block;
+    }
+
+    div[class*='compartment'] {
+      width: 100%;
+      justify-content: start;
+
+      div[class*='box'] {
+        margin-bottom: 3px;
+
+        .input-container .input-box {
+          input {
+            width: 50%;
+          }
+          .input-box-relationship {
+            @include App.flex-box-center(column);
+            .input-box-subject,
+            .input-box-object {
+              width: 100%;
+              .input-relationship {
+                width: 50%;
+              }
+            }
+          }
+        }
+
+        .textarea-container {
+          height: auto;
+          .label-box {
+            height: auto;
+          }
+          .textarea-box textarea {
+            height: 150px;
+          }
+        }
+      }
+    }
+  }
+  // 반응형 질문 테마 태그 표시
+  .question-container {
+    & > .question-container-compartment:first-child {
+      & > .question-box:first-child {
+        display: block;
+      }
+    }
+  }
+  .submitted-container {
+    & > .submitted-container-compartment:first-child {
+      & > .submitted-box:first-child {
+        display: block;
+      }
+    }
+  }
+}
+
+// Tablet
+@media (min-width: 768px) and (max-width: 1024px) {
+  .korean-font-label {
+    line-height: 1 !important;
+  }
+  .japanese-font-label {
+    line-height: 1.8 !important;
+  }
+
+  .tarot-modal {
+    width: 100vw;
+    min-width: 100px;
+    height: 100%;
+    top: 0px;
+    @include App.flex-box-center(column);
+    overflow: auto;
+    & > div:nth-child(2).deck-form {
+      padding-top: 0%;
+    }
+    & > h2 {
+      margin: 0 10px;
+    }
+  }
+
+  .tarot-modal.question-tarot-modal-card {
+    width: 100vw;
+    min-width: 100px;
+    height: 100%;
+    top: 0px;
+    justify-content: start;
+    & > div:nth-child(2).question-tarot-deck-form {
+      height: auto;
+      margin-top: 20%;
+    }
+    & > h2 {
+      margin: 10px 0;
+      padding: 0 1%;
+    }
+    &::-webkit-scrollbar {
+      width: 10px;
+      &-thumb {
+        background-color: purple;
+        border-radius: 20px;
+      }
+      &-track {
+        background-color: transparent;
+        border-radius: 20px;
+      }
+    }
+  }
+
+  .btn-box {
+    margin: 0 0 10px 0;
+    & > .theme-example {
+      display: none;
+    }
+  }
+
+  .flex-grow {
+    @include App.flex-grow(1);
+  }
+  .flex-grow2 {
+    @include App.flex-grow(2);
+  }
+  .flex-grow3 {
+    @include App.flex-grow(3);
+  }
+
+  .question-container,
+  .submitted-container {
+    width: 90%;
+    height: auto;
+    @include App.flex-box-center(column);
+    justify-content: space-between;
+
+    & > div:first-child > div:first-child {
+      display: block;
+    }
+
+    div[class*='compartment'] {
+      width: 100%;
+      justify-content: start;
+
+      div[class*='box'] {
+        margin-bottom: 3px;
+
+        .input-container .input-box {
+          input {
+            width: 50%;
+          }
+          .input-box-relationship {
+            @include App.flex-box-center(column);
+            .input-box-subject,
+            .input-box-object {
+              width: 100%;
+              .input-relationship {
+                width: 50%;
+              }
+            }
+          }
+        }
+
+        .textarea-container {
+          height: auto;
+          .label-box {
+            height: auto;
+          }
+          .textarea-box textarea {
+            height: 150px;
+          }
+        }
+      }
+    }
+  }
+  // 반응형 질문 테마 태그 표시
+  .question-container {
+    & > .question-container-compartment:first-child {
+      & > .question-box:first-child {
+        display: block;
+      }
+    }
+  }
+  .submitted-container {
+    & > .submitted-container-compartment:first-child {
+      & > .submitted-box:first-child {
+        display: block;
+      }
+    }
+  }
+}
+
+// Mobile - Large
+@media (min-width: 480px) and (max-width: 768px) {
+  .korean-font-label {
+    line-height: 1 !important;
+  }
+  .japanese-font-label {
+    line-height: 1.8 !important;
+  }
+
+  .tarot-modal {
+    width: 100vw;
+    min-width: 100px;
+    height: 100%;
+    top: 0px;
+    @include App.flex-box-center(column);
+    overflow: auto;
+    & > div:nth-child(2).deck-form {
+      padding-top: 0%;
+    }
+    & > h2 {
+      margin: 0 10px;
+    }
+  }
+
+  .tarot-modal.question-tarot-modal-card {
+    width: 100vw;
+    min-width: 100px;
+    height: 100%;
+    top: 0px;
+    justify-content: start;
+    & > div:nth-child(2).question-tarot-deck-form {
+      height: auto;
+      margin-top: 20%;
+    }
+    & > h2 {
+      margin: 10px 0;
+      padding: 0 1%;
+    }
+    &::-webkit-scrollbar {
+      width: 10px;
+      &-thumb {
+        background-color: purple;
+        border-radius: 20px;
+      }
+      &-track {
+        background-color: transparent;
+        border-radius: 20px;
+      }
+    }
+  }
+
+  .btn-box {
+    margin: 0 0 10px 0;
+    & > .theme-example {
+      display: none;
+    }
+  }
+
+  .flex-grow {
+    @include App.flex-grow(1);
+  }
+  .flex-grow2 {
+    @include App.flex-grow(2);
+  }
+  .flex-grow3 {
+    @include App.flex-grow(3);
+  }
+
+  .question-container,
+  .submitted-container {
+    width: 90%;
+    height: auto;
+    @include App.flex-box-center(column);
+    justify-content: space-between;
+
+    & > div:first-child > div:first-child {
+      display: block;
+    }
+
+    div[class*='compartment'] {
+      width: 100%;
+      justify-content: start;
+
+      div[class*='box'] {
+        margin-bottom: 3px;
+
+        .input-container .input-box {
+          input {
+            width: 50%;
+          }
+          .input-box-relationship {
+            @include App.flex-box-center(column);
+            .input-box-subject,
+            .input-box-object {
+              width: 100%;
+              .input-relationship {
+                width: 50%;
+              }
+            }
+          }
+        }
+
+        .textarea-container {
+          height: auto;
+          .label-box {
+            height: auto;
+          }
+          .textarea-box textarea {
+            height: 130px;
+          }
+        }
+      }
+    }
+  }
+  // 반응형 질문 테마 태그 표시
+  .question-container {
+    & > .question-container-compartment:first-child {
+      & > .question-box:first-child {
+        display: block;
+      }
+    }
+  }
+  .submitted-container {
+    & > .submitted-container-compartment:first-child {
+      & > .submitted-box:first-child {
+        display: block;
+      }
+    }
+  }
+}
+
+// Mobile - Medium
+@media only screen and (min-width: 414px) and (max-width: 480px) {
+  .korean-font-label {
+    line-height: 1 !important;
+  }
+  .japanese-font-label {
+    line-height: 1.8 !important;
+  }
+
+  .tarot-modal {
+    width: 100vw;
+    min-width: 100px;
+    height: 100%;
+    top: 0px;
+    @include App.flex-box-center(column);
+    overflow: auto;
+    & > div:nth-child(2).deck-form {
+      padding-top: 0%;
+    }
+    & > h2 {
+      margin: 0 10px;
+    }
+  }
+
+  .tarot-modal.question-tarot-modal-card {
+    width: 100vw;
+    min-width: 100px;
+    height: 100%;
+    top: 0px;
+    justify-content: start;
+    & > div:nth-child(2).question-tarot-deck-form {
+      height: auto;
+      margin-top: 20%;
+    }
+    & > h2 {
+      margin: 10px 0;
+      padding: 0 1%;
+    }
+    &::-webkit-scrollbar {
+      width: 10px;
+      &-thumb {
+        background-color: purple;
+        border-radius: 20px;
+      }
+      &-track {
+        background-color: transparent;
+        border-radius: 20px;
+      }
+    }
+  }
+
+  .btn-box {
+    margin: 0 0 10px 0;
+    & > .theme-example {
+      display: none;
+    }
+  }
+
+  .flex-grow {
+    @include App.flex-grow(1);
+  }
+  .flex-grow2 {
+    @include App.flex-grow(2);
+  }
+  .flex-grow3 {
+    @include App.flex-grow(3);
+  }
+
+  .question-container,
+  .submitted-container {
+    width: 90%;
+    height: auto;
+    @include App.flex-box-center(column);
+    justify-content: space-between;
+
+    & > div:first-child > div:first-child {
+      display: block;
+    }
+
+    div[class*='compartment'] {
+      width: 100%;
+      justify-content: start;
+
+      div[class*='box'] {
+        margin-bottom: 3px;
+
+        .input-container .input-box {
+          input {
+            width: 80%;
+          }
+          .input-box-relationship {
+            @include App.flex-box-center(column);
+            .input-box-subject,
+            .input-box-object {
+              width: 100%;
+              .input-relationship {
+                width: 50%;
+              }
+            }
+          }
+        }
+
+        .textarea-container {
+          height: auto;
+          .label-box {
+            height: auto;
+          }
+          .textarea-box textarea {
+            height: 120px;
+          }
+        }
+      }
+    }
+  }
+  // 반응형 질문 테마 태그 표시
+  .question-container {
+    & > .question-container-compartment:first-child {
+      & > .question-box:first-child {
+        display: block;
+      }
+    }
+  }
+  .submitted-container {
+    & > .submitted-container-compartment:first-child {
+      & > .submitted-box:first-child {
+        display: block;
+      }
+    }
+  }
+}
+
+// Mobile - Small
+@media (min-width: 375px) and (max-width: 414px) {
+  .korean-font-label {
+    line-height: 1 !important;
+  }
+  .japanese-font-label {
+    line-height: 1.8 !important;
+  }
+
+  .tarot-modal {
+    width: 100vw;
+    min-width: 100px;
+    height: 100%;
+    top: 0px;
+    @include App.flex-box-center(column);
+    overflow: auto;
+    & > div:nth-child(2).deck-form {
+      padding-top: 0%;
+    }
+    & > h2 {
+      margin: 0 10px;
+    }
+  }
+
+  .tarot-modal.question-tarot-modal-card {
+    width: 100vw;
+    min-width: 100px;
+    height: 100%;
+    top: 0px;
+    justify-content: start;
+    & > div:nth-child(2).question-tarot-deck-form {
+      height: auto;
+      margin-top: 20%;
+    }
+    & > h2 {
+      margin: 10px 0;
+      padding: 0 1%;
+    }
+    &::-webkit-scrollbar {
+      width: 10px;
+      &-thumb {
+        background-color: purple;
+        border-radius: 20px;
+      }
+      &-track {
+        background-color: transparent;
+        border-radius: 20px;
+      }
+    }
+  }
+
+  .btn-box {
+    margin: 0 0 10px 0;
+    & > .theme-example {
+      display: none;
+    }
+  }
+
+  .flex-grow {
+    @include App.flex-grow(1);
+  }
+  .flex-grow2 {
+    @include App.flex-grow(2);
+  }
+  .flex-grow3 {
+    @include App.flex-grow(3.5);
+  }
+  .flex-grow4 {
+    @include App.flex-grow(5);
+  }
+
+  .question-container,
+  .submitted-container {
+    width: 90%;
+    height: auto;
+    @include App.flex-box-center(column);
+    justify-content: space-between;
+
+    & > div:first-child > div:first-child {
+      display: block;
+    }
+
+    div[class*='compartment'] {
+      width: 100%;
+      justify-content: start;
+
+      div[class*='box'] {
+        margin-bottom: 3px;
+
+        .input-container .input-box {
+          input {
+            width: 80%;
+          }
+          .input-box-relationship {
+            @include App.flex-box-center(column);
+            .input-box-subject,
+            .input-box-object {
+              width: 100%;
+              .input-relationship {
+                width: 70%;
+              }
+            }
+          }
+        }
+
+        .textarea-container {
+          height: auto;
+          .label-box {
+            height: auto;
+          }
+          .textarea-box textarea {
+            height: 110px;
+          }
+        }
+      }
+    }
+  }
+  // 반응형 질문 테마 태그 표시
+  .question-container {
+    & > .question-container-compartment:first-child {
+      & > .question-box:first-child {
+        display: block;
+      }
+    }
+  }
+  .submitted-container {
+    & > .submitted-container-compartment:first-child {
+      & > .submitted-box:first-child {
+        display: block;
+      }
+    }
+  }
+}
+
+// Mobile - Extra Small
+@media (min-width: 281px) and (max-width: 375px) {
+  .korean-font-label {
+    line-height: 1 !important;
+  }
+  .japanese-font-label {
+    line-height: 1.8 !important;
+  }
+
+  .tarot-modal {
+    width: 100vw;
+    min-width: 100px;
+    height: 100%;
+    top: 0px;
+    @include App.flex-box-center(column);
+    overflow: auto;
+    & > div:nth-child(2).deck-form {
+      padding-top: 0%;
+    }
+    & > h2 {
+      margin: 0 10px;
+    }
+  }
+
+  .tarot-modal.question-tarot-modal-card {
+    width: 100vw;
+    min-width: 100px;
+    height: 100%;
+    top: 0px;
+    justify-content: start;
+    & > div:nth-child(2).question-tarot-deck-form {
+      height: auto;
+      margin-top: 20%;
+    }
+    & > h2 {
+      margin: 10px 0;
+      padding: 0 1%;
+    }
+    &::-webkit-scrollbar {
+      width: 10px;
+      &-thumb {
+        background-color: purple;
+        border-radius: 20px;
+      }
+      &-track {
+        background-color: transparent;
+        border-radius: 20px;
+      }
+    }
+  }
+
+  .btn-box {
+    margin: 0 0 10px 0;
+    & > .theme-example {
+      display: none;
+    }
+    .btn-japanese {
+      /* font-size: 0.9rem; */
+    }
+    .btn-japanese:hover {
+      /* font-size: 0.9rem; */
+    }
+  }
+
+  .flex-grow {
+    @include App.flex-grow(1);
+  }
+  .flex-grow2 {
+    @include App.flex-grow(2);
+  }
+  .flex-grow3 {
+    @include App.flex-grow(3.5);
+  }
+
+  .question-container,
+  .submitted-container {
+    width: 90%;
+    height: auto;
+    @include App.flex-box-center(column);
+    justify-content: space-between;
+
+    & > div:first-child > div:first-child {
+      display: block;
+    }
+
+    div[class*='compartment'] {
+      width: 100%;
+      justify-content: start;
+
+      div[class*='box'] {
+        margin-bottom: 3px;
+
+        .input-container .input-box {
+          input {
+            width: 80%;
+          }
+          .input-box-relationship {
+            @include App.flex-box-center(column);
+            .input-box-subject,
+            .input-box-object {
+              width: 100%;
+              .input-relationship {
+                width: 70%;
+              }
+            }
+          }
+        }
+
+        .textarea-container {
+          height: auto;
+          .label-box {
+            height: auto;
+          }
+          .textarea-box textarea {
+            height: 100px;
+          }
+        }
+      }
+    }
+  }
+  // 반응형 질문 테마 태그 표시
+  .question-container {
+    & > .question-container-compartment:first-child {
+      & > .question-box:first-child {
+        display: block;
+      }
+    }
+  }
+  .submitted-container {
+    & > .submitted-container-compartment:first-child {
+      & > .submitted-box:first-child {
+        display: block;
+      }
+    }
+  }
+}
+
+// Mobile - Smallest
+@media (max-width: 281px) {
+  .korean-font-label {
+    line-height: 1 !important;
+  }
+  .japanese-font-label {
+    line-height: 1.8 !important;
+  }
+
+  .tarot-modal {
+    width: 100vw;
+    min-width: 100px;
+    height: 100%;
+    top: 0px;
+    @include App.flex-box-center(column);
+    overflow: auto;
+    & > div:nth-child(2).deck-form {
+      padding-top: 0%;
+    }
+    & > h2 {
+      margin: 0 10px;
+    }
+  }
+
+  .tarot-modal.question-tarot-modal-card {
+    width: 100vw;
+    min-width: 100px;
+    height: 100%;
+    top: 0px;
+    justify-content: start;
+    & > div:nth-child(2).question-tarot-deck-form {
+      height: auto;
+      margin-top: 20%;
+    }
+    & > h2 {
+      margin: 10px 0;
+      padding: 0 1%;
+    }
+    &::-webkit-scrollbar {
+      width: 10px;
+      &-thumb {
+        background-color: purple;
+        border-radius: 20px;
+      }
+      &-track {
+        background-color: transparent;
+        border-radius: 20px;
+      }
+    }
+  }
+
+  .btn-box {
+    margin: 0 0 10px 0;
+    & > .theme-example {
+      display: none;
+    }
+    .btn-japanese {
+      /* font-size: 0.8rem; */
+    }
+    .btn-japanese:hover {
+      /* font-size: 0.8rem; */
+    }
+  }
+
+  .flex-grow {
+    @include App.flex-grow(1);
+  }
+  .flex-grow2 {
+    @include App.flex-grow(2);
+  }
+  .flex-grow3 {
+    @include App.flex-grow(3);
+  }
+
+  .question-container,
+  .submitted-container {
+    width: 90%;
+    height: auto;
+    @include App.flex-box-center(column);
+    justify-content: space-between;
+
+    & > div:first-child > div:first-child {
+      display: block;
+    }
+
+    div[class*='compartment'] {
+      width: 100%;
+      justify-content: start;
+
+      div[class*='box'] {
+        margin-bottom: 3px;
+
+        .input-container .input-box {
+          input {
+            width: 80%;
+          }
+          .input-box-relationship {
+            @include App.flex-box-center(column);
+            .input-box-subject,
+            .input-box-object {
+              width: 100%;
+              .input-relationship {
+                width: 50%;
+              }
+            }
+          }
+        }
+
+        .textarea-container {
+          height: auto;
+          .label-box {
+            height: auto;
+          }
+          .textarea-box textarea {
+            height: 100px;
+          }
+        }
+      }
+    }
+  }
+
+  .submitted-container {
+    div[class*='compartment'] div[class*='box'] .textarea-container {
+      .label-box {
+      }
+      .textarea-box textarea {
+      }
+    }
+  }
+  // 반응형 질문 테마 태그 표시
+  .question-container {
+    & > .question-container-compartment:first-child {
+      & > .question-box:first-child {
+        display: block;
+      }
+    }
+  }
+  .submitted-container {
+    & > .submitted-container-compartment:first-child {
+      & > .submitted-box:first-child {
+        display: block;
+      }
+    }
+  }
+}
+
+// Landscape orientations
+@media screen and (orientation: landscape) and (min-device-width: 1024px) and (max-device-width: 1366px) {
+  .korean-font-label {
+    line-height: 1 !important;
+  }
+  .japanese-font-label {
+    line-height: 1.8 !important;
+  }
+
+  div.tarot-modal {
+    width: 100vw;
+    min-width: 100px;
+    height: 100%;
+    top: 0px;
+    @include App.flex-box-center(column);
+    overflow: auto;
+    * {
+      margin: 0px;
+    }
+
+    & > div:nth-child(2).deck-form {
+      padding-top: 0%;
+    }
+    & > h2 {
+      margin: 0 10px;
+    }
+
+    & > div.guidance-box {
+      margin: 50px 10px 10px 10px;
+      @include App.flex-box-center(row);
+      & > h2 {
+        margin: 0;
+      }
+    }
+  }
+
+  div.tarot-modal.question-tarot-modal-card {
+    width: 100vw;
+    min-width: 100px;
+    height: 100%;
+    top: 0px;
+    justify-content: start;
+
+    & > div:nth-child(2).question-tarot-deck-form {
+      height: auto;
+      margin-top: 20%;
+    }
+
+    & > h2 {
+      margin: 0;
+      padding: 10px 1%;
+    }
+
+    & > div.guidance-box {
+      margin: 50px 10px 10px 10px;
+      padding: 0 1%;
+      @include App.flex-box-center(row);
+      & > h2 {
+        margin: 0;
+      }
+    }
+
+    &::-webkit-scrollbar {
+      width: 10px;
+      &-thumb {
+        background-color: purple;
+        border-radius: 20px;
+      }
+      &-track {
+        background-color: transparent;
+        border-radius: 20px;
+      }
+    }
+  }
+
+  div.btn-box {
+    @include App.no-select;
+    @include App.no-drag;
+    margin: 0 0 10px 0;
+    & > .theme-example {
+      display: none;
+    }
+
+    .btn {
+      width: auto;
+      height: auto;
+      color: $golden-text;
+      background-color: purple;
+      border: 3px purple solid;
+      margin-right: 5px;
+
+      &:hover {
+        color: purple;
+        font-weight: 500;
+        background-color: $golden-text;
+      }
+    }
+
+    .btn-japanese {
+      width: auto;
+      height: auto;
+      min-width: 70px;
+      background-color: purple;
+      border: 3px purple solid;
+      margin-right: 10px;
+
+      &:hover {
+        color: purple;
+        background-color: $golden-text;
+      }
+    }
+  }
+
+  div.flex-grow {
+    @include App.flex-grow(1);
+  }
+  div.flex-grow2 {
+    @include App.flex-grow(3);
+  }
+  div.flex-grow3 {
+    @include App.flex-grow(3);
+  }
+
+  div.question-container,
+  div.submitted-container {
+    width: 90%;
+    height: auto;
+    @include App.flex-box-center(column);
+    justify-content: space-between;
+
+    & > div:first-child > div:first-child {
+      display: block;
+    }
+
+    div[class*='compartment'] {
+      width: 100%;
+      justify-content: start;
+
+      div[class*='box'] {
+        margin-bottom: 3px;
+
+        .input-container .input-box {
+          input {
+            width: 50%;
+          }
+          .input-box-relationship {
+            @include App.flex-box-center(column);
+            .input-box-subject,
+            .input-box-object {
+              width: 100%;
+              .input-relationship {
+                width: 30%;
+              }
+            }
+          }
+        }
+
+        .textarea-container .textarea-box textarea {
+          height: 150px;
+        }
+      }
+    }
+  }
+  // 반응형 질문 테마 태그 표시
+  div.question-container {
+    & > .question-container-compartment:first-child {
+      & > .question-box:first-child {
+        display: block;
+      }
+    }
+  }
+  div.submitted-container {
+    & > .submitted-container-compartment:first-child {
+      & > .submitted-box:first-child {
+        display: block;
+      }
+    }
+  }
+}
+
+@media screen and (orientation: landscape) and (min-device-width: 932px) and (max-device-width: 1024px) {
+  div.tarot-modal {
+    width: 100vw;
+    min-width: 100px;
+    height: 100%;
+    top: 0px;
+    @include App.flex-box-center(column);
+    overflow: auto;
+    * {
+      margin: 0px;
+    }
+
+    & > div:nth-child(2).deck-form {
+      padding-top: 0%;
+    }
+    & > h2 {
+      margin: 0 10px;
+    }
+
+    & > div.guidance-box {
+      margin: 50px 10px 10px 10px;
+      @include App.flex-box-center(row);
+      & > h2 {
+        margin: 0;
+      }
+    }
+  }
+
+  div.tarot-modal.question-tarot-modal-card {
+    width: 100vw;
+    min-width: 100px;
+    height: 100%;
+    top: 0px;
+    justify-content: start;
+
+    & > div:nth-child(2).question-tarot-deck-form {
+      height: auto;
+      margin-top: 20%;
+    }
+
+    & > h2 {
+      margin: 0;
+      padding: 10px 1%;
+    }
+
+    & > div.guidance-box {
+      margin: 50px 10px 10px 10px;
+      padding: 0 1%;
+      @include App.flex-box-center(row);
+      & > h2 {
+        margin: 0;
+      }
+    }
+
+    &::-webkit-scrollbar {
+      width: 10px;
+      &-thumb {
+        background-color: purple;
+        border-radius: 20px;
+      }
+      &-track {
+        background-color: transparent;
+        border-radius: 20px;
+      }
+    }
+  }
+
+  div.btn-box {
+    @include App.no-select;
+    @include App.no-drag;
+    margin: 0 0 10px 0;
+    & > .theme-example {
+      display: none;
+    }
+
+    .btn-japanese {
+      width: auto;
+      height: auto;
+      min-width: 70px;
+      background-color: purple;
+      border: 3px purple solid;
+      margin-right: 10px;
+
+      &:hover {
+        color: purple;
+        background-color: $golden-text;
+      }
+    }
+  }
+
+  div.flex-grow {
+    @include App.flex-grow(1);
+  }
+  div.flex-grow2 {
+    @include App.flex-grow(3);
+  }
+  div.flex-grow3 {
+    @include App.flex-grow(3);
+  }
+
+  div.question-container,
+  div.submitted-container {
+    width: 90%;
+    height: auto;
+    @include App.flex-box-center(column);
+    justify-content: space-between;
+
+    & > div:first-child > div:first-child {
+      display: block;
+    }
+
+    div[class*='compartment'] {
+      width: 100%;
+      justify-content: start;
+
+      div[class*='box'] {
+        margin-bottom: 3px;
+
+        .input-container .input-box {
+          input {
+            width: 50%;
+          }
+          .input-box-relationship {
+            @include App.flex-box-center(column);
+            .input-box-subject,
+            .input-box-object {
+              width: 100%;
+              .input-relationship {
+                width: 30%;
+              }
+            }
+          }
+        }
+
+        .textarea-container .textarea-box textarea {
+          height: 130px;
+        }
+      }
+    }
+  }
+  // 반응형 질문 테마 태그 표시
+  div.question-container {
+    & > .question-container-compartment:first-child {
+      & > .question-box:first-child {
+        display: block;
+      }
+    }
+  }
+  div.submitted-container {
+    & > .submitted-container-compartment:first-child {
+      & > .submitted-box:first-child {
+        display: block;
+      }
+    }
+  }
+}
+
+@media screen and (orientation: landscape) and (min-device-width: 896px) and (max-device-width: 932px) {
+  div.tarot-modal {
+    width: 100vw;
+    min-width: 100px;
+    height: 100vh;
+    top: 0px;
+    @include App.flex-box-center(column);
+    overflow: auto;
+
+    & > div:nth-child(2).deck-form {
+      padding-top: 0%;
+    }
+    & > h2 {
+      margin: 0 10px;
+    }
+
+    & > div.guidance-box {
+      margin: 50px 10px 10px 10px;
+      @include App.flex-box-center(row);
+      & > h2 {
+        margin: 0;
+      }
+    }
+  }
+
+  div.tarot-modal.question-tarot-modal-card {
+    width: 100vw;
+    min-width: 100px;
+    height: 100vh;
+    top: 0px;
+    justify-content: start;
+
+    & > div:nth-child(2).question-tarot-deck-form {
+      height: auto;
+      margin-top: 20%;
+    }
+
+    & > h2 {
+      margin: 0;
+      padding: 10px 1%;
+    }
+
+    & > div.guidance-box {
+      margin: 50px 10px 10px 10px;
+      padding: 0 1%;
+      @include App.flex-box-center(row);
+      & > h2 {
+        margin: 0;
+      }
+    }
+
+    &::-webkit-scrollbar {
+      width: 10px;
+      &-thumb {
+        background-color: purple;
+        border-radius: 20px;
+      }
+      &-track {
+        background-color: transparent;
+        border-radius: 20px;
+      }
+    }
+  }
+
+  div.btn-box {
+    @include App.no-select;
+    @include App.no-drag;
+    margin: 0 0 10px 0;
+    & > .theme-example {
+      display: none;
+    }
+
+    .btn {
+      width: auto;
+      height: auto;
+      color: $golden-text;
+      background-color: purple;
+      border: 3px purple solid;
+      margin-right: 5px;
+
+      &:hover {
+        color: purple;
+        font-weight: 500;
+        background-color: $golden-text;
+      }
+    }
+
+    .btn-japanese {
+      width: auto;
+      height: auto;
+      min-width: 70px;
+      background-color: purple;
+      border: 3px purple solid;
+      margin-right: 10px;
+
+      &:hover {
+        color: purple;
+        background-color: $golden-text;
+      }
+    }
+  }
+
+  div.flex-grow {
+    @include App.flex-grow(1);
+  }
+  div.flex-grow2 {
+    @include App.flex-grow(3);
+  }
+  div.flex-grow3 {
+    @include App.flex-grow(3);
+  }
+
+  div.question-container,
+  div.submitted-container {
+    width: 90%;
+    height: auto;
+    @include App.flex-box-center(column);
+    justify-content: space-between;
+
+    & > div:first-child > div:first-child {
+      display: block;
+    }
+
+    div[class*='compartment'] {
+      width: 100%;
+      justify-content: start;
+
+      div[class*='box'] {
+        margin-bottom: 3px;
+
+        .input-container .input-box {
+          input {
+            width: 50%;
+          }
+          .input-box-relationship {
+            @include App.flex-box-center(column);
+            .input-box-subject,
+            .input-box-object {
+              width: 100%;
+              .input-relationship {
+                width: 30%;
+              }
+            }
+          }
+        }
+
+        .textarea-container .textarea-box textarea {
+          height: 120px;
+        }
+      }
+    }
+  }
+  // 반응형 질문 테마 태그 표시
+  div.question-container {
+    & > .question-container-compartment:first-child {
+      & > .question-box:first-child {
+        display: block;
+      }
+    }
+  }
+  div.submitted-container {
+    & > .submitted-container-compartment:first-child {
+      & > .submitted-box:first-child {
+        display: block;
+      }
+    }
+  }
+}
+
+@media screen and (orientation: landscape) and (min-device-width: 667px) and (max-device-width: 896px) {
+  .korean-dongle-font {
+    line-height: 0.8 !important;
+  }
+  .japanese-potta-font {
+    line-height: 1.3 !important;
+  }
+
+  div.tarot-modal {
+    width: 100vw;
+    min-width: 100px;
+    height: 100vh;
+    top: 0px;
+    @include App.flex-box-center(column);
+    overflow: auto;
+
+    & > div:nth-child(2).deck-form {
+      padding-top: 0%;
+    }
+    & > h2 {
+      margin: 0 10px;
+    }
+
+    & > div.guidance-box {
+      margin: 50px 10px 10px 10px;
+      @include App.flex-box-center(row);
+      & > h2 {
+        margin: 0;
+      }
+    }
+  }
+
+  div.tarot-modal.question-tarot-modal-card {
+    width: 100vw;
+    min-width: 100px;
+    height: 100vh;
+    top: 0px;
+    justify-content: start;
+
+    & > div:nth-child(2).question-tarot-deck-form {
+      height: auto;
+      margin-top: 20%;
+    }
+
+    & > h2 {
+      margin: 0;
+      padding: 10px 1%;
+    }
+
+    & > div.guidance-box {
+      margin: 50px 10px 10px 10px;
+      padding: 0 1%;
+      @include App.flex-box-center(row);
+      & > h2 {
+        margin: 0;
+      }
+    }
+
+    &::-webkit-scrollbar {
+      width: 10px;
+      &-thumb {
+        background-color: purple;
+        border-radius: 20px;
+      }
+      &-track {
+        background-color: transparent;
+        border-radius: 20px;
+      }
+    }
+  }
+
+  div.btn-box {
+    @include App.no-select;
+    @include App.no-drag;
+    margin: 0 0 10px 0;
+    & > .theme-example {
+      display: none;
+    }
+
+    .btn {
+      width: auto;
+      height: auto;
+      color: $golden-text;
+      background-color: purple;
+      border: 3px purple solid;
+      margin-right: 5px;
+
+      &:hover {
+        color: purple;
+        font-weight: 500;
+        background-color: $golden-text;
+      }
+    }
+
+    .btn-japanese {
+      width: auto;
+      height: auto;
+      min-width: 70px;
+      background-color: purple;
+      border: 3px purple solid;
+      margin-right: 10px;
+
+      &:hover {
+        color: purple;
+        background-color: $golden-text;
+      }
+    }
+  }
+
+  div.flex-grow {
+    @include App.flex-grow(1);
+  }
+  div.flex-grow2 {
+    @include App.flex-grow(3);
+  }
+  div.flex-grow3 {
+    @include App.flex-grow(3);
+  }
+  div.flex-grow4 {
+    @include App.flex-grow(4.5);
+  }
+
+  div.question-container,
+  div.submitted-container {
+    width: 90%;
+    height: auto;
+    @include App.flex-box-center(column);
+    justify-content: space-between;
+
+    & > div:first-child > div:first-child {
+      display: block;
+    }
+
+    div[class*='compartment'] {
+      width: 100%;
+      justify-content: start;
+
+      div[class*='box'] {
+        margin-bottom: 3px;
+
+        .input-container .input-box {
+          input {
+            width: 50%;
+          }
+          .input-box-relationship {
+            @include App.flex-box-center(column);
+            .input-box-subject,
+            .input-box-object {
+              width: 100%;
+              .input-relationship {
+                width: 30%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  // 반응형 질문 테마 태그 표시
+  div.question-container {
+    & > .question-container-compartment:first-child {
+      & > .question-box:first-child {
+        display: block;
+      }
+    }
+  }
+  div.submitted-container {
+    & > .submitted-container-compartment:first-child {
+      & > .submitted-box:first-child {
+        display: block;
+      }
+    }
+  }
+}
+
+@media screen and (orientation: landscape) and (min-device-width: 653px) and (max-device-width: 667px) {
+  div.tarot-modal {
+    width: 100vw;
+    min-width: 100px;
+    height: 100vh;
+    top: 0px;
+    @include App.flex-box-center(column);
+    overflow: auto;
+
+    & > div:nth-child(2).deck-form {
+      padding-top: 0%;
+    }
+    & > h2 {
+      margin: 0 10px;
+    }
+
+    & > div.guidance-box {
+      margin: 50px 10px 10px 10px;
+      @include App.flex-box-center(row);
+      & > h2 {
+        margin: 0;
+      }
+    }
+  }
+
+  div.tarot-modal.question-tarot-modal-card {
+    width: 100vw;
+    min-width: 100px;
+    height: 100vh;
+    top: 0px;
+    justify-content: start;
+
+    & > div:nth-child(2).question-tarot-deck-form {
+      height: auto;
+      margin-top: 20%;
+    }
+
+    & > h2 {
+      margin: 0;
+      padding: 10px 1%;
+    }
+
+    & > div.guidance-box {
+      margin: 50px 10px 10px 10px;
+      padding: 0 1%;
+      @include App.flex-box-center(row);
+      & > h2 {
+        margin: 0;
+      }
+    }
+
+    &::-webkit-scrollbar {
+      width: 10px;
+      &-thumb {
+        background-color: purple;
+        border-radius: 20px;
+      }
+      &-track {
+        background-color: transparent;
+        border-radius: 20px;
+      }
+    }
+  }
+
+  div.btn-box {
+    @include App.no-select;
+    @include App.no-drag;
+    margin: 0 0 10px 0;
+    & > .theme-example {
+      display: none;
+    }
+
+    .btn {
+      width: auto;
+      height: auto;
+      color: $golden-text;
+      background-color: purple;
+      border: 3px purple solid;
+      margin-right: 5px;
+
+      &:hover {
+        color: purple;
+        font-weight: 500;
+        background-color: $golden-text;
+      }
+    }
+
+    .btn-japanese {
+      width: auto;
+      height: auto;
+      min-width: 70px;
+      background-color: purple;
+      border: 3px purple solid;
+      margin-right: 10px;
+
+      &:hover {
+        color: purple;
+        background-color: $golden-text;
+      }
+    }
+  }
+
+  div.flex-grow {
+    @include App.flex-grow(1);
+  }
+  div.flex-grow2 {
+    @include App.flex-grow(2);
+  }
+  div.flex-grow3 {
+    @include App.flex-grow(3);
+  }
+  div.flex-grow4 {
+    @include App.flex-grow(5);
+  }
+
+  div.question-container,
+  div.submitted-container {
+    width: 90%;
+    height: auto;
+    @include App.flex-box-center(column);
+    justify-content: space-between;
+
+    & > div:first-child > div:first-child {
+      display: block;
+    }
+
+    div[class*='compartment'] {
+      width: 100%;
+      justify-content: start;
+
+      div[class*='box'] {
+        margin-bottom: 3px;
+
+        .input-container .input-box {
+          input {
+            width: 50%;
+          }
+          .input-box-relationship {
+            @include App.flex-box-center(column);
+            .input-box-subject,
+            .input-box-object {
+              width: 100%;
+              .input-relationship {
+                width: 30%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  // 반응형 질문 테마 태그 표시
+  div.question-container {
+    & > .question-container-compartment:first-child {
+      & > .question-box:first-child {
+        display: block;
+      }
+    }
+  }
+  div.submitted-container {
+    & > .submitted-container-compartment:first-child {
+      & > .submitted-box:first-child {
+        display: block;
+      }
+    }
+  }
+}
+
+@media screen and (orientation: landscape) and (max-device-width: 653px) {
+  div.tarot-modal {
+    width: 100vw;
+    min-width: 100px;
+    height: 100vh;
+    top: 10px;
+    @include App.flex-box-center(column);
+    overflow: auto;
+
+    & > div:nth-child(2).deck-form {
+      padding-top: 0%;
+    }
+
+    & > div:nth-child(2).displacement-form {
+      & > .displacement-box > .displacement {
+        width: auto;
+        height: auto;
+        padding: 0;
+      }
+    }
+
+    & > h2 {
+      margin: 0 10px;
+    }
+
+    & > div.guidance-box {
+      margin: 50px 10px 10px 10px;
+      @include App.flex-box-center(row);
+      & > h2 {
+        margin: 0;
+      }
+    }
+  }
+
+  div.tarot-modal.question-tarot-modal-card {
+    width: 100vw;
+    min-width: 100px;
+    height: 100vh;
+    top: 10px;
+    justify-content: start;
+
+    & > div:nth-child(2).question-tarot-deck-form {
+      height: auto;
+      margin-top: 20%;
+    }
+
+    & > h2 {
+      margin: 0;
+      padding: 10px 1%;
+    }
+
+    & > div.guidance-box {
+      margin: 50px 10px 10px 10px;
+      padding: 0 1%;
+      @include App.flex-box-center(row);
+      & > h2 {
+        margin: 0;
+      }
+    }
+
+    &::-webkit-scrollbar {
+      width: 10px;
+      &-thumb {
+        background-color: purple;
+        border-radius: 20px;
+      }
+      &-track {
+        background-color: transparent;
+        border-radius: 20px;
+      }
+    }
+  }
+
+  div.btn-box {
+    @include App.no-select;
+    @include App.no-drag;
+    height: 30px;
+    margin: 0 0 10px 0;
+    & > .theme-example {
+      display: none;
+    }
+
+    .btn {
+      width: auto;
+      height: auto;
+      color: $golden-text;
+      background-color: purple;
+      border: 3px purple solid;
+      margin-right: 5px;
+
+      &:hover {
+        color: purple;
+        font-weight: 500;
+        background-color: $golden-text;
+      }
+    }
+
+    .btn-japanese {
+      width: auto;
+      height: auto;
+      min-width: 70px;
+      background-color: purple;
+      border: 3px purple solid;
+      margin-right: 10px;
+
+      &:hover {
+        color: purple;
+        background-color: $golden-text;
+      }
+    }
+  }
+
+  div.flex-grow {
+    @include App.flex-grow(1);
+  }
+  div.flex-grow2 {
+    @include App.flex-grow(2);
+  }
+  div.flex-grow3 {
+    @include App.flex-grow(3);
+  }
+  div.flex-grow4 {
+    @include App.flex-grow(5);
+  }
+
+  div.question-container,
+  div.submitted-container {
+    width: 90%;
+    height: auto;
+    @include App.flex-box-center(column);
+    justify-content: space-between;
+
+    & > div:first-child > div:first-child {
+      display: block;
+    }
+
+    div[class*='compartment'] {
+      width: 100%;
+      justify-content: start;
+
+      div[class*='box'] {
+        margin-bottom: 3px;
+
+        .input-container .input-box {
+          input {
+            width: 50%;
+          }
+          .input-box-relationship {
+            @include App.flex-box-center(column);
+            .input-box-subject,
+            .input-box-object {
+              width: 100%;
+              .input-relationship {
+                width: 30%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

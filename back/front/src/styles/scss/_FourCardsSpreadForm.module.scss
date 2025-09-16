@@ -1,0 +1,151 @@
+@use '_TarotModal.module.scss';
+@use '_TarotCardSpreadForm.module.scss';
+
+.linear-spread-container {
+  @include TarotCardSpreadForm.linear-spread-container(0.9);
+}
+.flip {
+  @include TarotCardSpreadForm.flip();
+}
+.flip-click {
+  @include TarotCardSpreadForm.flip-click();
+}
+.front {
+  @include TarotCardSpreadForm.front();
+}
+.front-reversed {
+  @include TarotCardSpreadForm.front-reversed();
+}
+.back {
+  @include TarotCardSpreadForm.back();
+}
+
+
+//~ 디바이스
+@media (min-device-width: 1025px) and (max-device-width: 1366px) {
+  .linear-spread-container {
+    @include TarotCardSpreadForm.linear-spread-container(1.2);
+  }
+}
+//~ 태블릿, 아이패드, 아이패드 프로
+@media (min-device-width: 769px) and (max-device-width: 1024px) {
+  .linear-spread-container {
+    @include TarotCardSpreadForm.linear-spread-container(1);
+  }
+}
+//~ 481px ~ 768px 및 태블릿
+@media (min-device-width: 481px) and (max-device-width: 768px) {
+  .linear-spread-container {
+    @include TarotCardSpreadForm.linear-spread-container(0.7);
+  }
+}
+//~ IPhone 14 Pro Max(430px)
+@media only screen and (min-device-width: 415px) and (max-device-width: 480px) {
+  .linear-spread-container {
+    @include TarotCardSpreadForm.linear-spread-container(0.60);
+  }
+}
+//~ 아이폰XR
+@media (min-device-width: 376px) and (max-device-width: 414px) {
+  .linear-spread-container {
+    @include TarotCardSpreadForm.linear-spread-container(0.55);
+  }
+}
+
+//~ 아이폰 SE
+@media (min-device-width: 281px) and (max-device-width: 375px) {
+  .linear-spread-container {
+    @include TarotCardSpreadForm.linear-spread-container(0.41);
+  }
+}
+//~ 갤럭시 폴드
+@media (max-device-width: 280px) {
+  .linear-spread-container {
+    @include TarotCardSpreadForm.linear-spread-container(0.35);
+  }
+}
+
+
+//! 반응형 웹브라우저
+
+//~ 디바이스
+@media (min-width: 1025px) and (max-width: 1366px) {
+  .linear-spread-container {
+    @include TarotCardSpreadForm.linear-spread-container(1.2);
+  }
+}
+//~ 태블릿, 아이패드, 아이패드 프로
+@media (min-width: 769px) and (max-width: 1024px) {
+  .linear-spread-container {
+    @include TarotCardSpreadForm.linear-spread-container(1);
+  }
+}
+//~ 481px ~ 768px 및 태블릿
+@media (min-width: 481px) and (max-width: 768px) {
+  .linear-spread-container {
+    @include TarotCardSpreadForm.linear-spread-container(0.7);
+  }
+}
+//~ IPhone 14 Pro Max(430px)
+@media only screen and (min-width: 415px) and (max-width: 480px) {
+  .linear-spread-container {
+    @include TarotCardSpreadForm.linear-spread-container(0.60);
+  }
+}
+//~ 아이폰XR
+@media (min-width: 376px) and (max-width: 414px) {
+  .linear-spread-container {
+    @include TarotCardSpreadForm.linear-spread-container(0.55);
+  }
+}
+
+//~ 아이폰 SE
+@media (min-width: 281px) and (max-width: 375px) {
+  .linear-spread-container {
+    @include TarotCardSpreadForm.linear-spread-container(0.41);
+  }
+}
+//~ 갤럭시 폴드
+@media (max-width: 280px) {
+  .linear-spread-container {
+    @include TarotCardSpreadForm.linear-spread-container(0.35);
+  }
+}
+
+
+//* 아이패드 프로 가로
+@media screen and (orientation: landscape) and (min-device-width: 1025px) and (max-device-width: 1366px) {
+  div.linear-spread-container {
+    @include TarotCardSpreadForm.linear-spread-container(1.2);
+  }
+}
+//* 태블릿 아이패드, 아이패드 프로 가로
+@media screen and (orientation: landscape) and (min-device-width: 933px) and (max-device-width: 1024px) {
+  div.linear-spread-container {
+    @include TarotCardSpreadForm.linear-spread-container(1);
+  }
+}
+//* IPhon 14 Pro Max 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 897px) and (max-device-width: 932px) {
+  div.linear-spread-container {
+    @include TarotCardSpreadForm.linear-spread-container(0.8);
+  }
+}
+//* 아이폰XR 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 668px) and (max-device-width: 896px) {
+  div.linear-spread-container {
+    @include TarotCardSpreadForm.linear-spread-container(0.8);
+  }
+}
+//* 아이폰SE 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 654px) and (max-device-width: 667px) {
+  div.linear-spread-container {
+    @include TarotCardSpreadForm.linear-spread-container(0.8);
+  }
+}
+//* 갤럭시 폴드 가로모드
+@media screen and (orientation: landscape) and (max-device-width: 653px) {
+  div.linear-spread-container {
+    @include TarotCardSpreadForm.linear-spread-container(0.8);
+  }
+}

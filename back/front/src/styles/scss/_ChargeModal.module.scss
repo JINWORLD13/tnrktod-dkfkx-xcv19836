@@ -1,0 +1,2380 @@
+@use '_App.module.scss';
+@use '_TarotCardSpreadForm.module.scss';
+
+@include App.scrollBar-custom-className(voucher-box, 10px, 10px, purple, black);
+
+@include App.scrollBar-custom-className(
+  voucher-box-japanese,
+  10px,
+  10px,
+  purple,
+  black
+);
+.backdrop {
+  position: fixed;
+  top: 0px;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  // height: 100vh;overflow: hidden;
+  z-index: 20;
+  background: rgba(0, 0, 0, 0.75);
+  overflow: hidden;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: auto;
+  min-height: 150px;
+  z-index: 100;
+  overflow: hidden;
+  @include App.flex-box-center(column);
+  justify-content: space-between;
+  border: 1px solid black;
+}
+.title {
+  @include App.no-select;
+  @include App.no-drag;
+  width: 100%;
+  @include App.flex-box-center(row);
+  justify-content: start;
+  p {
+    @include App.dongle-font(1.8rem);
+    margin: 10px;
+    margin-left: 20px;
+  }
+}
+.modal-content {
+  @include App.no-select;
+  @include App.no-drag;
+  width: 100%;
+  height: 100%;
+  margin-left: 40px;
+  margin-bottom: 40px;
+  @include App.dongle-font(1.7rem);
+}
+
+.charge-content {
+  @include App.no-select;
+  @include App.no-drag;
+  width: 100%;
+  height: 100%;
+  @include App.flex-box-center(column);
+}
+
+//! justify-content: start; 넣으면 짤리지 않고 나오니 참고
+.voucher-box {
+  width: 100%;
+  height: 70%;
+  overflow: auto;
+  @include App.flex-box-center(column);
+  color: white;
+  position: relative;
+
+  & > div {
+    width: 100%;
+    @include App.flex-box-center(row);
+    justify-content: space-around;
+  }
+}
+.voucher-box-japanese {
+  width: 100%;
+  height: 70%;
+  overflow: auto;
+  @include App.flex-box-center(column);
+  color: white;
+  position: relative;
+
+  & > div {
+    width: 100%;
+    @include App.flex-box-center(row);
+    justify-content: space-around;
+  }
+}
+.voucher {
+  width: 100%;
+  text-align: center;
+  line-height: 1;
+  @include App.dongle-font(1.9rem);
+  & .one-card {
+    @include App.dongle-font(1.9rem);
+  }
+  & .two-cards {
+    @include App.dongle-font(1.9rem);
+  }
+  & .three-cards {
+    @include App.dongle-font(1.9rem);
+  }
+  & .four-cards {
+    @include App.dongle-font(1.9rem);
+  }
+  & .five-cards {
+    @include App.dongle-font(1.9rem);
+  }
+  & .six-cards {
+    @include App.dongle-font(1.9rem);
+  }
+  & .seven-cards {
+    @include App.dongle-font(1.9rem);
+  }
+  & .eight-cards {
+    @include App.dongle-font(1.9rem);
+  }
+  & .nine-cards {
+    @include App.dongle-font(1.9rem);
+  }
+  & .ten-cards {
+    @include App.dongle-font(1.9rem);
+  }
+  & .eleven-cards {
+    @include App.dongle-font(1.9rem);
+  }
+  & .thirteen-cards {
+    @include App.dongle-font(1.9rem);
+  }
+}
+.voucher-japanese {
+  width: 100%;
+  text-align: center;
+  @include App.potta-font(1.4rem);
+}
+.voucher-total-price {
+  @include App.dongle-font(1.9rem);
+}
+.voucher-total-price-japanese {
+  @include App.potta-font(1.4rem);
+  margin-top: 30px;
+}
+.voucher-button-box {
+  width: 100%;
+  @include App.flex-box-center(row);
+  & > div {
+    @include App.flex-box-center(column);
+    & > div {
+      @include App.flex-box-center(row);
+      justify-content: space-around;
+      width: 100%;
+    }
+  }
+}
+.voucher-button-box-japanese {
+  width: 100%;
+  @include App.flex-box-center(row);
+  & > div {
+    @include App.flex-box-center(column);
+    & > div {
+      @include App.flex-box-center(row);
+      justify-content: space-around;
+      width: 100%;
+    }
+  }
+}
+.voucher-button {
+  min-width: 40px;
+  height: auto;
+  line-height: auto;
+  color: goldenrod;
+  background-color: black;
+  border-color: gold;
+  line-height: 1.4;
+}
+.voucher-button:hover {
+  min-width: 40px;
+  height: auto;
+  line-height: auto;
+  background-color: black;
+  border-color: black;
+  color: gold;
+}
+
+.voucher-button-japanese {
+  min-width: 40px;
+  height: auto;
+  line-height: auto;
+  color: goldenrod;
+  background-color: black;
+  border-color: gold;
+  @include App.flex-box-center(column);
+  line-height: 1.4;
+  font-size: 1.4rem;
+}
+.voucher-button-japanese:hover {
+  min-width: 40px;
+  height: auto;
+  line-height: auto;
+  background-color: black;
+  border-color: black;
+  color: gold;
+}
+
+.point,
+.price {
+  width: 100%;
+  text-align: center;
+  @include App.dongle-font(1.9rem);
+  line-height: 1;
+}
+.point-japanese,
+.price-japanese {
+  width: 100%;
+  text-align: center;
+  @include App.potta-font(1.2rem);
+}
+.empty-half {
+  flex-grow: 0.5;
+}
+.empty {
+  flex-grow: 1;
+}
+.flex-grow {
+  flex-grow: 1;
+}
+.flex-grow2 {
+  flex-grow: 6;
+}
+.purchase-button-box {
+  margin-top: 0;
+  width: 100%;
+  @include App.flex-box-center(row);
+  justify-content: end;
+}
+.purchase-button {
+  margin: 10px;
+  margin-left: 0px;
+  line-height: 1;
+}
+
+.point-button-box {
+  width: 100%;
+  @include App.flex-box-center(row);
+  & > div {
+    @include App.flex-box-center(row);
+  }
+}
+.point-button {
+  min-width: 40px;
+}
+
+.title-japanese {
+  width: 100%;
+  @include App.flex-box-center(row);
+  justify-content: start;
+  margin-bottom: 10px;
+  p {
+    @include App.potta-font(1.4rem);
+    margin: 10px;
+    margin-left: 20px;
+  }
+}
+.modal-content-japanese {
+  width: 100%;
+  height: 100%;
+  margin-left: 40px;
+  margin-bottom: 40px;
+  @include App.potta-font(1.2rem);
+  line-height: 2;
+}
+
+.purchase-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  min-width: 650px;
+  max-width: 1100px;
+  height: 70%;
+  max-height: 500px;
+  z-index: 100;
+  overflow: hidden;
+  @include App.flex-box-center(column);
+  justify-content: space-between;
+  background-color: black;
+  border: 3px solid white;
+}
+
+.toss-payment {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 20;
+  & > div {
+    min-width: 450px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @include App.dongle-font(2rem);
+    z-index: 20;
+    & > div {
+      @include App.flex-box-center(row);
+      justify-content: end;
+    }
+  }
+}
+.toss-payment-japanese {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 20;
+  & > div {
+    min-width: 450px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @include App.potta-font(1.5rem);
+    z-index: 20;
+    & > div {
+      @include App.flex-box-center(row);
+      justify-content: end;
+    }
+  }
+}
+
+.comming-soon {
+  width: 100%;
+  height: 100%;
+  @include App.flex-box-center(row);
+  @include App.dongle-font(2rem);
+}
+.comming-soon-japanese {
+  width: 100%;
+  height: 100%;
+  @include App.flex-box-center(row);
+  @include App.potta-font(1.5rem);
+}
+
+.one-card {
+  @include App.one-card;
+}
+.two-cards {
+  @include App.two-cards;
+}
+.three-cards {
+  @include App.three-cards;
+}
+.four-cards {
+  @include App.four-cards;
+}
+.five-cards {
+  @include App.five-cards;
+}
+.six-cards {
+  @include App.six-cards;
+}
+.seven-cards {
+  @include App.seven-cards;
+}
+.eight-cards {
+  @include App.eight-cards;
+}
+.nine-cards {
+  @include App.nine-cards;
+}
+.ten-cards {
+  @include App.ten-cards;
+}
+.eleven-cards {
+  @include App.eleven-cards;
+}
+.thirteen-cards {
+  @include App.thirteen-cards;
+}
+
+//~ 디바이스
+@media (min-device-width: 1025px) and (max-device-width: 1366px) {
+  .purchase-modal {
+    width: 90%;
+  }
+}
+
+//~ 태블릿, 아이패드, 아이패드 프로
+@media (min-device-width: 769px) and (max-device-width: 1024px) {
+  .modal {
+    width: 80%;
+    height: auto;
+    min-height: 200px;
+    max-height: 400px;
+  }
+  .modal-content {
+    padding-right: 40px;
+  }
+  .modal-content-japanese {
+    padding-right: 40px;
+  }
+  .purchase-modal {
+    width: 100%;
+    height: 65%;
+    min-width: 481px;
+    min-height: 400px;
+    max-height: 500px; //! 높이 제한 걺
+  }
+  .voucher-box {
+    justify-content: center;
+  }
+  .voucher-japanese {
+    font-size: 1.4rem;
+  }
+  .voucher-total-price-japanese {
+    font-size: 1.4rem;
+  }
+  .voucher-box-japanese {
+    justify-content: center;
+  }
+
+  .toss-payment {
+    width: 100%;
+    height: 100%;
+    & > div {
+      width: 100%;
+      min-width: 0px;
+    }
+  }
+  .toss-payment-japanese {
+    width: 100%;
+    height: 100%;
+    & > div {
+      width: 100%;
+      min-width: 0px;
+    }
+  }
+  .voucher-button {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 1.5rem; //! 리셋
+    & > span {
+      font-size: 1.5rem;
+    }
+  }
+  .voucher-button-japanese {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 1.1rem; //! 리셋
+    & > span {
+      font-size: 1.1rem;
+    }
+  }
+  .voucher-button-japanese:hover {
+  }
+}
+//~ 481px ~ 768px 및 태블릿
+@media (min-device-width: 481px) and (max-device-width: 768px) {
+  .modal {
+    width: 90%;
+    height: auto;
+    max-height: 400px;
+    min-height: 200px;
+  }
+  .modal-content {
+    padding-right: 40px;
+  }
+  .modal-content-japanese {
+    padding-right: 40px;
+  }
+  .purchase-modal {
+    width: 90%;
+    height: 80%;
+    min-width: 481px;
+  }
+  .voucher-box {
+    @include App.flex-box-center(column);
+  }
+  .voucher-button-box {
+    @include App.flex-box-center(column);
+    // @include App.flex-box-center(column-reverse);
+  }
+  .voucher-button {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 1.3rem;
+  }
+  .voucher-box-japanese {
+    @include App.flex-box-center(column);
+    font-size: 1rem;
+  }
+  .voucher-japanese {
+    font-size: 1.3rem;
+  }
+  .voucher-total-price-japanese {
+    font-size: 1.3rem;
+  }
+  .voucher-button-box-japanese {
+    @include App.flex-box-center(column);
+    // @include App.flex-box-center(column-reverse);
+  }
+  .voucher-button-japanese {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 1.3rem;
+  }
+  .voucher-button-japanese:hover {
+  }
+  .toss-payment {
+    width: 100%;
+    height: 100%;
+    & > div {
+      width: 100%;
+      min-width: 0px;
+    }
+  }
+
+  .toss-payment-japanese {
+    width: 100%;
+    height: 100%;
+    & > div {
+      width: 100%;
+      min-width: 0px;
+    }
+  }
+
+  .purchase-button-box {
+    width: 100%;
+    @include App.flex-box-center(row);
+    justify-content: end;
+  }
+  .purchase-button {
+    margin: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+    min-width: auto;
+  }
+  .purchase-button:first-child {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .purchase-button:last-child {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .voucher-button-japanese {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 1.3rem;
+    // border: 1px solid gold;
+  }
+  .voucher-button-japanese:hover {
+  }
+}
+
+//~ IPhone 14 Pro Max(430px)
+@media only screen and (min-device-width: 415px) and (max-device-width: 480px) {
+  .modal {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    min-height: 200px;
+  }
+  .modal-content {
+    padding-right: 40px;
+  }
+  .modal-content-japanese {
+    padding-right: 40px;
+  }
+  .purchase-modal {
+    width: 100%;
+    min-width: 415px;
+    height: 80%;
+    min-height: 400px;
+  }
+  .voucher-box {
+    @include App.flex-box-center(column);
+  }
+  .voucher-japanese {
+    font-size: 1.25rem;
+    line-height: 1.5;
+  }
+  .voucher-total-price-japanese {
+    font-size: 1.25rem;
+    margin-top: 30px;
+  }
+  .voucher-button-box {
+    @include App.flex-box-center(column);
+    // @include App.flex-box-center(column-reverse);
+  }
+  .voucher-button {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 1.3rem;
+  }
+  .voucher-box-japanese {
+    @include App.flex-box-center(column);
+  }
+  .voucher-button-box-japanese {
+    @include App.flex-box-center(column);
+    // @include App.flex-box-center(column-reverse);
+  }
+  .voucher-button-japanese {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 1.25rem;
+  }
+  .voucher-button-japanese:hover {
+  }
+  .toss-payment {
+    width: 100%;
+    height: 100%;
+    & > div {
+      width: 100%;
+      min-width: 0px;
+    }
+  }
+  .toss-payment-japanese {
+    width: 100%;
+    height: 100%;
+    & > div {
+      width: 100%;
+      min-width: 0px;
+    }
+  }
+  .purchase-button-box {
+    width: 100%;
+    @include App.flex-box-center(row);
+    justify-content: end;
+  }
+  .purchase-button {
+    margin: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+    min-width: auto;
+  }
+  .purchase-button:first-child {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .purchase-button:last-child {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+//~ 아이폰XR
+@media (min-device-width: 376px) and (max-device-width: 414px) {
+  .modal {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    min-height: 100px;
+  }
+  .modal-content {
+    padding-right: 40px;
+  }
+  .modal-content-japanese {
+    padding-right: 40px;
+  }
+  .purchase-modal {
+    width: 100%;
+    min-width: 376px;
+    height: 80%;
+    min-height: 400px;
+  }
+  .charge-content {
+    width: 100%;
+    height: 90%; //! 여기서 이게 핵심...
+    @include App.flex-box-center(column);
+  }
+  .voucher-box {
+    height: 50%;
+    @include App.flex-box-center(column);
+    justify-content: start;
+    & > div {
+      @include App.flex-box-center(column);
+      justify-content: start;
+    }
+  }
+  .voucher-japanese {
+    font-size: 1.15rem;
+    line-height: 1.15;
+  }
+  .voucher-total-price-japanese {
+    font-size: 1.15rem;
+    margin-top: 30px;
+  }
+  .voucher-box-japanese {
+    height: 60%;
+    max-height: 310px;
+    @include App.flex-box-center(column);
+    justify-content: start;
+    & > div {
+      @include App.flex-box-center(column);
+      justify-content: start;
+    }
+  }
+
+  .voucher-button-box {
+    @include App.flex-box-center(column);
+    // @include App.flex-box-center(column-reverse);
+    & > div {
+      @include App.flex-box-center(column);
+    }
+  }
+  .voucher-button-box-japanese {
+    @include App.flex-box-center(column);
+    // @include App.flex-box-center(column-reverse);
+    & > div {
+      @include App.flex-box-center(column);
+    }
+  }
+
+  .voucher-button {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 1.3rem; //! 리셋
+    & > span {
+      font-size: 1.2rem;
+    }
+  }
+
+  .voucher-button-japanese {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 1.3rem; //! 리셋
+    & > span {
+      line-height: 2;
+      font-size: 0.7rem;
+    }
+  }
+  .voucher-button-japanese:hover {
+  }
+  .toss-payment {
+    width: 100%;
+    height: 100%;
+    & > div {
+      width: 100%;
+      min-width: 0px;
+    }
+  }
+  .toss-payment-japanese {
+    width: 100%;
+    height: 100%;
+    & > div {
+      width: 100%;
+      min-width: 0px;
+    }
+  }
+  .purchase-button-box {
+    margin-top: 0;
+    width: 100%;
+    @include App.flex-box-center(row);
+    justify-content: end;
+  }
+  .purchase-button {
+    margin: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+    min-width: auto;
+  }
+  .purchase-button:first-child {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .purchase-button:last-child {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+//~ 아이폰 SE
+@media (min-device-width: 281px) and (max-device-width: 375px) {
+  .modal {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    min-height: 100px;
+  }
+  .modal-content {
+    padding-right: 40px;
+  }
+  .modal-content-japanese {
+    padding-right: 40px;
+  }
+
+  .purchase-modal {
+    width: 100%;
+    min-width: 281px;
+    height: calc(100% - 130px);
+    @include App.flex-box-center(column);
+  }
+  .charge-content {
+    width: 100%;
+    height: 90%; //! 여기서 이게 핵심...
+    @include App.flex-box-center(column);
+  }
+  // .voucher{
+  //   font-size: 1.4rem;
+  // }
+  .voucher-japanese {
+    font-size: 1.2rem;
+  }
+  .voucher-total-price-japanese {
+    font-size: 1.2rem;
+    margin-top: 0px;
+  }
+
+  .voucher-box {
+    height: 50%;
+    @include App.flex-box-center(column);
+    justify-content: start;
+    & > div {
+      @include App.flex-box-center(column);
+      justify-content: start;
+    }
+  }
+  .voucher-box-japanese {
+    height: 60%;
+    max-height: 250px;
+    @include App.flex-box-center(column);
+    justify-content: start;
+    & > div {
+      @include App.flex-box-center(column);
+      justify-content: start;
+    }
+  }
+  .voucher-button-box {
+    @include App.flex-box-center(column);
+    // @include App.flex-box-center(column-reverse);
+    & > div {
+      @include App.flex-box-center(column);
+    }
+  }
+  .voucher-button-box-japanese {
+    @include App.flex-box-center(column);
+    // @include App.flex-box-center(column-reverse);
+    & > div {
+      @include App.flex-box-center(column);
+    }
+  }
+  .voucher-button {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 1.3rem; //! 리셋
+    & > span {
+      font-size: 1.2rem;
+    }
+  }
+  .voucher-button-japanese {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 1.3rem; //! 리셋
+    & > span {
+      line-height: 2;
+      font-size: 0.7rem;
+    }
+  }
+  .voucher-button-japanese:hover {
+  }
+  .purchase-button-box {
+    margin-top: 0;
+    width: 100%;
+    @include App.flex-box-center(row);
+    justify-content: end;
+  }
+  .purchase-button {
+    margin: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+    min-width: auto;
+  }
+  .purchase-button:first-child {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .purchase-button:last-child {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .toss-payment {
+    width: 100%;
+    height: 100%;
+    & > div {
+      width: 100%;
+      min-width: 0px;
+    }
+  }
+  .toss-payment-japanese {
+    width: 100%;
+    height: 100%;
+    & > div {
+      width: 100%;
+      min-width: 0px;
+    }
+  }
+}
+
+//~ 갤럭시 폴드
+@media (max-device-width: 280px) {
+  .modal {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    min-height: 100px;
+  }
+  .modal-content {
+    padding-right: 40px;
+  }
+  .modal-content-japanese {
+    padding-right: 40px;
+  }
+  .purchase-modal {
+    width: 100%;
+    min-width: 0px;
+    height: 80%;
+  }
+  .charge-content {
+    width: 100%;
+    height: 90%; //! 여기서 이게 핵심...
+    @include App.flex-box-center(column);
+  }
+  .voucher-box {
+    height: 50%;
+    @include App.flex-box-center(column);
+    justify-content: start;
+    & > div {
+      @include App.flex-box-center(column);
+    }
+  }
+  .voucher-box-japanese {
+    height: 60%;
+    max-height: 250px;
+    @include App.flex-box-center(column);
+    justify-content: start;
+    & > div {
+      @include App.flex-box-center(column);
+    }
+  }
+  .voucher-japanese {
+    font-size: 1.2rem;
+  }
+  .voucher-total-price-japanese {
+    font-size: 1.2rem;
+    margin-top: 0px;
+  }
+  .voucher-button-box {
+    @include App.flex-box-center(column);
+    // @include App.flex-box-center(column-reverse);
+    & > div {
+      @include App.flex-box-center(column);
+    }
+  }
+  .voucher-button {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 1.2rem; //! 리셋
+    & > span {
+      font-size: 1.2rem;
+    }
+  }
+  .voucher-button-japanese {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 0.9rem; //! 리셋
+    & > span {
+      font-size: 0.65rem;
+      line-height: 2;
+    }
+  }
+  .voucher-button-box-japanese {
+    @include App.flex-box-center(column);
+    // @include App.flex-box-center(column-reverse);
+    & > div {
+      @include App.flex-box-center(column);
+    }
+  }
+
+  .voucher-button-japanese:hover {
+  }
+  .purchase-button-box {
+    margin-top: 0;
+    width: 100%;
+    @include App.flex-box-center(row);
+    justify-content: end;
+  }
+  .purchase-button {
+    margin: 10px;
+    margin-left: 0px;
+    margin-right: 10px;
+    padding-left: 2px;
+    padding-right: 2px;
+    min-width: auto;
+  }
+  .toss-payment {
+    width: 100%;
+    height: 100%;
+    & > div {
+      width: 100%;
+      min-width: 0px;
+    }
+  }
+  .toss-payment-japanese {
+    width: 100%;
+    height: 100%;
+    & > div {
+      width: 100%;
+      min-width: 0px;
+    }
+  }
+}
+
+//! 반응형 웹사이트
+
+//~ 디바이스
+@media (min-width: 1025px) and (max-width: 1366px) {
+  .purchase-modal {
+    width: 90%;
+  }
+}
+
+//~ 태블릿, 아이패드, 아이패드 프로
+@media (min-width: 769px) and (max-width: 1024px) {
+  .modal {
+    width: 80%;
+    height: auto;
+    min-height: 200px;
+    max-height: 400px;
+  }
+  .modal-content {
+    padding-right: 40px;
+  }
+  .modal-content-japanese {
+    padding-right: 40px;
+  }
+  .purchase-modal {
+    width: 100%;
+    height: 65%;
+    min-width: 481px;
+    min-height: 400px;
+    max-height: 500px; //! 높이 제한 걺
+  }
+  .toss-payment {
+    width: 100%;
+    height: 100%;
+    & > div {
+      width: 100%;
+      min-width: 0px;
+    }
+  }
+  .toss-payment-japanese {
+    width: 100%;
+    height: 100%;
+    & > div {
+      width: 100%;
+      min-width: 0px;
+    }
+  }
+  .voucher-box {
+    width: 100%;
+    height: 70%;
+    overflow: auto;
+    @include App.flex-box-center(column);
+    color: white;
+  }
+  .voucher-button {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 1.5rem; //! 리셋
+    & > span {
+      font-size: 1.5rem;
+    }
+  }
+  .voucher-japanese {
+    font-size: 1.4rem;
+  }
+  .voucher-total-price-japanese {
+    font-size: 1.4rem;
+  }
+  .voucher-button-japanese {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 1.1rem;
+    & > span {
+      font-size: 1.1rem;
+    }
+  }
+  .voucher-button-japanese:hover {
+  }
+}
+//~ 481px ~ 768px 및 태블릿
+@media (min-width: 481px) and (max-width: 768px) {
+  .modal {
+    width: 90%;
+    height: auto;
+    max-height: 400px;
+    min-height: 200px;
+  }
+  .modal-content {
+    padding-right: 40px;
+  }
+  .modal-content-japanese {
+    padding-right: 40px;
+  }
+  .purchase-modal {
+    width: 90%;
+    height: 80%;
+    min-width: 481px;
+  }
+  .voucher-box {
+    @include App.flex-box-center(column);
+  }
+  .voucher-button-box {
+    @include App.flex-box-center(column);
+    // @include App.flex-box-center(column-reverse);
+  }
+  .voucher-button {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 1.3rem;
+  }
+  .voucher-box-japanese {
+    @include App.flex-box-center(column);
+  }
+  .voucher-japanese {
+    font-size: 1.3rem;
+  }
+  .voucher-total-price-japanese {
+    font-size: 1.3rem;
+  }
+  .voucher-button-box-japanese {
+    @include App.flex-box-center(column);
+    // @include App.flex-box-center(column-reverse);
+  }
+  .voucher-button-japanese {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 1.3rem;
+  }
+  .voucher-button-japanese:hover {
+  }
+  .toss-payment {
+    width: 100%;
+    height: 100%;
+    & > div {
+      width: 100%;
+      min-width: 0px;
+    }
+  }
+
+  .toss-payment-japanese {
+    width: 100%;
+    height: 100%;
+    & > div {
+      width: 100%;
+      min-width: 0px;
+    }
+  }
+
+  .purchase-button-box {
+    width: 100%;
+    @include App.flex-box-center(row);
+    justify-content: end;
+  }
+  .purchase-button {
+    margin: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+    min-width: auto;
+  }
+  .purchase-button:first-child {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .purchase-button:last-child {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .voucher-button-japanese {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 1.3rem;
+    // border: 1px solid gold;
+  }
+  .voucher-button-japanese:hover {
+  }
+}
+
+//~ IPhone 14 Pro Max(430px)
+@media only screen and (min-width: 415px) and (max-width: 480px) {
+  .modal {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    min-height: 100px;
+  }
+  .modal-content {
+    padding-right: 40px;
+  }
+  .modal-content-japanese {
+    padding-right: 40px;
+  }
+  .purchase-modal {
+    width: 100%;
+    min-width: 415px;
+    height: 80%;
+    min-height: 400px;
+  }
+  .voucher-box {
+    @include App.flex-box-center(column);
+  }
+  .voucher-button-box {
+    @include App.flex-box-center(column);
+    // @include App.flex-box-center(column-reverse);
+  }
+  .voucher-button {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 1.3rem;
+  }
+  .voucher-box-japanese {
+    @include App.flex-box-center(column);
+  }
+  .voucher-japanese {
+    font-size: 1.25rem;
+    line-height: 1.5;
+  }
+  .voucher-total-price-japanese {
+    font-size: 1.25rem;
+    margin-top: 30px;
+  }
+  .voucher-button-box-japanese {
+    @include App.flex-box-center(column);
+    // @include App.flex-box-center(column-reverse);
+  }
+  .voucher-button-japanese {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 1.25rem;
+  }
+  .voucher-button-japanese:hover {
+  }
+  .toss-payment {
+    width: 100%;
+    height: 100%;
+    & > div {
+      width: 100%;
+      min-width: 0px;
+    }
+  }
+  .toss-payment-japanese {
+    width: 100%;
+    height: 100%;
+    & > div {
+      width: 100%;
+      min-width: 0px;
+    }
+  }
+  .purchase-button-box {
+    width: 100%;
+    @include App.flex-box-center(row);
+    justify-content: end;
+  }
+  .purchase-button {
+    margin: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+    min-width: auto;
+  }
+  .purchase-button:first-child {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .purchase-button:last-child {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+//~ 아이폰XR
+@media (min-width: 376px) and (max-width: 414px) {
+  .modal {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    min-height: 100px;
+  }
+  .modal-content {
+    padding-right: 40px;
+  }
+  .modal-content-japanese {
+    padding-right: 40px;
+  }
+  .purchase-modal {
+    width: 100%;
+    min-width: 376px;
+    height: 80%;
+    min-height: 400px;
+  }
+  .charge-content {
+    width: 100%;
+    height: 90%; //! 여기서 이게 핵심...
+    @include App.flex-box-center(column);
+  }
+  .voucher-box {
+    height: 50%;
+    @include App.flex-box-center(column);
+    justify-content: start;
+    & > div {
+      @include App.flex-box-center(column);
+      justify-content: start;
+    }
+  }
+  .voucher-box-japanese {
+    height: 60%;
+    max-height: 310px;
+    @include App.flex-box-center(column);
+    justify-content: start;
+    
+    & > div {
+      @include App.flex-box-center(column);
+      justify-content: start;
+    }
+  }
+  .voucher-japanese {
+    font-size: 1.15rem;
+    line-height: 1.15;
+  }
+  .voucher-total-price-japanese {
+    font-size: 1.15rem;
+    margin-top: 30px;
+  }
+  .voucher-button-box {
+    @include App.flex-box-center(column);
+    // @include App.flex-box-center(column-reverse);
+    & > div {
+      @include App.flex-box-center(column);
+    }
+  }
+  .voucher-button-box-japanese {
+    @include App.flex-box-center(column);
+    // @include App.flex-box-center(column-reverse);
+    & > div {
+      @include App.flex-box-center(column);
+    }
+  }
+
+  .voucher-button {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 1.3rem; //! 리셋
+    & > span {
+      font-size: 1.2rem;
+    }
+  }
+
+  .voucher-button-japanese {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 1.3rem; //! 리셋
+    & > span {
+      line-height: 2;
+      font-size: 0.7rem;
+    }
+  }
+  .voucher-button-japanese:hover {
+  }
+  .toss-payment {
+    width: 100%;
+    height: 100%;
+    & > div {
+      width: 100%;
+      min-width: 0px;
+    }
+  }
+  .toss-payment-japanese {
+    width: 100%;
+    height: 100%;
+    & > div {
+      width: 100%;
+      min-width: 0px;
+    }
+  }
+  .purchase-button-box {
+    margin-top: 0;
+    width: 100%;
+    @include App.flex-box-center(row);
+    justify-content: end;
+  }
+  .purchase-button {
+    margin: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+    min-width: auto;
+  }
+  .purchase-button:first-child {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .purchase-button:last-child {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+//~ 아이폰 SE
+@media (min-width: 281px) and (max-width: 375px) {
+  .modal {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    min-height: 100px;
+  }
+  .modal-content {
+    padding-right: 40px;
+  }
+  .modal-content-japanese {
+    padding-right: 40px;
+  }
+  .purchase-modal {
+    width: 100%;
+    min-width: 281px;
+    height: calc(100% - 130px);
+    @include App.flex-box-center(column);
+  }
+  .charge-content {
+    width: 100%;
+    height: 90%; //! 여기서 이게 핵심...
+    @include App.flex-box-center(column);
+  }
+  // .voucher{
+  //   font-size: 1.4rem;
+  // }
+  .voucher-japanese {
+    font-size: 1.2rem;
+  }
+  .voucher-total-price-japanese {
+    font-size: 1.2rem;
+    margin-top: 0px;
+  }
+  .voucher-box {
+    height: 50%;
+    @include App.flex-box-center(column);
+    justify-content: start;
+    & > div {
+      @include App.flex-box-center(column);
+      justify-content: start;
+    }
+  }
+  .voucher-box-japanese {
+    height: 60%;
+    max-height: 250px;
+    @include App.flex-box-center(column);
+    justify-content: start;
+    & > div {
+      @include App.flex-box-center(column);
+      justify-content: start;
+    }
+  }
+  .voucher-button-box {
+    @include App.flex-box-center(column);
+    // @include App.flex-box-center(column-reverse);
+    & > div {
+      @include App.flex-box-center(column);
+    }
+  }
+  .voucher-button {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 1.3rem; //! 리셋
+    & > span {
+      font-size: 1.2rem;
+    }
+  }
+
+  .voucher-button-box-japanese {
+    @include App.flex-box-center(column);
+    // @include App.flex-box-center(column-reverse);
+    & > div {
+      @include App.flex-box-center(column);
+    }
+  }
+  .voucher-button-japanese {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 1.3rem; //! 리셋
+    & > span {
+      line-height: 2;
+      font-size: 0.7rem;
+    }
+  }
+  .voucher-button-japanese:hover {
+  }
+  .purchase-button-box {
+    margin-top: 0;
+    width: 100%;
+    @include App.flex-box-center(row);
+    justify-content: end;
+  }
+  .purchase-button {
+    margin: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+    min-width: auto;
+  }
+  .purchase-button:first-child {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .purchase-button:last-child {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .toss-payment {
+    width: 100%;
+    height: 100%;
+    & > div {
+      width: 100%;
+      min-width: 0px;
+    }
+  }
+  .toss-payment-japanese {
+    width: 100%;
+    height: 100%;
+    & > div {
+      width: 100%;
+      min-width: 0px;
+    }
+  }
+}
+
+//~ 갤럭시 폴드
+@media (max-width: 280px) {
+  .modal {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    min-height: 100px;
+  }
+  .modal-content {
+    padding-right: 40px;
+  }
+  .modal-content-japanese {
+    padding-right: 40px;
+  }
+  .purchase-modal {
+    width: 100%;
+    min-width: 0px;
+    height: 80%;
+  }
+  .charge-content {
+    width: 100%;
+    height: 90%; //! 여기서 이게 핵심...
+    @include App.flex-box-center(column);
+  }
+  .voucher-box {
+    height: 50%;
+    @include App.flex-box-center(column);
+    justify-content: start;
+    & > div {
+      @include App.flex-box-center(column);
+    }
+  }
+  .voucher-box-japanese {
+    height: 60%;
+    max-height: 250px;
+    @include App.flex-box-center(column);
+    justify-content: start;
+    & > div {
+      @include App.flex-box-center(column);
+    }
+  }
+  .voucher-japanese {
+    font-size: 1.2rem;
+  }
+  .voucher-total-price-japanese {
+    font-size: 1.2rem;
+    margin-top: 0px;
+  }
+  .voucher-button-box {
+    @include App.flex-box-center(column);
+    // @include App.flex-box-center(column-reverse);
+    & > div {
+      @include App.flex-box-center(column);
+    }
+  }
+  .voucher-button {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 1.2rem; //! 리셋
+    & > span {
+      font-size: 1.2rem;
+    }
+  }
+  .voucher-button-japanese {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 0.9rem; //! 리셋
+    & > span {
+      font-size: 0.65rem;
+      line-height: 2;
+    }
+  }
+  .voucher-button-japanese:hover {
+  }
+  .voucher-button-box-japanese {
+    @include App.flex-box-center(column);
+    // @include App.flex-box-center(column-reverse);
+    & > div {
+      @include App.flex-box-center(column);
+    }
+  }
+
+  .purchase-button-box {
+    margin-top: 0;
+    width: 100%;
+    @include App.flex-box-center(row);
+    justify-content: end;
+  }
+  .purchase-button {
+    margin: 10px;
+    margin-left: 0px;
+    margin-right: 10px;
+    padding-left: 2px;
+    padding-right: 2px;
+    min-width: auto;
+  }
+  .toss-payment {
+    width: 100%;
+    height: 100%;
+    & > div {
+      width: 100%;
+      min-width: 0px;
+    }
+  }
+  .toss-payment-japanese {
+    width: 100%;
+    height: 100%;
+    & > div {
+      width: 100%;
+      min-width: 0px;
+    }
+  }
+}
+
+//* 아이패드 프로 가로
+@media screen and (orientation: landscape) and (min-device-width: 1025px) and (max-device-width: 1366px) {
+  div.backdrop {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    // height: 100vh;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.75);
+  }
+  div.modal {
+    max-width: 100%;
+    max-height: 90%;
+  }
+  div.purchase-modal {
+    width: 80%;
+    min-width: 1025px;
+    height: 50%;
+    min-height: 500px;
+  }
+  div.toss-payment {
+    width: 100%;
+    height: 100%;
+    & > div {
+      width: 100%;
+      min-width: 0px;
+    }
+  }
+  div.toss-payment-japanese {
+    width: 100%;
+    height: 100%;
+    & > div {
+      width: 100%;
+      min-width: 0px;
+    }
+  }
+  div.voucher-japanese {
+    font-size: 1.5rem;
+  }
+  div.voucher-total-price-japanese {
+    font-size: 1.5rem;
+    margin-top: 30px;
+  }
+  button.voucher-button-japanese {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 1rem;
+  }
+  button.voucher-button-japanese:hover {
+  }
+}
+//* 태블릿 아이패드, 아이패드 프로 가로
+@media screen and (orientation: landscape) and (min-device-width: 933px) and (max-device-width: 1024px) {
+  div.backdrop {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    // height: 100vh;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.75);
+  }
+  div.modal {
+    width: 600px;
+    height: 200px;
+    max-width: 100%;
+    max-height: 90%;
+  }
+  div.purchase-modal {
+    width: 90%;
+    min-width: 933px;
+    height: 60%;
+  }
+  div.toss-payment {
+    width: 100%;
+    height: 100%;
+    & > div {
+      width: 100%;
+      min-width: 0px;
+    }
+  }
+  div.toss-payment-japanese {
+    width: 100%;
+    height: 100%;
+    & > div {
+      width: 100%;
+      min-width: 0px;
+    }
+  }
+  div.voucher-japanese {
+    font-size: 1.5rem;
+  }
+  div.voucher-total-price-japanese {
+    font-size: 1.5rem;
+    margin-top: 30px;
+  }
+  button.voucher-button-japanese {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 1rem;
+  }
+  button.voucher-button-japanese:hover {
+  }
+}
+
+//* IPhon 14 Pro Max 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 897px) and (max-device-width: 932px) {
+  div.backdrop {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    // height: 100vh;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.75);
+  }
+  div.modal {
+    width: 600px;
+    height: 200px;
+    max-width: 100%;
+    max-height: 90%;
+  }
+  div.purchase-modal {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    min-height: 300px;
+    overflow: auto;
+  }
+  div.voucher-box {
+    height: 80%;
+    position: relative;
+    @include App.flex-box-center(column);
+  }
+  button.voucher-button {
+    padding-top: 0;
+    padding-bottom: 0;
+    line-height: 1;
+  }
+  div.voucher-box-japanese {
+    height: 80%;
+    position: relative;
+    @include App.flex-box-center(column);
+  }
+
+  div.voucher {
+    @include App.dongle-font(1.8rem);
+    @include App.flex-box-center(row);
+    & .one-card {
+      @include App.dongle-font(1.8rem);
+    }
+    & .two-cards {
+      @include App.dongle-font(1.8rem);
+    }
+    & .three-cards {
+      @include App.dongle-font(1.8rem);
+    }
+    & .four-cards {
+      @include App.dongle-font(1.8rem);
+    }
+    & .ten-cards {
+      @include App.dongle-font(1.8rem);
+    }
+  }
+  div.voucher-japanese {
+    @include App.potta-font(1.3rem);
+    @include App.flex-box-center(row);
+  }
+  div.voucher-total-price {
+    @include App.dongle-font(1.8rem);
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+  }
+  div.voucher-total-price-japanese {
+    @include App.potta-font(1.3rem);
+    margin-top: 30px;
+  }
+  div.voucher-button-box-japanese {
+    & > div {
+      height: auto;
+    }
+  }
+  button.voucher-button-japanese {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 1rem;
+  }
+  button.voucher-button-japanese:hover {
+  }
+  div.toss-payment {
+    width: 100%;
+    height: 100%;
+    & > div {
+      width: 100%;
+      min-width: 0px;
+    }
+  }
+  div.toss-payment-japanese {
+    width: 100%;
+    height: 100%;
+    & > div {
+      width: 100%;
+      min-width: 0px;
+    }
+  }
+}
+
+//* 아이폰XR 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 668px) and (max-device-width: 896px) {
+  div.backdrop {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    // height: 100vh;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.75);
+  }
+  div.modal {
+    width: 600px;
+    height: 200px;
+    max-width: 100%;
+    max-height: 90%;
+  }
+  div.purchase-modal {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    min-height: 300px;
+    overflow: auto;
+  }
+  div.voucher-box {
+    height: 80%;
+    position: relative;
+    @include App.flex-box-center(column);
+    & > div {
+      @include App.flex-box-center(row);
+    }
+  }
+
+  div.voucher-button-box {
+    @include App.flex-box-center(row);
+    & > div {
+      height: auto;
+    }
+  }
+  div.voucher-box-japanese {
+    height: 80%;
+    position: relative;
+    @include App.flex-box-center(column);
+    & > div {
+      @include App.flex-box-center(row);
+    }
+  }
+  div.voucher {
+    @include App.dongle-font(1.8rem);
+    @include App.flex-box-center(row);
+    line-height: 0.8;
+    & .one-card {
+      @include App.dongle-font(1.8rem);
+    }
+    & .two-cards {
+      @include App.dongle-font(1.8rem);
+    }
+    & .three-cards {
+      @include App.dongle-font(1.8rem);
+    }
+    & .four-cards {
+      @include App.dongle-font(1.8rem);
+    }
+    & .ten-cards {
+      @include App.dongle-font(1.8rem);
+    }
+  }
+  div.voucher-japanese {
+    @include App.potta-font(1.3rem);
+    @include App.flex-box-center(row);
+  }
+  div.voucher-total-price {
+    @include App.dongle-font(1.8rem);
+  }
+  div.voucher-total-price-japanese {
+    @include App.potta-font(1.3rem);
+    margin-top: 30px;
+  }
+
+  div.voucher-button-box-japanese {
+    @include App.flex-box-center(row);
+
+    & > div {
+      height: auto;
+    }
+  }
+  // div.empty{
+  //   flex-grow: 1.5;
+  // }
+  button.voucher-button {
+    padding-top: 0;
+    padding-bottom: 0;
+    line-height: 0.8;
+    font-size: 1.5rem; //! 리셋
+    & > span {
+      font-size: 1.5rem;
+    }
+  }
+  button.voucher-button-japanese {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 0.9rem; //! 리셋
+    & > span {
+      font-size: 0.9rem;
+    }
+  }
+  button.voucher-button-japanese:hover {
+  }
+  .purchase-button {
+    line-height: 0.75;
+  }
+  div.toss-payment {
+    width: 100%;
+    height: 100%;
+    & > div {
+      width: 100%;
+      min-width: 0px;
+    }
+  }
+  div.toss-payment-japanese {
+    width: 100%;
+    height: 100%;
+    & > div {
+      width: 100%;
+      min-width: 0px;
+    }
+  }
+}
+//* 아이폰SE 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 654px) and (max-device-width: 667px) {
+  div.backdrop {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    // height: 100vh;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.75);
+  }
+  div.modal {
+    width: 550px;
+    height: 200px;
+    max-width: 100%;
+    max-height: 90%;
+  }
+  div.purchase-modal {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    min-height: 290px;
+    overflow: auto;
+  }
+  div.voucher-box {
+    height: 80%;
+    position: relative;
+    @include App.flex-box-center(column);
+    & > div {
+      @include App.flex-box-center(row);
+    }
+  }
+
+  div.voucher-box-japanese {
+    height: 80%;
+    position: relative;
+    @include App.flex-box-center(column);
+    & > div {
+      @include App.flex-box-center(row);
+    }
+  }
+  div.voucher {
+    @include App.dongle-font(1.7rem);
+    @include App.flex-box-center(row);
+    line-height: 0.8;
+    & .one-card {
+      @include App.dongle-font(1.7rem);
+    }
+    & .two-cards {
+      @include App.dongle-font(1.7rem);
+    }
+    & .three-cards {
+      @include App.dongle-font(1.7rem);
+    }
+    & .four-cards {
+      @include App.dongle-font(1.7rem);
+    }
+    & .ten-cards {
+      @include App.dongle-font(1.7rem);
+    }
+  }
+  div.voucher-japanese {
+    @include App.potta-font(1.3rem);
+    @include App.flex-box-center(row);
+  }
+  div.voucher-total-price {
+    @include App.dongle-font(1.7rem);
+  }
+  div.voucher-total-price-japanese {
+    @include App.potta-font(1.3rem);
+    margin-top: 30px;
+  }
+
+  div.voucher-button-box {
+    @include App.flex-box-center(row);
+    & > div {
+      height: auto;
+    }
+  }
+  div.voucher-button-box-japanese {
+    @include App.flex-box-center(row);
+    & > div {
+      height: auto;
+    }
+  }
+  button.voucher-button {
+    padding-top: 0;
+    padding-bottom: 0;
+    line-height: 1;
+    font-size: 1.2rem; //! 리셋
+    & > span {
+      font-size: 1.2rem;
+    }
+  }
+  button.voucher-button-japanese {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 0.9rem; //! 리셋
+    & > span {
+      font-size: 0.9rem;
+    }
+  }
+  button.voucher-button-japanese:hover {
+  }
+  .purchase-button {
+    line-height: 0.75;
+  }
+  div.toss-payment {
+    width: 100%;
+    height: 100%;
+    & > div {
+      width: 100%;
+      min-width: 0px;
+    }
+  }
+  div.toss-payment-japanese {
+    width: 100%;
+    height: 100%;
+    & > div {
+      width: 100%;
+      min-width: 0px;
+    }
+  }
+}
+
+//* 갤럭시 폴드 가로모드
+@media screen and (orientation: landscape) and (max-device-width: 653px) {
+  div.backdrop {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    // height: 100vh;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.75);
+  }
+  div.modal {
+    width: 500px;
+    height: 180px;
+    max-width: 100%;
+    max-height: 90%;
+  }
+  div.purchase-modal {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    min-height: 250px;
+    overflow: auto;
+  }
+  div.voucher-box {
+    height: 80%;
+    position: relative;
+    @include App.flex-box-center(column);
+
+    & > div {
+      @include App.flex-box-center(row);
+    }
+  }
+
+  div.voucher-box-japanese {
+    height: 80%;
+    position: relative;
+    @include App.flex-box-center(column);
+
+    & > div {
+      @include App.flex-box-center(row);
+    }
+  }
+  div.voucher {
+    @include App.dongle-font(1.7rem);
+    @include App.flex-box-center(row);
+    line-height: 0.8;
+    & .one-card {
+      @include App.dongle-font(1.7rem);
+    }
+    & .two-cards {
+      @include App.dongle-font(1.7rem);
+    }
+    & .three-cards {
+      @include App.dongle-font(1.7rem);
+    }
+    & .four-cards {
+      @include App.dongle-font(1.7rem);
+    }
+    & .ten-cards {
+      @include App.dongle-font(1.7rem);
+    }
+  }
+  div.voucher-japanese {
+    @include App.potta-font(1.2rem);
+    @include App.flex-box-center(row);
+  }
+  div.voucher-total-price {
+    @include App.dongle-font(1.7rem);
+  }
+  div.voucher-total-price-japanese {
+    @include App.potta-font(1.2rem);
+    margin-top: 20px;
+  }
+
+  div.voucher-button-box {
+    @include App.flex-box-center(row);
+    & > div {
+      height: auto;
+    }
+  }
+  div.voucher-button-box-japanese {
+    @include App.flex-box-center(row);
+    & > div {
+      height: auto;
+    }
+  }
+  button.voucher-button {
+    padding-top: 0;
+    padding-bottom: 0;
+    line-height: 1;
+    font-size: 1.2rem; //! 리셋
+    & > span {
+      font-size: 1.2rem;
+    }
+  }
+  button.voucher-button-japanese {
+    // border: 1px solid gold;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 0.8rem; //! 리셋
+    & > span {
+      font-size: 0.8rem;
+    }
+  }
+  button.voucher-button-japanese:hover {
+  }
+  .purchase-button {
+    line-height: 0.75;
+  }
+
+  div.toss-payment {
+    width: 100%;
+    height: 100%;
+    & > div {
+      width: 100%;
+      min-width: 0px;
+    }
+  }
+  div.toss-payment-japanese {
+    width: 100%;
+    height: 100%;
+    & > div {
+      width: 100%;
+      min-width: 0px;
+    }
+  }
+}
+
+//* Nokia Lumina 520 가로모드
+@media screen and (orientation: landscape) and (max-device-width: 533px) {
+  div.backdrop {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    // height: 100vh;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.75);
+  }
+  div.modal {
+    width: 500px;
+    height: 180px;
+    max-width: 100%;
+    max-height: 90%;
+  }
+  div.purchase-modal {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    min-height: 250px;
+    overflow: auto;
+  }
+  div.voucher-box {
+    height: 80%;
+    position: relative;
+    @include App.flex-box-center(column);
+
+    & > div {
+      @include App.flex-box-center(row);
+    }
+  }
+  div.voucher-box-japanese {
+    height: 80%;
+    position: relative;
+    @include App.flex-box-center(column);
+
+    & > div {
+      @include App.flex-box-center(row);
+    }
+  }
+  div.voucher {
+    @include App.dongle-font(1.7rem);
+    @include App.flex-box-center(row);
+    line-height: 0.8;
+    & .one-card {
+      @include App.dongle-font(1.7rem);
+    }
+    & .two-cards {
+      @include App.dongle-font(1.7rem);
+    }
+    & .three-cards {
+      @include App.dongle-font(1.7rem);
+    }
+    & .four-cards {
+      @include App.dongle-font(1.7rem);
+    }
+    & .ten-cards {
+      @include App.dongle-font(1.7rem);
+    }
+  }
+  div.voucher-japanese {
+    @include App.potta-font(1.2rem);
+    @include App.flex-box-center(row);
+  }
+  div.voucher-total-price {
+    @include App.dongle-font(1.7rem);
+  }
+  div.voucher-total-price-japanese {
+    @include App.potta-font(1.2rem);
+    margin-top: 20px;
+  }
+
+  div.voucher-button-box {
+    @include App.flex-box-center(row);
+    & > div {
+      height: auto;
+    }
+  }
+  div.voucher-button-box-japanese {
+    @include App.flex-box-center(row);
+    & > div {
+      height: auto;
+    }
+  }
+  button.voucher-button {
+    padding-top: 0;
+    padding-bottom: 0;
+    line-height: 1;
+    font-size: 0.9rem; //! 리셋
+    & > span {
+      font-size: 0.9rem;
+    }
+  }
+  button.voucher-button-japanese {
+    // border: 1px solid gold;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 0.5rem; //! 리셋
+    & > span {
+      font-size: 0.5rem;
+    }
+  }
+  button.voucher-button-japanese:hover {
+  }
+  .purchase-button {
+    line-height: 0.8;
+  }
+
+  div.toss-payment {
+    width: 100%;
+    height: 100%;
+    & > div {
+      width: 100%;
+      min-width: 0px;
+    }
+  }
+  div.toss-payment-japanese {
+    width: 100%;
+    height: 100%;
+    & > div {
+      width: 100%;
+      min-width: 0px;
+    }
+  }
+}
