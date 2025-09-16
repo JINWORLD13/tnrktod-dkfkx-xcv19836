@@ -10,7 +10,7 @@ Currently maintaining and optimizing performance for ongoing service operation
 ## Project Features
 
 ### Cosmos Tarot
-- **Duration**: Nov 2023 - Aug 2024 (10 months)
+- **Duration**: Nov 2023 - Aug 2024 (10 months) + alpha(Operations & Maintenance )
 - **Platforms**: Web (Google Cloud Platform), Android (Capacitor), PWA
 - **Role**: Solo Developer - End-to-end development from concept to deployment
 - **Responsibilities**: Project planning, design, system architecture, full-stack development, deployment
