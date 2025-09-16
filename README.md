@@ -9,6 +9,19 @@ Currently maintaining and optimizing performance for ongoing service operation
 
 ## Project Features
 
+### Cosmos Tarot
+- **Duration**: Nov 2023 - Aug 2024 (10 months)
+- **Platforms**: Web (Google Cloud Platform), Android (Capacitor), PWA
+- **Role**: Solo Developer - End-to-end development from concept to deployment
+- **Responsibilities**: Project planning, design, system architecture, full-stack development, deployment
+
+### Technology Stack:
+- **Frontend**: React, Three.js, Redux Toolkit, SCSS, Capacitor
+- **Backend**: Node.js (Express), MongoDB (Mongoose)
+- **Build Tools**: Vite, GLTF Transform, react-spa-prerender
+- **Integrations**: GPT API, Google OAuth, Toss Payment, i18next
+- **Infrastructure**: Google Cloud Platform (App Engine), GoDaddy
+
 ### Tools
 - **Framework:** Vite  
 - **Language:** Javascript  
