@@ -1,7 +1,7 @@
 This work is licensed under CC BY‑NC 4.0. Non‑commercial use only.
 # Portfolio
 ## Application Architecture Diagram
-<img width="1904" height="1736" alt="output" src="https://github.com/user-attachments/assets/ddca43cc-87ba-4652-bacb-242a00b7fbce" />
+<img width="1904" height="1484" alt="output" src="https://github.com/user-attachments/assets/9bfb1918-ae54-4f7b-a878-7a84c34cc395" />
 
 ## Project Overview:
 Developed a revenue-generating web service with PG payment (TOSS) functionality using Vite, React(JSX), Node.js, and PWA, deployed on GCP with goDaddy domain registration
