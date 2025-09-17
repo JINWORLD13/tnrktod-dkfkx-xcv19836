@@ -118,9 +118,9 @@ flowchart TB
     
     %% 통합된 인증 플로우
     AuthFlow --> GoogleAuth
-    AuthFlow --> GoogleAuth
-    GoogleAuth --> AuthRouter
-    AuthRouter --> MongoDB
+    AuthFlow --> AuthRouter
+    AuthRouter --> GoogleAuth
+    GoogleAuth --> MongoDB
     AuthFlow --> APIGateway
     
     APIGateway --> TarotController
