@@ -117,7 +117,6 @@ flowchart TB
     PurchaseModal --> APIGateway
     
     %% 통합된 인증 플로우
-    AuthFlow --> GoogleAuth
     AuthFlow --> AuthRouter
     AuthRouter --> GoogleAuth
     GoogleAuth --> MongoDB
