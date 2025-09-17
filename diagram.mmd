@@ -1,20 +1,10 @@
 ---
 config:
   layout: elk
-  theme: neutral
+  theme: base
   themeVariables:
     background: '#ffffff'
-    primaryColor: '#f9f9f9'
-    primaryTextColor: '#000000'
-    primaryBorderColor: '#cccccc'
-    lineColor: '#333333'
-    sectionBkgColor: '#ffffff'
-    altSectionBkgColor: '#ffffff'
-    gridColor: '#ffffff'
-    c0: '#ffffff'
-    c1: '#ffffff'
-    c2: '#ffffff'
-    c3: '#ffffff'
+    primaryColor: '#ffffff'
 ---
 flowchart TB
     %% User Layer
@@ -44,10 +34,14 @@ flowchart TB
         CapacitorPreference["💾 Capacitor Preference"]
     end
 
+    %% Authentication Layer
+    subgraph AuthLayer ["🔐 Authentication Layer"]
+        AuthFlow["🔐 Google OAuth + JWT"]
+    end
+
     %% API Layer
     subgraph APILayer ["🌐 API Layer"]
-        APIGateway["📡 Express.js Router"]
-        AuthMiddleware["🛡️ JWT Authentication"]
+        APIGateway["📡 Express.js Router + Google OAuth + JWT"]
     end
 
     %% Backend Service Layer
@@ -99,11 +93,18 @@ flowchart TB
     User --> Browser
     Browser --> HomePage
     Browser --> TarotPrinciple
-    Browser --> MyPage
     Browser --> ETC
     
+    %% MyPage 인증 플로우
+    Browser --> AuthFlow
+    AuthFlow --> MyPage
+    
     HomePage --> ThreeScene
-    ThreeScene --> TarotModal
+    
+    %% 3D Scene -> Tarot Modal 인증 플로우
+    ThreeScene --> AuthFlow
+    AuthFlow --> TarotModal
+    
     TarotModal --> AnswerModal
     TarotModal --> PurchaseModal
     MyPage --> AnswerModal
@@ -115,10 +116,16 @@ flowchart TB
     CapacitorPreference --> APIGateway
     PurchaseModal --> APIGateway
     
-    APIGateway --> AuthMiddleware
-    AuthMiddleware --> TarotController
-    AuthMiddleware --> UserController
-    AuthMiddleware --> ChargeController
+    %% 통합된 인증 플로우
+    AuthFlow --> GoogleAuth
+    AuthFlow --> GoogleAuth
+    GoogleAuth --> AuthRouter
+    AuthRouter --> MongoDB
+    AuthFlow --> APIGateway
+    
+    APIGateway --> TarotController
+    APIGateway --> UserController
+    APIGateway --> ChargeController
     
     TarotController --> TarotService
     TarotController --> UserService
@@ -131,7 +138,6 @@ flowchart TB
     TarotService --> Redis
     UserService --> UserDAO
     UserService --> Redis
-    UserService --> GoogleAuth
     ChargeService --> ChargeDAO
     ChargeService --> TossPayments
     ChargeService --> InAppPurchase
@@ -155,6 +161,7 @@ flowchart TB
     %% Styling Classes
     classDef userClass fill:#e1f5fe,stroke:#01579b,stroke-width:3px,color:#000
     classDef frontendClass fill:#f3e5f5,stroke:#4a148c,stroke-width:2px,color:#000
+    classDef authClass fill:#ffebee,stroke:#c62828,stroke-width:3px,color:#000
     classDef backendClass fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px,color:#000
     classDef aiClass fill:#fff3e0,stroke:#e65100,stroke-width:2px,color:#000
     classDef dataClass fill:#fce4ec,stroke:#880e4f,stroke-width:2px,color:#000
@@ -164,8 +171,9 @@ flowchart TB
     %% Apply Classes
     class User,Browser userClass
     class MyPage,HomePage,TarotPrinciple,ETC,TarotModal,AnswerModal,PurchaseModal,ThreeScene,Redux,LocalStorage,Cookie,CapacitorPreference frontendClass
-    class APIGateway,AuthMiddleware,TarotController,UserController,ChargeController,TarotService,UserService,ChargeService,TarotDAO,UserDAO,ChargeDAO backendClass
+    class AuthFlow authClass
+    class APIGateway,TarotController,UserController,ChargeController,TarotService,UserService,ChargeService,TarotDAO,UserDAO,ChargeDAO backendClass
     class AIInterpreter,OpenAI,SystemPrompt,UserPrompt,ResponseFormat aiClass
     class MongoDB,Redis,UserCollection,TarotCollection,ChargeCollection,CounterCollection dataClass
     class GoogleAuth,TossPayments,InAppPurchase,GooglePlayConsole externalClass
-    class UserLayer,Frontend,APILayer,Backend,AILayer,DataLayer,ExternalLayer layerClass
+    class UserLayer,Frontend,AuthRouter,AuthLayer,APILayer,Backend,AILayer,DataLayer,ExternalLayer layerClass
