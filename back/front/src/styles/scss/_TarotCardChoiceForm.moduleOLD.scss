@@ -1,0 +1,1940 @@
+@use '_App.module.scss';
+@use '_TarotModal.module.scss';
+
+@mixin deck-margin($zero) {
+  margin-bottom: -302px;
+  margin-right: $zero;
+}
+@mixin choice-card($ratio) {
+  @include TarotModal.card($ratio);
+  z-index: 1;
+  opacity: 1;
+  transition: transform 0.07s ease;
+  transition: opacity 0.2s ease;
+}
+
+.choice-box {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0, 0);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  @include App.flex-box-center(column);
+  box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+  -webkit-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+  -moz-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+}
+.choice-spread {
+  @include App.flex-box-center(row);
+}
+
+.choice-spread:not(:first-child) {
+  margin-top: -150px;
+}
+.choice-card {
+  @include choice-card(0.9);
+}
+.choice-card:not(:first-child) {
+  /* 첫번째 요소를 제외한 모든 .item 클래스에 적용되는 스타일 */
+  margin-left: -120px; // & 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현
+}
+
+.choice-card:hover {
+  transform: translateY(
+    -20px
+  ); /* 마우스 호버 시 카드를 약간 위로 올려서 스프레드 효과 강조 */
+}
+.choice-card img {
+  @include TarotModal.card-image(0);
+}
+
+.invisible {
+  @include TarotModal.invisible();
+}
+.flex-grow {
+  @include App.flex-grow(1);
+}
+.flex-grow3 {
+  @include App.flex-grow(5);
+}
+
+.btn-box {
+  width: 94%;
+  height: auto;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+
+  .btn {
+    min-width: 70px; // & 최소 버튼 크기
+    font-size: 1.5rem;
+    color: gold;
+    background-color: purple;
+    border: 3px purple solid;
+    margin-right: 10px;
+  }
+
+  .btn:hover {
+    color: purple;
+    border: 3px purple solid;
+    font-size: 1.5rem;
+    font-weight: 500;
+    background-color: gold;
+  }
+  .btn-japanese {
+    min-width: 70px; // & 최소 버튼 크기
+    font-size: 0.8rem;
+    border: 3px;
+    background-color: purple;
+    border: 3px purple solid;
+    margin-right: 10px;
+  }
+
+  .btn-japanese:hover {
+    font-size: 0.8rem;
+    border: 3px;
+    color: purple;
+    border: 3px purple solid;
+    background-color: gold;
+  }
+}
+
+
+//~ 디바이스
+@media (min-device-width: 1024px) and (max-device-width: 1366px) {
+  .choice-box {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include App.flex-box-center(column);
+    box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -webkit-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -moz-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+  }
+  .choice-spread {
+    @include App.flex-box-center(row);
+  }
+  .choice-spread:not(:first-child) {
+    margin-top: -150px;
+  }
+  .choice-card {
+    @include choice-card(0.8);
+  }
+  .choice-card:not(:first-child) {
+    /* 첫번째 요소를 제외한 모든 .item 클래스에 적용되는 스타일 */
+    margin-left: -102px; // & 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현
+  }
+
+  .choice-card:hover {
+    transform: translateY(
+      -20px
+    ); /* 마우스 호버 시 카드를 약간 위로 올려서 스프레드 효과 강조 */
+  }
+  .choice-card img {
+    @include TarotModal.card-image(0);
+  }
+
+  .invisible {
+    @include TarotModal.invisible();
+  }
+  .flex-grow {
+    @include App.flex-grow(1);
+  }
+  .flex-grow3 {
+    @include App.flex-grow(3);
+  }
+
+  .btn-box {
+    .btn {
+    }
+
+    .btn:hover {
+    }
+  }
+}
+
+
+//~ 태블릿, 아이패드, 아이패드 프로
+@media (min-device-width: 768px) and (max-device-width: 1023px) {
+  .choice-box {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include App.flex-box-center(column);
+    box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -webkit-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -moz-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+  }
+  .choice-spread {
+    @include App.flex-box-center(row);
+  }
+  .choice-spread:not(:first-child) {
+    margin-top: -150px;
+  }
+  .choice-card {
+    @include choice-card(0.8);
+  }
+  .choice-card:not(:first-child) {
+    /* 첫번째 요소를 제외한 모든 .item 클래스에 적용되는 스타일 */
+    margin-left: -115px; // & 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현
+  }
+
+  .choice-card:hover {
+    transform: translateY(
+      -20px
+    ); /* 마우스 호버 시 카드를 약간 위로 올려서 스프레드 효과 강조 */
+  }
+  .choice-card img {
+    @include TarotModal.card-image(0);
+  }
+
+  .invisible {
+    @include TarotModal.invisible();
+  }
+  .flex-grow {
+    @include App.flex-grow(1);
+  }
+  .flex-grow3 {
+    @include App.flex-grow(3);
+  }
+
+  .btn-box {
+    .btn {
+    }
+
+    .btn:hover {
+    }
+  }
+}
+
+//~ 481px ~ 767px 및 태블릿
+@media (min-device-width: 481px) and (max-device-width: 767px) {
+  .choice-box {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include App.flex-box-center(column);
+    box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -webkit-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -moz-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+  }
+  .choice-spread {
+    @include App.flex-box-center(row);
+  }
+  .choice-spread:not(:first-child) {
+    margin-top: -80px;
+  }
+  .choice-card {
+    @include choice-card(0.6);
+  }
+  .choice-card:not(:first-child) {
+    /* 첫번째 요소를 제외한 모든 .item 클래스에 적용되는 스타일 */
+    margin-left: -88px; // & 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현
+  }
+
+  .choice-card:hover {
+    transform: translateY(
+      -20px
+    ); /* 마우스 호버 시 카드를 약간 위로 올려서 스프레드 효과 강조 */
+  }
+  .choice-card img {
+    @include TarotModal.card-image(0);
+  }
+
+  .invisible {
+    @include TarotModal.invisible();
+  }
+  .flex-grow {
+    @include App.flex-grow(1);
+  }
+  .flex-grow3 {
+    @include App.flex-grow(3);
+  }
+
+  .btn-box {
+    .btn {
+    }
+
+    .btn:hover {
+    }
+  }
+}
+
+//~ IPhone 14 Pro Max(430px)
+@media only screen and (min-device-width: 415px) and (max-device-width: 480px) {
+  .choice-box {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include App.flex-box-center(column);
+    box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -webkit-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -moz-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+  }
+  .choice-spread {
+    @include App.flex-box-center(row);
+  }
+  .choice-spread:not(:first-child) {
+    margin-top: -80px;
+  }
+  .choice-card {
+    @include choice-card(0.6);
+  }
+  .choice-card:not(:first-child) {
+    /* 첫번째 요소를 제외한 모든 .item 클래스에 적용되는 스타일 */
+    margin-left: -90px; // & 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현
+  }
+
+  .choice-card:hover {
+    transform: translateY(
+      -20px
+    ); /* 마우스 호버 시 카드를 약간 위로 올려서 스프레드 효과 강조 */
+  }
+  .choice-card img {
+    @include TarotModal.card-image(0);
+  }
+
+  .invisible {
+    @include TarotModal.invisible();
+  }
+  .flex-grow {
+    @include App.flex-grow(1);
+  }
+  .flex-grow3 {
+    @include App.flex-grow(3);
+  }
+
+  .btn-box {
+    .btn {
+    }
+
+    .btn:hover {
+    }
+  }
+}
+
+
+//~ 아이폰XR
+@media (min-device-width: 376px) and (max-device-width: 414px) {
+  .choice-box {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include App.flex-box-center(column);
+    box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -webkit-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -moz-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+  }
+  .choice-spread {
+    @include App.flex-box-center(row);
+  }
+  .choice-spread:not(:first-child) {
+    margin-top: -80px;
+  }
+  .choice-card {
+    @include choice-card(0.6);
+  }
+  .choice-card:not(:first-child) {
+    /* 첫번째 요소를 제외한 모든 .item 클래스에 적용되는 스타일 */
+    margin-left: -92px; // & 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현
+  }
+
+  .choice-card:hover {
+    transform: translateY(
+      -20px
+    ); /* 마우스 호버 시 카드를 약간 위로 올려서 스프레드 효과 강조 */
+  }
+  .choice-card img {
+    @include TarotModal.card-image(0);
+  }
+
+  .invisible {
+    @include TarotModal.invisible();
+  }
+  .flex-grow {
+    @include App.flex-grow(1);
+  }
+  .flex-grow3 {
+    @include App.flex-grow(3);
+  }
+
+  .btn-box {
+    .btn {
+    }
+
+    .btn:hover {
+    }
+  }
+}
+
+//~ 아이폰 SE
+@media (min-device-width: 373px) and (max-device-width: 375px) {
+  .choice-box {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include App.flex-box-center(column);
+    box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -webkit-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -moz-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+  }
+  .choice-spread {
+    @include App.flex-box-center(row);
+  }
+  .choice-spread:not(:first-child) {
+    margin-top: -80px;
+  }
+  .choice-card {
+    @include choice-card(0.5);
+  }
+  .choice-card:not(:first-child) {
+    /* 첫번째 요소를 제외한 모든 .item 클래스에 적용되는 스타일 */
+    margin-left: -74px; // & 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현
+  }
+
+  .choice-card:hover {
+    transform: translateY(
+      -20px
+    ); /* 마우스 호버 시 카드를 약간 위로 올려서 스프레드 효과 강조 */
+  }
+  .choice-card img {
+    @include TarotModal.card-image(0);
+  }
+
+  .invisible {
+    @include TarotModal.invisible();
+  }
+  .flex-grow {
+    @include App.flex-grow(1);
+  }
+  .flex-grow3 {
+    @include App.flex-grow(3);
+  }
+
+  .btn-box {
+    .btn {
+    }
+
+    .btn:hover {
+    }
+  }
+}
+
+//~ Pixel4, Galaxy S8+
+@media (min-device-width: 353px) and (max-device-width: 372px) {
+  .choice-box {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include App.flex-box-center(column);
+    box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -webkit-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -moz-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+  }
+  .choice-spread {
+    @include App.flex-box-center(row);
+  }
+  .choice-spread:not(:first-child) {
+    margin-top: -75px;
+  }
+  .choice-card {
+    @include choice-card(0.5);
+  }
+  .choice-card:not(:first-child) {
+    /* 첫번째 요소를 제외한 모든 .item 클래스에 적용되는 스타일 */
+    margin-left: -75px; // & 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현
+  }
+
+  .choice-card:hover {
+    transform: translateY(
+      -20px
+    ); /* 마우스 호버 시 카드를 약간 위로 올려서 스프레드 효과 강조 */
+  }
+  .choice-card img {
+    @include TarotModal.card-image(0);
+  }
+
+  .invisible {
+    @include TarotModal.invisible();
+  }
+  .flex-grow {
+    @include App.flex-grow(1);
+  }
+  .flex-grow3 {
+    @include App.flex-grow(3);
+  }
+
+  .btn-box {
+    .btn {
+    }
+
+    .btn:hover {
+    }
+  }
+}
+
+//~ Pixel4, Galaxy S8+ 전
+@media (min-device-width: 281px) and (max-device-width: 352px) {
+  .choice-box {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include App.flex-box-center(column);
+    box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -webkit-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -moz-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+  }
+  .choice-spread {
+    @include App.flex-box-center(row);
+  }
+  .choice-spread:not(:first-child) {
+    margin-top: -80px;
+  }
+  .choice-card {
+    @include choice-card(0.5);
+  }
+  .choice-card:not(:first-child) {
+    /* 첫번째 요소를 제외한 모든 .item 클래스에 적용되는 스타일 */
+    margin-left: -78px; // & 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현
+  }
+
+  .choice-card:hover {
+    transform: translateY(
+      -20px
+    ); /* 마우스 호버 시 카드를 약간 위로 올려서 스프레드 효과 강조 */
+  }
+  .choice-card img {
+    @include TarotModal.card-image(0);
+  }
+
+  .invisible {
+    @include TarotModal.invisible();
+  }
+  .flex-grow {
+    @include App.flex-grow(1);
+  }
+  .flex-grow3 {
+    @include App.flex-grow(3);
+  }
+
+  .btn-box {
+    .btn {
+    }
+
+    .btn:hover {
+    }
+  }
+}
+
+
+//~ 갤럭시 폴드
+@media (max-device-width: 280px) {
+  .choice-box {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include App.flex-box-center(column);
+    box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -webkit-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -moz-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+  }
+  .choice-spread {
+    @include App.flex-box-center(row);
+  }
+  .choice-spread:not(:first-child) {
+    margin-top: -51px;
+  }
+  .choice-card {
+    @include choice-card(0.35);
+  }
+  .choice-card:not(:first-child) {
+    /* 첫번째 요소를 제외한 모든 .item 클래스에 적용되는 스타일 */
+    margin-left: -52px; // & 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현
+  }
+
+  .choice-card:hover {
+    transform: translateY(
+      -20px
+    ); /* 마우스 호버 시 카드를 약간 위로 올려서 스프레드 효과 강조 */
+  }
+  .choice-card img {
+    @include TarotModal.card-image(0);
+  }
+
+  .invisible {
+    @include TarotModal.invisible();
+  }
+  .flex-grow {
+    @include App.flex-grow(1);
+  }
+  .flex-grow3 {
+    @include App.flex-grow(3);
+  }
+
+  .btn-box {
+    .btn {
+    }
+
+    .btn:hover {
+    }
+  }
+}
+
+//! 반응형 웹브라우저용
+
+//~ 디바이스
+@media (min-width: 1024px) and (max-width: 1366px) {
+  .choice-box {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include App.flex-box-center(column);
+    box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -webkit-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -moz-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+  }
+  .choice-spread {
+    @include App.flex-box-center(row);
+  }
+  .choice-spread:not(:first-child) {
+    margin-top: -150px;
+  }
+  .choice-card {
+    @include choice-card(0.8);
+  }
+  .choice-card:not(:first-child) {
+    /* 첫번째 요소를 제외한 모든 .item 클래스에 적용되는 스타일 */
+    margin-left: -102px; // & 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현
+  }
+
+  .choice-card:hover {
+    transform: translateY(
+      -20px
+    ); /* 마우스 호버 시 카드를 약간 위로 올려서 스프레드 효과 강조 */
+  }
+  .choice-card img {
+    @include TarotModal.card-image(0);
+  }
+
+  .invisible {
+    @include TarotModal.invisible();
+  }
+  .flex-grow {
+    @include App.flex-grow(1);
+  }
+  .flex-grow3 {
+    @include App.flex-grow(3);
+  }
+
+  .btn-box {
+    .btn {
+    }
+
+    .btn:hover {
+    }
+  }
+}
+
+
+//~ 태블릿, 아이패드, 아이패드 프로
+@media (min-width: 768px) and (max-width: 1023px) {
+  .choice-box {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include App.flex-box-center(column);
+    box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -webkit-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -moz-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+  }
+  .choice-spread {
+    @include App.flex-box-center(row);
+  }
+  .choice-spread:not(:first-child) {
+    margin-top: -150px;
+  }
+  .choice-card {
+    @include choice-card(0.8);
+  }
+  .choice-card:not(:first-child) {
+    /* 첫번째 요소를 제외한 모든 .item 클래스에 적용되는 스타일 */
+    margin-left: -115px; // & 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현
+  }
+
+  .choice-card:hover {
+    transform: translateY(
+      -20px
+    ); /* 마우스 호버 시 카드를 약간 위로 올려서 스프레드 효과 강조 */
+  }
+  .choice-card img {
+    @include TarotModal.card-image(0);
+  }
+
+  .invisible {
+    @include TarotModal.invisible();
+  }
+  .flex-grow {
+    @include App.flex-grow(1);
+  }
+  .flex-grow3 {
+    @include App.flex-grow(3);
+  }
+
+  .btn-box {
+    .btn {
+    }
+
+    .btn:hover {
+    }
+  }
+}
+
+//~ 481px ~ 767px 및 태블릿
+@media (min-width: 481px) and (max-width: 767px) {
+  .choice-box {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include App.flex-box-center(column);
+    box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -webkit-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -moz-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+  }
+  .choice-spread {
+    @include App.flex-box-center(row);
+  }
+  .choice-spread:not(:first-child) {
+    margin-top: -80px;
+  }
+  .choice-card {
+    @include choice-card(0.6);
+  }
+  .choice-card:not(:first-child) {
+    /* 첫번째 요소를 제외한 모든 .item 클래스에 적용되는 스타일 */
+    margin-left: -88px; // & 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현
+  }
+
+  .choice-card:hover {
+    transform: translateY(
+      -20px
+    ); /* 마우스 호버 시 카드를 약간 위로 올려서 스프레드 효과 강조 */
+  }
+  .choice-card img {
+    @include TarotModal.card-image(0);
+  }
+
+  .invisible {
+    @include TarotModal.invisible();
+  }
+  .flex-grow {
+    @include App.flex-grow(1);
+  }
+  .flex-grow3 {
+    @include App.flex-grow(3);
+  }
+
+  .btn-box {
+    .btn {
+    }
+
+    .btn:hover {
+    }
+  }
+}
+
+//~ IPhone 14 Pro Max(430px)
+@media only screen and (min-width: 415px) and (max-width: 480px) {
+  .choice-box {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include App.flex-box-center(column);
+    box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -webkit-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -moz-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+  }
+  .choice-spread {
+    @include App.flex-box-center(row);
+  }
+  .choice-spread:not(:first-child) {
+    margin-top: -80px;
+  }
+  .choice-card {
+    @include choice-card(0.6);
+  }
+  .choice-card:not(:first-child) {
+    /* 첫번째 요소를 제외한 모든 .item 클래스에 적용되는 스타일 */
+    margin-left: -90px; // & 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현
+  }
+
+  .choice-card:hover {
+    transform: translateY(
+      -20px
+    ); /* 마우스 호버 시 카드를 약간 위로 올려서 스프레드 효과 강조 */
+  }
+  .choice-card img {
+    @include TarotModal.card-image(0);
+  }
+
+  .invisible {
+    @include TarotModal.invisible();
+  }
+  .flex-grow {
+    @include App.flex-grow(1);
+  }
+  .flex-grow3 {
+    @include App.flex-grow(3);
+  }
+
+  .btn-box {
+    .btn {
+    }
+
+    .btn:hover {
+    }
+  }
+}
+
+
+//~ 아이폰XR
+@media (min-width: 376px) and (max-width: 414px) {
+  .choice-box {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include App.flex-box-center(column);
+    box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -webkit-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -moz-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+  }
+  .choice-spread {
+    @include App.flex-box-center(row);
+  }
+  .choice-spread:not(:first-child) {
+    margin-top: -80px;
+  }
+  .choice-card {
+    @include choice-card(0.6);
+  }
+  .choice-card:not(:first-child) {
+    /* 첫번째 요소를 제외한 모든 .item 클래스에 적용되는 스타일 */
+    margin-left: -92px; // & 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현
+  }
+
+  .choice-card:hover {
+    transform: translateY(
+      -20px
+    ); /* 마우스 호버 시 카드를 약간 위로 올려서 스프레드 효과 강조 */
+  }
+  .choice-card img {
+    @include TarotModal.card-image(0);
+  }
+
+  .invisible {
+    @include TarotModal.invisible();
+  }
+  .flex-grow {
+    @include App.flex-grow(1);
+  }
+  .flex-grow3 {
+    @include App.flex-grow(3);
+  }
+
+  .btn-box {
+    .btn {
+    }
+
+    .btn:hover {
+    }
+  }
+}
+
+//~ 아이폰 SE
+@media (min-width: 373px) and (max-width: 375px) {
+  .choice-box {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include App.flex-box-center(column);
+    box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -webkit-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -moz-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+  }
+  .choice-spread {
+    @include App.flex-box-center(row);
+  }
+  .choice-spread:not(:first-child) {
+    margin-top: -80px;
+  }
+  .choice-card {
+    @include choice-card(0.5);
+  }
+  .choice-card:not(:first-child) {
+    /* 첫번째 요소를 제외한 모든 .item 클래스에 적용되는 스타일 */
+    margin-left: -74px; // & 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현
+  }
+
+  .choice-card:hover {
+    transform: translateY(
+      -20px
+    ); /* 마우스 호버 시 카드를 약간 위로 올려서 스프레드 효과 강조 */
+  }
+  .choice-card img {
+    @include TarotModal.card-image(0);
+  }
+
+  .invisible {
+    @include TarotModal.invisible();
+  }
+  .flex-grow {
+    @include App.flex-grow(1);
+  }
+  .flex-grow3 {
+    @include App.flex-grow(3);
+  }
+
+  .btn-box {
+    .btn {
+    }
+
+    .btn:hover {
+    }
+  }
+}
+
+//~ Pixel4, Galaxy S8+
+@media (min-width: 353px) and (max-width: 372px) {
+  .choice-box {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include App.flex-box-center(column);
+    box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -webkit-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -moz-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+  }
+  .choice-spread {
+    @include App.flex-box-center(row);
+  }
+  .choice-spread:not(:first-child) {
+    margin-top: -75px;
+  }
+  .choice-card {
+    @include choice-card(0.5);
+  }
+  .choice-card:not(:first-child) {
+    /* 첫번째 요소를 제외한 모든 .item 클래스에 적용되는 스타일 */
+    margin-left: -75px; // & 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현
+  }
+
+  .choice-card:hover {
+    transform: translateY(
+      -20px
+    ); /* 마우스 호버 시 카드를 약간 위로 올려서 스프레드 효과 강조 */
+  }
+  .choice-card img {
+    @include TarotModal.card-image(0);
+  }
+
+  .invisible {
+    @include TarotModal.invisible();
+  }
+  .flex-grow {
+    @include App.flex-grow(1);
+  }
+  .flex-grow3 {
+    @include App.flex-grow(3);
+  }
+
+  .btn-box {
+    .btn {
+    }
+
+    .btn:hover {
+    }
+  }
+}
+
+//~ Pixel4, Galaxy S8+ 전
+@media (min-width: 281px) and (max-width: 352px) {
+  .choice-box {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include App.flex-box-center(column);
+    box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -webkit-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -moz-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+  }
+  .choice-spread {
+    @include App.flex-box-center(row);
+  }
+  .choice-spread:not(:first-child) {
+    margin-top: -80px;
+  }
+  .choice-card {
+    @include choice-card(0.5);
+  }
+  .choice-card:not(:first-child) {
+    /* 첫번째 요소를 제외한 모든 .item 클래스에 적용되는 스타일 */
+    margin-left: -78px; // & 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현
+  }
+
+  .choice-card:hover {
+    transform: translateY(
+      -20px
+    ); /* 마우스 호버 시 카드를 약간 위로 올려서 스프레드 효과 강조 */
+  }
+  .choice-card img {
+    @include TarotModal.card-image(0);
+  }
+
+  .invisible {
+    @include TarotModal.invisible();
+  }
+  .flex-grow {
+    @include App.flex-grow(1);
+  }
+  .flex-grow3 {
+    @include App.flex-grow(3);
+  }
+
+  .btn-box {
+    .btn {
+    }
+
+    .btn:hover {
+    }
+  }
+}
+
+
+//~ 갤럭시 폴드
+@media (max-width: 280px) {
+  .choice-box {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include App.flex-box-center(column);
+    box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -webkit-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -moz-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+  }
+  .choice-spread {
+    @include App.flex-box-center(row);
+  }
+  .choice-spread:not(:first-child) {
+    margin-top: -51px;
+  }
+  .choice-card {
+    @include choice-card(0.35);
+  }
+  .choice-card:not(:first-child) {
+    /* 첫번째 요소를 제외한 모든 .item 클래스에 적용되는 스타일 */
+    margin-left: -52px; // & 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현
+  }
+
+  .choice-card:hover {
+    transform: translateY(
+      -20px
+    ); /* 마우스 호버 시 카드를 약간 위로 올려서 스프레드 효과 강조 */
+  }
+  .choice-card img {
+    @include TarotModal.card-image(0);
+  }
+
+  .invisible {
+    @include TarotModal.invisible();
+  }
+  .flex-grow {
+    @include App.flex-grow(1);
+  }
+  .flex-grow3 {
+    @include App.flex-grow(3);
+  }
+
+  .btn-box {
+    .btn {
+    }
+
+    .btn:hover {
+    }
+  }
+}
+
+
+
+//? 가로모드
+
+//* 아이패드 미니 ~ 아이패드 프로 가로 ~
+@media screen and (orientation: landscape) and (min-device-width: 1024px) and (max-device-width: 1366px) {
+  div.choice-box {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include App.flex-box-center(column);
+    box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -webkit-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -moz-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    padding: 1%;
+  }
+  div.choice-spread {
+    @include App.flex-box-center(row);
+  }
+  div.choice-spread:not(:first-child) {
+    margin-top: -90px;
+  }
+  div.choice-card {
+    @include choice-card(0.65);
+  }
+  div.choice-card:not(:first-child) {
+    /* 첫번째 요소를 제외한 모든 .item 클래스에 적용되는 스타일 */
+    margin-left: -77px; // & 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현
+  }
+
+  div.choice-card:hover {
+    transform: translateY(
+      -20px
+    ); /* 마우스 호버 시 카드를 약간 위로 올려서 스프레드 효과 강조 */
+  }
+  div.choice-card img {
+    @include TarotModal.card-image(0);
+  }
+
+  div.invisible {
+    @include TarotModal.invisible();
+  }
+  div.flex-grow {
+    @include App.flex-grow(1);
+  }
+  div.flex-grow3 {
+    @include App.flex-grow(4);
+  }
+
+  div.btn-box {
+    .btn {
+      font-size: 1rem;
+      color: gold;
+      background-color: purple;
+      border: 3px purple solid;
+    }
+    .btn:hover {
+      color: purple;
+      font-size: 1rem;
+      font-weight: 500;
+      border: 3px purple solid;
+      background-color: gold;
+    }
+  }
+}
+
+//* 태블릿 아이패드 ~ 아이패드 미니 가로보다 작은 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 933px) and (max-device-width: 1023px) {
+  div.choice-box {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include App.flex-box-center(column);
+    box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -webkit-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -moz-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    padding: 1%;
+  }
+  div.choice-spread {
+    @include App.flex-box-center(row);
+  }
+  div.choice-spread:not(:first-child) {
+    margin-top: -80px;
+  }
+  div.choice-card {
+    @include choice-card(0.55);
+  }
+  div.choice-card:not(:first-child) {
+    /* 첫번째 요소를 제외한 모든 .item 클래스에 적용되는 스타일 */
+    margin-left: -69px; // & 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현
+  }
+
+  div.choice-card:hover {
+    transform: translateY(
+      -20px
+    ); /* 마우스 호버 시 카드를 약간 위로 올려서 스프레드 효과 강조 */
+  }
+  div.choice-card img {
+    @include TarotModal.card-image(0);
+  }
+
+  div.invisible {
+    @include TarotModal.invisible();
+  }
+  div.flex-grow {
+    @include App.flex-grow(1);
+  }
+  div.flex-grow3 {
+    @include App.flex-grow(4);
+  }
+
+  div.btn-box {
+    .btn {
+      font-size: 1rem;
+      color: gold;
+      background-color: purple;
+      border: 3px purple solid;
+    }
+    .btn:hover {
+      color: purple;
+      font-size: 1rem;
+      font-weight: 500;
+      border: 3px purple solid;
+      background-color: gold;
+    }
+  }
+}
+
+
+//* IPhon 14 Pro Max 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 931px) and (max-device-width: 932px) {
+  div.choice-box {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include App.flex-box-center(column);
+    box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -webkit-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -moz-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    padding: 1%;
+  }
+  div.choice-spread {
+    @include App.flex-box-center(row);
+  }
+  div.choice-spread:not(:first-child) {
+    margin-top: -60px;
+  }
+  div.choice-card {
+    @include choice-card(0.45);
+  }
+  div.choice-card:not(:first-child) {
+    /* 첫번째 요소를 제외한 모든 .item 클래스에 적용되는 스타일 */
+    margin-left: -47px; // & 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현
+  }
+
+  div.choice-card:hover {
+    transform: translateY(
+      -20px
+    ); /* 마우스 호버 시 카드를 약간 위로 올려서 스프레드 효과 강조 */
+  }
+  div.choice-card img {
+    @include TarotModal.card-image(0);
+  }
+
+  div.invisible {
+    @include TarotModal.invisible();
+  }
+  div.flex-grow {
+    @include App.flex-grow(1);
+  }
+  div.flex-grow3 {
+    @include App.flex-grow(5);
+  }
+
+  div.btn-box {
+    .btn {
+      font-size: 1rem;
+      color: gold;
+      background-color: purple;
+      border: 3px purple solid;
+    }
+    .btn:hover {
+      color: purple;
+      font-size: 1rem;
+      font-weight: 500;
+      border: 3px purple solid;
+      background-color: gold;
+    }
+  }
+}
+
+//* 아이폰XR 보다 크고 IPhon 14 Pro Max 보다 작은은 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 897px) and (max-device-width: 930px) {
+  div.choice-box {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include App.flex-box-center(column);
+    box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -webkit-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -moz-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    padding: 1%;
+  }
+  div.choice-spread {
+    @include App.flex-box-center(row);
+  }
+  div.choice-spread:not(:first-child) {
+    margin-top: -60px;
+  }
+  div.choice-card {
+    @include choice-card(0.45);
+  }
+  div.choice-card:not(:first-child) {
+    /* 첫번째 요소를 제외한 모든 .item 클래스에 적용되는 스타일 */
+    margin-left: -50px; // & 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현
+  }
+
+  div.choice-card:hover {
+    transform: translateY(
+      -20px
+    ); /* 마우스 호버 시 카드를 약간 위로 올려서 스프레드 효과 강조 */
+  }
+  div.choice-card img {
+    @include TarotModal.card-image(0);
+  }
+
+  div.invisible {
+    @include TarotModal.invisible();
+  }
+  div.flex-grow {
+    @include App.flex-grow(1);
+  }
+  div.flex-grow3 {
+    @include App.flex-grow(5);
+  }
+
+  div.btn-box {
+    .btn {
+      font-size: 1rem;
+      color: gold;
+      background-color: purple;
+      border: 3px purple solid;
+    }
+    .btn:hover {
+      color: purple;
+      font-size: 1rem;
+      font-weight: 500;
+      border: 3px purple solid;
+      background-color: gold;
+    }
+  }
+}
+
+//* 아이폰XR 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 895px) and (max-device-width: 896px) {
+  div.choice-box {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include App.flex-box-center(column);
+    box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -webkit-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -moz-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    padding: 1%;
+  }
+  div.choice-spread {
+    @include App.flex-box-center(row);
+  }
+  div.choice-spread:not(:first-child) {
+    margin-top: -60px;
+  }
+  div.choice-card {
+    @include choice-card(0.4);
+  }
+  div.choice-card:not(:first-child) {
+    /* 첫번째 요소를 제외한 모든 .item 클래스에 적용되는 스타일 */
+    margin-left: -39px; // & 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현
+  }
+
+  div.choice-card:hover {
+    transform: translateY(
+      -20px
+    ); /* 마우스 호버 시 카드를 약간 위로 올려서 스프레드 효과 강조 */
+  }
+  div.choice-card img {
+    @include TarotModal.card-image(0);
+  }
+
+  div.invisible {
+    @include TarotModal.invisible();
+  }
+  div.flex-grow {
+    @include App.flex-grow(1);
+  }
+  div.flex-grow2 {
+    @include App.flex-grow(2);
+  }
+  div.flex-grow3 {
+    @include App.flex-grow(5);
+  }
+
+  div.btn-box {
+    .btn {
+      font-size: 1rem;
+      color: gold;
+      background-color: purple;
+      border: 3px purple solid;
+    }
+    .btn:hover {
+      color: purple;
+      font-size: 1rem;
+      font-weight: 500;
+      border: 3px purple solid;
+      background-color: gold;
+    }
+  }
+}
+
+//* 아이폰12 pro보다 크고 아이폰XR보다 작은 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 844px) and (max-device-width: 894px) {
+  div.choice-box {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include App.flex-box-center(column);
+    box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -webkit-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -moz-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    padding: 1%;
+  }
+  div.choice-spread {
+    @include App.flex-box-center(row);
+  }
+  div.choice-spread:not(:first-child) {
+    margin-top: -60px;
+  }
+  div.choice-card {
+    @include choice-card(0.4);
+  }
+  div.choice-card:not(:first-child) {
+    /* 첫번째 요소를 제외한 모든 .item 클래스에 적용되는 스타일 */
+    margin-left: -41px; // & 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현
+  }
+
+  div.choice-card:hover {
+    transform: translateY(
+      -20px
+    ); /* 마우스 호버 시 카드를 약간 위로 올려서 스프레드 효과 강조 */
+  }
+  div.choice-card img {
+    @include TarotModal.card-image(0);
+  }
+
+  div.invisible {
+    @include TarotModal.invisible();
+  }
+  div.flex-grow {
+    @include App.flex-grow(1);
+  }
+  div.flex-grow2 {
+    @include App.flex-grow(2);
+  }
+  div.flex-grow3 {
+    @include App.flex-grow(5);
+  }
+
+  div.btn-box {
+    .btn {
+      font-size: 1rem;
+      color: gold;
+      background-color: purple;
+      border: 3px purple solid;
+    }
+    .btn:hover {
+      color: purple;
+      font-size: 1rem;
+      font-weight: 500;
+      border: 3px purple solid;
+      background-color: gold;
+    }
+  }
+}
+
+//* 아이폰SE 보다 크고 아이폰12 pro보다 작은 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 668px) and (max-device-width: 843px) {
+  div.choice-box {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include App.flex-box-center(column);
+    box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -webkit-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -moz-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    padding: 1%;
+  }
+  div.choice-spread {
+    @include App.flex-box-center(row);
+  }
+  div.choice-spread:not(:first-child) {
+    margin-top: -60px;
+  }
+  div.choice-card {
+    @include choice-card(0.4);
+  }
+  div.choice-card:not(:first-child) {
+    /* 첫번째 요소를 제외한 모든 .item 클래스에 적용되는 스타일 */
+    margin-left: -46px; // & 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현
+  }
+
+  div.choice-card:hover {
+    transform: translateY(
+      -20px
+    ); /* 마우스 호버 시 카드를 약간 위로 올려서 스프레드 효과 강조 */
+  }
+  div.choice-card img {
+    @include TarotModal.card-image(0);
+  }
+
+  div.invisible {
+    @include TarotModal.invisible();
+  }
+  div.flex-grow {
+    @include App.flex-grow(1);
+  }
+  div.flex-grow2 {
+    @include App.flex-grow(2);
+  }
+  div.flex-grow3 {
+    @include App.flex-grow(5);
+  }
+
+  div.btn-box {
+    .btn {
+      font-size: 1rem;
+      color: gold;
+      background-color: purple;
+      border: 3px purple solid;
+    }
+    .btn:hover {
+      color: purple;
+      font-size: 1rem;
+      font-weight: 500;
+      border: 3px purple solid;
+      background-color: gold;
+    }
+  }
+}
+
+//* 아이폰SE 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 666px) and (max-device-width: 667px) {
+  div.choice-box {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include App.flex-box-center(column);
+    box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -webkit-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -moz-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    padding: 1%;
+  }
+  div.choice-spread {
+    @include App.flex-box-center(row);
+  }
+  div.choice-spread:not(:first-child) {
+    margin-top: -50px;
+  }
+  div.choice-card {
+    @include choice-card(0.35);
+  }
+  div.choice-card:not(:first-child) {
+    /* 첫번째 요소를 제외한 모든 .item 클래스에 적용되는 스타일 */
+    margin-left: -39px; // & 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현
+  }
+
+  div.choice-card:hover {
+    transform: translateY(
+      -20px
+    ); /* 마우스 호버 시 카드를 약간 위로 올려서 스프레드 효과 강조 */
+  }
+  div.choice-card img {
+    @include TarotModal.card-image(0);
+  }
+
+  div.invisible {
+    @include TarotModal.invisible();
+  }
+  div.flex-grow {
+    @include App.flex-grow(1);
+  }
+  div.flex-grow3 {
+    @include App.flex-grow(4);
+  }
+
+  div.btn-box {
+    .btn {
+      font-size: 1rem;
+      color: gold;
+      background-color: purple;
+      border: 3px purple solid;
+    }
+    .btn:hover {
+      color: purple;
+      font-size: 1rem;
+      font-weight: 500;
+      border: 3px purple solid;
+      background-color: gold;
+    }
+  }
+}
+
+//* 갤럭시 폴드보다 크고 ~ 아이폰SE 보다 작은은 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 654px) and (max-device-width: 665px) {
+  div.choice-box {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include App.flex-box-center(column);
+    box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -webkit-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -moz-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    padding: 1%;
+  }
+  div.choice-spread {
+    @include App.flex-box-center(row);
+  }
+  div.choice-spread:not(:first-child) {
+    margin-top: -50px;
+  }
+  div.choice-card {
+    @include choice-card(0.35);
+  }
+  div.choice-card:not(:first-child) {
+    /* 첫번째 요소를 제외한 모든 .item 클래스에 적용되는 스타일 */
+    margin-left: -39px; // & 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현
+  }
+
+  div.choice-card:hover {
+    transform: translateY(
+      -20px
+    ); /* 마우스 호버 시 카드를 약간 위로 올려서 스프레드 효과 강조 */
+  }
+  div.choice-card img {
+    @include TarotModal.card-image(0);
+  }
+
+  div.invisible {
+    @include TarotModal.invisible();
+  }
+  div.flex-grow {
+    @include App.flex-grow(1);
+  }
+  div.flex-grow3 {
+    @include App.flex-grow(4);
+  }
+
+  div.btn-box {
+    .btn {
+      font-size: 1rem;
+      color: gold;
+      background-color: purple;
+      border: 3px purple solid;
+    }
+    .btn:hover {
+      color: purple;
+      font-size: 1rem;
+      font-weight: 500;
+      border: 3px purple solid;
+      background-color: gold;
+    }
+  }
+}
+
+//* 갤럭시 폴드 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 652px) and (max-device-width: 653px) {
+  div.choice-box {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include App.flex-box-center(column);
+    box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -webkit-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -moz-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    padding: 1%;
+  }
+  div.choice-spread {
+    @include App.flex-box-center(row);
+  }
+  div.choice-spread:not(:first-child) {
+    margin-top: -40px;
+  }
+  div.choice-card {
+    @include choice-card(0.28);
+  }
+  div.choice-card:not(:first-child) {
+    /* 첫번째 요소를 제외한 모든 .item 클래스에 적용되는 스타일 */
+    margin-left: -27px; // & 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현
+  }
+
+  div.choice-card:hover {
+    transform: translateY(
+      -20px
+    ); /* 마우스 호버 시 카드를 약간 위로 올려서 스프레드 효과 강조 */
+  }
+  div.choice-card img {
+    @include TarotModal.card-image(0);
+  }
+
+  div.invisible {
+    @include TarotModal.invisible();
+  }
+  div.flex-grow {
+    @include App.flex-grow(1);
+  }
+  div.flex-grow3 {
+    @include App.flex-grow(5);
+  }
+
+  div.btn-box {
+    .btn {
+      font-size: 1rem;
+      color: gold;
+      background-color: purple;
+      border: 3px purple solid;
+    }
+    .btn:hover {
+      color: purple;
+      font-size: 1rem;
+      font-weight: 500;
+      border: 3px purple solid;
+      background-color: gold;
+    }
+    .btn-japanese {
+      min-width: 70px; // & 최소 버튼 크기
+      font-size: 0.8rem;
+      border: 3px;
+      background-color: purple;
+      border: 3px purple solid;
+      margin-right: 10px;
+    }
+
+    .btn-japanese:hover {
+      font-size: 0.8rem;
+      border: 3px;
+      color: purple;
+      border: 3px purple solid;
+      background-color: gold;
+    }
+  }
+}
+
+
+//* 갤럭시 폴드보다 작은 가로모드
+@media screen and (orientation: landscape) and (max-device-width: 651px) {
+  div.choice-box {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include App.flex-box-center(column);
+    box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -webkit-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    -moz-box-shadow: 7px 20px 400px 77px rgba(25, 40, 171, 1);
+    padding: 1%;
+  }
+  div.choice-spread {
+    @include App.flex-box-center(row);
+  }
+  div.choice-spread:not(:first-child) {
+    margin-top: -40px;
+  }
+  div.choice-card {
+    @include choice-card(0.28);
+  }
+  div.choice-card:not(:first-child) {
+    /* 첫번째 요소를 제외한 모든 .item 클래스에 적용되는 스타일 */
+    margin-left: -27px; // & 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현
+  }
+
+  div.choice-card:hover {
+    transform: translateY(
+      -20px
+    ); /* 마우스 호버 시 카드를 약간 위로 올려서 스프레드 효과 강조 */
+  }
+  div.choice-card img {
+    @include TarotModal.card-image(0);
+  }
+
+  div.invisible {
+    @include TarotModal.invisible();
+  }
+  div.flex-grow {
+    @include App.flex-grow(1);
+  }
+  div.flex-grow3 {
+    @include App.flex-grow(5);
+  }
+
+  div.btn-box {
+    .btn {
+      font-size: 1rem;
+      color: gold;
+      background-color: purple;
+      border: 3px purple solid;
+    }
+    .btn:hover {
+      color: purple;
+      font-size: 1rem;
+      font-weight: 500;
+      border: 3px purple solid;
+      background-color: gold;
+    }
+    .btn-japanese {
+      min-width: 70px; // & 최소 버튼 크기
+      font-size: 0.8rem;
+      border: 3px;
+      background-color: purple;
+      border: 3px purple solid;
+      margin-right: 10px;
+    }
+
+    .btn-japanese:hover {
+      font-size: 0.8rem;
+      border: 3px;
+      color: purple;
+      border: 3px purple solid;
+      background-color: gold;
+    }
+  }
+}

@@ -1,0 +1,927 @@
+@use '_TarotModal.module.scss';
+
+.card { 
+  @include TarotModal.deck-card(0.75);
+  @include TarotModal.deck-margin(
+    -3px,
+    -151.35px
+  ); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+}
+.card:nth-child(-1) {
+  @include TarotModal.deck-card(0.75);
+  z-index: 1;
+  @include TarotModal.deck-margin(
+    -3px,
+    -151.35px
+  ); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+}
+.card img {
+  @include TarotModal.card-image(0);
+}
+
+.shuffle1 {
+  @include TarotModal.shuffle-animation(shuffle1);
+}
+.shuffle2 {
+  @include TarotModal.shuffle-animation(shuffle2);
+}
+.shuffle3 {
+  @include TarotModal.shuffle-animation(shuffle3);
+}
+.shuffle4 {
+  @include TarotModal.shuffle-animation(shuffle4);
+}
+.shuffle5 {
+  @include TarotModal.shuffle-animation(shuffle5);
+}
+.shuffle6 {
+  @include TarotModal.shuffle-animation(shuffle6);
+}
+.shuffle7 {
+  @include TarotModal.shuffle-animation(shuffle7);
+}
+.shuffle8 {
+  @include TarotModal.shuffle-animation(shuffle8);
+}
+.shuffle9 {
+  @include TarotModal.shuffle-animation(shuffle9);
+}
+.shuffle10 {
+  @include TarotModal.shuffle-animation(shuffle10);
+}
+.shuffle11 {
+  @include TarotModal.shuffle-animation(shuffle11);
+}
+.shuffle12 {
+  @include TarotModal.shuffle-animation(shuffle12);
+}
+.shuffle13 {
+  @include TarotModal.shuffle-animation(shuffle13);
+}
+.shuffle14 {
+  @include TarotModal.shuffle-animation(shuffle14);
+}
+.shuffle15 {
+  @include TarotModal.shuffle-animation(shuffle15);
+}
+.shuffle16 {
+  @include TarotModal.shuffle-animation(shuffle16);
+}
+.shuffle17 {
+  @include TarotModal.shuffle-animation(shuffle17);
+}
+.shuffle18 {
+  @include TarotModal.shuffle-animation(shuffle18);
+}
+.shuffle19 {
+  @include TarotModal.shuffle-animation(shuffle19);
+}
+.shuffle20 {
+  @include TarotModal.shuffle-animation(shuffle20);
+}
+.shuffle21 {
+  @include TarotModal.shuffle-animation(shuffle21);
+}
+.shuffle22 {
+  @include TarotModal.shuffle-animation(shuffle22);
+}
+.shuffle23 {
+  @include TarotModal.shuffle-animation(shuffle23);
+}
+.shuffle24 {
+  @include TarotModal.shuffle-animation(shuffle24);
+}
+.shuffle25 {
+  @include TarotModal.shuffle-animation(shuffle25);
+}
+.shuffle26 {
+  @include TarotModal.shuffle-animation(shuffle26);
+}
+.shuffle27 {
+  @include TarotModal.shuffle-animation(shuffle27);
+}
+.shuffle28 {
+  @include TarotModal.shuffle-animation(shuffle28);
+}
+.shuffle29 {
+  @include TarotModal.shuffle-animation(shuffle29);
+}
+.shuffle30 {
+  @include TarotModal.shuffle-animation(shuffle30);
+}
+.shuffle31 {
+  @include TarotModal.shuffle-animation(shuffle31);
+}
+.shuffle32 {
+  @include TarotModal.shuffle-animation(shuffle32);
+}
+.shuffle33 {
+  @include TarotModal.shuffle-animation(shuffle33);
+}
+.shuffle34 {
+  @include TarotModal.shuffle-animation(shuffle34);
+}
+.shuffle35 {
+  @include TarotModal.shuffle-animation(shuffle35);
+}
+.shuffle36 {
+  @include TarotModal.shuffle-animation(shuffle36);
+}
+.shuffle37 {
+  @include TarotModal.shuffle-animation(shuffle37);
+}
+.shuffle38 {
+  @include TarotModal.shuffle-animation(shuffle38);
+}
+.shuffle39 {
+  @include TarotModal.shuffle-animation(shuffle39);
+}
+.shuffle40 {
+  @include TarotModal.shuffle-animation(shuffle40);
+}
+
+// .deck {
+//   @include deck();
+//   transition: all 0.5s ease; /* 카드 배열이 변경될 때 애니메이션 효과를 적용 */
+
+//   & .card {
+//     @include deck-card();
+//     @include deck-margin(-3px, -242px); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+//   }
+//   & .card:nth-child(-1) {
+//     @include deck-card();
+//     z-index: 1;
+//     @include deck-margin(-3px, -242px); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+//   }
+//   & .card img {
+//     @include deck-card-image(0);
+//   }
+// }
+
+
+/* 카드 섞이는 애니메이션 */
+@keyframes shuffle1 {
+  0% {
+    transform: translateX(-30%);
+  }
+  2.5% {
+    transform: translateX(-30%) skewY(10deg);
+  }
+  5% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes shuffle2 {
+  0% {
+    transform: translateX(30%);
+  }
+  5% {
+    transform: translateX(30%) skewY(-10deg);
+  }
+  7.5% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes shuffle3 {
+  0% {
+    transform: translateX(-30%);
+  }
+  7.5% {
+    transform: translateX(-30%) skewY(10deg);
+  }
+  10% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes shuffle4 {
+  0% {
+    transform: translateX(30%);
+  }
+  10% {
+    transform: translateX(30%) skewY(-10deg);
+  }
+  12.5% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes shuffle5 {
+  0% {
+    transform: translateX(-30%);
+  }
+  12.5% {
+    transform: translateX(-30%) skewY(10deg);
+  }
+  15% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes shuffle6 {
+  0% {
+    transform: translateX(30%);
+  }
+  15% {
+    transform: translateX(30%) skewY(-10deg);
+  }
+  17.5% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes shuffle7 {
+  0% {
+    transform: translateX(-30%);
+  }
+  17.5% {
+    transform: translateX(-30%) skewY(10deg);
+  }
+  20% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes shuffle8 {
+  0% {
+    transform: translateX(30%);
+  }
+  20% {
+    transform: translateX(30%) skewY(-10deg);
+  }
+  22.5% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes shuffle9 {
+  0% {
+    transform: translateX(-30%);
+  }
+  22.5% {
+    transform: translateX(-30%) skewY(10deg);
+  }
+  25% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes shuffle10 {
+  0% {
+    transform: translateX(30%);
+  }
+  25% {
+    transform: translateX(30%) skewY(-10deg);
+  }
+  27.5% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes shuffle11 {
+  0% {
+    transform: translateX(-30%);
+  }
+  27.5% {
+    transform: translateX(-30%) skewY(10deg);
+  }
+  30% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes shuffle12 {
+  0% {
+    transform: translateX(30%);
+  }
+  30% {
+    transform: translateX(30%) skewY(-10deg);
+  }
+  32.5% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes shuffle13 {
+  0% {
+    transform: translateX(-30%);
+  }
+  32.5% {
+    transform: translateX(-30%) skewY(10deg);
+  }
+  35% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes shuffle14 {
+  0% {
+    transform: translateX(30%);
+  }
+  35% {
+    transform: translateX(30%) skewY(-10deg);
+  }
+  37.5% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes shuffle15 {
+  0% {
+    transform: translateX(-30%);
+  }
+  37.5% {
+    transform: translateX(-30%) skewY(10deg);
+  }
+  30% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes shuffle16 {
+  0% {
+    transform: translateX(30%);
+  }
+  30% {
+    transform: translateX(30%) skewY(-10deg);
+  }
+  42.5% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes shuffle17 {
+  0% {
+    transform: translateX(-30%);
+  }
+  42.5% {
+    transform: translateX(-30%) skewY(10deg);
+  }
+  30% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes shuffle18 {
+  0% {
+    transform: translateX(30%);
+  }
+  30% {
+    transform: translateX(30%) skewY(-10deg);
+  }
+  47.5% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes shuffle19 {
+  0% {
+    transform: translateX(-30%);
+  }
+  47.5% {
+    transform: translateX(-30%) skewY(10deg);
+  }
+  30% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes shuffle20 {
+  0% {
+    transform: translateX(30%);
+  }
+  30% {
+    transform: translateX(30%) skewY(-10deg);
+  }
+  52.5% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes shuffle21 {
+  0% {
+    transform: translateX(-30%);
+  }
+  52.5% {
+    transform: translateX(-30%) skewY(10deg);
+  }
+  55% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes shuffle22 {
+  0% {
+    transform: translateX(30%);
+  }
+  55% {
+    transform: translateX(30%) skewY(-10deg);
+  }
+  57.5% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes shuffle23 {
+  0% {
+    transform: translateX(-30%);
+  }
+  57.5% {
+    transform: translateX(-30%) skewY(10deg);
+  }
+  30% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes shuffle24 {
+  0% {
+    transform: translateX(30%);
+  }
+  30% {
+    transform: translateX(30%) skewY(-10deg);
+  }
+  62.5% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes shuffle25 {
+  0% {
+    transform: translateX(-30%);
+  }
+  62.5% {
+    transform: translateX(-30%) skewY(10deg);
+  }
+  65% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes shuffle26 {
+  0% {
+    transform: translateX(30%);
+  }
+  65% {
+    transform: translateX(30%) skewY(-10deg);
+  }
+  67.5% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes shuffle27 {
+  0% {
+    transform: translateX(-30%);
+  }
+  67.5% {
+    transform: translateX(-30%) skewY(10deg);
+  }
+  70% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes shuffle28 {
+  0% {
+    transform: translateX(30%);
+  }
+  70% {
+    transform: translateX(30%) skewY(-10deg);
+  }
+  72.5% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes shuffle29 {
+  0% {
+    transform: translateX(-30%);
+  }
+  72.5% {
+    transform: translateX(-30%) skewY(10deg);
+  }
+  75% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes shuffle30 {
+  0% {
+    transform: translateX(30%);
+  }
+  75% {
+    transform: translateX(30%) skewY(-10deg);
+  }
+  77.5% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes shuffle31 {
+  0% {
+    transform: translateX(-30%);
+  }
+  77.5% {
+    transform: translateX(-30%) skewY(10deg);
+  }
+  80% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes shuffle32 {
+  0% {
+    transform: translateX(30%);
+  }
+  80% {
+    transform: translateX(30%) skewY(-10deg);
+  }
+  82.5% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes shuffle33 {
+  0% {
+    transform: translateX(-30%);
+  }
+  82.5% {
+    transform: translateX(-30%) skewY(10deg);
+  }
+  85% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes shuffle34 {
+  0% {
+    transform: translateX(30%);
+  }
+  85% {
+    transform: translateX(30%) skewY(-10deg);
+  }
+  87.5% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes shuffle35 {
+  0% {
+    transform: translateX(-30%);
+  }
+  87.5% {
+    transform: translateX(-30%) skewY(10deg);
+  }
+  90% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes shuffle36 {
+  0% {
+    transform: translateX(30%);
+  }
+  90% {
+    transform: translateX(30%) skewY(-10deg);
+  }
+  92.5% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes shuffle37 {
+  0% {
+    transform: translateX(-30%);
+  }
+  92.5% {
+    transform: translateX(-30%) skewY(10deg);
+  }
+  95% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes shuffle38 {
+  0% {
+    transform: translateX(30%);
+  }
+  95% {
+    transform: translateX(30%) skewY(-10deg);
+  }
+  97.5% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes shuffle39 {
+  0% {
+    transform: translateX(-30%);
+  }
+  97.5% {
+    transform: translateX(-30%) skewY(10deg);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes shuffle40 {
+  0% {
+    transform: translateX(30%);
+  }
+  97.5% {
+    transform: translateX(30%) skewY(-10deg);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+//~ 디바이스
+@media (min-device-width: 1025px) and (max-device-width: 1366px) {
+}
+//~ 태블릿, 아이패드, 아이패드 프로
+@media (min-device-width: 769px) and (max-device-width: 1024px) {
+}
+
+//~ 481px ~ 768px 및 태블릿
+@media (min-device-width: 481px) and (max-device-width: 768px) {
+  .card {
+    @include TarotModal.deck-card(0.75);
+    @include TarotModal.deck-margin(
+      -3px,
+      -151.35px
+    ); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+  }
+  .card:nth-child(-1) {
+    @include TarotModal.deck-card(0.75);
+    z-index: 1;
+    @include TarotModal.deck-margin(
+      -3px,
+      -151.35px
+    ); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+  }
+}
+
+//~ IPhone 14 Pro Max(430px)
+@media only screen and (min-device-width: 415px) and (max-device-width: 480px) {
+  .card {
+    @include TarotModal.deck-card(0.75);
+    @include TarotModal.deck-margin(
+      -3px,
+      -151.35px
+    ); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+  }
+  .card:nth-child(-1) {
+    @include TarotModal.deck-card(0.75);
+    z-index: 1;
+    @include TarotModal.deck-margin(
+      -3px,
+      -151.35px
+    ); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+  }
+}
+//~ 아이폰XR
+@media (min-device-width: 376px) and (max-device-width: 414px) {
+  .card {
+    @include TarotModal.deck-card(0.75);
+    @include TarotModal.deck-margin(
+      -3px,
+      -151.35px
+    ); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+  }
+  .card:nth-child(-1) {
+    @include TarotModal.deck-card(0.75);
+    z-index: 1;
+    @include TarotModal.deck-margin(
+      -3px,
+      -151.35px
+    ); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+  }
+}
+//~ 아이폰 SE
+@media (min-device-width: 281px) and (max-device-width: 375px) {
+  .card {
+    @include TarotModal.deck-card(0.55);
+    @include TarotModal.deck-margin(
+      -3px,
+      -111.25px
+    ); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+  }
+  .card:nth-child(-1) {
+    @include TarotModal.deck-card(0.55);
+    z-index: 1;
+    @include TarotModal.deck-margin(
+      -3px,
+      -111.25px
+    ); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+  }
+}
+//~ 갤럭시 폴드
+@media (max-device-width: 280px) {
+  .card {
+    @include TarotModal.deck-card(0.5);
+    @include TarotModal.deck-margin(
+      -3px,
+      -101.2px
+    ); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+  }
+  .card:nth-child(-1) {
+    @include TarotModal.deck-card(0.5);
+    z-index: 1;
+    @include TarotModal.deck-margin(
+      -3px,
+      -101.2px
+    ); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+  }
+}
+
+//* 아이패드 프로 가로
+@media screen and (orientation: landscape) and (min-device-width: 1025px) and (max-device-width: 1366px) {
+  div.card {
+    @include TarotModal.deck-card(0.6);
+    @include TarotModal.deck-margin(
+      -3px,
+      -121.2px
+    ); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+  }
+  div.card:nth-child(-1) {
+    @include TarotModal.deck-card(0.6);
+    z-index: 1;
+    @include TarotModal.deck-margin(
+      -3px,
+      -121.2px
+    ); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+  }
+}
+//* 태블릿 아이패드, 아이패드 프로 가로
+@media screen and (orientation: landscape) and (min-device-width: 933px) and (max-device-width: 1024px) {
+  div.card {
+    @include TarotModal.deck-card(0.6);
+    @include TarotModal.deck-margin(
+      -3px,
+      -121.2px
+    ); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+  }
+  div.card:nth-child(-1) {
+    @include TarotModal.deck-card(0.6);
+    z-index: 1;
+    @include TarotModal.deck-margin(
+      -3px,
+      -121.2px
+    ); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+  }
+}
+
+//* IPhon 14 Pro Max 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 897px) and (max-device-width: 932px) {
+  div.card {
+    @include TarotModal.deck-card(0.6);
+    @include TarotModal.deck-margin(
+      -3px,
+      -121.2px
+    ); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+  }
+  div.card:nth-child(-1) {
+    @include TarotModal.deck-card(0.6);
+    z-index: 1;
+    @include TarotModal.deck-margin(
+      -3px,
+      -121.2px
+    ); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+  }
+}
+
+//* 아이폰XR 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 668px) and (max-device-width: 896px) {
+  div.card {
+    @include TarotModal.deck-card(0.6);
+    @include TarotModal.deck-margin(
+      -3px,
+      -121.2px
+    ); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+  }
+  div.card:nth-child(-1) {
+    @include TarotModal.deck-card(0.6);
+    z-index: 1;
+    @include TarotModal.deck-margin(
+      -3px,
+      -121.2px
+    ); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+  }
+}
+//* 아이폰SE 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 654px) and (max-device-width: 667px) {
+  div.card {
+    @include TarotModal.deck-card(0.55);
+    @include TarotModal.deck-margin(
+      -3px,
+      -111.1px
+    ); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+  }
+  div.card:nth-child(-1) {
+    @include TarotModal.deck-card(0.55);
+    z-index: 1;
+    @include TarotModal.deck-margin(
+      -3px,
+      -111.1px
+    ); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+  }
+}
+
+//* 갤럭시 폴드 가로모드
+@media screen and (orientation: landscape) and (max-device-width: 653px) {
+  div.card {
+    @include TarotModal.deck-card(0.4);
+    @include TarotModal.deck-margin(
+      -3px,
+      -81px
+    ); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+  }
+  div.card:nth-child(-1) {
+    @include TarotModal.deck-card(0.4);
+    z-index: 1;
+    @include TarotModal.deck-margin(
+      -3px,
+      -81px
+    ); /* 카드 사이 간격을 음수로 지정하여 스프레드 효과 구현 */
+  }
+}

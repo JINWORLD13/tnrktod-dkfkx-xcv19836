@@ -1,0 +1,72 @@
+@use '_App.module.scss';
+
+.blink-modal {
+  @include App.no-select;
+  width: auto;
+  height: auto;
+  padding: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: rgb(0, 0, 0, 0.5);
+  position: fixed;
+  left: 50%;
+  bottom: 18%;
+  transform: translate(-50%, -50%);
+  z-index: 100000000;
+  color: white;
+  pointer-events: none;
+  cursor: not-allowed;
+  text-align: center;
+  @include App.dongle-font(2rem);
+  font-size: 2rem !important; 
+  line-height: 32px;
+  div {
+    white-space: nowrap; // text가 줄바꿈 되지 않게 함.
+  }
+}
+
+.blink-modal-japanese {
+  @include App.no-select;
+  width: auto;
+  height: auto;
+  padding: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: rgb(0, 0, 0, 0.5);
+  position: fixed;
+  left: 50%;
+  bottom: 18%;
+  transform: translate(-50%, -50%);
+  z-index: 100000000;
+  color: white;
+  pointer-events: none;
+  cursor: not-allowed;
+  text-align: center;
+  @include App.potta-font(1.25rem);
+  font-size: 1.25rem !important; 
+  div {
+    white-space: nowrap; // text가 줄바꿈 되지 않게 함.
+  }
+}
+
+.speedTarotNotification{
+  position: fixed;
+  left: 50%;
+  top: 15%;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+  @include App.dongle-font(2rem);
+  font-size: 2rem !important; 
+  line-height: 20px;
+}
+.speedTarotNotification-japanese{
+  position: fixed;
+  left: 50%;
+  top: 15%;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+  @include App.potta-font(1.25rem);
+  font-size: 1.25rem !important; 
+  line-height: 20px;
+}
+

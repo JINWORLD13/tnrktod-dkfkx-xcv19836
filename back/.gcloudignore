@@ -1,0 +1,63 @@
+# This file specifies files that are *not* uploaded to Google Cloud
+.gcloudignore
+.git
+.gitignore
+.env
+node_modules
+server.key
+server.cert
+yarn.lock
+serverOLD-IMPORTANT.js
+src/config/socketio-OLD.js
+
+src/middlewares/googlePassportForSession.js
+src/middlewares/consumeInAppPurchaseForOAuthToken.js
+src/middlewares/serverSidePrerender.js
+src/MVC/controller/TarotController/tarotControllerOld.js
+src/MVC/controller/TarotController/tarotControllerForOAuthToken.js
+src/MVC/controller/TarotController/tarotControllerForOpenAI.js
+src/MVC/controller/TarotController/tarotControllerForPoint.js
+src/MVC/controller/TarotController/module/processors-TEMP.js
+src/MVC/controller/chargeControllerOLD.js
+src/MVC/controller/chargeControllerForPoint.js
+src/routes/authRouterForSession.js
+front/*
+!front/dist
+front/dist/assets/font/Potta_One
+front/dist/assets/font/Potta_One/*
+
+
+; src/AI/tarotCardInterpreterWithAIAPIOld.js
+; src/AI/tarotCardInterpreterWithAIAPIOld2.js
+; src/AI/command/assistantCommandOld.js
+; src/AI/command/userCommandOld.js
+; src/AI/command/userCommandForFinalMsgOld.js
+; src/AI/command/userCommand copy.js
+; src/AI/model/anthropic/firstMsgInterpreterOfAnthropicAIOld.js
+; src/AI/model/anthropic/finalMsgInterpreterOfAnthropicAIOld.js
+; src/AI/lib/getQuestionInfoOld.js
+; src/AI/lib/getSpreadDescriptionOld.js
+; src/AI/lib/log_newly_testOld.js
+
+src/AIForBackup/*
+
+# 이건 제대로 작동 안함.. index.html이 없다네;;
+# *
+# !src/
+# !src/**
+# !app.yaml
+# !app.flex.yaml
+# !package-lock.json
+# !package.json
+# !server.js
+# !manifest-checksum.txt
+# !front
+# front/**
+# !front/dist/
+# !front/dist/**
+
+## google play related
+**/android
+
+# capacitor
+back/front/capacitor.config.json

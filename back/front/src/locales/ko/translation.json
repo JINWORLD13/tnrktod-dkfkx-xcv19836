@@ -1,0 +1,700 @@
+{
+  "header": {
+    "logo": "Cosmos Tarot",
+    "principle": "타로 원리 ",
+    "spread": "스프레드",
+    "mypage": "마이페이지",
+    "logout": "로그아웃",
+    "login": "로그인",
+    "register": "회원가입",
+    "more": "더보기",
+    "language": "언어설정",
+    "help": "고객센터"
+  },
+  "footer": {
+    "quotation1-1": "당신의 운명과 미래는 당신의",
+    "quotation1-2": "내면의 변화와 선택에 달려있습니다.",
+    "quotation2-1": "카드는 마음과 그로 인한 운세를 읽고,",
+    "quotation2-2": "지적, 사실적인 것은 읽지 않습니다.",
+    "quotation3-1": "보통, 심층, 진지 타로에서는 겉마음,",
+    "quotation3-2": "속마음, 더 깊은 속마음을 읽습니다. "
+  },
+  "page_title": {
+    "mypage": "마이페이지",
+    "refund": "환불"
+  },
+  "page": {
+    "page": {
+      "threejs": {
+        "title": "코스모스 타로 - 귀여운 친구와 함께하는 타로 시간",
+        "metaDescription": "마음의 답을 찾는 고요한 시간, 귀여운 캐릭터 친구와 함께 24시간 언제든 타로 상담을 받아보세요. 복잡한 마음을 정리하고 내면의 목소리에 귀 기울이는 특별한 공간입니다.",
+        "keywords": "귀여운 캐릭터, 24시간 타로, 마음 상담, 타로 친구, 힐링 타로, 캐릭터와 대화, 마음 정리",
+        "mainHeading": "귀여운 친구와 함께하는 타로 시간",
+        "intro": {
+          "paragraph1": "코스모스 타로의 특별한 캐릭터 친구가 당신을 기다리고 있어요. 마음이 복잡할 때, 혼자만의 시간이 필요할 때, 언제든 찾아와 편안하게 이야기를 나눠보세요.",
+          "paragraph2": "이 페이지에서는 생동감 넘치는 캐릭터와 함께 더욱 친근하고 따뜻한 타로 경험을 만나실 수 있습니다. 시간에 쫓기지 않고, 누구의 시선도 의식하지 않은 채 오롯이 나에게만 집중할 수 있는 순간을 선물해드려요."
+        },
+        "pageFeatures": {
+          "title": "캐릭터 페이지만의 특별함",
+          "characterCompanion": {
+            "title": "따뜻한 동반자",
+            "description": "혼자가 아닌 귀여운 친구와 함께하는 타로 시간. 마치 오랜 친구와 대화하듯 편안하게 마음을 털어놓을 수 있어요."
+          },
+          "visualComfort": {
+            "title": "편안한 시각적 경험",
+            "description": "부드럽고 친근한 캐릭터가 함께해서 긴장감 없이 자연스럽게 타로 상담에 집중할 수 있습니다."
+          },
+          "emotionalConnection": {
+            "title": "감정적 유대감",
+            "description": "단순한 텍스트가 아닌, 표정과 움직임이 있는 캐릭터와의 교감으로 더욱 따뜻한 상담 경험을 느껴보세요."
+          }
+        },
+        "whenToVisit": {
+          "title": "이런 순간에 캐릭터 친구를 찾아오세요",
+          "bedtime": "잠들기 전 하루를 정리하며 마음을 다독이고 싶을 때",
+          "worry": "고민이 많아 누군가와 대화하고 싶지만 부담스럽지 않은 상대가 필요할 때",
+          "newStart": "새로운 시작 앞에서 용기가 필요할 때",
+          "dailyBreak": "바쁜 일상 속에서 잠시 쉬어가며 마음을 돌아보고 싶을 때"
+        },
+        "experience": {
+          "title": "어떤 경험을 하게 될까요",
+          "description": "캐릭터 친구가 있는 이 공간은 마치 아늑한 카페에서 친한 친구와 차를 마시며 이야기하는 것 같은 편안함을 선사합니다. 복잡한 기능이나 어려운 설명 없이, 자연스럽게 카드를 선택하고 메시지를 받는 과정이 더욱 따뜻하고 의미있게 느껴질 거예요."
+        },
+        "accessibility": {
+          "title": "언제든 편하게",
+          "description": "스마트폰, 태블릿, 컴퓨터 어디서든 부드럽게 움직이는 캐릭터 친구를 만날 수 있어요. 기술적인 복잡함은 뒤로하고, 오직 마음의 소통에만 집중할 수 있도록 최적화되어 있습니다."
+        },
+        "philosophy": {
+          "title": "우리의 마음가짐",
+          "description": "코스모스 타로는 답을 강요하는 것이 아니라, 당신 마음속에 이미 있던 답을 발견하도록 돕는 따뜻한 동반자입니다. 캐릭터 친구도 마찬가지로 판단하거나 평가하지 않고, 그저 당신의 이야기에 귀 기울이며 함께하는 존재예요."
+        },
+        "invitation": {
+          "description": "바쁜 하루 속에서 잠시 멈춰 서서 나 자신과 마주하고 싶을 때, 혹은 새로운 하루를 시작하며 마음의 준비를 하고 싶을 때. 귀여운 캐릭터 친구는 언제든지 당신 곁에서 조용히 기다리고 있어요."
+        },
+        "noscript": {
+          "title": "코스모스 타로 캐릭터",
+          "message1": "캐릭터 친구와 함께하는 타로 경험을 위해서는 JavaScript가 필요해요.",
+          "message2": "브라우저에서 JavaScript를 활성화한 후 다시 만나요."
+        }
+      }
+    },
+    "mypage": {
+      "title": "마이페이지 - 나의 타로 여정",
+      "metaDescription": "개인 타로 리딩 기록 관리, 통계 분석. 최대 3개월간 보관되는 나만의 타로 상담 히스토리와 패턴을 확인하세요.",
+      "keywords": "마이페이지, 타로 상담 기록, 타로 상담 통계, 개인 타로 데이터, 타로 패턴 분석",
+      "mainHeading": "나의 타로 여정",
+      "intro": {
+        "paragraph1": "마이페이지에서 나만의 타로 여정을 되돌아보세요. 지난 상담 기록부터 개인별 카드 통계까지, 당신의 타로 이야기가 모두 정리되어 있습니다.",
+        "paragraph2": "최대 3개월간 보관되는 리딩 기록을 통해 과거의 조언을 다시 확인하고, 나만의 타로 패턴을 발견해 개인적 성장의 발걸음을 느껴보세요."
+      },
+      "sections": {
+        "title": "마이페이지 구성",
+        "history": "상담 기록",
+        "statistics": "나의 타로 상담 통계",
+        "profile": "프로필"
+      },
+      "features": {
+        "title": "마이페이지 주요 기능",
+        "recordManagement": {
+          "title": "상담 기록 관리",
+          "description": "과거 타로 리딩 결과를 테마별 및 질문의 대상별로 정리하여 확인하고, 원하는 기록은 언제든지 삭제할 수 있습니다."
+        },
+        "statisticalAnalysis": {
+          "title": "통계 분석",
+          "description": "개인별 메이저 카드와 마이너 카드 출현 빈도를 그래프로 테마별 및 질문의 대상별로 정리하고 시각화하여 나만의 타로 패턴을 파악할 수 있습니다."
+        }
+      },
+      "dataManagement": {
+        "title": "데이터 보관 및 관리",
+        "description": "모든 상담 기록은 최대 3개월간 안전하게 보관되며, 언제든지 원하는 기록을 선택하여 삭제할 수 있습니다."
+      },
+      "personalGrowth": {
+        "title": "개인 성장 추적",
+        "description": "시간이 지남에 따라 변화하는 나의 타로 패턴을 통해 내면의 변화와 성장을 확인할 수 있습니다. 어떤 카드가 자주 나오는지, 어떤 테마의 질문을 많이 하는지 분석하여 자아 성찰의 도구로 활용하세요."
+      },
+      "privacy": {
+        "title": "개인정보 보호",
+        "description": "마이페이지의 모든 정보는 본인만 접근할 수 있으며, 타로 리딩 내용과 개인 설정은 완전히 비공개로 관리됩니다. 언제든지 모든 데이터를 삭제하거나 계정을 탈퇴할 수 있는 권한을 보장합니다."
+      }
+    },
+    "etc": {
+      "title": "더보기 - 타로의 모든 것",
+      "metaDescription": "타로 배우기, 이용약관, 타로 역사까지. 코스모스 타로의 모든 정보와 학습 자료를 한 곳에서 확인하세요.",
+      "keywords": "타로 배우기, 이용약관, 타로 역사, 타로 학습, 타로 지식, 더보기",
+      "mainHeading": "타로의 모든 것",
+      "intro": {
+        "paragraph1": "코스모스 타로의 더보기 섹션에서 타로에 대한 깊이 있는 지식을 탐험해보세요. 초보자를 위한 학습 자료부터 타로의 오랜 역사까지, 모든 정보가 체계적으로 정리되어 있습니다.",
+        "paragraph2": "타로를 처음 접하시는 분들을 위한 친절한 가이드와 함께, 서비스 이용에 필요한 약관 정보도 투명하게 제공합니다. 타로의 신비로운 세계를 더욱 깊이 있게 이해해보세요."
+      },
+      "sections": {
+        "title": "더보기 구성",
+        "learnTarot": "타로 배우기",
+        "terms": "이용약관",
+        "history": "타로 역사"
+      },
+      "features": {
+        "title": "더보기 주요 콘텐츠",
+        "learnTarot": {
+          "title": "타로 배우기",
+          "description": "타로카드의 기본 개념부터 각 카드의 의미, 스프레드 방법까지 단계별로 학습할 수 있습니다. 초보자도 쉽게 따라할 수 있는 친절한 가이드를 제공합니다."
+        },
+        "termsService": {
+          "title": "이용약관",
+          "description": "코스모스 타로 서비스 이용 시 알아야 할 모든 약관과 정책을 투명하게 공개합니다. 개인정보 처리방침, 서비스 이용규칙 등을 명확히 확인할 수 있습니다."
+        },
+        "tarotHistory": {
+          "title": "타로 역사",
+          "description": "수백 년의 타로 역사와 전통을 소개합니다. 타로카드의 기원부터 현대적 해석까지, 타로의 깊은 뿌리를 이해할 수 있습니다."
+        }
+      },
+      "educational": {
+        "title": "학습 자료의 특징",
+        "description": "복잡하고 어려운 타로 지식을 누구나 쉽게 이해할 수 있도록 단계별로 구성했습니다. 이론적 설명과 실용적 팁을 균형 있게 제공하여, 타로를 처음 접하는 분들도 부담 없이 학습할 수 있습니다."
+      },
+      "transparency": {
+        "title": "투명한 정보 제공",
+        "description": "서비스와 관련된 모든 정보를 사용자가 쉽게 찾고 이해할 수 있도록 정리했습니다. 약관 내용부터 타로의 역사적 배경까지, 궁금한 모든 것을 명확하게 제공합니다."
+      }
+    },
+    "principle": {
+      "meta": {
+        "title": "타로카드의 원리와 융의 집단무의식 이론",
+        "description": "칼 구스타브 융의 집단무의식과 동시성 원리를 바탕으로 한 타로카드의 과학적 해석. AI 타로의 원리와 올바른 활용법을 알아보세요.",
+        "keywords": "융 심리학, 집단무의식, 동시성 원리, 타로카드 원리, AI 타로, 칼 구스타브 융, 타로 이론, 무의식 연결, 타로 해석, 심리학적 타로, 무료 타로, 타로카드, 연애운 타로, 오늘의 운세, 타로 앱"
+      },
+      "header": {
+        "mainTitle": "타로의 원리",
+        "subtitle": "칼 구스타브 융의 심리학적 접근으로 이해하는 타로카드의 과학적 원리"
+      },
+      "sections": {
+        "theory": {
+          "title": "집단무의식 이론",
+          "content": "정신과 의사이자 심리학자인 칼 구스타브 융은 인류가 공유하는 집단 무의식의 영역을 타로 카드를 통해 이해할 수 있다고 보았습니다. 그의 이론에 따르면, 집단 무의식은 모든 인류가 공통으로 가지고 있는 특성이며, 우리는 무의식의 깊은 영역에서 서로 연결되어 있습니다."
+        },
+        "synchronicity": {
+          "title": "동시성의 원리 (Synchronicity)",
+          "content": "융은 이러한 관점을 바탕으로 '동시성의 원리'를 발전시켰습니다. 이는 우연히 동시에 발생하는 사건들이 실제로는 무의식적 연결을 통해 깊은 관계를 맺고 있다는 것입니다.",
+          "application": {
+            "title": "동시성 적용",
+            "content": "그는 이 원리를 타로 카드에 적용하여, 카드를 선택하는 순간 질문자의 무의식과 카드 사이에 특별한 연결이 이루어진다고 설명했습니다."
+          }
+        },
+        "practical": {
+          "title": "실제 활용 원리",
+          "methods": {
+            "title": "다양한 선택 방식의 유효성",
+            "intro": "이러한 원리에 따라 다음과 같은 방식들이 모두 유효합니다:",
+            "item1": "직접 카드를 뽑는 경우",
+            "item2": "다른 사람이 대신 뽑아주는 경우",
+            "item3": "이름을 언급하지 않고 질문만 생각하며 집중해서 선택하는 경우"
+          },
+          "energy": {
+            "title": "순간적 에너지의 중요성",
+            "content": "주목할 점은 타로카드가 질문하는 그 순간의 에너지를 기준으로 결과를 보여준다는 것입니다. 인간의 감정과 상황은 계속해서 변화할 수 있으므로, 이를 염두에 두고 해석해야 합니다."
+          }
+        },
+        "interpretation": {
+          "title": "올바른 타로 해석 방법",
+          "additional": {
+            "title": "추가 확인의 활용",
+            "content": "답변이 모호하게 느껴진다면 2~3번 정도 추가로 카드를 확인하는 것도 도움이 될 수 있습니다."
+          },
+          "caution": {
+            "title": "건전한 활용을 위한 주의사항",
+            "content": "다만, 지나친 의존은 정신 건강에 부정적인 영향을 미칠 수 있으므로 적절한 범위 내에서 활용하시기 바랍니다."
+          }
+        },
+        "conclusion": {
+          "title": "심리학적 접근",
+          "content": "코스모스 타로 역시 이러한 융의 이론을 바탕으로, 사용자의 무의식적 선택과 순간적 에너지를 반영하여 의미 있는 통찰을 제공합니다. 과학적 근거와 심리학적 이해를 바탕으로 한 타로카드는 단순한 점술을 넘어 자기 성찰의 도구로 활용될 수 있습니다."
+        }
+      }
+    }
+  },
+  "more": {
+    "home": "홈"
+  },
+  "mypage": {
+    "user-info": "유저정보",
+    "user-voucher-info": "보유이용권",
+    "user": "회원정보",
+    "user-info-withdraw": "회원탈퇴",
+    "tarot-history-info": "상담기록",
+    "business-info": "사업 정보",
+    "terms-of-service": "이용약관",
+    "user-name": "이름",
+    "user-email": "이메일",
+    "user-account": "ID",
+    "point": "포인트",
+    "voucher": "이용권",
+    "voucher-1": "1장권",
+    "voucher-2": "2장권",
+    "voucher-3": "3장권",
+    "voucher-4": "4장권",
+    "voucher-5": "5장권",
+    "voucher-6": "6장권",
+    "voucher-7": "7장권",
+    "voucher-8": "8장권",
+    "voucher-9": "9장권",
+    "voucher-10": "10장권",
+    "voucher-11": "11장권",
+    "voucher-13": "13장권",
+    "tarot-history": "타로상담기록",
+    "tarot-history-today": "오늘 상담 회수",
+    "tarot-history-this-week": "이번주 상담 회수",
+    "tarot-history-this-month": "이번달 상담 회수",
+    "tarot-history-total": "총 상담 회수",
+    "times": " 번",
+    "ready": "준비중",
+    "question": "질문: ",
+    "question-today": "오늘",
+    "question-this-week": "이번주",
+    "question-this-month": "이번달",
+    "question-three-months": "3개월",
+    "question-this-year": "올해",
+    "question-total": "전체",
+    "statistics": "상담 통계",
+    "statistics-total": "전체 통계",
+    "statistics-theme": "테마별 통계",
+    "statistics-target": "질문 대상별 통계",
+    "statistics-question-topic": "주제별 통계",
+    "chart-major-total": "전체 메이저 카드",
+    "chart-minor-total": "전체 마이너 카드",
+    "chart-major-this-month": "이번달 메이저 카드",
+    "chart-minor-this-month": "이번달 마이너 카드",
+    "chart-major-this-week": "이번주 메이저 카드",
+    "chart-minor-this-week": "이번주 마이너 카드",
+    "chart-major-today": "오늘 메이저 카드",
+    "chart-minor-today": "오늘 마이너 카드",
+    "chart-cups-total": "전체기간 컵",
+    "chart-swords-total": "전체기간 소드",
+    "chart-wands-total": "전체기간 완드",
+    "chart-pentacles-total": "전체기간 펜타클",
+    "chart-cups-this-month": "이번달 컵",
+    "chart-swords-this-month": "이번달 소드",
+    "chart-wands-this-month": "이번달 완드",
+    "chart-pentacles-this-month": "이번달 펜타클",
+    "chart-cups-this-week": "이번주 컵",
+    "chart-swords-this-week": "이번주 소드",
+    "chart-wands-this-week": "이번주 완드",
+    "chart-pentacles-this-week": "이번주 펜타클",
+    "chart-cups-today": "오늘의 컵",
+    "chart-swords-today": "오늘의 소드",
+    "chart-wands-today": "오늘의 완드",
+    "chart-pentacles-today": "오늘의 펜타클",
+    "tarot-explanation": "타로에 관하여",
+    "tarot-learning": "타로 배우기"
+  },
+  "chart": {
+    "statistics-total": "전체"
+  },
+  "product": {
+    "cosmos_vouchers_1": "싱글 카드 리딩 이용권",
+    "cosmos_vouchers_2": "두 장 카드 리딩 이용권",
+    "cosmos_voucher_3": "세 장 카드 리딩 이용권",
+    "cosmos_vouchers_4": "네 장 카드 리딩 이용권",
+    "cosmos_vouchers_5": "다섯 장 카드 리딩 이용권",
+    "cosmos_vouchers_6": "여섯 장 카드 리딩 이용권",
+    "cosmos_vouchers_7": "일곱 장 카드 리딩 이용권",
+    "cosmos_vouchers_8": "여덟 장 카드 리딩 이용권",
+    "cosmos_vouchers_9": "아홉 장 카드 리딩 이용권",
+    "cosmos_voucher_10": "열 장 카드 리딩 이용권",
+    "cosmos_vouchers_11": "열한 장 카드 리딩 이용권",
+    "cosmos_vouchers_12": "열두 장 카드 리딩 이용권",
+    "cosmos_vouchers_13": "열세 장 카드 리딩 이용권",
+    "cosmos_vouchers_event_package_expired_title": "8월 한정 감사 대박 패키지",
+    "cosmos_vouchers_event_package_expired": "🌟 카드이용권(1, 2, 3, 4, 5, 6, 10장권) 각 10장씩 + 3, 10장권 보너스 10장! 총 90장 한정 패키지!\n⚠️ 50명 마감 시 판매 종료!\n⚠️ 본 패키지 쿠폰들은 8월 25일 23:59 (구매 당시 현지 시각)에 소멸될 예정입니다.",
+    "cosmos_vouchers_bundle_package_newbie_title": "초심자 패키지",
+    "cosmos_vouchers_bundle_package_newbie": "🌟 카드이용권(1, 2, 3, 4, 5, 6, 10장권) 각 4장씩 총 28장 한정 패키지!\n⚠️ 계정당 1회 구매 제한!\n",
+    "cosmos_vouchers_bundle_package_1_title": "I 패키지",
+    "cosmos_vouchers_bundle_package_1": "🌟 카드1장권 10장 패키지!\n🔥 10% 할인!\n",
+    "cosmos_vouchers_bundle_package_2_title": "II 패키지",
+    "cosmos_vouchers_bundle_package_2": "🌟 카드2장권 10장 패키지!\n🔥 10% 할인!\n",
+    "cosmos_vouchers_bundle_package_3_title": "III 패키지",
+    "cosmos_vouchers_bundle_package_3": "🌟 카드3장권 10장 패키지!\n🔥 10% 할인!\n",
+    "cosmos_vouchers_bundle_package_4_title": "IV 패키지",
+    "cosmos_vouchers_bundle_package_4": "🌟 카드4장권 10장 패키지!\n🔥 10% 할인!\n",
+    "cosmos_vouchers_bundle_package_5_title": "V 패키지",
+    "cosmos_vouchers_bundle_package_5": "🌟 카드5장권 10장 패키지!\n🔥 10% 할인!\n",
+    "cosmos_vouchers_bundle_package_6_title": "VI 패키지",
+    "cosmos_vouchers_bundle_package_6": "🌟 카드6장권 10장 패키지!\n🔥 10% 할인!\n",
+    "cosmos_vouchers_bundle_package_10_title": "X 패키지",
+    "cosmos_vouchers_bundle_package_10": "🌟 카드10장권 10장 패키지!\n🔥 10% 할인!\n"
+  },
+  "daily-tarot": {
+    "card": "오늘의 타로 운세",
+    "message": "오늘의 메세지",
+    "positive-meaning": "긍정적 영향",
+    "negative-meaning": "주의할 점",
+    "keyword": "키워드"
+  },
+  "refund": {
+    "notification": "구글 플레이스토어에서 다운로드한 앱을 통해 구매한 이용권을 제외한 모든 이용권은 구매금액의 70%를 환불받을 수 있습니다. 환불은 구매일로부터 1년 이내의 보유 이용권에 한해 가능합니다. 다만, 예외적으로 (퀵)계좌이체로 구매한 이용권은 구매일로부터 180일 이내, 휴대폰 결제의 경우 구매한 당월까지만 환불이 가능합니다. 환불 절차와 기준에 대한 자세한 내용은 회사의 환불정책을 따릅니다. 환불정책은 '마이페이지 > 유저정보 > 이용권구매 > 환불정책'에서 확인하실 수 있습니다. 참고로, 이용권 사용 시 웹사이트에서 구매한 이용권을 먼저 사용하고, 그 다음 구글 플레이 스토어 앱에서 구매한 이용권을 사용하게 됩니다.",
+    "user-voucher-info": "환불가능 이용권",
+    "caution": "최소 5,000원 이상 환불이 가능합니다.",
+    "total-price": "총 환불신청금액",
+    "order-id": "주문번호",
+    "voucher-name": "이용권 이름",
+    "amount": "장수",
+    "each-list-price": "개별구매금액",
+    "purchase-date": "구매일",
+    "due-date": "만료일",
+    "unit": "장권",
+    "sale-percentage": "당시 할인율",
+    "original-price": "당시 원가",
+    "quantity": "수량",
+    "total": "전체",
+    "money": "원"
+  },
+  "order": {
+    "order_number": "주문번호",
+    "order_point": "주문포인트",
+    "order_vouchers": "주문이용권",
+    "order_amount": "결제 금액",
+    "order_success": "결제 성공",
+    "order_pending": "결제 대기"
+  },
+  "card": {
+    "master": "마스터 카드",
+    "visa": "비자 카드",
+    "union_pay": "유니온 페니",
+    "american_express": "아메리칸익스프레스",
+    "jcb": "JCB"
+  },
+  "alert_modal": {
+    "notice": "알림",
+    "delete_tarot_history": "타로상담기록을 삭제하시겠습니까?",
+    "delete_user": "회원탈퇴하시겠습니까?"
+  },
+  "charge_modal": {
+    "charge": "포인트를 충전하시겠습니까?",
+    "out-of-point": "포인트가 부족합니다. 포인트를 충전하시겠습니까?",
+    "purchase": "이용권을 구매하시겠습니까?",
+    "out-of-voucher": "이용권이 부족합니다. 이용권을 구매하시겠습니까?",
+    "comming-soon": "업데이트 예정입니다."
+  },
+  "in_app_purchase_modal": {
+    "owned": "보유"
+  },
+  "blink_modal": {
+    "login": "로그인 해주시기 바랍니다.",
+    "copy": "복사완료",
+    "save": "저장완료",
+    "charging_KRW": "최소 충전 금액은 1,000원 이상입니다.",
+    "charging_USD": "최소 충전 금액은 1USD 이상입니다.",
+    "fill-in-on-question": "질문란에 내용을 입력해 주세요.",
+    "over-in-on-question": "질문란 글자수를 초과했습니다.",
+    "unavailable-voucher": "현재 이용 불가한 이용권입니다.",
+    "unavailable-which-tarot": "서비스 오픈 예정입니다.",
+    "speed-tarot-notification": "※ 전문가용 타로입니다(해석 없음).",
+    "spread": "스프레드 : ",
+    "none": "없음",
+    "card-position": "번째 카드"
+  },
+  "manual_modal": {
+    "tarot-manual-title": "<이용 안내서>",
+    "tarot-question-instruction-title": "<질문 작성 안내서>"
+  },
+  "refund_policy_modal": {
+    "refund_policy-title": "<이용권 환불 약관>"
+  },
+  "time": {
+    "ad_reset_time": "광고 초기화까지 남은 시간 : ",
+    "remaining_ad_views": "남은 광고 시청 : "
+  },
+  "talk": {
+    "hello": "",
+    "welcome": "Welcome to Cosmos Tarot",
+    "welcome-temp": "Cosmos Tarot에 오신 걸 환영\n합니다~!",
+    "click_instruction": "수정구슬을 눌러 시작해보세요.",
+    "click_instruction-temp": "사람의 마음이나 운세를 보시려면 \n수정구슬을 눌러주세요.",
+    "choose_spread": "참고로 왼쪽에 있는 책이 이용안내",
+    "usage": "서입니다.",
+    "usage-old": "서입니다. 그 외에도 숨겨진 나머지 \n기능들도 찾아보세요!\n",
+    "wait": "잠시만 기다려주세요!",
+    "time_normal": "분석을 위해 약 5초에서 20초\n정도 소요될 예정입니다.",
+    "time_deep": "정밀한 분석을 위해 약 20초에서\n1분 정도 소요될 예정입니다.",
+    "time_serious": "정밀한 분석을 위해 약 30초에서\n2분 정도 소요될 예정입니다.",
+    "time_deep_one": "정밀한 분석을 위해 약 10초에서\n30초 정도 소요될 예정입니다.",
+    "time_serious_one": "정밀한 분석을 위해 약 10초에서\n1분 정도 소요될 예정입니다.",
+    "you_know": "알고 계시나요?",
+    "tarot1": "타로카드는 마음과 감정을 읽어내는\n강력한 도구입니다.",
+    "tarot2": "타로원리를 클릭하여 타로카드에\n  대해 자세히 이해해 보세요.",
+    "hello_vertical": "안녕하세요! 반갑습니다!\n",
+    "welcome_vertical": "Welcome to Cosmos Tarot",
+    "welcome_vertical-temp": "Cosmos Tarot에 오신 걸 환영\n합니다~!",
+    "click_instruction_vertical": "수정구슬을 눌러 시작해보세요.",
+    "click_instruction_vertical-temp": "사람의 마음이나 운세를 보시려면 \n수정구슬을 눌러주세요.",
+    "choose_spread_vertical": "참고로 왼쪽에 있는 책이 이용안내",
+    "usage_vertical-old": "서입니다. 그 외에도 숨겨진 다른 \n기능들도 찾아보세요!\n",
+    "usage_vertical": "서이며, 가로모드로도 편리하게 즐기\n실 수 있습니다!\n",
+    "wait_vertical": "\t잠시만 기다려주세요!",
+    "time_normal_vertical": "분석을 위해 5초에서 20초\n   정도 소요될 예정입니다.",
+    "time_deep_vertical": "정밀한 분석을 위해 20초에서\n   1분 정도 소요될 예정입니다.",
+    "time_serious_vertical": "정밀한 분석을 위해 30초에서\n   2분 정도 소요될 예정입니다.",
+    "time_deep_one_vertical": "정밀한 분석을 위해 10초에서\n   30초 정도 소요될 예정입니다.",
+    "time_serious_one_vertical": "정밀한 분석을 위해 10초에서\n   1분 정도 소요될 예정입니다.",
+    "you_know_vertical": "   알고 계시나요?",
+    "tarot1_vertical": "   타로카드는 마음과 감정을 읽\n   어내는 강력한 도구입니다.",
+    "tarot2_vertical": "   타로원리를 클릭하여 타로에\n   대해 자세히 이해해 보세요."
+  },
+  "instruction": {
+    "speed_modal_card": "질문을 생각하며 덱을 클릭하여 카드를 섞고, 드래그하여 원하는 카드를 선택하세요.",
+    "speed_modal_card_not_computer": "질문을 생각하며 덱을 클릭하여 카드를 섞고, '카드선택'을 눌러 원하는 카드를 선택하세요.",
+    "tarot_modal_card": "질문을 생각하며 덱을 클릭하여 카드를 섞고, 드래그하여 원하는 카드를 선택하세요.",
+    "tarot_modal_card_not_computer": "질문을 생각하며 덱을 클릭하여 카드를 섞고, '카드선택'을 눌러 원하는 카드를 선택하세요.",
+    "tarot_modal_question": "필요한 질문란에 내용을 입력하세요.",
+    "tarot_modal_question-temp": "상세한 답변을 위해 필요한 질문란에 내용을 입력해주세요.",
+    "tarot_modal_question2": "구체적으로 표현하고 입력할수록 정확하고 자세한 답이 나옵니다.",
+    "tarot_modal_question3": "단, 사실에 기반한 내용만 입력해주세요.",
+    "tarot_modal_question_card": "검토후 '카드셔플'을 눌러주세요.",
+    "tarot_modal_question_card_not_computer": "검토후 '카드셔플'을 눌러주세요.",
+    "tarot_modal_question_card-temp": "질문의 내용에 오류가 없는지 검토하시고, '카드셔플'을 눌러주세요.",
+    "tarot_modal_question_card_not_computer-temp": "질문의 내용에 오류가 없는지 검토하시고, '카드셔플'을 눌러주세요.",
+    "tarot_modal_question_card2": "질문 내용을 수정하고 싶으면 '재작성' 버튼을 눌러 수정해세요.",
+    "tarot_modal_question_card_not_computer2": "질문 내용을 수정하고 싶으면 '재작성' 버튼을 눌러 수정해세요.",
+    "tarot_modal_question_card3": "추측이나 가정인 경우 이를 명확히 해주세요.",
+    "tarot_modal_question_card_not_computer3": "추측이나 가정인 경우 이를 명확히 해주세요.",
+    "tarot_modal_statics": "질문의 주제 혹은 질문의 대상란에 정보를 입력하면 마이페이지에서 상담 통계 서비스를 이용하실 수 있으십니다.",
+    "loading": "불러오는 중...",
+    "coming_soon": "서비스 준비 중입니다.",
+    "network-warnings": "Wi-Fi 속도가 느리거나 공공 Wi-Fi를 사용하는 경우, 네트워크 지연으로 인해 콘텐츠 이용에 문제가 발생할 수 있습니다. 안정적인 이용을 위해 빠른 네트워크 사용을 권장합니다.",
+    "ads-voucher": "보통타로 무료모드 스프레드 리딩 이용권 1~3장.\n해당 이용권은 광고를 시청한 기기에 저장됩니다. 어플을 삭제하면 이용권도 초기화 되니 주의바랍니다.",
+    "ads-remover": "3일 광고 프리 이용권",
+    "ads-remover-description": "보통타로 무료모드 광고, 스피드타로 광고, 배너 광고를 3일간 표시되지 않게 합니다."
+  },
+  "question": {
+    "spreadTitle": "스프레드 종류: ",
+    "question_topic": "질문 주제(생략OK): ",
+    "subject": "질문의 대상(생략OK): ",
+    "object": "대상의 상대(생략OK): ",
+    "relationships": "관계(생략OK)",
+    "theme": "질문 테마 예시: ",
+    "theme-description": "속마음, 사랑, 인간관계, 직업, 진로, 의사결정, 양심 등(사실적X, 지적X)",
+    "category": "카테고리 선택: ",
+    "situation": "질문 내용의 배경(생략OK): ",
+    "question": "질문(필수 입력): ",
+    "inner_feelings": "속마음",
+    "love": "사랑",
+    "human_relationships": "인간관계",
+    "finance": "금전",
+    "occupation": "직업",
+    "career": "진로",
+    "decision_making": "의사 결정",
+    "omitted": "생략",
+    "six_principle_instruction": "400자 이내로 간단하게 질문의 내용을 작성해주세요. 가능하다면, 누가, 무엇을, 언제, 어디서, 왜, 어떻게에 대해 자세하고 간결하게 작성해주시기 바랍니다.\n\n예1) 그(혹은 나)의 마음은?\n예2) 여자친구에 대한 그의 마음은?\n",
+    "six_principle_instruction_options": "700자 이내로 간단하게 질문의 내용을 작성해주세요. 가능하다면, 누가, 무엇을, 언제, 어디서, 왜, 어떻게에 대해 자세하고 간결하게 작성해주시기 바랍니다.\n\n예1) 그(혹은 나)의 마음은?\n예2) 여자친구에 대한 그의 마음은?\n",
+    "question_topic_instruction": "예)그(혹은 나)의 속마음",
+    "entity_or_individual_subject_instruction": "예)그(혹은 나)",
+    "entity_or_individual_object_instruction": "예)상대방 또는 물건",
+    "relationship_instruction_subject": "예)남자친구",
+    "relationship_instruction_object": "예)여자친구",
+    "relationship_instruction_subject_full": "예)남자친구",
+    "relationship_instruction_object_full": "예)여자친구",
+    "situation_instruction": "400자 이내로 질문에 대한 배경을 작성해주세요. 예를 들어, 질문의 대상, 대상의 상대자(해당하는 경우), 제3자(해당하는 경우), 그리고 주변 상황 등을 간결하게 작성해주시기 바랍니다.",
+    "first_option_instruction": "예)고백할지",
+    "second_option_instruction": "예)고백하지 않는지",
+    "third_option_instruction1": "예)관계 발전",
+    "third_option_instruction2": "예)현상 유지",
+    "third_option_instruction3": "예)멀어지기",
+    "relationship_subject": "질문의 대상: ",
+    "relationship_object": "대상의 상대: ",
+    "first_option": "선택지1: ",
+    "second_option": "선택지2: ",
+    "third_option": "선택지3: "
+  },
+  "title": {
+    "single": "싱글 카드(일반)",
+    "two": "두 장의 카드(일반)",
+    "two_choice": "양자택일",
+    "three": "세 장의 카드(일반)",
+    "three_time": "과거, 현재, 미래",
+    "three_solution": "문제 해결",
+    "three_a_day": "아침, 낮, 저녁",
+    "three_choice": "삼자택일",
+    "four": "네 장의 카드(일반)",
+    "five_relationship": "관계 분석",
+    "six-day": "6일간의 흐름",
+    "six-week": "6주간의 흐름",
+    "six-month": "6개월의 흐름",
+    "celtic_cross": "켈틱 크로스",
+    "single_speed_mode": "싱글 카드",
+    "two_speed_mode": "두 장의 카드",
+    "three_speed_mode": "세 장의 카드",
+    "four_speed_mode": "네 장의 카드",
+    "five_speed_mode": "다섯 장의 카드",
+    "five_relationship_speed_mode": "관계 분석",
+    "six_speed_mode": "여섯장의 카드",
+    "celtic_cross_speed_mode": "켈틱 크로스",
+    "ads": "◎",
+    "comprehensive": "종합해석"
+  },
+  "durumagi": {
+    "cards-meaning": "※ 카드별 의미 : ",
+    "cards-meaning-for-ads": "카드별 의미 : ",
+    "key-word": "가. 카드의 키워드 : ",
+    "card-positive-meaning": "나. 카드의 상징적 의미(긍정적 의미) : ",
+    "card-negative-meaning": "다. 카드의 상징적 의미(부정적 의미) : ",
+    "fortune-telling": "라. 카드 리딩 예시 : ",
+    "major": "메이저 카드",
+    "minor": "마이너 카드",
+    "card-order": "번째 카드"
+  },
+  "description": {
+    "single": "일반적인 개요 확인용. 주된 내용을 명확히 이해하기 위해 추천.",
+    "two": "두 주요 측면 또는 옵션 종합 분석.",
+    "two_choice": "질문에 두 가지 옵션을 정하여 양자택일.",
+    "three": "세 주요 측면 혹은 옵션 종합 분석. 명확한 결과. 널리 활용됨. 강추.",
+    "three_time": "시간의 흐름에 따른 양상 분석. 카드를 뽑는 순서대로 과거, 현재, 미래 의미.",
+    "three_solution": "현재 직면한 문제를 분석하고 해결책을 찾는 데 조언.",
+    "three_a_day": "하루 중 아침, 낮, 그리고 저녁별 운세나 마음 상태 확인.",
+    "three_choice": "질문에 세 가지 옵션을 정하여 삼자택일.",
+    "four": "네 주요 측면 혹은 시간대, 옵션의 종합 분석. 강추.",
+    "five_relationship": "두 사람의 개별 상태, 현재 관계, 도전, 그리고 미래 방향을 포괄적으로 조명.",
+    "six-day": "오늘로부터 6일간의 알고 싶은 운세나 마음의 흐름을 확인.",
+    "six-week": "이번주로부터 6주간의 알고 싶은 운세나 마음의 흐름을 확인.",
+    "six-month": "이번달로부터 6개월간의 알고 싶은 운세나 마음의 흐름을 확인.",
+    "celtic_cross": "한 대상의 현재 내외적 상황과 미래를 가장 상세히 살펴보는 분석. 강추.",
+    "single_speed_mode": "일반적인 개요 확인용. 주된 내용을 명확히 이해하기 위해 추천.",
+    "two_speed_mode": "두 주요 측면 또는 옵션 종합 분석. 뽑는 순으로 내용을 정해 양자택일 가능.",
+    "three_speed_mode": "세 주요 측면 혹은 시간대, 옵션 종합 분석. 명확한 결과. 널리 활용됨.",
+    "four_speed_mode": "네 주요 측면 혹은 시간대, 옵션 종합 분석.",
+    "five_relationship_speed_mode": "두 사람의 개별 상태, 현재 관계, 도전, 그리고 미래 방향을 포괄적으로 조명.",
+    "six_speed_mode": "6일, 6주간, 혹은 6개월의 운세나 마음의 흐름을 확인.",
+    "celtic_cross_speed_mode": "한 대상의 현재 내외적 상황과 잠재된 미래를 가장 상세히 살펴보는 분석."
+  },
+  "button": {
+    "simple-input": "간단 입력 모드",
+    "detailed-input": "상세 입력 모드",
+    "confirm": "확인",
+    "close": "닫기",
+    "submit": "제출",
+    "rewrite": "재작성",
+    "cancel": "취소",
+    "select": "카드선택",
+    "shuffle": "카드셔플",
+    "text-save": "저장",
+    "copy": "복사",
+    "delete": "삭제",
+    "signin": "로그인",
+    "google_signin": "Google 로그인",
+    "signup": "회원가입",
+    "withdraw": "회원 탈퇴",
+    "modify": "정보 수정",
+    "purchase": "이용권 구매",
+    "pay": "결제",
+    "tarot-manual": "이용안내",
+    "home": "홈",
+    "mypage": "마이페이지",
+    "refund-policy": "환불정책",
+    "price-info": "가격정보",
+    "paypal": "페이팔",
+    "vouchers": "이용권모드",
+    "ads": "무료모드",
+    "refund": "환불",
+    "apply": "신청하기",
+    "refunding": "환불처리중...",
+    "restore-purchases": "복원",
+    "loading": "불러오는 중",
+    "view-ads": "광고시청",
+    "view-ads-for-interpretation": "자세한 타로 카드 해석 보기",
+    "view-card-meaning": "카드별 의미 보기",
+    "close-card-meaning": "카드별 의미 닫기"
+  },
+  "unit": {
+    "ea": "장",
+    "money": "원",
+    "kind-of-voucher": "권",
+    "times": "회"
+  },
+  "voucher": {
+    "one-card": "카드1장권",
+    "two-cards": "카드2장권",
+    "three-cards": "카드3장권",
+    "four-cards": "카드4장권",
+    "five-cards": "카드5장권",
+    "six-cards": "카드6장권",
+    "seven-cards": "카드7장권",
+    "eight-cards": "카드8장권",
+    "nine-cards": "카드9장권",
+    "ten-cards": "카드10장권",
+    "eleven-cards": "카드11장권",
+    "thirteen-cards": "카드13장권",
+    "one-card-name": "I권",
+    "two-cards-name": "II권",
+    "three-cards-name": "III권",
+    "four-cards-name": "IV권",
+    "five-cards-name": "V권",
+    "six-cards-name": "VI권",
+    "seven-cards-name": "VII권",
+    "eight-cards-name": "VIII권",
+    "nine-cards-name": "IX권",
+    "ten-cards-name": "X권",
+    "eleven-cards-name": "XI권",
+    "thirteen-cards-name": "XIII권",
+    "required-voucher": "필요 이용권",
+    "remaining-voucher": "현재 보유 수량"
+  },
+  "tab": {
+    "speed_tarot": "스피드 타로",
+    "normal_question_tarot": "보통 타로",
+    "deep_question_tarot": "심층 타로",
+    "serious_question_tarot": "진지 타로"
+  },
+  "error": {
+    "error_happened": "에러가 발생했습니다"
+  },
+  "ad": {
+    "label": "광고",
+    "reward": "보상"
+  },
+  "notice": {
+    "title": "공지사항",
+    "content": [
+      "🔥 메가 패키지 한정 판매! 🔥",
+      "단 50명에게만 제공되는 특별한 메가 패키지",
+      "8월 25일까지 이용 가능!"
+    ],
+    "closeButtonAriaLabel": "팝업 닫기",
+    "confirmButton": "확인",
+    "hideFor7Days": "7일 동안 보지 않기"
+  },
+  "user": {
+    "register_success": "회원가입 완료",
+    "register_fail": "회원가입 오류 발생",
+    "modified_success": "회원정보 수정 완료",
+    "modified_fail": "회원정보 수정 실패",
+    "withdraw_success:": "회원탈퇴 완료",
+    "withdraw_fail:": "회원탈퇴 실패",
+    "login_success:": "로그인 성공",
+    "login_fail:": "로그인 실패",
+    "retry_sign_up:": "다시 로그인 하시기 바랍니다.",
+    "user_info_fail:": "회원정보 가져오기에 실패했습니다."
+  },
+  "meta": {
+    "name": "코스모스 타로",
+    "title": "코스모스 타로 - 마음을 읽어드립니다",
+    "description": "언제 어디서나 정확한 24시간 타로 상담. 오늘의 운세 한 장 무료. 내 운명은 어디로 향할까? 무료 타로 리딩으로 당신의 사랑, 일, 미래를 엿보세요. 코스모스 타로에서 우주가 속삭이는 비밀을 만나보세요.",
+    "keywords": "무료 타로, 타로카드, AI 타로, 타로 보기, 타로 앱, 연애운 타로, 오늘의 운세, 오늘의 타로, 연애 상담, 마음 읽기 타로, 취업운 타로, 무료 운세, 운세 앱, 연애운, 재물운, 직장운, 건강운, 심리 상담, 궁합, 사주, 점술, 마음 타로, 상대방 마음, 연애 고민, 이별 타로, 복합 타로, 원카드 타로, 미래 예측, 인공지능 타로, 모바일 타로, 온라인 타로, 타로 리딩, 카드 점, 운명, 사랑 운세",
+    "author": "JINWORLD",
+    "ogTitle": "코스모스 타로 - 마음을 읽어드립니다",
+    "ogDescription": "언제 어디서나 정확한 24시간 타로 상담. 오늘의 운세 한 장 무료. 내 운명은 어디로 향할까? 무료 타로 리딩으로 당신의 사랑, 일, 미래를 엿보세요. 코스모스 타로에서 우주가 속삭이는 비밀을 만나보세요.",
+    "twitterTitle": "코스모스 타로 - 마음을 읽어드립니다",
+    "twitterDescription": "언제 어디서나 정확한 24시간 타로 상담. 오늘의 운세 한 장 무료. 내 운명은 어디로 향할까? 무료 타로 리딩으로 당신의 사랑, 일, 미래를 엿보세요. 코스모스 타로에서 우주가 속삭이는 비밀을 만나보세요."
+  },
+  "interpretation": {
+    "comprehensive_interpretation": "🔮 종합해석",
+    "individual_card_interpretation": "🔮 개별카드해석",
+    "unknown_card": "알 수 없는 카드",
+    "unknown_direction": "알 수 없는 방향",
+    "unknown_position": "알 수 없는 위치",
+    "unknown_keyword": "알 수 없는 키워드",
+    "no_interpretation": "해석이 없습니다."
+  },
+  "content": {
+    "chart_content": "A. 메이저 카드(Major)\n\n의미: \n메이저 카드는 인생의 중요한 주제와 큰 영향력을 나타냅니다.\n메이저 카드 총 장수(22장)는 마이너 카드 총 장수(56장)의 약 39%에 해당합니다. 따라서 통계적으로 메이저 카드가 나올 확률이 더 낮습니다. 일반적으로 25~30% 정도가 나타나지만, 개인과 상황에 따라 다를 수 있습니다. 메이저 카드가 이 비율보다 상대적으로 많이 나오면, 다음과 같은 의미를 가집니다:\n1. 해당 카테고리(질문 소재, 질문 주체 등)에서 중요한 상황이나 감정이 작용하고 있습니다.\n2. 현재 상황이 '큰 영향을 미치는' 중요한 시기임을 나타냅니다.\n3. 마이너 카드보다 더 강력한 에너지나 메시지를 담고 있을 수 있습니다.\n예를 들어, 사랑이라는 특정 카테고리에서 메이저 카드가 많이 나온다면, 현재의 관계가 인생의 중요한 전환점에 있거나, 깊은 감정적 경험을 하고 있음을 의미할 수 있습니다. 또한, 현재의 삶이 큰 전환점에 있거나 중요한 개인적 성장의 기회가 다가오고 있음을 나타낼 수 있습니다.\n\n~\n\nB. 마이너 카드(Minor)\n의미: \n마이너 카드는 일상적인 측면과 구체적인 사건을 나타냅니다. 각 카드는 일상적인 상황, 감정, 상태 등을 더 세부적으로 표현합니다.\n타로 카드에서 마이너 카드(Minor)가 많이 나오는 것은 다음과 같은 의미를 가질 수 있습니다:\n1. 현재 상황이 극적인 변화 없이 일상적으로 진행되고 있습니다.\n2. 카테고리별로 주로 일상적인 문제나 결정에 집중하고 있습니다.\n3. 대체로 큰 변화보다는 일상적인 상황이나 점진적인 변화를 나타내는 경향이 있습니다.\n이는 일상의 작은 선택들이 모여 시간이 지나면서 큰 변화를 만들어낼 수 있음을 암시하기도 합니다.\n\n~\n\nC. 원소별 의미:\n1. 불 (완드 슈트):\n   - 상징: 횃불, 봉홧불, 불꽃\n   - 색상: 빨강, 주황\n   - 계절: 여름\n   - 방향: 남쪽\n   - 시간: 정오\n   - 의미: \n     * 에너지: 활력, 열정, 추진력, 생명력\n     * 창의성: 영감, 아이디어의 불꽃, 예술적 충동\n     * 변화: 급격한 전환, 정화, 재생\n     * 의지: 결단력, 용기, 자기 주장\n     * 성장: 확장, 발전, 야망\n     * 행동: 즉각적인 반응, 충동, 모험, 활발한 진행, 열정적인 추진\n   - 긍정적 특성: 열정, 자신감, 리더십, 창의성, 새로운 기회\n   - 부정적 특성: 공격성, 충동성, 과도한 자신감\n   - 관련 직업: 기업가, 예술가, 운동선수, 지도자\n   - 신체 부위: 머리, 눈, 신경계\n2. 물 (컵 슈트):\n   - 상징: 컵, 잔, 성배\n   - 색상: 파랑, 청록색\n   - 계절: 가을\n   - 방향: 서쪽\n   - 시간: 황혼\n   - 의미:\n     * 감정: 느낌, 정서, 무드, 직관\n     * 관계: 사랑, 우정, 가족 유대\n     * 상상력: 꿈, 환상, 창조적 영감\n     * 치유: 정서적 회복, 용서, 화해\n     * 흐름: 적응성, 유연성, 변화에 대한 수용, 자연스러운 흐름\n     * 무의식: 깊은 내면, 잠재의식, 숨겨진 욕망\n   - 긍정적 특성: 공감, 직관, 창의성, 감수성\n   - 부정적 특성: 감정적 불안정, 과도한 몽상, 현실 도피\n   - 관련 직업: 상담사, 예술가, 간호사, 요리사\n   - 신체 부위: 가슴, 심장, 림프계\n3. 공기 (소드 슈트):\n   - 상징: 칼, 검, 단검\n   - 색상: 노랑, 하늘색\n   - 계절: 봄\n   - 방향: 동쪽\n   - 시간: 새벽\n   - 의미:\n     * 지성: 논리, 분석, 객관성, 명확성\n     * 의사소통: 언어, 글쓰기, 교육, 정보 교환\n     * 사고: 아이디어, 개념, 철학, 지식\n     * 진실: 정직, 투명성, 윤리, 정의\n     * 갈등: 논쟁, 도전, 대립, 극복\n     * 결정: 선택, 판단, 분별력\n     * 속도: 빠름\n   - 긍정적 특성: 지적 명료함, 분석력, 공정성, 통찰력\n   - 부정적 특성: 냉정함, 비판적, 과도한 분석, 우유부단\n   - 관련 직업: 작가, 변호사, 과학자, 교사\n   - 신체 부위: 폐, 호흡기, 신경계\n4. 땅 (펜타클 슈트):\n   - 상징: 동전, 오각형, 별\n   - 색상: 녹색, 갈색\n   - 계절: 겨울\n   - 방향: 북쪽\n   - 시간: 한밤중\n   - 의미:\n     * 물질세계: 재물, 소유, 자원, 풍요\n     * 실용성: 현실성, 실질적 기술, 효율성\n     * 안정성: 보안, 신뢰성, 신중함, 지속성\n     * 건강: 신체적 웰빙, 영양, 체력\n     * 일: 직업, 경력, 생산성, 성취\n     * 자연: 환경, 생태계, 식물, 동물\n     * 결실: 확실하고 구체적인 결과\n   - 긍정적 특성: 신뢰성, 인내, 실용성, 근면성\n   - 부정적 특성: 물질주의, 고집, 변화에 대한 저항\n   - 관련 직업: 은행원, 농부, 건축가, 환경 전문가\n   - 신체 부위: 손, 발, 근육, 뼈\n\n~\n\nD. 특정 원소가 많이 나올 때: \n해당 원소의 특성과 영역에 주목해야 합니다. 예를 들어, 완드(불) 카드가 많이 나오면 열정, 창의성, 행동의 에너지가 강하게 작용하고 있음을 의미합니다. 이는 새로운 시작이나 프로젝트에 적합한 시기일 수 있으며, 이 에너지를 건설적으로 활용하는 것이 중요합니다.\n\n~\n\nE. 여러 원소가 균형 있게 나올 때: \n이는 현재 상황이 다양한 측면에서 균형잡힌 영향을 받고 있음을 나타냅니다. 삶의 여러 영역이 조화롭게 작용하고 있을 가능성이 높습니다.\n\n~\n\nF. 특정 원소가 부족할 때: \n부족한 원소의 특성을 의식적으로 보완하거나 개발할 필요가 있을 수 있습니다. 예를 들어, 물(컵) 카드가 적게 나온다면 감정적 측면이나 관계에 더 주의를 기울일 필요가 있을 수 있습니다.\n",
+    "principle_content": "정신과 의사이자 심리학자인 칼 구스타브 융은 인류가 공유하는 집단 무의식의 영역을 타로 카드를 통해 이해할 수 있다고 보았습니다. 그의 이론에 따르면, 집단 무의식은 모든 인류가 공통으로 가지고 있는 특성이며, 우리는 무의식의 깊은 영역에서 서로 연결되어 있습니다. 융은 이러한 관점을 바탕으로 '동시성의 원리'를 발전시켰습니다. 이는 우연히 동시에 발생하는 사건들이 실제로는 무의식적 연결을 통해 깊은 관계를 맺고 있다는 것입니다. 그는 이 원리를 타로 카드에 적용하여, 카드를 선택하는 순간 질문자의 무의식과 카드 사이에 특별한 연결이 이루어진다고 설명했습니다. 이러한 원리에 따라 직접 카드를 뽑거나, 다른 사람이 대신 뽑아주거나, 심지어 이름을 언급하지 않고 질문만 생각하며 집중해서 선택하더라도 의미 있는 결과를 얻을 수 있습니다. 주목할 점은 타로카드가 질문하는 그 순간의 에너지를 기준으로 결과를 보여준다는 것입니다. 인간의 감정과 상황은 계속해서 변화할 수 있으므로, 이를 염두에 두고 해석해야 합니다. 답변이 모호하게 느껴진다면 2~3번 정도 추가로 카드를 확인하는 것도 도움이 될 수 있습니다. 다만, 지나친 의존은 정신 건강에 부정적인 영향을 미칠 수 있으므로 적절한 범위 내에서 활용하시기 바랍니다.",
+    "explanation_content": "타로의 세계: 역사, 의미, 해석의 안내서",
+    "learning_tarot_content": "타로 배우기"
+  }
+}

@@ -1,0 +1,725 @@
+@use '_App.module.scss';
+
+.menu {
+  width: 100%;
+  height: auto;
+  // height: calc(100vh - 130px);
+  background-color: rgb(218, 165, 32, 0.2);
+  border: 1px solid goldenrod;
+  
+  // position: fixed;
+  // top: 50px;
+  & > li {
+    list-style-type: none;
+    @include App.flex-box-center(column);
+  }
+  & > li > ul {
+    font-weight: 500;
+    @include App.flex-box-center(row);
+    @include App.dongle-font(2rem);
+  }
+
+  & > li > ul > div {
+    width: 60px;
+    height: 100%;
+    border: 1px solid gold;
+    background-color: purple;
+    text-align: center;
+    font-size: 2rem;
+    line-height: 1;
+    z-index: 1;
+    cursor: pointer; // 마우스 커서 바꾸기
+    user-select: none; // 드래그 금지
+    -webkit-user-drag: none; // 드래그 금지
+  }
+  & > li > ul > div:hover {
+    font-weight: 800;
+  }
+  & > li > ul > div:active {
+    color: goldenrod;
+    font-weight: 800;
+  }
+  .menu-item-clicked {
+    background-color: rgb(218, 165, 32, 0.2);
+  }
+}
+.menu-japanese {
+  width: 100%;
+  height: auto;
+  // height: calc(100vh - 130px);
+  background-color: rgb(218, 165, 32, 0.2);
+  border: 1px solid goldenrod;
+  // position: fixed;
+  // top: 50px;
+
+  & > li {
+    list-style-type: none;
+  }
+  & > li > ul {
+    font-weight: 500;
+    @include App.flex-box-center(row);
+    @include App.dongle-font(2rem);
+  }
+
+  & > li > ul > div {
+    width: 60px;
+    height: 100%;
+    border: 1px solid gold;
+    background-color: purple;
+    text-align: center;
+    @include App.potta-font(1.2rem);
+    line-height: 1.9;
+    z-index: 1;
+    cursor: pointer; // 마우스 커서 바꾸기
+    user-select: none; // 드래그 금지
+    -webkit-user-drag: none; // 드래그 금지
+  }
+  & > li > ul > div:hover {
+    font-weight: 800;
+  }
+  & > li > ul > div:active {
+    color: goldenrod;
+    font-weight: 800;
+  }
+  .menu-item-japanese-clicked {
+    background-color: rgb(218, 165, 32, 0.2);
+  }
+}
+.menu-folded {
+  width: 100%;
+  height: auto;
+  // height: calc(100vh - 130px);
+  background-color: rgb(218, 165, 32, 0.2);
+  border: 1px solid goldenrod;
+  // position: fixed;
+  // top: 50px;
+
+  & > li {
+    list-style-type: none;
+  }
+  & > li > ul {
+    font-weight: 500;
+    @include App.dongle-font(2rem);
+    @include App.flex-box-center(row);
+  }
+
+  & > li > ul > div {
+    width: 60px;
+    background-color: purple;
+    border: 1px solid gold;
+    text-align: center;
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer; // 마우스 커서 바꾸기
+    user-select: none; // 드래그 금지
+    -webkit-user-drag: none; // 드래그 금지
+  }
+  & > li > ul > div:hover {
+    font-weight: 800;
+  }
+  & > li > ul > div:active {
+    color: goldenrod;
+    font-weight: 800;
+  }
+  .menu-item-clicked {
+    background-color: rgb(218, 165, 32, 0.2);
+  }
+}
+.menu-folded-japanese {
+  width: 100%;
+  height: 100%;
+  // height: calc(100vh - 130px);
+  background-color: rgb(218, 165, 32, 0.2);
+  border: 1px solid goldenrod;
+  // position: fixed;
+  // top: 50px;
+
+  & > li {
+    list-style-type: none;
+  }
+  & > li > ul {
+    font-weight: 500;
+    @include App.dongle-font(2rem);
+    @include App.flex-box-center(row);
+  }
+
+  & > li > ul > div {
+    width: 60px;
+    background-color: purple;
+    border: 1px solid gold;
+    text-align: center;
+    @include App.potta-font(1.2rem);
+    line-height: 1.9;
+    cursor: pointer; // 마우스 커서 바꾸기
+    user-select: none; // 드래그 금지
+    -webkit-user-drag: none; // 드래그 금지
+  }
+  & > li > ul > div:hover {
+    font-weight: 800;
+  }
+  & > li > ul > div:active {
+    color: goldenrod;
+    font-weight: 800;
+  }
+  .menu-item-japanese-clicked {
+    background-color: rgb(218, 165, 32, 0.2);
+  }
+}
+
+//~ 디바이스
+@media (min-device-width: 1025px) and (max-device-width: 1366px) {
+  .menu {
+    width: 100%;
+    height: 100%;
+
+    // position: relative;
+
+    & > div {
+      height: auto;
+
+      @include App.flex-box-center(column);
+      align-items: start;
+      @include App.dongle-font(2rem);
+    }
+    & > li {
+      height: auto;
+      @include App.flex-box-center(column);
+      // justify-content: start;
+    }
+    & > li > ul {
+      padding: 0px;
+
+      @include App.dongle-font(1.9rem);
+    }
+  }
+}
+//~ 태블릿, 아이패드, 아이패드 프로
+@media (min-device-width: 769px) and (max-device-width: 1024px) {
+  .menu {
+    width: 100%;
+    height: 100%;
+
+    // position: relative;
+
+    & > div {
+      height: auto;
+
+      @include App.flex-box-center(column);
+      align-items: start;
+      @include App.dongle-font(1.9rem);
+    }
+    & > li {
+      height: auto;
+      @include App.flex-box-center(column);
+      // justify-content: start;
+    }
+    & > li > ul {
+      padding: 0px;
+
+      @include App.dongle-font(1.7rem);
+    }
+  }
+}
+//~ 481px ~ 768px 및 태블릿
+@media (min-device-width: 481px) and (max-device-width: 768px) {
+  .menu {
+    width: 100%;
+    height: 100%;
+
+    // position: relative;
+
+    & > div {
+      height: auto;
+
+      @include App.flex-box-center(column);
+      align-items: start;
+      @include App.dongle-font(1.9rem);
+    }
+    & > li {
+      height: auto;
+      @include App.flex-box-center(column);
+      // justify-content: start;
+    }
+    & > li > ul {
+      padding: 0px;
+
+      @include App.dongle-font(1.7rem);
+    }
+  }
+}
+
+//~ IPhone 14 Pro Max(430px)
+@media only screen and (min-device-width: 415px) and (max-device-width: 480px) {
+  .menu {
+    width: 100%;
+    height: 100%;
+
+    // position: relative;
+
+    & > div {
+      height: auto;
+
+      @include App.flex-box-center(column);
+      align-items: start;
+      @include App.dongle-font(1.5rem);
+    }
+    & > li {
+      height: auto;
+      @include App.flex-box-center(column);
+      // justify-content: start;
+    }
+    & > li > ul {
+      padding: 0px;
+
+      @include App.dongle-font(1.4rem);
+    }
+  }
+}
+
+//~ 아이폰XR
+@media (min-device-width: 376px) and (max-device-width: 414px) {
+  .menu {
+    width: 100%;
+    height: 100%;
+
+    // position: relative;
+
+    & > div {
+      height: auto;
+
+      @include App.flex-box-center(column);
+      align-items: start;
+      @include App.dongle-font(1.4rem);
+    }
+    & > li {
+      height: auto;
+      @include App.flex-box-center(column);
+      // justify-content: start;
+    }
+    & > li > ul {
+      padding: 0px;
+
+      font-size: 1.35rem;
+      @include App.dongle-font(1.3rem);
+    }
+  }
+}
+//~ 아이폰 SE
+@media (min-device-width: 281px) and (max-device-width: 375px) {
+  .menu {
+    width: 100%;
+    height: 100%;
+
+    // position: relative;
+
+    & > div {
+      height: auto;
+      @include App.flex-box-center(column);
+      align-items: start;
+      @include App.dongle-font(1.4rem);
+    }
+    & > li {
+      height: auto;
+      @include App.flex-box-center(column);
+      // justify-content: start;
+    }
+    & > li > ul {
+      @include App.dongle-font(1.3rem);
+    }
+
+    & > li > ul > div {
+      width: 45px;
+    }
+  }
+}
+
+//~ 갤럭시 폴드
+@media (max-device-width: 280px) {
+  .menu {
+    width: 100vw;
+    height: 100%;
+
+    // position: relative;
+
+    & > div {
+      height: auto;
+
+      @include App.flex-box-center(column);
+      align-items: start;
+      @include App.dongle-font(1.5rem);
+    }
+    & > li {
+      height: auto;
+      @include App.flex-box-center(column);
+      // justify-content: start;
+    }
+    & > li > ul {
+      padding: 0px;
+
+      font-size: 1.35rem;
+      @include App.dongle-font(1.4rem);
+    }
+
+    & > li > ul > div {
+      width: 40px;
+    }
+  }
+}
+
+//! 반응형 웹브라우저
+//~ 디바이스
+@media (min-width: 1025px) and (max-width: 1366px) {
+  .menu {
+    width: 100%;
+    height: 100%;
+
+    // position: relative;
+
+    & > div {
+      height: auto;
+
+      @include App.flex-box-center(column);
+      align-items: start;
+      @include App.dongle-font(2rem);
+    }
+    & > li {
+      height: auto;
+      @include App.flex-box-center(column);
+      // justify-content: start;
+    }
+    & > li > ul {
+      padding: 0px;
+
+      @include App.dongle-font(1.9rem);
+    }
+  }
+}
+//~ 태블릿, 아이패드, 아이패드 프로
+@media (min-width: 769px) and (max-width: 1024px) {
+  .menu {
+    width: 100%;
+    height: 100%;
+
+    // position: relative;
+
+    & > div {
+      height: auto;
+
+      @include App.flex-box-center(column);
+      align-items: start;
+      @include App.dongle-font(1.9rem);
+    }
+    & > li {
+      height: auto;
+      @include App.flex-box-center(column);
+      // justify-content: start;
+    }
+    & > li > ul {
+      padding: 0px;
+
+      @include App.dongle-font(1.7rem);
+    }
+  }
+}
+//~ 481px ~ 768px 및 태블릿
+@media (min-width: 481px) and (max-width: 768px) {
+  .menu {
+    width: 100%;
+    height: 100%;
+
+    // position: relative;
+
+    & > div {
+      height: auto;
+
+      @include App.flex-box-center(column);
+      align-items: start;
+      @include App.dongle-font(1.9rem);
+    }
+    & > li {
+      height: auto;
+      @include App.flex-box-center(column);
+      // justify-content: start;
+    }
+    & > li > ul {
+      padding: 0px;
+
+      @include App.dongle-font(1.7rem);
+    }
+  }
+}
+
+//~ IPhone 14 Pro Max(430px)
+@media only screen and (min-width: 415px) and (max-width: 480px) {
+  .menu {
+    width: 100%;
+    height: 100%;
+
+    // position: relative;
+
+    & > div {
+      height: auto;
+
+      @include App.flex-box-center(column);
+      align-items: start;
+      @include App.dongle-font(1.5rem);
+    }
+    & > li {
+      height: auto;
+      @include App.flex-box-center(column);
+      // justify-content: start;
+    }
+    & > li > ul {
+      padding: 0px;
+
+      @include App.dongle-font(1.4rem);
+    }
+  }
+}
+
+//~ 아이폰XR
+@media (min-width: 376px) and (max-width: 414px) {
+  .menu {
+    width: 100%;
+    height: 100%;
+
+    // position: relative;
+
+    & > div {
+      height: auto;
+
+      @include App.flex-box-center(column);
+      align-items: start;
+      @include App.dongle-font(1.4rem);
+    }
+    & > li {
+      height: auto;
+      @include App.flex-box-center(column);
+      // justify-content: start;
+    }
+    & > li > ul {
+      padding: 0px;
+
+      font-size: 1.35rem;
+      @include App.dongle-font(1.3rem);
+    }
+  }
+}
+//~ 아이폰 SE
+@media (min-width: 281px) and (max-width: 375px) {
+  .menu {
+    width: 100%;
+    height: 100%;
+
+    // position: relative;
+
+    & > div {
+      height: auto;
+      @include App.flex-box-center(column);
+      align-items: start;
+      @include App.dongle-font(1.4rem);
+    }
+    & > li {
+      height: auto;
+      @include App.flex-box-center(column);
+      // justify-content: start;
+    }
+    & > li > ul {
+      @include App.dongle-font(1.3rem);
+    }
+
+    & > li > ul > div {
+      width: 45px;
+    }
+  }
+}
+
+//~ 갤럭시 폴드
+@media (max-width: 280px) {
+  .menu {
+    width: 100vw;
+    height: 100%;
+
+    // position: relative;
+
+    & > div {
+      height: auto;
+
+      @include App.flex-box-center(column);
+      align-items: start;
+      @include App.dongle-font(1.5rem);
+    }
+    & > li {
+      height: auto;
+      @include App.flex-box-center(column);
+      // justify-content: start;
+    }
+    & > li > ul {
+      padding: 0px;
+
+      font-size: 1.35rem;
+      @include App.dongle-font(1.4rem);
+    }
+
+    & > li > ul > div {
+      width: 40px;
+    }
+  }
+}
+
+//* 아이패드 프로 가로
+@media screen and (orientation: landscape) and (min-device-width: 1025px) and (max-device-width: 1366px) {
+  div.menu {
+    height: 100%;
+    // height: 20%;
+    // position: relative;
+
+    & > div {
+      height: auto;
+
+      @include App.flex-box-center(column);
+      align-items: start;
+      @include App.dongle-font(2.1rem);
+    }
+    & > li {
+      height: auto;
+      @include App.flex-box-center(column);
+      // justify-content: start;
+    }
+    & > li > ul {
+      padding: 0px;
+
+      @include App.dongle-font(1.9rem);
+    }
+  }
+}
+//* 태블릿 아이패드, 아이패드 프로 가로
+@media screen and (orientation: landscape) and (min-device-width: 933px) and (max-device-width: 1024px) {
+  div.menu {
+    height: auto;
+    max-height: 100%;
+    // height: 25%;
+    // position: relative;
+
+    & > div {
+      height: auto;
+
+      @include App.flex-box-center(column);
+      align-items: start;
+      @include App.dongle-font(2rem);
+    }
+    & > li {
+      height: auto;
+      @include App.flex-box-center(column);
+      // justify-content: start;
+    }
+    & > li > ul {
+      padding: 0px;
+
+      @include App.dongle-font(1.8rem);
+    }
+  }
+}
+
+//* IPhon 14 Pro Max 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 897px) and (max-device-width: 932px) {
+  div.menu {
+    height: 100%;
+    // position: relative;
+
+    & > div {
+      height: auto;
+
+      @include App.flex-box-center(column);
+      align-items: start;
+      @include App.dongle-font(1.5rem);
+    }
+    & > li {
+      height: auto;
+      @include App.flex-box-center(column);
+      // justify-content: start;
+    }
+    & > li > ul {
+      padding: 0px;
+
+      @include App.dongle-font(1.5rem);
+    }
+  }
+}
+
+//* 아이폰XR 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 668px) and (max-device-width: 896px) {
+  div.menu {
+    height: 100%;
+    // position: relative;
+
+    & > div {
+      height: auto;
+
+      @include App.flex-box-center(column);
+      align-items: start;
+      @include App.dongle-font(1.8rem);
+    }
+    & > li {
+      height: auto;
+      @include App.flex-box-center(column);
+      // justify-content: start;
+    }
+    & > li > ul {
+      padding: 0px;
+
+      @include App.dongle-font(1.7rem);
+    }
+  }
+}
+
+//* 아이폰SE 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 654px) and (max-device-width: 667px) {
+  div.menu {
+    height: 100%;
+    // height: 45%;
+    // position: relative;
+
+    & > div {
+      height: auto;
+      @include App.flex-box-center(column);
+      align-items: start;
+      @include App.dongle-font(1.5rem);
+    }
+    & > li {
+      height: auto;
+      @include App.flex-box-center(column);
+      // justify-content: start;
+    }
+    & > li > ul {
+      padding: 0px;
+
+      @include App.dongle-font(1.5rem);
+    }
+  }
+}
+//* 갤럭시 폴드 가로모드
+@media screen and (orientation: landscape) and (max-device-width: 653px) {
+  div.menu {
+    height: 100%;
+    // position: relative;
+
+    & > div {
+      height: auto;
+
+      @include App.flex-box-center(column);
+      align-items: start;
+      @include App.dongle-font(1.5rem);
+    }
+    & > li {
+      height: auto;
+      @include App.flex-box-center(column);
+      // justify-content: start;
+    }
+    & > li > ul {
+      padding: 0px;
+
+      @include App.dongle-font(1.5rem);
+    }
+  }
+}

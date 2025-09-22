@@ -1,0 +1,49 @@
+{
+  "port": 3000,
+  "buildDirectory": "./dist",
+  "engine": {
+    "launchOptions": {
+      "args": [
+        "--no-sandbox",
+        "--disable-setuid-sandbox",
+        "--disable-web-security",
+        "--disable-service-workers",
+        "--enable-webgl",
+        "--enable-accelerated-2d-canvas",
+        "--use-gl=swiftshader",
+        "--disable-gpu-sandbox"
+      ],
+      "product": "chrome",
+      "headless": true,
+      "ignoreHTTPSErrors": false
+    },
+    "gotoOptions": {
+      "timeout": 0,
+      "waitUntil": "domcontentloaded"
+    }
+  },
+  "routes": [
+    "/ko",
+    "/en",
+    "/ja",
+    "/ko/tarot/principle",
+    "/en/tarot/principle",
+    "/ja/tarot/principle",
+    "/ko/etc/tarot/learning",
+    "/ko/etc/tarot/explanation",
+    "/en/etc/tarot/learning",
+    "/en/etc/tarot/explanation",
+    "/ja/etc/tarot/learning",
+    "/ja/etc/tarot/explanation",
+    "/ko/etc",
+    "/en/etc",
+    "/ja/etc"
+  ],
+  "renderAfterEvent": "app-rendered",
+  "server": {
+    "port": 8080
+  },
+  "minifyCss": true,
+  "minifyJs": true,
+  "inlineCss": true
+}

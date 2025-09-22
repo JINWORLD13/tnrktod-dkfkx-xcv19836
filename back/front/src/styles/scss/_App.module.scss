@@ -1,0 +1,467 @@
+// @use url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
+// @use url('https://fonts.googleapis.com/css2?family=Dongle&display=swap');
+// @use url('https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&display=swap');
+// @use url('https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&family=Hahmlet:wght@100;400;900&family=M+PLUS+1p:wght@100;300;400;500;900&family=Moirai+One&family=Noto+Sans+JP:wght@300;700&family=Noto+Sans+KR:wght@100;200;400;800&family=Noto+Serif+JP:wght@200;300;400;900&family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&family=Roboto:ital,wght@1,100&family=Rock+3D&display=swap');
+
+// @mixin potta-one {
+//   @font-face {
+//     font-family: 'PottaOne';
+//     src: url('/assets/font/Kosugi_Maru/KosugiMaru-Regular.ttf') format('truetype');
+//   }
+// }
+// @include potta-one;
+// @mixin Dongle {
+//   @font-face {
+//     font-family: 'Dongle';
+//     src: url('/assets/font/Dongle/Dongle-Regular.ttf') format('truetype');
+//   }
+// }
+// @include Dongle;
+
+// @mixin potta-font($font-size) {
+//   font-family: 'PottaOne';
+//   font-size: $font-size;
+// }
+// @mixin dongle-font($font-size) {
+//   font-family: 'Dongle';
+//   font-size: $font-size;
+// }
+// @mixin default($zero) {
+//   margin: $zero;
+//   padding: $zero;
+// }
+
+// // 아래 font-family에서 커스텀 꺼들은 소용 없는뎅
+// * {
+//   @include default(0%);
+//   font-family: 'Dongle', 'PottaOne', inherit;
+//   box-sizing: border-box;
+// }
+
+@font-face {
+  font-family: 'PottaOne';
+  src: url('/assets/font/Kosugi_Maru/KosugiMaru-Regular.ttf') format('truetype'),
+    url('/assets/font/Kosugi_Maru/KosugiMaru-Regular.woff2') format('woff2'),
+    url('/assets/font/Kosugi_Maru/KosugiMaru-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Dongle';
+  src: url('/assets/font/Dongle/Dongle-Regular.ttf') format('truetype'),
+    url('/assets/font/Dongle/Dongle-Regular.woff2') format('woff2'),
+    url('/assets/font/Dongle/Dongle-Regular.woff') format('woff');
+}
+
+// 기본 스타일 믹신
+@mixin default($zero) {
+  margin: $zero;
+  padding: $zero;
+}
+
+// 폰트 스타일 믹신
+@mixin potta-font($font-size) {
+  font-family: 'PottaOne';
+  font-size: $font-size;
+}
+
+@mixin dongle-font($font-size) {
+  font-family: 'Dongle';
+  font-size: $font-size;
+}
+
+// 전역 스타일
+* {
+  @include default(0%);
+  font-family: 'Dongle', 'PottaOne', inherit;
+  box-sizing: border-box;
+}
+
+
+
+
+@mixin flex-box-center($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+@mixin position-absolute-center() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@mixin position-absolute-left-half() {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(0%, -50%);
+}
+@mixin position-absolute-right-half() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(0%, -50%);
+}
+@mixin position-absolute-top-half() {
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform: translate(-50%, 0%);
+}
+@mixin position-absolute-bottom-half() {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, 0%); // 손봐야함.
+}
+
+@mixin flex-grow($number) {
+  flex-grow: $number;
+}
+@mixin flex-gap($number) {
+  gap: 50px * $number;
+}
+@mixin grid-gap($number) {
+  grid-gap: 50px * $number;
+}
+
+@mixin scrollBar-custom-className(
+  $className,
+  $width,
+  $scrollBorderRadius,
+  $scrollColor,
+  $scrollBackGroundColor
+) {
+  /* 스크롤바 스타일링 */
+  .#{$className}::-webkit-scrollbar {
+    width: $width;
+  }
+
+  .#{$className}::-webkit-scrollbar-thumb {
+    background-color: $scrollColor;
+    border-radius: $scrollBorderRadius;
+  }
+
+  .#{$className}::-webkit-scrollbar-track {
+    background-color: $scrollBackGroundColor;
+    border-radius: $scrollBorderRadius;
+  }
+}
+@mixin scrollBar-custom-tagName(
+  $tagName,
+  $width,
+  $scrollBorderRadius,
+  $scrollColor,
+  $scrollBackGroundColor
+) {
+  /* 스크롤바 스타일링 */
+  #{$tagName}::-webkit-scrollbar {
+    width: $width;
+  }
+
+  #{$tagName}::-webkit-scrollbar-thumb {
+    background-color: $scrollColor;
+    border-radius: $scrollBorderRadius;
+  }
+
+  #{$tagName}::-webkit-scrollbar-track {
+    background-color: $scrollBackGroundColor;
+    border-radius: $scrollBorderRadius;
+  }
+}
+@mixin prevent-drag {
+  // 사용자 선택 방지
+  -webkit-user-select: none; // Chrome, Safari, Opera
+  -moz-user-select: none; // Firefox
+  -ms-user-select: none; // Internet Explorer/Edge
+  user-select: none; // 표준 구문
+
+  // 드래그 방지
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+
+  // 컨텍스트 메뉴 비활성화 (선택적)
+  -webkit-touch-callout: none; // iOS Safari
+}
+@mixin card-border {
+  border-radius: 20px;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  color: black;
+}
+@mixin width($width) {
+  width: $width;
+}
+@mixin height($height) {
+  height: $height;
+}
+
+@mixin one-card {
+  font-size: 1.3rem;
+  color: rgb(228, 47, 47); // 조금 더 진한 빨간색
+  text-shadow: -0.5px -0.5px 0 #fff, 0.5px -0.5px 0 #fff, -0.5px 0.5px 0 #fff,
+    0.5px 0.5px 0 #fff; /* 흰색 외곽선 */
+  // text-shadow: 0 0 2px #ffffff, 0 0 4px rgb(255, 80, 80),
+  //   0 0 6px rgb(255, 80, 80), 0 0 8px rgb(255, 80, 80);
+}
+
+@mixin two-cards {
+  font-size: 1.3rem;
+  color: rgb(255, 160, 80); // 조금 더 진한 주황색
+  text-shadow: -0.5px -0.5px 0 #fff, 0.5px -0.5px 0 #fff, -0.5px 0.5px 0 #fff,
+    0.5px 0.5px 0 #fff; /* 흰색 외곽선 */
+}
+
+@mixin three-cards {
+  font-size: 1.3rem;
+  color: rgb(255, 255, 0); // 노란색 (변경 없음)
+  text-shadow: -0.5px -0.5px 0 #fff, 0.5px -0.5px 0 #fff, -0.5px 0.5px 0 #fff,
+    0.5px 0.5px 0 #fff; /* 흰색 외곽선 */
+}
+
+@mixin four-cards {
+  font-size: 1.3rem;
+  color: rgb(0, 255, 0); // 초록색 (변경 없음)
+  text-shadow: -0.5px -0.5px 0 #fff, 0.5px -0.5px 0 #fff, -0.5px 0.5px 0 #fff,
+    0.5px 0.5px 0 #fff; /* 흰색 외곽선 */
+}
+
+@mixin five-cards {
+  font-size: 1.3rem;
+  color: rgb(0, 0, 255); // 파란색
+  text-shadow: -0.5px -0.5px 0 #fff, 0.5px -0.5px 0 #fff, -0.5px 0.5px 0 #fff,
+    0.5px 0.5px 0 #fff; /* 흰색 외곽선 */
+  // text-shadow: 0 0 2px #ffffff, 0 0 4px rgb(0, 0, 255), 0 0 6px rgb(0, 0, 255),
+  //   0 0 8px rgb(0, 0, 255);
+}
+
+@mixin six-cards {
+  font-size: 1.3rem;
+  color: rgb(150, 50, 255); // 더 밝은 형광 남색
+  text-shadow: -0.5px -0.5px 0 #fff, 0.5px -0.5px 0 #fff, -0.5px 0.5px 0 #fff,
+    0.5px 0.5px 0 #fff; /* 흰색 외곽선 */
+}
+
+@mixin seven-cards {
+  font-size: 1.3rem;
+  color: rgb(128, 0, 128);
+  text-shadow: -0.5px -0.5px 0 #fff, 0.5px -0.5px 0 #fff, -0.5px 0.5px 0 #fff,
+    0.5px 0.5px 0 #fff; /* 흰색 외곽선 */
+  // text-shadow: 0 0 2px #ffffff, 0 0 4px rgb(128, 0, 128),
+  //   0 0 6px rgb(128, 0, 128), 0 0 8px rgb(128, 0, 128);
+}
+
+@mixin eight-cards {
+  font-size: 1.3rem;
+  color: rgb(253, 140, 159); // 분홍색 (변경 없음)
+  text-shadow: -0.5px -0.5px 0 #fff, 0.5px -0.5px 0 #fff, -0.5px 0.5px 0 #fff,
+    0.5px 0.5px 0 #fff; /* 흰색 외곽선 */
+}
+
+@mixin nine-cards {
+  font-size: 1.3rem;
+  color: rgb(0, 255, 255); // 청록색 (변경 없음)
+  text-shadow: -0.5px -0.5px 0 #fff, 0.5px -0.5px 0 #fff, -0.5px 0.5px 0 #fff,
+    0.5px 0.5px 0 #fff; /* 흰색 외곽선 */
+}
+
+@mixin ten-cards {
+  font-size: 1.3rem;
+  color: gold;
+  text-shadow: -0.5px -0.5px 0 #fff, 0.5px -0.5px 0 #fff, -0.5px 0.5px 0 #fff,
+    0.5px 0.5px 0 #fff; /* 흰색 외곽선 */
+}
+
+@mixin eleven-cards {
+  font-size: 1.3rem;
+  color: rgb(192, 192, 192); // 은색 (변경 없음)
+  text-shadow: -0.5px -0.5px 0 #fff, 0.5px -0.5px 0 #fff, -0.5px 0.5px 0 #fff,
+    0.5px 0.5px 0 #fff; /* 흰색 외곽선 */
+}
+
+@mixin thirteen-cards {
+  font-size: 1.3rem;
+  color: black; // 검은색 (변경 없음)
+  text-shadow: -0.5px -0.5px 0 #fff, 0.5px -0.5px 0 #fff, -0.5px 0.5px 0 #fff,
+    0.5px 0.5px 0 #fff; /* 흰색 외곽선 */
+  // text-shadow: 0 0 2px gold, 0 0 4px gold, 0 0 6px gold, 0 0 8px gold;
+}
+
+@mixin ads-cards {
+  font-size: 1.3rem;
+  color: #ffff00;
+  text-shadow: 0 0 2px #ffff00, 0 0 4px #ffff00, 0 0 6px #ffff00,
+    0 0 8px #ffff00;
+}
+
+@mixin one-card-color {
+  color: rgb(228, 47, 47); // 조금 더 진한 빨간색
+  text-shadow: -0.5px -0.5px 0 #fff, 0.5px -0.5px 0 #fff, -0.5px 0.5px 0 #fff,
+    0.5px 0.5px 0 #fff; /* 흰색 외곽선 */
+  // text-shadow: 0 0 2px #ffffff, 0 0 4px rgb(255, 80, 80),
+  //   0 0 6px rgb(255, 80, 80), 0 0 8px rgb(255, 80, 80);
+}
+
+@mixin two-cards-color {
+  color: rgb(255, 160, 80); // 조금 더 진한 주황색
+  text-shadow: -0.5px -0.5px 0 #fff, 0.5px -0.5px 0 #fff, -0.5px 0.5px 0 #fff,
+    0.5px 0.5px 0 #fff; /* 흰색 외곽선 */
+}
+
+@mixin three-cards-color {
+  color: rgb(255, 255, 0); // 노란색 (변경 없음)
+  text-shadow: -0.5px -0.5px 0 #fff, 0.5px -0.5px 0 #fff, -0.5px 0.5px 0 #fff,
+    0.5px 0.5px 0 #fff; /* 흰색 외곽선 */
+}
+
+@mixin four-cards-color {
+  color: rgb(0, 255, 0); // 초록색 (변경 없음)
+  text-shadow: -0.5px -0.5px 0 #fff, 0.5px -0.5px 0 #fff, -0.5px 0.5px 0 #fff,
+    0.5px 0.5px 0 #fff; /* 흰색 외곽선 */
+}
+
+@mixin five-cards-color {
+  color: rgb(0, 0, 255); // 파란색
+  text-shadow: -0.5px -0.5px 0 #fff, 0.5px -0.5px 0 #fff, -0.5px 0.5px 0 #fff,
+    0.5px 0.5px 0 #fff; /* 흰색 외곽선 */
+  // text-shadow: 0 0 2px #ffffff, 0 0 4px rgb(0, 0, 255), 0 0 6px rgb(0, 0, 255),
+  //   0 0 8px rgb(0, 0, 255);
+}
+
+@mixin six-cards-color {
+  color: rgb(150, 50, 255); // 더 밝은 형광 남색
+  text-shadow: -0.5px -0.5px 0 #fff, 0.5px -0.5px 0 #fff, -0.5px 0.5px 0 #fff,
+    0.5px 0.5px 0 #fff; /* 흰색 외곽선 */
+  // text-shadow: 0 0 2px #ffffff, 0 0 4px rgb(150, 50, 255),
+  //   0 0 6px rgb(150, 50, 255), 0 0 8px rgb(150, 50, 255);
+}
+
+@mixin seven-cards-color {
+  color: rgb(128, 0, 128);
+  text-shadow: -0.5px -0.5px 0 #fff, 0.5px -0.5px 0 #fff, -0.5px 0.5px 0 #fff,
+    0.5px 0.5px 0 #fff; /* 흰색 외곽선 */
+  // text-shadow: 0 0 2px #ffffff, 0 0 4px rgb(128, 0, 128),
+  //   0 0 6px rgb(128, 0, 128), 0 0 8px rgb(128, 0, 128);
+}
+
+@mixin eight-cards-color {
+  color: rgb(253, 140, 159); // 분홍색 (변경 없음)
+  text-shadow: -0.5px -0.5px 0 #fff, 0.5px -0.5px 0 #fff, -0.5px 0.5px 0 #fff,
+    0.5px 0.5px 0 #fff; /* 흰색 외곽선 */
+}
+
+@mixin nine-cards-color {
+  color: rgb(0, 255, 255); // 청록색 (변경 없음)
+  text-shadow: -0.5px -0.5px 0 #fff, 0.5px -0.5px 0 #fff, -0.5px 0.5px 0 #fff,
+    0.5px 0.5px 0 #fff; /* 흰색 외곽선 */
+}
+
+@mixin ten-cards-color {
+  color: gold;
+  text-shadow: -0.5px -0.5px 0 #fff, 0.5px -0.5px 0 #fff, -0.5px 0.5px 0 #fff,
+    0.5px 0.5px 0 #fff; /* 흰색 외곽선 */
+}
+
+@mixin eleven-cards-color {
+  color: rgb(192, 192, 192); // 은색 (변경 없음)
+  text-shadow: -0.5px -0.5px 0 #fff, 0.5px -0.5px 0 #fff, -0.5px 0.5px 0 #fff,
+    0.5px 0.5px 0 #fff; /* 흰색 외곽선 */
+}
+
+@mixin thirteen-cards-color {
+  color: black; // 검은색 (변경 없음)
+  text-shadow: -0.5px -0.5px 0 #fff, 0.5px -0.5px 0 #fff, -0.5px 0.5px 0 #fff,
+    0.5px 0.5px 0 #fff; /* 흰색 외곽선 */
+  // text-shadow: 0 0 2px #ffffff, 0 0 4px black, 0 0 6px black, 0 0 8px black;
+}
+
+@mixin ads-cards-color {
+  color: #ffff00;
+  text-shadow: 0 0 2px #ffff00, 0 0 4px #ffff00, 0 0 6px #ffff00,
+    0 0 8px #ffff00;
+}
+
+@mixin no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@mixin no-drag {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+
+//~ 디바이스
+@media (min-device-width: 1025px) and (max-device-width: 1366px) {
+}
+//~ 태블릿, 아이패드, 아이패드 프로
+@media (min-device-width: 769px) and (max-device-width: 1024px) {
+}
+//~ 481px ~ 768px 및 태블릿
+@media (min-device-width: 481px) and (max-device-width: 768px) {
+}
+//~ IPhone 14 Pro Max(430px)
+@media only screen and (min-device-width: 415px) and (max-device-width: 480px) {
+}
+//~ 아이폰XR
+@media (min-device-width: 376px) and (max-device-width: 414px) {
+}
+//~ 아이폰 SE
+@media (min-device-width: 281px) and (max-device-width: 375px) {
+}
+//~ 갤럭시 폴드
+@media (max-device-width: 280px) {
+}
+
+//* 아이패드 프로 가로
+@media screen and (orientation: landscape) and (min-device-width: 1025px) and (max-device-width: 1366px) {
+}
+//* 태블릿 아이패드, 아이패드 프로 가로
+@media screen and (orientation: landscape) and (min-device-width: 933px) and (max-device-width: 1024px) {
+}
+//* IPhon 14 Pro Max 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 897px) and (max-device-width: 932px) {
+}
+//* 아이폰XR 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 668px) and (max-device-width: 896px) {
+}
+//* 아이폰SE 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 654px) and (max-device-width: 667px) {
+}
+//* 갤럭시 폴드 가로모드
+@media screen and (orientation: landscape) and (max-device-width: 653px) {
+}
+
+//!
+
+//~ 디바이스
+@media (min-width: 1025px) and (max-width: 1366px) {
+}
+//~ 태블릿, 아이패드, 아이패드 프로
+@media (min-width: 769px) and (max-width: 1024px) {
+}
+//~ 481px ~ 768px 및 태블릿
+@media (min-width: 481px) and (max-width: 768px) {
+}
+//~ IPhone 14 Pro Max(430px)
+@media only screen and (min-width: 415px) and (max-width: 480px) {
+}
+//~ 아이폰XR
+@media (min-width: 376px) and (max-width: 414px) {
+}
+//~ 아이폰 SE
+@media (min-width: 281px) and (max-width: 375px) {
+}
+//~ 갤럭시 폴드
+@media (max-width: 280px) {
+}

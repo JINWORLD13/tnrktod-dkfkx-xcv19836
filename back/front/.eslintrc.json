@@ -1,0 +1,9 @@
+{
+    "plugins": [
+      "react-hooks"
+    ],
+    "rules": {
+      "react-hooks/rules-of-hooks": "error", // Hooks 규칙 위반 감지 (예: 조건문 내 Hooks 호출)
+      "react-hooks/exhaustive-deps": "warn"  // useEffect/useCallback 의존성 배열 문제 감지
+    }
+  }

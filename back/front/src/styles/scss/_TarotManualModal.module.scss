@@ -1,0 +1,952 @@
+@use '_App.module.scss';
+@use '_TarotCardSpreadForm.module.scss';
+
+// ===== 변수 정의 =====
+$modal-min-width: 550px;
+$modal-default-width: 40%;
+$modal-content-width: 68%;
+$modal-content-width-landscape: 65%;
+$backdrop-bg: rgba(0, 0, 0, 0.75);
+$scrollbar-color: rgb(177, 40, 40);
+
+// 브레이크포인트 정의
+$breakpoints: (
+  'mobile-small': 280px,
+  'mobile': 375px,
+  'mobile-large': 480px,
+  'tablet-small': 768px,
+  'tablet': 1024px,
+  'desktop': 1366px
+);
+
+// ===== Mixins =====
+@mixin modal-base-style {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  overflow: hidden;
+  border: none;
+  background-color: transparent;
+  @include App.flex-box-center(column);
+  color: black;
+}
+
+@mixin backdrop-base-style {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 20;
+  background: $backdrop-bg;
+}
+
+@mixin modal-content-base($width: $modal-content-width) {
+  width: $width;
+  height: 60%;
+  @include App.flex-box-center(column);
+  justify-content: space-between;
+  
+  .content {
+    width: 100%;
+    height: 85%;
+    overflow-y: auto;
+    
+    & > h3 {
+      @include App.flex-box-center(row);
+    }
+  }
+}
+
+@mixin button-mobile-style {
+  .button {
+    margin: 0;
+    min-width: 80px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+}
+
+// ===== 기본 스타일 =====
+%durumagi-container {
+  width: $modal-default-width;
+  min-width: $modal-min-width;
+  height: 80%;
+  background-image: url('/assets/images/durumagi.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  @include App.position-absolute-right-half();
+  @include App.flex-box-center(column);
+}
+
+.backdrop {
+  @include backdrop-base-style;
+}
+
+.modal {
+  @include modal-base-style;
+  width: 500px;
+  height: 80%;
+  @extend %durumagi-container;
+}
+
+.title {
+  width: 100%;
+  @include App.flex-box-center(row);
+  justify-content: flex-start;
+  
+  p {
+    @include App.dongle-font(1.8rem);
+    margin: 10px 10px 10px 20px;
+  }
+}
+
+.modal-content {
+  @include modal-content-base;
+  @include App.dongle-font(1.7rem);
+}
+
+.title-japanese {
+  width: 100%;
+  @include App.flex-box-center(row);
+  justify-content: flex-start;
+  margin-bottom: 10px;
+  
+  p {
+    @include App.potta-font(1.4rem);
+    margin: 10px 10px 10px 20px;
+  }
+}
+
+.modal-content-japanese {
+  @include modal-content-base;
+  @include App.potta-font(1.2rem);
+  line-height: 1.5;
+}
+
+.button-box {
+  width: 100%;
+  height: 15%;
+  @include App.flex-box-center(row);
+  justify-content: flex-end;
+}
+
+.button {
+  margin: 10px 0 0 10px;
+  min-width: 90px;
+}
+
+// 스크롤바 스타일 (오타 수정: transparent)
+@include App.scrollBar-custom-className(
+  content,
+  14px,
+  5px,
+  $scrollbar-color,
+  transparent
+);
+
+// ===== 반응형 디자인 =====
+
+// 데스크톱 (1025px - 1366px)
+@media (min-width: 1025px) and (max-width: 1366px) {
+  .modal {
+    width: 70%;
+    height: 70%;
+    max-height: 600px;
+  }
+}
+
+// 태블릿 (769px - 1024px)
+@media (min-width: 769px) and (max-width: 1024px) {
+  .modal {
+    width: 70%;
+    height: 70%;
+    max-height: 700px;
+  }
+}
+
+// 중형 태블릿 (481px - 768px)
+@media (min-width: 481px) and (max-width: 768px) {
+  .modal {
+    width: 90%;
+    max-height: 700px;
+  }
+}
+
+// 모바일 (최대 480px)
+@media (max-width: 480px) {
+  .modal {
+    width: 100%;
+    min-width: 100px;
+    height: 70%;
+  }
+  
+  @include button-mobile-style;
+}
+
+// ===== 가로 모드 (Landscape) =====
+
+// 데스크톱 가로 (1025px+)
+@media screen and (orientation: landscape) and (min-width: 1025px) {
+  .backdrop {
+    @include backdrop-base-style;
+    height: 100%;
+  }
+  
+  .modal {
+    max-width: 100%;
+    height: 80%;
+    max-height: 100%;
+  }
+  
+  .modal-content {
+    @include modal-content-base($modal-content-width-landscape);
+    @include App.dongle-font(1.7rem);
+    
+    .content {
+      height: 80%;
+    }
+  }
+  
+  .modal-content-japanese {
+    @include modal-content-base($modal-content-width-landscape);
+    @include App.potta-font(1.2rem);
+    
+    .content {
+      height: 80%;
+    }
+  }
+  
+  .button-box {
+    width: 100%;
+    height: 15%;
+    @include App.flex-box-center(row);
+    justify-content: flex-end;
+  }
+  
+  @include button-mobile-style;
+}
+
+// 태블릿 가로 (769px - 1024px)
+@media screen and (orientation: landscape) and (min-width: 769px) and (max-width: 1024px) {
+  .backdrop {
+    @include backdrop-base-style;
+    height: 100%;
+  }
+  
+  .modal {
+    max-width: 100%;
+    height: 600px;
+    max-height: 100%;
+  }
+  
+  .modal-content {
+    @include modal-content-base($modal-content-width-landscape);
+    @include App.dongle-font(1.7rem);
+    
+    .content {
+      height: 75%;
+    }
+  }
+  
+  .modal-content-japanese {
+    @include modal-content-base($modal-content-width-landscape);
+    @include App.potta-font(1.2rem);
+    
+    .content {
+      height: 75%;
+    }
+  }
+  
+  @include button-mobile-style;
+}
+
+// 모바일 가로 (최대 768px)
+@media screen and (orientation: landscape) and (max-width: 768px) {
+  .backdrop {
+    @include backdrop-base-style;
+    height: 100%;
+  }
+  
+  .modal {
+    width: 70%;
+    max-width: 500px;
+    height: 100%;
+    max-height: 500px;
+  }
+  
+  .modal-content {
+    @include modal-content-base($modal-content-width-landscape);
+    @include App.dongle-font(1.7rem);
+    
+    .content {
+      height: 75%;
+    }
+  }
+  
+  .modal-content-japanese {
+    @include modal-content-base($modal-content-width-landscape);
+    @include App.potta-font(1.2rem);
+    
+    .content {
+      height: 75%;
+    }
+  }
+  
+  @include button-mobile-style;
+}
+// @use '_App.module.scss';
+// @use '_TarotCardSpreadForm.module.scss';
+
+// %durumagi-container {
+//   width: 40%;
+//   min-width: 550px; // & 크기 이상해지면 없애거나 수정
+//   height: 80%;
+//   //   /* 그림자 효과 */
+//   //   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+//   background-image: url('/assets/images/durumagi.png');
+//   background-size: 100% 100%;
+//   background-repeat: no-repeat;
+//   background-attachment: fixed;
+//   @include App.position-absolute-right-half();
+//   @include App.flex-box-center(column);
+// }
+// .backdrop {
+//   position: fixed;
+//   top: 0px;
+//   left: 0;
+//   width: 100vw;
+//   height: 100vh;
+//   overflow: hidden;
+//   // height: calc(100vh - 130px);
+//   z-index: 20;
+//   background: rgba(0, 0, 0, 0.75);
+// }
+
+// .modal {
+//   position: fixed;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   width: 500px;
+//   height: 80%;
+//   z-index: 100;
+//   overflow: hidden;
+//   @include App.flex-box-center(column);
+//   border: none;
+//   background-color: transparent;
+//   @extend %durumagi-container;
+// }
+// .title {
+//   width: 100%;
+//   @include App.flex-box-center(row);
+//   justify-content: start;
+//   p {
+//     @include App.dongle-font(1.8rem);
+//     margin: 10px;
+//     margin-left: 20px;
+//   }
+// }
+// .modal-content {
+//   width: 68%;
+//   height: 60%;
+//   @include App.dongle-font(1.7rem);
+//   @include App.flex-box-center(column);
+//   justify-content: space-between;
+//   .content {
+//     width: 100%;
+//     height: 85%;
+//     overflow-y: auto;
+//     & > h3 {
+//       @include App.flex-box-center(row);
+//     }
+//   }
+// }
+// @include App.scrollBar-custom-className(
+//   content,
+//   14px,
+//   5px,
+//   rgb(177, 40, 40),
+//   transperant
+// );
+
+// .button-box {
+//   width: 100%;
+//   height: 15%;
+//   @include App.flex-box-center(row);
+//   justify-content: end;
+// }
+// .button {
+//   margin: 10px;
+//   margin-left: 0px;
+//   min-width: 90px;
+// }
+
+// .title-japanese {
+//   width: 100%;
+//   @include App.flex-box-center(row);
+//   justify-content: start;
+//   margin-bottom: 10px;
+//   p {
+//     @include App.potta-font(1.4rem);
+//     margin: 10px;
+//     margin-left: 20px;
+//   }
+// }
+// .modal-content-japanese {
+//   width: 68%;
+//   height: 60%;
+//   @include App.potta-font(1.2rem);
+//   line-height: 1.5;
+//   .content {
+//     width: 100%;
+//     height: 85%;
+//     overflow-y: auto;
+//     & > h3 {
+//       @include App.flex-box-center(row);
+//     }
+//   }
+// }
+
+
+// // //~ 디바이스
+// // @media (min-device-width: 1025px) and (max-device-width: 1366px) {
+// //   .modal {
+// //     width: 70%;
+// //     height: 70%;
+// //     max-height: 700px;
+// //   }
+// //   .modal-content {
+// //   }
+// //   .modal-content-japanese {
+// //   }
+// // }
+
+// // //~ 태블릿, 아이패드, 아이패드 프로
+// // @media (min-device-width: 769px) and (max-device-width: 1024px) {
+// //   .modal {
+// //     width: 70%;
+// //     height: 70%;
+// //     max-height: 700px;
+// //   }
+// //   .modal-content {
+// //   }
+// //   .modal-content-japanese {
+// //   }
+// // }
+
+// // //~ 481px ~ 768px 및 태블릿
+// // @media (min-device-width: 481px) and (max-device-width: 768px) {
+// //   .modal {
+// //     width: 90%;
+// //     max-height: 700px;
+// //   }
+// //   .modal-content {
+// //   }
+// //   .modal-content-japanese {
+// //   }
+// // }
+
+
+// // //~ IPhone 14 Pro Max(430px)
+// // @media only screen and (min-device-width: 415px) and (max-device-width: 480px) {
+// //   .modal {
+// //     width: 100%;
+// //     min-width: 100px;
+// //     height: 70%;
+// //   }
+// //   .button {
+// //     margin: 0px;
+// //     min-width: 80px;
+// //     height: auto;
+// //     margin-bottom: 10px;
+// //   }
+// // }
+
+// // //~ 아이폰XR
+// // @media (min-device-width: 376px) and (max-device-width: 414px) {
+// //   .modal {
+// //     width: 100%;
+// //     min-width: 100px;
+// //     height: 70%;
+// //   }
+// //   .button {
+// //     margin: 0px;
+// //     min-width: 80px;
+// //     height: auto;
+// //     margin-bottom: 10px;
+// //   }
+// // }
+
+// // //~ 아이폰 SE
+// // @media (min-device-width: 281px) and (max-device-width: 375px) {
+// //   .modal {
+// //     width: 100%;
+// //     min-width: 100px;
+// //     height: 70%;
+// //   }
+// //   .button {
+// //     margin: 0px;
+// //     min-width: 80px;
+// //     height: auto;
+// //     margin-bottom: 10px;
+// //   }
+// // }
+
+
+// // //~ 갤럭시 폴드
+// // @media (max-device-width: 280px) {
+// //   .modal {
+// //     width: 100%;
+// //     min-width: 100px;
+// //     height: 70%;
+// //   }
+// //   .button {
+// //     margin: 0px;
+// //     min-width: 80px;
+// //     height: auto;
+// //     margin-bottom: 10px;
+// //   }
+  
+// // }
+
+// //! 반응형 웹브라우저용
+
+// //~ 디바이스
+// @media (min-width: 1025px) and (max-width: 1366px) {
+//   .modal {
+//     width: 70%;
+//     height: 70%;
+//     max-height: 600px;
+//   }
+//   .modal-content {
+//   }
+//   .modal-content-japanese {
+//   }
+// }
+
+// //~ 태블릿, 아이패드, 아이패드 프로
+// @media (min-width: 769px) and (max-width: 1024px) {
+//   .modal {
+//     width: 70%;
+//     height: 70%;
+//     max-height: 700px;
+//   }
+//   .modal-content {
+//   }
+//   .modal-content-japanese {
+//   }
+// }
+
+// //~ 481px ~ 768px 및 태블릿
+// @media (min-width: 481px) and (max-width: 768px) {
+//   .modal {
+//     width: 90%;
+//     max-height: 700px;
+//   }
+//   .modal-content {
+//   }
+//   .modal-content-japanese {
+//   }
+// }
+
+
+// //~ IPhone 14 Pro Max(430px)
+// @media only screen and (min-width: 415px) and (max-width: 480px) {
+//   .modal {
+//     width: 100%;
+//     min-width: 100px;
+//     height: 70%;
+//   }
+//   .button {
+//     margin: 0px;
+//     min-width: 80px;
+//     height: auto;
+//     margin-bottom: 10px;
+//   }
+// }
+
+// //~ 아이폰XR
+// @media (min-width: 376px) and (max-width: 414px) {
+//   .modal {
+//     width: 100%;
+//     min-width: 100px;
+//     height: 70%;
+//   }
+//   .button {
+//     margin: 0px;
+//     min-width: 80px;
+//     height: auto;
+//     margin-bottom: 10px;
+//   }
+// }
+
+// //~ 아이폰 SE
+// @media (min-width: 281px) and (max-width: 375px) {
+//   .modal {
+//     width: 100%;
+//     min-width: 100px;
+//     height: 70%;
+//   }
+//   .button {
+//     margin: 0px;
+//     min-width: 80px;
+//     height: auto;
+//     margin-bottom: 10px;
+//   }
+// }
+
+
+// //~ 갤럭시 폴드
+// @media (max-width: 280px) {
+//   .modal {
+//     width: 100%;
+//     min-width: 100px;
+//     height: 70%;
+//   }
+//   .button {
+//     margin: 0px;
+//     min-width: 80px;
+//     height: auto;
+//     margin-bottom: 10px;
+//   }
+  
+// }
+
+
+
+
+// //* 아이패드 프로 가로
+// @media screen and (orientation: landscape) and (min-device-width: 1025px) and (max-device-width: 1366px) {
+//   div.backdrop {
+//     position: fixed;
+//     top: 0px;
+//     left: 0;
+//     width: 100vw;
+//     height: 100%;
+//     // height: calc(100vh - 130px);
+//     z-index: 20;
+//     background: rgba(0, 0, 0, 0.75);
+//   }
+//   div.modal {
+//     max-width: 100%;
+//     height: 80%;
+//     max-height: 100%;
+//   }
+//   .modal-content {
+//     width: 65%;
+//     height: 60%;
+//     @include App.dongle-font(1.7rem);
+//     @include App.flex-box-center(column);
+//     justify-content: space-between;
+//     .content {
+//       width: 100%;
+//       height: 80%;
+//       overflow-y: auto;
+//     }
+//   }
+//   .button-box {
+//     width: 100%;
+//     height: 15%;
+//     @include App.flex-box-center(row);
+//     justify-content: end;
+//   }
+//   button.button {
+//     margin: 0px;
+//     min-width: 80px;
+//     height: auto;
+//     margin-bottom: 10px;
+//   }
+//   .modal-content-japanese {
+//     width: 65%;
+//     height: 60%;
+//     @include App.potta-font(1.2rem);
+//     @include App.flex-box-center(column);
+//     justify-content: space-between;
+//     .content {
+//       width: 100%;
+//       height: 80%;
+//       overflow-y: auto;
+//     }
+//   }
+// }
+
+// //* 태블릿 아이패드, 아이패드 프로 가로
+// @media screen and (orientation: landscape) and (min-device-width: 933px) and (max-device-width: 1024px) {
+//   div.backdrop {
+//     position: fixed;
+//     top: 0px;
+//     left: 0;
+//     width: 100vw;
+//     height: 100%;
+//     // height: calc(100vh - 130px);
+//     z-index: 20;
+//     background: rgba(0, 0, 0, 0.75);
+//   }
+//   div.modal {
+//     max-width: 100%;
+//     height: 600px;
+//     max-height: 100%;
+//   }
+//   .modal-content {
+//     width: 65%;
+//     height: 60%;
+//     @include App.dongle-font(1.7rem);
+//     @include App.flex-box-center(column);
+//     justify-content: space-between;
+//     .content {
+//       width: 100%;
+//       height: 75%;
+//       overflow-y: auto;
+//     }
+//   }
+//   .button-box {
+//     width: 100%;
+//     height: 15%;
+//     @include App.flex-box-center(row);
+//     justify-content: end;
+//   }
+//   button.button {
+//     margin: 0px;
+//     min-width: 80px;
+//     height: auto;
+//     margin-bottom: 10px;
+//   }
+//   .modal-content-japanese {
+//     width: 65%;
+//     height: 60%;
+//     @include App.potta-font(1.2rem);
+//     @include App.flex-box-center(column);
+//     justify-content: space-between;
+//     .content {
+//       width: 100%;
+//       height: 75%;
+//       overflow-y: auto;
+//     }
+//   }
+// }
+
+// //* IPhon 14 Pro Max 가로모드
+// @media screen and (orientation: landscape) and (min-device-width: 897px) and (max-device-width: 932px) {
+//   div.backdrop {
+//     position: fixed;
+//     top: 0px;
+//     left: 0;
+//     width: 100vw;
+//     height: 100%;
+//     // height: calc(100vh - 130px);
+//     z-index: 20;
+//     background: rgba(0, 0, 0, 0.75);
+//   }
+//   div.modal {
+//     max-width: 100%;
+//     height: 100%;
+//     max-height: 100%;
+//   }
+//   .modal-content {
+//     width: 65%;
+//     height: 60%;
+//     @include App.dongle-font(1.7rem);
+//     @include App.flex-box-center(column);
+//     justify-content: space-between;
+//     .content {
+//       width: 100%;
+//       height: 75%;
+//       overflow-y: auto;
+//     }
+//   }
+//   .button-box {
+//     width: 100%;
+//     height: 15%;
+//     @include App.flex-box-center(row);
+//     justify-content: end;
+//   }
+//   button.button {
+//     margin: 0px;
+//     min-width: 80px;
+//     height: auto;
+//     margin-bottom: 10px;
+//   }
+//   .modal-content-japanese {
+//     width: 65%;
+//     height: 60%;
+//     @include App.potta-font(1.2rem);
+//     @include App.flex-box-center(column);
+//     justify-content: space-between;
+//     .content {
+//       width: 100%;
+//       height: 75%;
+//       overflow-y: auto;
+//     }
+//   }
+// }
+
+
+// //* 아이폰XR 가로모드
+// @media screen and (orientation: landscape) and (min-device-width: 668px) and (max-device-width: 896px) {
+//   div.backdrop {
+//     position: fixed;
+//     top: 0px;
+//     left: 0;
+//     width: 100vw;
+//     height: 100%;
+//     // height: calc(100vh - 130px);
+//     z-index: 20;
+//     background: rgba(0, 0, 0, 0.75);
+//   }
+//   div.modal {
+//     max-width: 100%;
+//     height: 100%;
+//     max-height: 100%;
+//   }
+//   .modal-content {
+//     width: 65%;
+//     height: 60%;
+//     @include App.dongle-font(1.7rem);
+//     @include App.flex-box-center(column);
+//     justify-content: space-between;
+//     .content {
+//       width: 100%;
+//       height: 75%;
+//       overflow-y: auto;
+//     }
+//   }
+//   .button-box {
+//     width: 100%;
+//     height: 15%;
+//     @include App.flex-box-center(row);
+//     justify-content: end;
+//   }
+//   button.button {
+//     margin: 0px;
+//     min-width: 80px;
+//     height: auto;
+//     margin-bottom: 10px;
+//   }
+//   .modal-content-japanese {
+//     width: 65%;
+//     height: 60%;
+//     @include App.potta-font(1.2rem);
+//     @include App.flex-box-center(column);
+//     justify-content: space-between;
+//     .content {
+//       width: 100%;
+//       height: 75%;
+//       overflow-y: auto;
+//     }
+//   }
+// }
+
+// //* 아이폰SE 가로모드
+// @media screen and (orientation: landscape) and (min-device-width: 654px) and (max-device-width: 667px) {
+//   div.backdrop {
+//     position: fixed;
+//     top: 0px;
+//     left: 0;
+//     width: 100vw;
+//     height: 100%;
+//     // height: calc(100vh - 130px);
+//     z-index: 20;
+//     background: rgba(0, 0, 0, 0.75);
+//   }
+//   div.modal {
+//     max-width: 100%;
+//     height: 100%;
+//     max-height: 100%;
+//   }
+//   .modal-content {
+//     width: 65%;
+//     height: 60%;
+//     @include App.dongle-font(1.7rem);
+//     @include App.flex-box-center(column);
+//     justify-content: space-between;
+//     .content {
+//       width: 100%;
+//       height: 75%;
+//       overflow-y: auto;
+//     }
+//   }
+//   .button-box {
+//     width: 100%;
+//     height: 15%;
+//     @include App.flex-box-center(row);
+//     justify-content: end;
+//   }
+//   button.button {
+//     margin: 0px;
+//     min-width: 80px;
+//     height: auto;
+//     margin-bottom: 10px;
+//   }
+//   .modal-content-japanese {
+//     width: 65%;
+//     height: 60%;
+//     @include App.potta-font(1.2rem);
+//     @include App.flex-box-center(column);
+//     justify-content: space-between;
+//     .content {
+//       width: 100%;
+//       height: 75%;
+//       overflow-y: auto;
+//     }
+//   }
+// }
+// //* 갤럭시 폴드 가로모드
+// @media screen and (orientation: landscape) and (max-device-width: 653px) {
+//   div.backdrop {
+//     position: fixed;
+//     top: 0px;
+//     left: 0;
+//     width: 100vw;
+//     height: 100%;
+//     // height: calc(100vh - 130px);
+//     z-index: 20;
+//     background: rgba(0, 0, 0, 0.75);
+//   }
+//   div.modal {
+//     width: 70%;
+//     max-width: 500px;
+//     height: 100%;
+//     max-height: 500px;
+//   }
+//   .modal-content {
+//     width: 65%;
+//     height: 60%;
+//     @include App.dongle-font(1.7rem);
+//     @include App.flex-box-center(column);
+//     justify-content: space-between;
+//     .content {
+//       width: 100%;
+//       height: 75%;
+//       overflow-y: auto;
+//     }
+//   }
+//   .button-box {
+//     width: 100%;
+//     height: 15%;
+//     @include App.flex-box-center(row);
+//     justify-content: end;
+//   }
+//   button.button {
+//     margin: 0px;
+//     min-width: 80px;
+//     height: auto;
+//     margin-bottom: 10px;
+//   }
+//   .modal-content-japanese {
+//     width: 65%;
+//     height: 60%;
+//     @include App.potta-font(1.2rem);
+//     @include App.flex-box-center(column);
+//     justify-content: space-between;
+//     .content {
+//       width: 100%;
+//       height: 75%;
+//       overflow-y: auto;
+//     }
+//   }
+// }

@@ -1,0 +1,701 @@
+{
+  "header": {
+    "logo": "Cosmos Tarot",
+    "principle": "Principle",
+    "spread": "Spread",
+    "mypage": "My page",
+    "logout": "Sign Out",
+    "login": "Sign In",
+    "register": "Sign Up",
+    "more": "More",
+    "language": "Languages",
+    "help": "Help"
+  },
+  "footer": {
+    "quotation1-1": "Your destiny and future depend on",
+    "quotation1-2": "your inner changes and choices.",
+    "quotation2-1": "Cards see hearts & resulting fortunes,",
+    "quotation2-2": "not intellectual or factual matters.",
+    "quotation3-1": "In normal, deep, and serious tarot,",
+    "quotation3-2": "surface, deep, deeper hearts are read."
+  },
+  "page_title": {
+    "mypage": "My page",
+    "refund": "Refund"
+  },
+  "page": {
+    "threejs": {
+      "title": "Cosmos Tarot - Tarot Time with Your Cute Companion",
+      "metaDescription": "A quiet time to find answers in your heart. Enjoy 24/7 tarot consultations with an adorable character friend. A special space to organize complex thoughts and listen to your inner voice.",
+      "keywords": "cute character, 24-hour tarot, heart consultation, tarot friend, healing tarot, chat with character, mind organization",
+      "mainHeading": "Tarot Time with Your Cute Friend",
+      "intro": {
+        "paragraph1": "Cosmos Tarot's special character friend is waiting for you. When your mind feels complex, when you need some alone time, come visit anytime for a comfortable conversation.",
+        "paragraph2": "On this page, you can experience a friendlier and warmer tarot reading with a lively character. We offer moments where you can focus entirely on yourself without rushing or worrying about others' eyes."
+      },
+      "pageFeatures": {
+        "title": "What Makes This Character Page Special",
+        "characterCompanion": {
+          "title": "Warm Companion",
+          "description": "Tarot time with a cute friend instead of being alone. You can comfortably share your thoughts as if talking to an old friend."
+        },
+        "visualComfort": {
+          "title": "Comfortable Visual Experience",
+          "description": "The gentle and friendly character helps you naturally focus on tarot consultation without tension."
+        },
+        "emotionalConnection": {
+          "title": "Emotional Bond",
+          "description": "Experience warmer consultation through interaction with a character that has expressions and movements, not just text."
+        }
+      },
+      "whenToVisit": {
+        "title": "Visit Your Character Friend in These Moments",
+        "bedtime": "When you want to organize your day and comfort your heart before sleep",
+        "worry": "When you have many concerns and need someone to talk to, but want a non-judgmental companion",
+        "newStart": "When you need courage before a new beginning",
+        "dailyBreak": "When you want to take a break from busy daily life and reflect on your heart"
+      },
+      "experience": {
+        "title": "What Kind of Experience Will You Have",
+        "description": "This space with your character friend offers the comfort of having tea and chatting with a close friend in a cozy cafe. Without complex functions or difficult explanations, the process of naturally selecting cards and receiving messages will feel warmer and more meaningful."
+      },
+      "accessibility": {
+        "title": "Anytime, Anywhere",
+        "description": "You can meet your smoothly moving character friend from any smartphone, tablet, or computer. It's optimized to focus only on heart communication, leaving technical complexities behind."
+      },
+      "philosophy": {
+        "title": "Our Philosophy",
+        "description": "Cosmos Tarot doesn't force answers, but serves as a warm companion helping you discover the answers already within your heart. Your character friend is the same - not judging or evaluating, but simply listening to your story and being there with you."
+      },
+      "invitation": {
+        "description": "When you want to pause in your busy day to face yourself, or when you want to prepare your heart for a new day. Your cute character friend is always waiting quietly by your side."
+      },
+      "noscript": {
+        "title": "Cosmos Tarot Character",
+        "message1": "JavaScript is required for the tarot experience with your character friend.",
+        "message2": "Please enable JavaScript in your browser and let's meet again."
+      }
+    },
+    "mypage": {
+      "title": "My Page - My Tarot Journey",
+      "metaDescription": "Manage personal tarot reading records and statistical analysis. Check your exclusive tarot consultation history and patterns stored for up to 3 months.",
+      "keywords": "my page, tarot consultation records, tarot consultation statistics, personal tarot data, tarot pattern analysis",
+      "mainHeading": "My Tarot Journey",
+      "intro": {
+        "paragraph1": "Look back on your unique tarot journey in My Page. From past consultation records to personal card statistics, your entire tarot story is organized here.",
+        "paragraph2": "Through reading records stored for up to 3 months, you can revisit past advice and discover your personal tarot patterns to feel your steps of personal growth."
+      },
+      "sections": {
+        "title": "My Page Components",
+        "history": "Consultation Records",
+        "statistics": "My Tarot Consultation Statistics",
+        "profile": "Profile"
+      },
+      "features": {
+        "title": "My Page Key Features",
+        "recordManagement": {
+          "title": "Record Management",
+          "description": "View past tarot reading results organized by theme and question target, and delete any records you want at any time."
+        },
+        "statisticalAnalysis": {
+          "title": "Statistical Analysis",
+          "description": "Visualize the frequency of major and minor cards with graphs organized by theme and question target to understand your personal tarot patterns."
+        }
+      },
+      "dataManagement": {
+        "title": "Data Storage and Management",
+        "description": "All consultation records are securely stored for up to 3 months, and you can select and delete any records you want at any time."
+      },
+      "personalGrowth": {
+        "title": "Personal Growth Tracking",
+        "description": "Track your inner changes and growth through your changing tarot patterns over time. Analyze which cards appear frequently and what themes you ask about most to use as a tool for self-reflection."
+      },
+      "privacy": {
+        "title": "Privacy Protection",
+        "description": "All information in My Page can only be accessed by you, and tarot reading contents and personal settings are managed completely privately. We guarantee your right to delete all data or withdraw from the account at any time."
+      }
+    },
+    "etc": {
+      "title": "More - Everything About Tarot",
+      "metaDescription": "From learning tarot to terms of service and tarot history. Check all information and learning materials about Cosmos Tarot in one place.",
+      "keywords": "learn tarot, terms of service, tarot history, tarot learning, tarot knowledge, more",
+      "mainHeading": "Everything About Tarot",
+      "intro": {
+        "paragraph1": "Explore deep knowledge about tarot in Cosmos Tarot's More section. From learning materials for beginners to the long history of tarot, all information is systematically organized.",
+        "paragraph2": "Along with friendly guides for those new to tarot, we transparently provide terms information necessary for service use. Understand the mysterious world of tarot more deeply."
+      },
+      "sections": {
+        "title": "More Components",
+        "learnTarot": "Learn Tarot",
+        "terms": "Terms of Service",
+        "history": "Tarot History"
+      },
+      "features": {
+        "title": "More Key Contents",
+        "learnTarot": {
+          "title": "Learn Tarot",
+          "description": "Learn step by step from basic tarot card concepts to the meaning of each card and spread methods. We provide friendly guides that even beginners can easily follow."
+        },
+        "termsService": {
+          "title": "Terms of Service",
+          "description": "We transparently disclose all terms and policies you need to know when using Cosmos Tarot service. You can clearly check privacy policies, service usage rules, and more."
+        },
+        "tarotHistory": {
+          "title": "Tarot History",
+          "description": "Introducing hundreds of years of tarot history and tradition. From the origins of tarot cards to modern interpretations, you can understand the deep roots of tarot."
+        }
+      },
+      "educational": {
+        "title": "Features of Learning Materials",
+        "description": "Complex and difficult tarot knowledge is structured step by step so anyone can easily understand. We provide a balanced mix of theoretical explanations and practical tips, so even those new to tarot can learn without burden."
+      },
+      "transparency": {
+        "title": "Transparent Information Provision",
+        "description": "All service-related information is organized so users can easily find and understand. From terms content to the historical background of tarot, we clearly provide everything you're curious about."
+      }
+    },
+    "principle": {
+      "meta": {
+        "title": "Principles of Tarot Cards: Carl Jung's Collective Unconscious Theory",
+        "description": "Scientific interpretation of tarot cards based on Carl Gustav Jung's collective unconscious and synchronicity principles. Learn the principles of AI tarot and proper usage methods.",
+        "keywords": "Jung psychology, collective unconscious, synchronicity principle, tarot card principles, AI tarot, Carl Gustav Jung, tarot theory, unconscious connection, tarot interpretation, psychological tarot, free tarot, tarot cards, love tarot, daily fortune, tarot app"
+      },
+      "header": {
+        "mainTitle": "Principles of Tarot",
+        "subtitle": "Understanding the scientific principles of tarot cards through Carl Gustav Jung's psychological approach"
+      },
+      "sections": {
+        "theory": {
+          "title": "Collective Unconscious Theory",
+          "content": "Psychiatrist and psychologist Carl Gustav Jung believed that the realm of collective unconscious shared by humanity could be understood through tarot cards. According to his theory, the collective unconscious is a characteristic common to all humanity, and we are connected to each other in the deep realm of the unconscious."
+        },
+        "synchronicity": {
+          "title": "The Principle of Synchronicity",
+          "content": "Based on this perspective, Jung developed the 'principle of synchronicity'. This means that events that occur simultaneously by chance are actually deeply related through unconscious connections.",
+          "application": {
+            "title": "Application of Synchronicity",
+            "content": "He applied this principle to tarot cards, explaining that a special connection is made between the questioner's unconscious and the cards at the moment of card selection."
+          }
+        },
+        "practical": {
+          "title": "Practical Principles",
+          "methods": {
+            "title": "Validity of Various Selection Methods",
+            "intro": "According to these principles, all of the following methods are valid:",
+            "item1": "Drawing cards directly yourself",
+            "item2": "Having someone else draw cards for you",
+            "item3": "Focusing and selecting while only thinking about the question without mentioning names"
+          },
+          "energy": {
+            "title": "Importance of Momentary Energy",
+            "content": "It's important to note that tarot cards show results based on the energy of the moment when the question is asked. Since human emotions and situations can constantly change, this should be kept in mind when interpreting."
+          }
+        },
+        "interpretation": {
+          "title": "Proper Interpretation Methods",
+          "additional": {
+            "title": "Using Additional Confirmations",
+            "content": "If the answer feels ambiguous, it may be helpful to check additional cards 2-3 times."
+          },
+          "caution": {
+            "title": "Precautions for Healthy Usage",
+            "content": "However, excessive dependence can have negative effects on mental health, so please use it within appropriate limits."
+          }
+        },
+        "conclusion": {
+          "title": "Psychological Approach",
+          "content": "Cosmos Tarot also provides meaningful insights by reflecting users' unconscious choices and momentary energy based on Jung's theory. Tarot cards based on scientific evidence and psychological understanding can be used as a tool for self-reflection beyond simple fortune-telling."
+        }
+      }
+    }
+  },
+  "more": {
+    "home": "Home"
+  },
+  "mypage": {
+    "user-info": "User Info",
+    "user-voucher-info": "Vouchers",
+    "user": "User",
+    "user-info-withdraw": "Withdrawal",
+    "tarot-history-info": "Reading",
+    "business-info": "Biz Info",
+    "terms-of-service": "Terms",
+    "user-name": "Name",
+    "user-email": "Email",
+    "user-account": "ID",
+    "point": "Points",
+    "voucher": "Vouchs",
+    "voucher-1": "1 C.V",
+    "voucher-2": "2 C.V",
+    "voucher-3": "3 C.V",
+    "voucher-4": "4 C.V",
+    "voucher-5": "5 C.V",
+    "voucher-6": "6 C.V",
+    "voucher-7": "7 C.V",
+    "voucher-8": "8 C.V",
+    "voucher-9": "9 C.V",
+    "voucher-10": "10 C.V",
+    "voucher-11": "11 C.V",
+    "voucher-13": "13 C.V",
+    "tarot-history": "Tarot Consultation History",
+    "tarot-history-today": "Today",
+    "tarot-history-this-week": "This Week",
+    "tarot-history-this-month": "This Month",
+    "tarot-history-total": "Total",
+    "times": " times",
+    "ready": "Preparing",
+    "question": "Question: ",
+    "question-today": "Today",
+    "question-this-week": "Weekly",
+    "question-this-month": "Monthly",
+    "question-three-months": "Quarterly",
+    "question-this-year": "Yearly",
+    "question-total": "Total",
+    "statistics": "Statistics",
+    "statistics-total": "Total",
+    "statistics-theme": "Theme",
+    "statistics-target": "Target",
+    "statistics-question-matter": "Topic Statistics",
+    "statistics-question-topic": "Topic",
+    "chart-major-total": "Total Major Cards",
+    "chart-minor-total": "Total Minor Cards",
+    "chart-major-this-month": "Major Cards This Month",
+    "chart-minor-this-month": "Minor Cards This Month",
+    "chart-major-this-week": "Major Cards This Week",
+    "chart-minor-this-week": "Minor Cards This Week",
+    "chart-major-today": "Major Cards Today",
+    "chart-minor-today": "Minor Cards Today",
+    "chart-cups-total": "Total Cup",
+    "chart-swords-total": "Total Sword",
+    "chart-wands-total": "Total Wand",
+    "chart-pentacles-total": "Total Pentacle",
+    "chart-cups-this-month": "Cup This Month",
+    "chart-swords-this-month": "Sword This Month",
+    "chart-wands-this-month": "Wand This Month",
+    "chart-pentacles-this-month": "Pentacle This Month",
+    "chart-cups-this-week": "Cup This Week",
+    "chart-swords-this-week": "Sword This Week",
+    "chart-wands-this-week": "Wand This Week",
+    "chart-pentacles-this-week": "Pentacle This Week",
+    "chart-cups-today": "Cup Today",
+    "chart-swords-today": "Sword Today",
+    "chart-wands-today": "Wand Today",
+    "chart-pentacles-today": "Pentacle Today",
+    "tarot-explanation": "Tarot Info",
+    "tarot-learning": "Learn Tarot"
+  },
+  "chart": {
+    "statistics-total": "Total"
+  },
+  "product": {
+    "cosmos_vouchers_1": "One Card Voucher(1 C.V) for a Single-Card Tarot Spread Reading",
+    "cosmos_vouchers_2": "Two Card Voucher(2 C.V) for a Two-Card Tarot Spread Reading",
+    "cosmos_voucher_3": "Three Card Voucher(3 C.V) for a Three-Card Tarot Spread Reading",
+    "cosmos_vouchers_4": "Four Card Voucher(4 C.V) for a Four-Card Tarot Spread Reading",
+    "cosmos_vouchers_5": "Five Card Voucher(5 C.V) for a Five-Card Tarot Spread Reading",
+    "cosmos_vouchers_6": "Six Card Voucher(6 C.V) for a Six-Card Tarot Spread Reading",
+    "cosmos_vouchers_7": "Seven Card Voucher(7 C.V) for a Seven-Card Tarot Spread Reading",
+    "cosmos_vouchers_8": "Eight Card Voucher(8 C.V) for an Eight-Card Tarot Spread Reading",
+    "cosmos_vouchers_9": "Nine Card Voucher(9 C.V) for a Nine-Card Tarot Spread Reading",
+    "cosmos_voucher_10": "Ten Card Voucher(10 C.V) for a Ten-Card Tarot Spread Reading",
+    "cosmos_vouchers_11": "Eleven Card Voucher(11 C.V) for an Eleven-Card Tarot Spread Reading",
+    "cosmos_vouchers_12": "Twelve Card Voucher(12 C.V) for a Twelve-Card Tarot Spread Reading",
+    "cosmos_vouchers_13": "Thirteen Card Voucher(13 C.V) for a Thirteen-Card Tarot Spread Reading",
+    "cosmos_vouchers_event_package_expired_title": "August Limited Mega Thank You Pack",
+    "cosmos_vouchers_event_package_expired": "🌟 Card Voucher Package: 10 vouchers each for the 1, 2, 3, 4, 5, 6, and 10-card types + bonus of 10 vouchers for the 3- and 10-card types! Total of 90 vouchers in a limited package!\n⚠️ Only available to the first 50 customers!\n⚠️ All package vouchers expire at 11:59 PM (Local time of purchase) on August 25.",
+    "cosmos_vouchers_bundle_package_newbie_title": "Beginner Package",
+    "cosmos_vouchers_bundle_package_newbie": "🌟 Card Voucher Package. 4 vouchers of each for the 1, 2, 3, 4, 5, 6, and 10-card types.\nTotal of 28 cards - Limited package!\n⚠️ Limited to 1 purchase per account!",
+    "cosmos_vouchers_bundle_package_1_title": "I Package",
+    "cosmos_vouchers_bundle_package_1": "🌟 10x 1 C.V Package!\n🔥 10% Off!\n",
+    "cosmos_vouchers_bundle_package_2_title": "II Package",
+    "cosmos_vouchers_bundle_package_2": "🌟 10x 2 C.V Package!\n🔥 10% Off!\n",
+    "cosmos_vouchers_bundle_package_3_title": "III Package",
+    "cosmos_vouchers_bundle_package_3": "🌟 10x 3 C.V Package!\n🔥 10% Off!\n",
+    "cosmos_vouchers_bundle_package_4_title": "IV Package",
+    "cosmos_vouchers_bundle_package_4": "🌟 10x 4 C.V Package!\n🔥 10% Off!\n",
+    "cosmos_vouchers_bundle_package_5_title": "V Package",
+    "cosmos_vouchers_bundle_package_5": "🌟 10x 5 C.V Package!\n🔥 10% Off!\n",
+    "cosmos_vouchers_bundle_package_6_title": "VI Package",
+    "cosmos_vouchers_bundle_package_6": "🌟 10x 6 C.V Package!\n🔥 10% Off!\n",
+    "cosmos_vouchers_bundle_package_10_title": "X Package",
+    "cosmos_vouchers_bundle_package_10": "🌟 10x 10 C.V Package!\n🔥 10% Off!\n"
+  },
+  "daily-tarot": {
+    "card": "Today's Tarot Reading",
+    "message": "Today's Message",
+    "positive-meaning": "Positive Influences",
+    "negative-meaning": "Points of Caution",
+    "keyword": "Keywords"
+  },
+  "refund": {
+    "notification": "All vouchers, except those purchased through apps downloaded from the Google Play Store, are eligible for a 70% refund of the purchase price. Refunds are available only for vouchers held within 180 days from the date of purchase. The specific refund procedure and criteria follow the company's operational policy (refund policy), so please refer to the refund policy by navigating to 'My Page > User > Purchase > Policy'. For your information, when using vouchers, those purchased on the website will be used first, followed by those purchased through the Google Play Store app.",
+    "user-voucher-info": "Refundable Voucher",
+    "caution": "Minimum refund amount is 3USD.",
+    "total-price": "Total refund",
+    "order-id": "Order No.",
+    "voucher-name": "Name",
+    "amount": "Quantity",
+    "each-list-price": "Purchase price",
+    "purchase-date": "Purchase date",
+    "due-date": "Exp. date",
+    "unit": "-Card Voucher",
+    "sale-percentage": "Discount rate",
+    "original-price": "Original price",
+    "quantity": "Quantity",
+    "total": "Total",
+    "money": "USD"
+  },
+  "order": {
+    "order_number": "Order No.",
+    "order_point": "Order Point",
+    "order_vouchers": "Order Vouchers",
+    "order_amount": "Order Amount",
+    "order_success": "Order Success",
+    "order_pending": "Payment pending"
+  },
+  "card": {
+    "master": "Master",
+    "visa": "Visa",
+    "union_pay": "Union",
+    "american_express": "A.E",
+    "jcb": "JCB"
+  },
+  "alert_modal": {
+    "notice": "Notice",
+    "delete_tarot_history": "Do you want to delete the tarot consultation history?",
+    "delete_user": "Are you sure you want to withdraw from the membership?"
+  },
+  "charge_modal": {
+    "charge": "Would you like to recharge your points?",
+    "out-of-point": "Insufficient points. Would you like to recharge your points?",
+    "comming-soon": "Coming soon.",
+    "purchase": "Would you like to purchase a voucher?",
+    "out-of-voucher": "You are out of vouchers. Would you like to purchase more vouchers?"
+  },
+  "in_app_purchase_modal": {
+    "owned": "My"
+  },
+  "blink_modal": {
+    "login": "Please sign in.",
+    "copy": "Copied",
+    "save": "Saved",
+    "charging_KRW": "The minimum charge amount is 1,000 KRW or more.",
+    "charging_USD": "The minimum charge amount is 1 USD or more.",
+    "fill-in-on-question": "Please fill in the question field.",
+    "over-in-on-question": "The question exceeded the character limit.",
+    "unavailable-voucher": "The voucher is currently unavailable.",
+    "unavailable-which-tarot": "Service coming soon.",
+    "speed-tarot-notification": "※ Professional Tarot (no reading)",
+    "spread": "Spread : ",
+    "none": "None",
+    "card-position": "th Card"
+  },
+  "manual_modal": {
+    "tarot-manual-title": "<User Guide>",
+    "tarot-question-instruction-title": "<Guide to Asking Questions>"
+  },
+  "refund_policy_modal": {
+    "refund_policy-title": "<Refund T&C>"
+  },
+  "time": {
+    "ad_reset_time": "Time until ad reset: ",
+    "remaining_ad_views": "Remaining ad views: "
+  },
+  "talk": {
+    "hello": "",
+    "welcome": "Welcome to Cosmos Tarot",
+    "click_instruction": "Click the crystal ball to start.",
+    "click_instruction-temp": "To see someone's heart or for-\ntune, please press the crystal\nball. The book on your left is",
+    "choose_spread": "the user guide.",
+    "choose_spread-old": "the user guide.\nFeel free to explore the other",
+    "usage": "",
+    "usage-old": "hidden features.\n",
+    "wait": "\tPlease wait a moment.",
+    "time_normal": "\tFor an analysis,\nplease wait for 5s~20s or so.",
+    "time_deep": "\tFor a thorough analysis,\nplease wait for 20s~1m or so.",
+    "time_serious": "\tFor a thorough analysis,\nplease wait for 30s~2m or so.",
+    "time_deep_one": "\tFor a thorough analysis,\nplease wait for 10s~30s or so.",
+    "time_serious_one": "\tFor a thorough analysis,\nplease wait for 10s~1m or so.",
+    "you_know": "Are you familiar?",
+    "tarot1": "Tarot cards are powerful tools\nfor reading hearts & emotions.",
+    "tarot2": "\tClick on the principles for\n\t\tdetails.",
+    "hello_vertical": "Hello!",
+    "welcome_vertical": "Welcome to Cosmos Tarot",
+    "click_instruction_vertical": "Tap the crystal ball to start.",
+    "click_instruction_vertical-temp": "To see someone's heart or for-\ntune, please tap the crystal\nball. The book on your left is",
+    "choose_spread_vertical-old": "the user guide.\nFeel free to explore the other",
+    "usage_vertical-old": "hidden features.\n",
+    "choose_spread_vertical": "the user guide.\nAlso, enjoy in landscape mode!",
+    "usage_vertical": "",
+    "wait_vertical": "\tPlease wait a moment.",
+    "time_normal_vertical": "For an analysis,\n  please wait for 5s~20s.",
+    "time_deep_vertical": "For a thorough analysis,\n  please wait for 20s~1m.",
+    "time_serious_vertical": "For a thorough analysis,\n  please wait for 30s~2m.",
+    "time_deep_one_vertical": "For a thorough analysis,\n  please wait for 10s~30s.",
+    "time_serious_one_vertical": "For a thorough analysis,\n  please wait for 10s~1m.",
+    "you_know_vertical": "  Are you familiar?",
+    "tarot1_vertical": "  Tarot are powerful tools for\n  reading hearts & emotions.",
+    "tarot2_vertical": "  Click on the principles for\n  details.",
+    "welcome-temp": "Welcome to Cosmos Tarot!",
+    "welcome_vertical-temp": "Welcome to Cosmos Tarot!"
+  },
+  "instruction": {
+    "speed_modal_card": "Please think of whatever you want to ask, then click the deck to shuffle, and drag to select cards.",
+    "speed_modal_card_not_computer": "Please think of a question, then click the deck to shuffle, and press the 'select' to choose cards.",
+    "tarot_modal_card": "After reflecting on your question, click the deck to shuffle, then drag to select your cards.",
+    "tarot_modal_card_not_computer": "After reflecting on your question, tap the deck to shuffle, then tap 'select' to choose cards.",
+    "tarot_modal_question": "Fill required fields.",
+    "tarot_modal_question-temp": "Please enter all details required for a detailed answer.",
+    "tarot_modal_question2": "The more specific & detailed your input is, the more accurate & detailed answer you'll get.",
+    "tarot_modal_question3": "Please provide only factual, reality-based information.",
+    "tarot_modal_question_card": "After reviewing, click 'shuffle'.",
+    "tarot_modal_question_card_not_computer": "After reviewing, tap 'shuffle'.",
+    "tarot_modal_question_card-temp": "Please check any errors in the question content and click 'shuffle'.",
+    "tarot_modal_question_card_not_computer-temp": "Please check any errors in the question content and tap 'shuffle'.",
+    "tarot_modal_question_card2": "If you'd' like to modify your question, please click the 'rewrite' button to make changes.",
+    "tarot_modal_question_card_not_computer2": "If you'd' like to modify your question, please tap the 'rewrite' button to make changes.",
+    "tarot_modal_question_card3": "If making assumptions or speculations, please clearly indicate them.",
+    "tarot_modal_question_card_not_computer3": "If making assumptions or speculations, please clearly indicate them.",
+    "tarot_modal_statics": "When you enter info in the topic or target field, you can use the statistics service on your My Page.",
+    "loading": "Loading...",
+    "coming_soon": "Service's coming soon.",
+    "network-warnings": "If you're using slow Wi-Fi or public Wi-Fi, network delays may cause issues with content usage. For stable access, It is recommended to use a faster network.",
+    "ads-voucher": "Normal Tarot Free Mode Spread Reading Voucher 1~3EA.\nThis voucher will be saved on the device where the ad was viewed. Please note that if you delete the app, this voucher will also be reset.",
+    "ads-remover": "3-Day Ad-Free Pass",
+    "ads-remover-description": "Removes all ads from Normal Tarot Free mode, Speed Tarot, and banner ads for 3 days."
+  },
+  "question": {
+    "spreadTitle": "Spread Type: ",
+    "question_topic": "Topic(optional): ",
+    "subject": "Target(opt.): ",
+    "object": "Related one(opt.): ",
+    "relationships": "The relationship(opt.): ",
+    "theme": "Theme E.g.: ",
+    "theme-description": "Sentiments, love, relation, job, decision, conscience, etc (factualX, intellectualX)",
+    "category": " Choose a category",
+    "situation": "Situation(opt.): ",
+    "question": "Question(mandatory): ",
+    "inner_feelings": "Sentiments",
+    "love": "Love",
+    "human_relationships": "Human relationships",
+    "finance": "Finance",
+    "occupation": "Occupation",
+    "career": "Career path",
+    "decision_making": "Decision making",
+    "omitted": "Omitted",
+    "six_principle_instruction": "Please briefly provide the content of the question within 600 characters. If possible, include details on who, what, when, where, why, and how in a clear and concise manner.\n\ne.g.1) What's in his (or my) heart?\ne.g.2) What are his feelings towards his girl friend?\n",
+    "six_principle_instruction_options": "Please briefly provide the content of the question within 1100 characters. If possible, include details on who, what, when, where, why, and how in a clear and concise manner.\n\ne.g.1) What's in his (or my) heart?\ne.g.2) What are his feelings towards his girl friend?\n",
+    "question_topic_instruction": "e.g. His (or my) heart",
+    "entity_or_individual_subject_instruction": "e.g. He(or I)",
+    "entity_or_individual_object_instruction": "e.g. Counterpart",
+    "relationship_instruction_subject": "e.g. BF",
+    "relationship_instruction_object": "e.g. GF",
+    "relationship_instruction_subject_full": "e.g. Boy friend",
+    "relationship_instruction_object_full": "e.g. Girl friend",
+    "situation_instruction": "Please provide concise details within 600 characters about the target(subject) of the question, the counterpart of the target (if applicable), any third parties (if applicable), and the circumstances.",
+    "first_option_instruction": "e.g. To propose",
+    "second_option_instruction": "e.g. Not to propose",
+    "third_option_instruction1": "e.g. Closer",
+    "third_option_instruction2": "e.g. Stay",
+    "third_option_instruction3": "e.g. Away",
+    "relationship_subject": "Target: ",
+    "relationship_object": "Object: ",
+    "first_option": "Option 1: ",
+    "second_option": "Option 2: ",
+    "third_option": "Option 3: "
+  },
+  "title": {
+    "single": "Single Card(General)",
+    "two": "Two Cards(General)",
+    "two_choice": "Binary choice",
+    "three": "Three Cards(General)",
+    "three_time": "Past, Present, Furture",
+    "three_a_day": "Morning, Daytime, Evening",
+    "three_solution": "Problem solving",
+    "three_choice": "Three-way choice",
+    "four": "Four Cards(General)",
+    "five_speed_mode": "Five Cards",
+    "five_relationship": "Relationship Analysis",
+    "six-day": "6-day flow",
+    "six-week": "6-week flow",
+    "six-month": "6-month flow",
+    "celtic_cross": "Celtic Cross",
+    "single_speed_mode": "Single Card",
+    "two_speed_mode": "Two Cards",
+    "three_speed_mode": "Three Cards",
+    "four_speed_mode": "Four Cards",
+    "five_relationship_speed_mode": "Relationship Analysis",
+    "six_speed_mode": "Six Cards",
+    "celtic_cross_speed_mode": "Celtic Cross",
+    "ads": "◎",
+    "comprehensive": "Comprehensive"
+  },
+  "durumagi": {
+    "cards-meaning": "※ Meaning of Each Card : ",
+    "cards-meaning-for-ads": "Meaning of Each Card : ",
+    "key-word": "a. Card Keywords : ",
+    "card-positive-meaning": "b. Card's Symbolic Meaning (Positive) : ",
+    "card-negative-meaning": "c. Card's Symbolic Meaning (Negative) : ",
+    "fortune-telling": "d. Card Reading Example : ",
+    "major": "Major card",
+    "minor": "Minor card",
+    "card-order": " card"
+  },
+  "description": {
+    "single": "A quick overview of the main influence.",
+    "two": "Detailed analysis of two aspects or options.",
+    "two_choice": "Binary choice with two options predetermined in the question.",
+    "three": "Analysis of 3 key aspects or options. Clear results. Commonly utilized. Recommended.",
+    "three_time": "Sequential card draws symbolize past, present, and future",
+    "three_solution": "Advice on problem analysis and solution advice.",
+    "three_a_day": "Fortune or state of mind for morning, daytime, and evening  for a day.",
+    "three_choice": "Three-way choice with three options predetermined in the question.",
+    "four": "Analysis of 4 key aspects, timeframes, or options. Recommended.",
+    "five_relationship": "Two people's states, bond, issues, and prospects.",
+    "six-day": "Daily fortune/heart forecast for next 6 days from today.",
+    "six-week": "Weekly fortune/heart forecast for next 6 weeks from this week.",
+    "six-month": "Monthly fortune/heart forecast for next 6 months from this month.",
+    "celtic_cross": "The most in-depth reading of a subject's current state and future path. Recommended.",
+    "single_speed_mode": "A general overview or quick check recommended for a clear understanding of the primary influence.",
+    "two_speed_mode": "Detailed insights into two aspects with predetermined content, suitable for binary choice.",
+    "three_speed_mode": "Analysis of 3 aspects, timeframes, or options. Clear results. Commonly utilized.",
+    "four_speed_mode": "Analysis of 4 key aspects, timeframes, or options.",
+    "five_relationship_speed_mode": "Analyzing two individuals' states, relationship, challenges, and future outlook.",
+    "six_speed_mode": "Daily, Weekly, or Monthly fortune/heart forecast for 6 units.",
+    "celtic_cross_speed_mode": "The most thorough insight into a subject's current state and future path ahead."
+  },
+  "button": {
+    "simple-input": "Simple Input",
+    "detailed-input": "Detailed Input",
+    "confirm": "confirm",
+    "close": "close",
+    "submit": "submit",
+    "rewrite": "rewrite",
+    "cancel": "cancel",
+    "select": "select",
+    "shuffle": "shuffle",
+    "text-save": "save",
+    "copy": "copy",
+    "delete": "delete",
+    "signin": "signin",
+    "google_signin": "google_signin",
+    "signup": "signup",
+    "withdraw": "withdraw",
+    "modify": "modify",
+    "purchase": "Purchase",
+    "pay": "pay",
+    "tarot-manual": "Guide",
+    "home": "Home",
+    "mypage": "My page",
+    "refund-policy": "Policy",
+    "price-info": "Price Info",
+    "paypal": "Paypal",
+    "vouchers": "Voucher",
+    "ads": "Free",
+    "refund": "Refund",
+    "apply": "Apply",
+    "refunding": "Refunding...",
+    "restore-purchases": "Restore",
+    "loading": "Loading",
+    "view-ads": "View Ads",
+    "view-ads-for-interpretation": "View Detailed Tarot Card Reading",
+    "view-card-meaning": "View Card Meanings",
+    "close-card-meaning": "Close Card Meanings"
+  },
+  "unit": {
+    "ea": " EA",
+    "money": "USD",
+    "kind-of-voucher": " C.V",
+    "times": "times"
+  },
+  "voucher": {
+    "one-card": "1-Card Voucher(1 C.V)",
+    "two-cards": "2-Card Voucher(2 C.V)",
+    "three-cards": "3-Card Voucher(3 C.V)",
+    "four-cards": "4-Card Voucher(4 C.V)",
+    "five-cards": "5-Card Voucher(5 C.V)",
+    "six-cards": "6-Card Voucher(6 C.V)",
+    "seven-cards": "7-Card Voucher(7 C.V)",
+    "eight-cards": "8-Card Voucher(8 C.V)",
+    "nine-cards": "9-Card Voucher(9 C.V)",
+    "ten-cards": "10-Card Voucher(10 C.V)",
+    "eleven-cards": "11-Card Voucher(11 C.V)",
+    "thirteen-cards": "13-Card Voucher(12 C.V)",
+    "one-card-name": "I C.V",
+    "two-cards-name": "II C.V",
+    "three-cards-name": "III C.V",
+    "four-cards-name": "IV C.V",
+    "five-cards-name": "V C.V",
+    "six-cards-name": "VI C.V",
+    "seven-cards-name": "VII C.V",
+    "eight-cards-name": "VIII C.V",
+    "nine-cards-name": "IX C.V",
+    "ten-cards-name": "X C.V",
+    "eleven-cards-name": "XI C.V",
+    "thirteen-cards-name": "XIII C.V",
+    "required-voucher": "Required Voucher",
+    "remaining-voucher": "Remaining Voucher"
+  },
+  "tab": {
+    "speed_tarot": "Speedy",
+    "normal_question_tarot": "Normal",
+    "deep_question_tarot": "Deep",
+    "serious_question_tarot": "Serious"
+  },
+  "error": {
+    "error_happened": "An error occurred"
+  },
+  "ad": {
+    "label": "Ad",
+    "reward": "RWD"
+  },
+  "notice": {
+    "title": "Notice",
+    "content": [
+      "🔥 Mega Package Limited Sale! 🔥",
+      "An exclusive Mega Package available to only 50 people",
+      "Available until August 25th!"
+    ],
+    "closeButtonAriaLabel": "Close popup",
+    "confirmButton": "OK",
+    "hideFor7Days": "Don't show for 7 days"
+  },
+  "user": {
+    "register_success": "Registration successful",
+    "register_fail": "Registration error occurred",
+    "modified_success": "User information modification successful",
+    "modified_fail": "Failed to modify user information",
+    "withdraw_success": "Withdrawal successful",
+    "withdraw_fail": "Withdrawal failed",
+    "login_success": "Login successful",
+    "login_fail": "Login failed",
+    "retry_sign_up": "Please log in again",
+    "user_info_fail": "Failed to retrieve user information"
+  },
+  "meta": {
+    "name": "Cosmos Tarot",
+    "title": "Cosmos Tarot – Unlocking the Secrets of Your Heart",
+    "description": "Professional Tarot Readings Available Around the Clock. Today's Fortune - One Card Free. What path will your destiny take? Explore your love, career, and future with free tarot guidance. Discover cosmic secrets at Cosmos Tarot.",
+    "keywords": "free tarot, tarot cards, AI tarot, tarot reading, tarot app, love tarot, daily fortune, daily tarot, relationship advice, mind reading tarot, career tarot, free fortune telling, fortune app, love fortune, money fortune, career fortune, health fortune, psychological counseling, compatibility, oracle cards, astrology, heart tarot, partner's feelings, relationship problems, breakup tarot, one card tarot, future prediction, artificial intelligence tarot, mobile tarot, online tarot, tarot divination, card reading, destiny, love horoscope",
+    "author": "JINWORLD",
+    "ogTitle": "Cosmos Tarot – Unlocking the Secrets of Your Heart",
+    "ogDescription": "Professional Tarot Readings Available Around the Clock. Today's Fortune - One Card Free. What path will your destiny take? Explore your love, career, and future with free tarot guidance. Discover cosmic secrets at Cosmos Tarot.",
+    "twitterTitle": "Cosmos Tarot – Unlocking the Secrets of Your Heart",
+    "twitterDescription": "Professional Tarot Readings Available Around the Clock. Today's Fortune - One Card Free. What path will your destiny take? Explore your love, career, and future with free tarot guidance. Discover cosmic secrets at Cosmos Tarot."
+  },
+  "interpretation": {
+    "comprehensive_interpretation": "🔮 Comprehensive Interpretation",
+    "individual_card_interpretation": "🔮 Individual Card Interpretation",
+    "unknown_card": "Unknown Card",
+    "unknown_direction": "Unknown Direction",
+    "unknown_position": "Unknown Position",
+    "unknown_keyword": "Unknown Keyword",
+    "no_interpretation": "No interpretation available."
+  },
+  "content": {
+    "chart_content": "A. Major Cards\n\nMeaning:\nMajor cards represent important themes in life and significant influences.\nThe total number of Major cards (22 cards) corresponds to approximately 39% of the total number of Minor cards (56 cards). Therefore, statistically, the probability of drawing Major cards is lower. Generally, they appear around 25-30%, but this can vary depending on the individual and situation. When Major cards appear more frequently than this ratio, it carries the following meanings:\n1. Important situations or emotions are at play in the relevant category (question subject, question entity, etc.).\n2. The current situation indicates an 'influential' important period.\n3. They may contain more powerful energy or messages than Minor cards.\nFor example, if many Major cards appear in a specific category like love, it could mean that the current relationship is at an important turning point in life or experiencing deep emotional experiences. It could also indicate that your current life is at a major turning point or that important opportunities for personal growth are approaching.\n\n~\n\nB. Minor Cards\nMeaning:\nMinor cards represent everyday aspects and specific events. Each card expresses daily situations, emotions, and states in more detail.\nWhen many Minor cards appear in a tarot reading, it may have the following meanings:\n1. The current situation is progressing routinely without dramatic changes.\n2. It focuses mainly on daily problems and decisions by category.\n3. Generally tends to indicate everyday situations or gradual changes rather than major changes.\nThis can also suggest that small daily choices can accumulate to create big changes over time.\n\n~\n\nC. Meanings by Element:\n1. Fire (Wands Suit):\n   - Symbol: Torch, Beacon, Flame\n   - Color: Red, Orange\n   - Season: Summer\n   - Direction: South\n   - Time: Noon\n   - Meaning:\n     * Energy: Vitality, Passion, Drive, Life Force\n     * Creativity: Inspiration, Spark of Ideas, Artistic Impulse\n     * Change: Rapid Transformation, Purification, Regeneration\n     * Will: Determination, Courage, Self-assertion\n     * Growth: Expansion, Development, Ambition\n     * Action: Immediate Response, Impulse, Adventure, Active Progress, Passionate Drive\n   - Positive Traits: Passion, Confidence, Leadership, Creativity, New Opportunities\n   - Negative Traits: Aggressiveness, Impulsiveness, Overconfidence\n   - Related Professions: Entrepreneur, Artist, Athlete, Leader\n   - Body Parts: Head, Eyes, Nervous System\n2. Water (Cups Suit):\n   - Symbol: Cup, Chalice, Holy Grail\n   - Color: Blue, Turquoise\n   - Season: Autumn\n   - Direction: West\n   - Time: Twilight\n   - Meaning:\n     * Emotion: Feeling, Sentiment, Mood, Intuition\n     * Relationships: Love, Friendship, Family Bonds\n     * Imagination: Dreams, Fantasy, Creative Inspiration\n     * Healing: Emotional Recovery, Forgiveness, Reconciliation\n     * Flow: Adaptability, Flexibility, Acceptance of Change, Natural Flow\n     * Unconscious: Deep Inner Self, Subconscious, Hidden Desires\n   - Positive Traits: Empathy, Intuition, Creativity, Sensitivity\n   - Negative Traits: Emotional Instability, Excessive Fantasy, Escapism\n   - Related Professions: Counselor, Artist, Nurse, Chef\n   - Body Parts: Chest, Heart, Lymphatic System\n3. Air (Swords Suit):\n   - Symbol: Sword, Blade, Dagger\n   - Color: Yellow, Sky Blue\n   - Season: Spring\n   - Direction: East\n   - Time: Dawn\n   - Meaning:\n     * Intellect: Logic, Analysis, Objectivity, Clarity\n     * Communication: Language, Writing, Education, Information Exchange\n     * Thought: Ideas, Concepts, Philosophy, Knowledge\n     * Truth: Honesty, Transparency, Ethics, Justice\n     * Conflict: Debate, Challenge, Opposition, Overcome\n     * Decision: Choice, Judgment, Discernment\n     * Speed: Quickness\n   - Positive Traits: Intellectual Clarity, Analytical Ability, Fairness, Insight\n   - Negative Traits: Coldness, Critical Nature, Over-analysis, Indecision\n   - Related Professions: Writer, Lawyer, Scientist, Teacher\n   - Body Parts: Lungs, Respiratory System, Nervous System\n4. Earth (Pentacles Suit):\n   - Symbol: Coin, Pentagon, Star\n   - Color: Green, Brown\n   - Season: Winter\n   - Direction: North\n   - Time: Midnight\n   - Meaning:\n     * Material World: Wealth, Possessions, Resources, Abundance\n     * Practicality: Reality, Practical Skills, Efficiency\n     * Stability: Security, Reliability, Caution, Durability\n     * Health: Physical Well-being, Nutrition, Vitality\n     * Work: Occupation, Career, Productivity, Achievement\n     * Nature: Environment, Ecosystem, Plants, Animals\n     * Fruition: Certain and Concrete Results\n   - Positive Traits: Reliability, Patience, Practicality, Diligence\n   - Negative Traits: Materialism, Stubbornness, Resistance to Change\n   - Related Professions: Banker, Farmer, Architect, Environmental Expert\n   - Body Parts: Hands, Feet, Muscles, Bones\n\n~\n\nD. When Specific Elements Appear Frequently:\nAttention should be paid to the characteristics and domains of the corresponding element. For example, when many Wands (Fire) cards appear, it means that the energy of passion, creativity, and action is strongly at work. This might be a suitable time for new beginnings or projects, and it's important to utilize this energy constructively.\n\n~\n\nE. When Multiple Elements Appear in Balance:\nThis indicates that the current situation is receiving balanced influences from various aspects. There is a high possibility that different areas of life are working harmoniously.\n\n~\n\nF. When Specific Elements are Lacking:\nThere may be a need to consciously complement or develop the characteristics of the lacking element. For example, if few Water (Cups) cards appear, there might be a need to pay more attention to emotional aspects or relationships.",
+    "principle_content": "Psychiatrist and psychologist Carl Gustav Jung believed that the realm of collective unconscious shared by humanity could be understood through Tarot cards. According to his theory, the collective unconscious is a characteristic common to all humanity, and we are connected to each other in the deep realm of the unconscious. Based on this perspective, Jung developed the 'principle of synchronicity.' This means that events that occur simultaneously by chance are actually deeply related through unconscious connections. He applied this principle to Tarot cards, explaining that at the moment of choosing a card, a special connection is formed between the questioner's unconscious and the card. Following this principle, meaningful results can be obtained whether you draw the cards directly, have someone else draw them for you, or even concentrate and choose while only thinking about the question without mentioning your name. It's important to note that Tarot cards show results based on the energy at the moment of questioning. Since human emotions and situations can continuously change, this should be kept in mind during interpretation. If the answer seems ambiguous, it may be helpful to check additional cards 2-3 times. However, excessive dependence can have a negative impact on mental health, so it should be used within appropriate limits.",
+    "explanation_content": "The World of Tarot: A Guide to History, Meaning, and Interpretation",
+    "learning_tarot_content": "Learning Tarot"
+  }
+}

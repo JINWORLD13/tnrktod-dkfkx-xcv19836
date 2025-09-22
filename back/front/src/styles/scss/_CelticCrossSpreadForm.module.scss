@@ -1,0 +1,1573 @@
+@use '_TarotModal.module.scss';
+@use '_TarotCardSpreadForm.module.scss';
+@use '_TarotCardTableForm.module.scss';
+
+// .spread-container-flip {
+//   @include TarotCardSpreadForm.celtic-cross-spread-container();
+//   & > div {
+//     // 실제 className 대로 씀.
+//     @include TarotCardTableForm.card-celtic-cross-container(0.4);
+//   }
+//   & > div > div:nth-child(1) {
+//     @include TarotCardTableForm.card-celtic-cross1(
+//       0.5,
+//       0.115,
+//       0.5,
+//       1
+//     ); // grid 생성
+//     & > div {
+//       // filp부분 // 그리드 각 자리
+//       // background-color: transparent;
+//       backface-visibility: hidden;
+//       border: none;
+//       & > div {
+//         // front, back 부분 (
+//         @include TarotModal.spread-card(0.5);
+//         background-color: transparent;
+//         border: none;
+//         & > img {
+//           @include TarotModal.card-image(0);
+//         }
+//       }
+//     }
+//     & > div:nth-child(5) {
+//       & > div {
+//         // filp부분 // 가운데 카드들
+//         background-color: transparent;
+//         border: none;
+//         width: 100%;
+//         & > div {
+//           // front, back 부분 (
+//           @include TarotModal.choice-card(0.5);
+//           background-color: transparent;
+//           border: none;
+//           & > img {
+//             @include TarotModal.card-image(0);
+//           }
+//         }
+//       }
+//     }
+//   }
+//   & > div > div:nth-child(2) {
+//     @include TarotCardTableForm.card-celtic-cross2(0.5, 0.115, 0.5, 0.2);
+//     & > div {
+//       // filp부분 // 그리드 각 자리리
+//       background-color: transparent;
+//       border: none;
+//       & > div {
+//         // front, back 부분 (
+//         @include TarotModal.spread-card(0.5);
+//         background-color: transparent;
+//         border: none;
+//         & > img {
+//           @include TarotModal.card-image(0);
+//         }
+//       }
+//     }
+//     & > div:nth-child(5) {
+//       // 셀의 가운데 자리
+//       & > div {
+//         // filp부분 // 가운데 카드들
+//         border: none;
+//         & > div {
+//           // front, back 부분 (
+//           @include TarotModal.choice-card(0.5);
+//           border: none;
+//           & > img {
+//             @include TarotModal.card-image(0);
+//           }
+//         }
+//       }
+//     }
+//   }
+//   & div > div > img {
+//     @include TarotModal.card-image(0);
+//     width: 50%;
+//     height: 50%;
+//   }
+// }
+
+.flip {
+  @include TarotCardSpreadForm.flip();
+  position: absolute;
+}
+.flip-click {
+  @include TarotCardSpreadForm.flip-click();
+}
+.front {
+  @include TarotCardSpreadForm.front();
+}
+.front-reversed {
+  @include TarotCardSpreadForm.front-for-answer-modal-reversed();
+}
+.back {
+  @include TarotCardSpreadForm.back();
+}
+
+// ! 이 페이지에선 이 scss가 import된, 스피드 타로 스프레드 결과는 여기서 고쳐야 함.
+// ! 첫번째 인자 고치면 반영됨.
+// ! 나머진 _TarotCardTableForm.module.scss에서 하면됨.
+//! 왜냐하면 최상위로 나중에 덧붙여 쓰는 css이기 때문(제일 처음은 _TarotCardTableForm.module.scss 그 위에 아래 내용들을 덧씌우는 거다).
+//! 메인
+.spread-container {
+  @include TarotCardSpreadForm.celtic-cross-spread-container();
+  padding: 0;
+  margin: 0;
+  //! 켈틱크로스 전체 자리
+  & > div {
+    // grid gap(왼쪽자리와 오른쪽 자리의 gap) 설정
+    @include TarotCardTableForm.card-celtic-cross-container(0.2);
+    padding: 0;
+    margin: 0;
+  }
+  // ! 켈틱크로스 왼쪽자리
+  & > div > div:nth-child(1) {
+    // (4번째 인자: 왼쪽자리 내부 gap)
+    @include TarotCardTableForm.card-celtic-cross1(0.37, 0.115, 0.5, 1);
+    // ! 켈틱크로스 왼쪽자리 4장 카드
+    & > div {
+      // background-color: transparent;
+      backface-visibility: hidden;
+      @include TarotModal.card(0.37);
+      & > img {
+        @include TarotModal.card-image(0);
+      }
+    }
+    // ! 켈틱 크로스 왼쪽 부분의 중간 자리
+    & > div:nth-child(5) {
+      //! 켈틱 크로스 왼쪽 부분의 첫번째 카드(중간카드)
+      & > div:first-child {
+        // background-color: transparent;
+        width: 100%;
+        @include TarotModal.card(0.37);
+        & > img {
+          @include TarotModal.card-image(0);
+        }
+      }
+      //! 켈틱 크로스 왼쪽 부분의 장애물 카드(중간카드)
+      & > div:last-child {
+        // background-color: transparent;
+        width: 100%;
+        height: 100%;
+        border-radius: 13px * 0.37;
+        padding: 10px * 0.37;
+        & > img {
+          @include TarotModal.card-image(0);
+        }
+      }
+    }
+  }
+  // ! 켈틱크로스 오른쪽 4장
+  & > div > div:nth-child(2) {
+    // (4번째 인자: 오른쪽자리 내부 gap)
+    @include TarotCardTableForm.card-celtic-cross2(0.37, 0.115, 0.5, 0.2);
+    & > div {
+      @include TarotModal.card(0.37);
+      // background-color: transparent;
+
+      & > img {
+        @include TarotModal.card-image(0);
+      }
+    }
+  }
+  & div > div > img {
+    @include TarotModal.card-image(0);
+    width: 50%;
+    height: 50%;
+  }
+}
+
+
+
+//! 세로모드
+@media screen and (orientation: portrait) {
+  //~ 디바이스
+  @media (min-device-width: 1025px) and (max-device-width: 1366px) {
+    //! 메인
+    div.spread-container {
+      @include TarotCardSpreadForm.celtic-cross-spread-container();
+      //! 켈틱크로스 전체 자리(card-celtic-cross-container)
+      & > div {
+        // grid gap 설정
+        @include TarotCardTableForm.card-celtic-cross-container(0.1);
+      }
+      // ! 켈틱크로스 왼쪽자리(card-celtic-cross1)
+      & > div > div:nth-child(1) {
+        @include TarotCardTableForm.card-celtic-cross1(0.7, 0.115, 0.5, 1);
+        // ! 켈틱크로스 왼쪽자리 4장 카드
+        & > div {
+          // background-color: transparent;
+          backface-visibility: hidden;
+          @include TarotModal.card(0.7);
+          & > img {
+            @include TarotModal.card-image(0);
+          }
+        }
+        // ! 켈틱 크로스 왼쪽 부분의 중간 자리
+        & > div:nth-child(5) {
+          //! 켈틱 크로스 왼쪽 부분의 첫번째 카드(중간카드)
+          & > div:first-child {
+            // background-color: transparent;
+            width: 100%;
+            @include TarotModal.card(0.7);
+            & > img {
+              @include TarotModal.card-image(0);
+            }
+          }
+          //! 켈틱 크로스 왼쪽 부분의 장애물 카드(중간카드)
+          & > div:last-child {
+            // background-color: transparent;
+            width: 100%;
+            height: 100%;
+            border-radius: 13px * 0.7;
+            padding: 10px * 0.7;
+            & > img {
+              @include TarotModal.card-image(0);
+            }
+          }
+        }
+      }
+      // ! 켈틱크로스 오른쪽 4장(card-celtic-cross2)
+      & > div > div:nth-child(2) {
+        @include TarotCardTableForm.card-celtic-cross2(0.7, 0.115, 0.5, 0.2);
+        & > div {
+          @include TarotModal.card(0.7);
+          // background-color: transparent;
+
+          & > img {
+            @include TarotModal.card-image(0);
+          }
+        }
+      }
+      & div > div > img {
+        @include TarotModal.card-image(0);
+        width: 50%;
+        height: 50%;
+      }
+    }
+  }
+
+  //~ 태블릿, 아이패드, 아이패드 프로
+  @media (min-device-width: 769px) and (max-device-width: 1024px) {
+    //! 메인
+    div.spread-container {
+      @include TarotCardSpreadForm.celtic-cross-spread-container();
+      //! 켈틱크로스 전체 자리(card-celtic-cross-container)
+      & > div {
+        // grid gap 설정
+        @include TarotCardTableForm.card-celtic-cross-container(0.1);
+      }
+      // ! 켈틱크로스 왼쪽자리(card-celtic-cross1)
+      & > div > div:nth-child(1) {
+        @include TarotCardTableForm.card-celtic-cross1(0.6, 0.2, 0.4, 1.8);
+        // ! 켈틱크로스 왼쪽자리 4장 카드
+        & > div {
+          // background-color: transparent;
+          backface-visibility: hidden;
+          @include TarotModal.card(0.6);
+          & > img {
+            @include TarotModal.card-image(0);
+          }
+        }
+        // ! 켈틱 크로스 왼쪽 부분의 중간 자리
+        & > div:nth-child(5) {
+          //! 켈틱 크로스 왼쪽 부분의 첫번째 카드(중간카드)
+          & > div:first-child {
+            // background-color: transparent;
+            width: 100%;
+            @include TarotModal.card(0.6);
+            & > img {
+              @include TarotModal.card-image(0);
+            }
+          }
+          //! 켈틱 크로스 왼쪽 부분의 장애물 카드(중간카드)
+          & > div:last-child {
+            // background-color: transparent;
+            width: 100%;
+            height: 100%;
+            border-radius: 13px * 0.6;
+            padding: 10px * 0.6;
+            & > img {
+              @include TarotModal.card-image(0);
+            }
+          }
+        }
+      }
+      // ! 켈틱크로스 오른쪽 4장(card-celtic-cross2)
+      & > div > div:nth-child(2) {
+        @include TarotCardTableForm.card-celtic-cross2(0.6, 0.2, 0.4, 1);
+        & > div {
+          @include TarotModal.card(0.6);
+          // background-color: transparent;
+
+          & > img {
+            @include TarotModal.card-image(0);
+          }
+        }
+      }
+      & div > div > img {
+        @include TarotModal.card-image(0);
+        width: 50%;
+        height: 50%;
+      }
+    }
+  }
+
+  //~ 481px ~ 768px 및 태블릿
+  @media (min-device-width: 481px) and (max-device-width: 768px) {
+    //! 메인
+    div.spread-container {
+      @include TarotCardSpreadForm.celtic-cross-spread-container();
+      //! 켈틱크로스 전체 자리(card-celtic-cross-container)
+      & > div {
+        // grid gap 설정
+        @include TarotCardTableForm.card-celtic-cross-container(0.1);
+      }
+      // ! 켈틱크로스 왼쪽자리(card-celtic-cross1)
+      & > div > div:nth-child(1) {
+        @include TarotCardTableForm.card-celtic-cross1(0.4, 0.115, 0.5, 1.4);
+        // ! 켈틱크로스 왼쪽자리 4장 카드
+        & > div {
+          // background-color: transparent;
+          backface-visibility: hidden;
+          @include TarotModal.card(0.4);
+          & > img {
+            @include TarotModal.card-image(0);
+          }
+        }
+        // ! 켈틱 크로스 왼쪽 부분의 중간 자리
+        & > div:nth-child(5) {
+          //! 켈틱 크로스 왼쪽 부분의 첫번째 카드(중간카드)
+          & > div:first-child {
+            // background-color: transparent;
+            width: 100%;
+            @include TarotModal.card(0.4);
+            & > img {
+              @include TarotModal.card-image(0);
+            }
+          }
+          //! 켈틱 크로스 왼쪽 부분의 장애물 카드(중간카드)
+          & > div:last-child {
+            // background-color: transparent;
+            width: 100%;
+            height: 100%;
+            border-radius: 13px * 0.4;
+            padding: 10px * 0.4;
+            & > img {
+              @include TarotModal.card-image(0);
+            }
+          }
+        }
+      }
+      // ! 켈틱크로스 오른쪽 4장(card-celtic-cross2)
+      & > div > div:nth-child(2) {
+        @include TarotCardTableForm.card-celtic-cross2(0.4, 0.115, 0.5, 0.5);
+        & > div {
+          @include TarotModal.card(0.4);
+          // background-color: transparent;
+
+          & > img {
+            @include TarotModal.card-image(0);
+          }
+        }
+      }
+      & div > div > img {
+        @include TarotModal.card-image(0);
+        width: 50%;
+        height: 50%;
+      }
+    }
+  }
+
+  //~ IPhone 14 Pro Max(430px)
+  @media only screen and (min-device-width: 415px) and (max-device-width: 480px) {
+    //! 메인
+    div.spread-container {
+      @include TarotCardSpreadForm.celtic-cross-spread-container();
+      //! 켈틱크로스 전체 자리(card-celtic-cross-container)
+      & > div {
+        // grid gap 설정
+        @include TarotCardTableForm.card-celtic-cross-container(0.1);
+      }
+      // ! 켈틱크로스 왼쪽자리(card-celtic-cross1)
+      & > div > div:nth-child(1) {
+        @include TarotCardTableForm.card-celtic-cross1(0.4, 0.115, 0.5, 1);
+        // ! 켈틱크로스 왼쪽자리 4장 카드
+        & > div {
+          // background-color: transparent;
+          backface-visibility: hidden;
+          @include TarotModal.card(0.4);
+          & > img {
+            @include TarotModal.card-image(0);
+          }
+        }
+        // ! 켈틱 크로스 왼쪽 부분의 중간 자리
+        & > div:nth-child(5) {
+          //! 켈틱 크로스 왼쪽 부분의 첫번째 카드(중간카드)
+          & > div:first-child {
+            // background-color: transparent;
+            width: 100%;
+            @include TarotModal.card(0.4);
+            & > img {
+              @include TarotModal.card-image(0);
+            }
+          }
+          //! 켈틱 크로스 왼쪽 부분의 장애물 카드(중간카드)
+          & > div:last-child {
+            // background-color: transparent;
+            width: 100%;
+            height: 100%;
+            border-radius: 13px * 0.4;
+            padding: 10px * 0.4;
+            & > img {
+              @include TarotModal.card-image(0);
+            }
+          }
+        }
+      }
+      // ! 켈틱크로스 오른쪽 4장(card-celtic-cross2)
+      & > div > div:nth-child(2) {
+        @include TarotCardTableForm.card-celtic-cross2(0.4, 0.115, 0.5, 0.2);
+        & > div {
+          @include TarotModal.card(0.4);
+          // background-color: transparent;
+
+          & > img {
+            @include TarotModal.card-image(0);
+          }
+        }
+      }
+      & div > div > img {
+        @include TarotModal.card-image(0);
+        width: 50%;
+        height: 50%;
+      }
+    }
+  }
+
+  //~ 아이폰XR
+  @media (min-device-width: 376px) and (max-device-width: 414px) {
+    //! 메인
+    div.spread-container {
+      @include TarotCardSpreadForm.celtic-cross-spread-container();
+      //! 켈틱크로스 전체 자리(card-celtic-cross-container)
+      & > div {
+        // grid gap 설정
+        @include TarotCardTableForm.card-celtic-cross-container(0.1);
+      }
+      // ! 켈틱크로스 왼쪽자리(card-celtic-cross1)
+      & > div > div:nth-child(1) {
+        @include TarotCardTableForm.card-celtic-cross1(0.36, 0.115, 0.5, 0.8);
+        // ! 켈틱크로스 왼쪽자리 4장 카드
+        & > div {
+          // background-color: transparent;
+          backface-visibility: hidden;
+          @include TarotModal.card(0.36);
+          & > img {
+            @include TarotModal.card-image(0);
+          }
+        }
+        // ! 켈틱 크로스 왼쪽 부분의 중간 자리
+        & > div:nth-child(5) {
+          //! 켈틱 크로스 왼쪽 부분의 첫번째 카드(중간카드)
+          & > div:first-child {
+            // background-color: transparent;
+            width: 100%;
+            @include TarotModal.card(0.36);
+            & > img {
+              @include TarotModal.card-image(0);
+            }
+          }
+          //! 켈틱 크로스 왼쪽 부분의 장애물 카드(중간카드)
+          & > div:last-child {
+            // background-color: transparent;
+            width: 100%;
+            height: 100%;
+            border-radius: 13px * 0.36;
+            padding: 10px * 0.36;
+            & > img {
+              @include TarotModal.card-image(0);
+            }
+          }
+        }
+      }
+      // ! 켈틱크로스 오른쪽 4장(card-celtic-cross2)
+      & > div > div:nth-child(2) {
+        @include TarotCardTableForm.card-celtic-cross2(0.36, 0.115, 0.5, 0.2);
+        & > div {
+          @include TarotModal.card(0.36);
+          // background-color: transparent;
+
+          & > img {
+            @include TarotModal.card-image(0);
+          }
+        }
+      }
+      & div > div > img {
+        @include TarotModal.card-image(0);
+        width: 50%;
+        height: 50%;
+      }
+    }
+  }
+
+  //~ 아이폰 SE
+  @media (min-device-width: 281px) and (max-device-width: 375px) {
+    //! 메인
+    div.spread-container {
+      @include TarotCardSpreadForm.celtic-cross-spread-container();
+      //! 켈틱크로스 전체 자리(card-celtic-cross-container)
+      & > div {
+        // grid gap 설정
+        @include TarotCardTableForm.card-celtic-cross-container(0.1);
+      }
+      // ! 켈틱크로스 왼쪽자리(card-celtic-cross1)
+      & > div > div:nth-child(1) {
+        @include TarotCardTableForm.card-celtic-cross1(0.3, 0.115, 0.5, 0.7);
+        // ! 켈틱크로스 왼쪽자리 4장 카드
+        & > div {
+          // background-color: transparent;
+          backface-visibility: hidden;
+          @include TarotModal.card(0.3);
+          & > img {
+            @include TarotModal.card-image(0);
+          }
+        }
+        // ! 켈틱 크로스 왼쪽 부분의 중간 자리
+        & > div:nth-child(5) {
+          //! 켈틱 크로스 왼쪽 부분의 첫번째 카드(중간카드)
+          & > div:first-child {
+            // background-color: transparent;
+            width: 100%;
+            @include TarotModal.card(0.3);
+            & > img {
+              @include TarotModal.card-image(0);
+            }
+          }
+          //! 켈틱 크로스 왼쪽 부분의 장애물 카드(중간카드)
+          & > div:last-child {
+            // background-color: transparent;
+            width: 100%;
+            height: 100%;
+            border-radius: 13px * 0.3;
+            padding: 10px * 0.3;
+            & > img {
+              @include TarotModal.card-image(0);
+            }
+          }
+        }
+      }
+      // ! 켈틱크로스 오른쪽 4장(card-celtic-cross2)
+      & > div > div:nth-child(2) {
+        @include TarotCardTableForm.card-celtic-cross2(0.3, 0.115, 0.5, 0.2);
+        & > div {
+          @include TarotModal.card(0.3);
+          // background-color: transparent;
+
+          & > img {
+            @include TarotModal.card-image(0);
+          }
+        }
+      }
+      & div > div > img {
+        @include TarotModal.card-image(0);
+        width: 50%;
+        height: 50%;
+      }
+    }
+  }
+
+  //~ 갤럭시 폴드
+  @media (max-device-width: 280px) {
+    //! 메인
+    div.spread-container {
+      @include TarotCardSpreadForm.celtic-cross-spread-container();
+      //! 켈틱크로스 전체 자리(card-celtic-cross-container)
+      & > div {
+        // grid gap 설정
+        @include TarotCardTableForm.card-celtic-cross-container(0.1);
+      }
+      // ! 켈틱크로스 왼쪽자리(card-celtic-cross1)
+      & > div > div:nth-child(1) {
+        @include TarotCardTableForm.card-celtic-cross1(0.2, 0.115, 0.5, 0.5);
+        // ! 켈틱크로스 왼쪽자리 4장 카드
+        & > div {
+          // background-color: transparent;
+          backface-visibility: hidden;
+          @include TarotModal.card(0.2);
+          & > img {
+            @include TarotModal.card-image(0);
+          }
+        }
+        // ! 켈틱 크로스 왼쪽 부분의 중간 자리
+        & > div:nth-child(5) {
+          //! 켈틱 크로스 왼쪽 부분의 첫번째 카드(중간카드)
+          & > div:first-child {
+            // background-color: transparent;
+            width: 100%;
+            @include TarotModal.card(0.2);
+            & > img {
+              @include TarotModal.card-image(0);
+            }
+          }
+          //! 켈틱 크로스 왼쪽 부분의 장애물 카드(중간카드)
+          & > div:last-child {
+            // background-color: transparent;
+            width: 100%;
+            height: 100%;
+            border-radius: 13px * 0.2;
+            padding: 10px * 0.2;
+            & > img {
+              @include TarotModal.card-image(0);
+            }
+          }
+        }
+      }
+      // ! 켈틱크로스 오른쪽 4장(card-celtic-cross2)
+      & > div > div:nth-child(2) {
+        @include TarotCardTableForm.card-celtic-cross2(0.2, 0.115, 0.5, 0.2);
+        & > div {
+          @include TarotModal.card(0.2);
+          // background-color: transparent;
+
+          & > img {
+            @include TarotModal.card-image(0);
+          }
+        }
+      }
+      & div > div > img {
+        @include TarotModal.card-image(0);
+        width: 50%;
+        height: 50%;
+      }
+    }
+  }
+  //! 반응형 웹
+
+  //~ 디바이스
+  @media (min-width: 1025px) and (max-width: 1366px) {
+    //! 메인
+    div.spread-container {
+      @include TarotCardSpreadForm.celtic-cross-spread-container();
+      //! 켈틱크로스 전체 자리(card-celtic-cross-container)
+      & > div {
+        // grid gap 설정
+        @include TarotCardTableForm.card-celtic-cross-container(0.1);
+      }
+      // ! 켈틱크로스 왼쪽자리(card-celtic-cross1)
+      & > div > div:nth-child(1) {
+        @include TarotCardTableForm.card-celtic-cross1(0.7, 0.115, 0.5, 1);
+        // ! 켈틱크로스 왼쪽자리 4장 카드
+        & > div {
+          // background-color: transparent;
+          backface-visibility: hidden;
+          @include TarotModal.card(0.7);
+          & > img {
+            @include TarotModal.card-image(0);
+          }
+        }
+        // ! 켈틱 크로스 왼쪽 부분의 중간 자리
+        & > div:nth-child(5) {
+          //! 켈틱 크로스 왼쪽 부분의 첫번째 카드(중간카드)
+          & > div:first-child {
+            // background-color: transparent;
+            width: 100%;
+            @include TarotModal.card(0.7);
+            & > img {
+              @include TarotModal.card-image(0);
+            }
+          }
+          //! 켈틱 크로스 왼쪽 부분의 장애물 카드(중간카드)
+          & > div:last-child {
+            // background-color: transparent;
+            width: 100%;
+            height: 100%;
+            border-radius: 13px * 0.7;
+            padding: 10px * 0.7;
+            & > img {
+              @include TarotModal.card-image(0);
+            }
+          }
+        }
+      }
+      // ! 켈틱크로스 오른쪽 4장(card-celtic-cross2)
+      & > div > div:nth-child(2) {
+        @include TarotCardTableForm.card-celtic-cross2(0.7, 0.115, 0.5, 0.2);
+        & > div {
+          @include TarotModal.card(0.7);
+          // background-color: transparent;
+
+          & > img {
+            @include TarotModal.card-image(0);
+          }
+        }
+      }
+      & div > div > img {
+        @include TarotModal.card-image(0);
+        width: 50%;
+        height: 50%;
+      }
+    }
+  }
+
+  //~ 태블릿, 아이패드, 아이패드 프로
+  @media (min-width: 769px) and (max-width: 1024px) {
+    //! 메인
+    div.spread-container {
+      @include TarotCardSpreadForm.celtic-cross-spread-container();
+      //! 켈틱크로스 전체 자리(card-celtic-cross-container)
+      & > div {
+        // grid gap 설정
+        @include TarotCardTableForm.card-celtic-cross-container(0.1);
+      }
+      // ! 켈틱크로스 왼쪽자리(card-celtic-cross1)
+      & > div > div:nth-child(1) {
+        @include TarotCardTableForm.card-celtic-cross1(0.6, 0.2, 0.4, 1.8);
+        // ! 켈틱크로스 왼쪽자리 4장 카드
+        & > div {
+          // background-color: transparent;
+          backface-visibility: hidden;
+          @include TarotModal.card(0.6);
+          & > img {
+            @include TarotModal.card-image(0);
+          }
+        }
+        // ! 켈틱 크로스 왼쪽 부분의 중간 자리
+        & > div:nth-child(5) {
+          //! 켈틱 크로스 왼쪽 부분의 첫번째 카드(중간카드)
+          & > div:first-child {
+            // background-color: transparent;
+            width: 100%;
+            @include TarotModal.card(0.6);
+            & > img {
+              @include TarotModal.card-image(0);
+            }
+          }
+          //! 켈틱 크로스 왼쪽 부분의 장애물 카드(중간카드)
+          & > div:last-child {
+            // background-color: transparent;
+            width: 100%;
+            height: 100%;
+            border-radius: 13px * 0.6;
+            padding: 10px * 0.6;
+            & > img {
+              @include TarotModal.card-image(0);
+            }
+          }
+        }
+      }
+      // ! 켈틱크로스 오른쪽 4장(card-celtic-cross2)
+      & > div > div:nth-child(2) {
+        @include TarotCardTableForm.card-celtic-cross2(0.6, 0.2, 0.4, 1);
+        & > div {
+          @include TarotModal.card(0.6);
+          // background-color: transparent;
+
+          & > img {
+            @include TarotModal.card-image(0);
+          }
+        }
+      }
+      & div > div > img {
+        @include TarotModal.card-image(0);
+        width: 50%;
+        height: 50%;
+      }
+    }
+  }
+
+  //~ 481px ~ 768px 및 태블릿
+  @media (min-width: 481px) and (max-width: 768px) {
+    //! 메인
+    div.spread-container {
+      @include TarotCardSpreadForm.celtic-cross-spread-container();
+      //! 켈틱크로스 전체 자리(card-celtic-cross-container)
+      & > div {
+        // grid gap 설정
+        @include TarotCardTableForm.card-celtic-cross-container(0.1);
+      }
+      // ! 켈틱크로스 왼쪽자리(card-celtic-cross1)
+      & > div > div:nth-child(1) {
+        @include TarotCardTableForm.card-celtic-cross1(0.4, 0.115, 0.5, 1.4);
+        // ! 켈틱크로스 왼쪽자리 4장 카드
+        & > div {
+          // background-color: transparent;
+          backface-visibility: hidden;
+          @include TarotModal.card(0.4);
+          & > img {
+            @include TarotModal.card-image(0);
+          }
+        }
+        // ! 켈틱 크로스 왼쪽 부분의 중간 자리
+        & > div:nth-child(5) {
+          //! 켈틱 크로스 왼쪽 부분의 첫번째 카드(중간카드)
+          & > div:first-child {
+            // background-color: transparent;
+            width: 100%;
+            @include TarotModal.card(0.4);
+            & > img {
+              @include TarotModal.card-image(0);
+            }
+          }
+          //! 켈틱 크로스 왼쪽 부분의 장애물 카드(중간카드)
+          & > div:last-child {
+            // background-color: transparent;
+            width: 100%;
+            height: 100%;
+            border-radius: 13px * 0.4;
+            padding: 10px * 0.4;
+            & > img {
+              @include TarotModal.card-image(0);
+            }
+          }
+        }
+      }
+      // ! 켈틱크로스 오른쪽 4장(card-celtic-cross2)
+      & > div > div:nth-child(2) {
+        @include TarotCardTableForm.card-celtic-cross2(0.4, 0.115, 0.5, 0.5);
+        & > div {
+          @include TarotModal.card(0.4);
+          // background-color: transparent;
+
+          & > img {
+            @include TarotModal.card-image(0);
+          }
+        }
+      }
+      & div > div > img {
+        @include TarotModal.card-image(0);
+        width: 50%;
+        height: 50%;
+      }
+    }
+  }
+
+  //~ IPhone 14 Pro Max(430px)
+  @media only screen and (min-width: 415px) and (max-width: 480px) {
+    //! 메인
+    div.spread-container {
+      @include TarotCardSpreadForm.celtic-cross-spread-container();
+      //! 켈틱크로스 전체 자리(card-celtic-cross-container)
+      & > div {
+        // grid gap 설정
+        @include TarotCardTableForm.card-celtic-cross-container(0.1);
+      }
+      // ! 켈틱크로스 왼쪽자리(card-celtic-cross1)
+      & > div > div:nth-child(1) {
+        @include TarotCardTableForm.card-celtic-cross1(0.4, 0.115, 0.5, 1);
+        // ! 켈틱크로스 왼쪽자리 4장 카드
+        & > div {
+          // background-color: transparent;
+          backface-visibility: hidden;
+          @include TarotModal.card(0.4);
+          & > img {
+            @include TarotModal.card-image(0);
+          }
+        }
+        // ! 켈틱 크로스 왼쪽 부분의 중간 자리
+        & > div:nth-child(5) {
+          //! 켈틱 크로스 왼쪽 부분의 첫번째 카드(중간카드)
+          & > div:first-child {
+            // background-color: transparent;
+            width: 100%;
+            @include TarotModal.card(0.4);
+            & > img {
+              @include TarotModal.card-image(0);
+            }
+          }
+          //! 켈틱 크로스 왼쪽 부분의 장애물 카드(중간카드)
+          & > div:last-child {
+            // background-color: transparent;
+            width: 100%;
+            height: 100%;
+            border-radius: 13px * 0.4;
+            padding: 10px * 0.4;
+            & > img {
+              @include TarotModal.card-image(0);
+            }
+          }
+        }
+      }
+      // ! 켈틱크로스 오른쪽 4장(card-celtic-cross2)
+      & > div > div:nth-child(2) {
+        @include TarotCardTableForm.card-celtic-cross2(0.4, 0.115, 0.5, 0.2);
+        & > div {
+          @include TarotModal.card(0.4);
+          // background-color: transparent;
+
+          & > img {
+            @include TarotModal.card-image(0);
+          }
+        }
+      }
+      & div > div > img {
+        @include TarotModal.card-image(0);
+        width: 50%;
+        height: 50%;
+      }
+    }
+  }
+
+  //~ 아이폰XR
+  @media (min-width: 376px) and (max-width: 414px) {
+    //! 메인
+    div.spread-container {
+      @include TarotCardSpreadForm.celtic-cross-spread-container();
+      //! 켈틱크로스 전체 자리(card-celtic-cross-container)
+      & > div {
+        // grid gap 설정
+        @include TarotCardTableForm.card-celtic-cross-container(0.1);
+      }
+      // ! 켈틱크로스 왼쪽자리(card-celtic-cross1)
+      & > div > div:nth-child(1) {
+        @include TarotCardTableForm.card-celtic-cross1(0.36, 0.115, 0.5, 0.8);
+        // ! 켈틱크로스 왼쪽자리 4장 카드
+        & > div {
+          // background-color: transparent;
+          backface-visibility: hidden;
+          @include TarotModal.card(0.36);
+          & > img {
+            @include TarotModal.card-image(0);
+          }
+        }
+        // ! 켈틱 크로스 왼쪽 부분의 중간 자리
+        & > div:nth-child(5) {
+          //! 켈틱 크로스 왼쪽 부분의 첫번째 카드(중간카드)
+          & > div:first-child {
+            // background-color: transparent;
+            width: 100%;
+            @include TarotModal.card(0.36);
+            & > img {
+              @include TarotModal.card-image(0);
+            }
+          }
+          //! 켈틱 크로스 왼쪽 부분의 장애물 카드(중간카드)
+          & > div:last-child {
+            // background-color: transparent;
+            width: 100%;
+            height: 100%;
+            border-radius: 13px * 0.36;
+            padding: 10px * 0.36;
+            & > img {
+              @include TarotModal.card-image(0);
+            }
+          }
+        }
+      }
+      // ! 켈틱크로스 오른쪽 4장(card-celtic-cross2)
+      & > div > div:nth-child(2) {
+        @include TarotCardTableForm.card-celtic-cross2(0.36, 0.115, 0.5, 0.2);
+        & > div {
+          @include TarotModal.card(0.36);
+          // background-color: transparent;
+
+          & > img {
+            @include TarotModal.card-image(0);
+          }
+        }
+      }
+      & div > div > img {
+        @include TarotModal.card-image(0);
+        width: 50%;
+        height: 50%;
+      }
+    }
+  }
+
+  //~ 아이폰 SE
+  @media (min-width: 281px) and (max-width: 375px) {
+    //! 메인
+    div.spread-container {
+      @include TarotCardSpreadForm.celtic-cross-spread-container();
+      //! 켈틱크로스 전체 자리(card-celtic-cross-container)
+      & > div {
+        // grid gap 설정
+        @include TarotCardTableForm.card-celtic-cross-container(0.1);
+      }
+      // ! 켈틱크로스 왼쪽자리(card-celtic-cross1)
+      & > div > div:nth-child(1) {
+        @include TarotCardTableForm.card-celtic-cross1(0.3, 0.115, 0.5, 0.7);
+        // ! 켈틱크로스 왼쪽자리 4장 카드
+        & > div {
+          // background-color: transparent;
+          backface-visibility: hidden;
+          @include TarotModal.card(0.3);
+          & > img {
+            @include TarotModal.card-image(0);
+          }
+        }
+        // ! 켈틱 크로스 왼쪽 부분의 중간 자리
+        & > div:nth-child(5) {
+          //! 켈틱 크로스 왼쪽 부분의 첫번째 카드(중간카드)
+          & > div:first-child {
+            // background-color: transparent;
+            width: 100%;
+            @include TarotModal.card(0.3);
+            & > img {
+              @include TarotModal.card-image(0);
+            }
+          }
+          //! 켈틱 크로스 왼쪽 부분의 장애물 카드(중간카드)
+          & > div:last-child {
+            // background-color: transparent;
+            width: 100%;
+            height: 100%;
+            border-radius: 13px * 0.3;
+            padding: 10px * 0.3;
+            & > img {
+              @include TarotModal.card-image(0);
+            }
+          }
+        }
+      }
+      // ! 켈틱크로스 오른쪽 4장(card-celtic-cross2)
+      & > div > div:nth-child(2) {
+        @include TarotCardTableForm.card-celtic-cross2(0.3, 0.115, 0.5, 0.2);
+        & > div {
+          @include TarotModal.card(0.3);
+          // background-color: transparent;
+
+          & > img {
+            @include TarotModal.card-image(0);
+          }
+        }
+      }
+      & div > div > img {
+        @include TarotModal.card-image(0);
+        width: 50%;
+        height: 50%;
+      }
+    }
+  }
+
+  //~ 갤럭시 폴드
+  @media (max-width: 280px) {
+    //! 메인
+    div.spread-container {
+      @include TarotCardSpreadForm.celtic-cross-spread-container();
+      //! 켈틱크로스 전체 자리(card-celtic-cross-container)
+      & > div {
+        // grid gap 설정
+        @include TarotCardTableForm.card-celtic-cross-container(0.1);
+      }
+      // ! 켈틱크로스 왼쪽자리(card-celtic-cross1)
+      & > div > div:nth-child(1) {
+        @include TarotCardTableForm.card-celtic-cross1(0.2, 0.115, 0.5, 0.5);
+        // ! 켈틱크로스 왼쪽자리 4장 카드
+        & > div {
+          // background-color: transparent;
+          backface-visibility: hidden;
+          @include TarotModal.card(0.2);
+          & > img {
+            @include TarotModal.card-image(0);
+          }
+        }
+        // ! 켈틱 크로스 왼쪽 부분의 중간 자리
+        & > div:nth-child(5) {
+          //! 켈틱 크로스 왼쪽 부분의 첫번째 카드(중간카드)
+          & > div:first-child {
+            // background-color: transparent;
+            width: 100%;
+            @include TarotModal.card(0.2);
+            & > img {
+              @include TarotModal.card-image(0);
+            }
+          }
+          //! 켈틱 크로스 왼쪽 부분의 장애물 카드(중간카드)
+          & > div:last-child {
+            // background-color: transparent;
+            width: 100%;
+            height: 100%;
+            border-radius: 13px * 0.2;
+            padding: 10px * 0.2;
+            & > img {
+              @include TarotModal.card-image(0);
+            }
+          }
+        }
+      }
+      // ! 켈틱크로스 오른쪽 4장(card-celtic-cross2)
+      & > div > div:nth-child(2) {
+        @include TarotCardTableForm.card-celtic-cross2(0.2, 0.115, 0.5, 0.2);
+        & > div {
+          @include TarotModal.card(0.2);
+          // background-color: transparent;
+
+          & > img {
+            @include TarotModal.card-image(0);
+          }
+        }
+      }
+      & div > div > img {
+        @include TarotModal.card-image(0);
+        width: 50%;
+        height: 50%;
+      }
+    }
+  }
+}
+
+//* 가로모드
+@media screen and (orientation: landscape) {
+  //* 아이패드 프로 가로
+  @media (min-device-width: 1367px) {
+    //! 메인
+    div.spread-container {
+      @include TarotCardSpreadForm.celtic-cross-spread-container();
+      //! 켈틱크로스 전체 자리(card-celtic-cross-container)
+      & > div {
+        // grid gap 설정
+        @include TarotCardTableForm.card-celtic-cross-container(0.1);
+      }
+      // ! 켈틱크로스 왼쪽자리(card-celtic-cross1)
+      & > div > div:nth-child(1) {
+        @include TarotCardTableForm.card-celtic-cross1(0.45, 0.115, 0.5, 1);
+        // ! 켈틱크로스 왼쪽자리 4장 카드
+        & > div {
+          // background-color: transparent;
+          backface-visibility: hidden;
+          @include TarotModal.card(0.45);
+          & > img {
+            @include TarotModal.card-image(0);
+          }
+        }
+        // ! 켈틱 크로스 왼쪽 부분의 중간 자리
+        & > div:nth-child(5) {
+          //! 켈틱 크로스 왼쪽 부분의 첫번째 카드(중간카드)
+          & > div:first-child {
+            // background-color: transparent;
+            width: 100%;
+            @include TarotModal.card(0.45);
+            & > img {
+              @include TarotModal.card-image(0);
+            }
+          }
+          //! 켈틱 크로스 왼쪽 부분의 장애물 카드(중간카드)
+          & > div:last-child {
+            // background-color: transparent;
+            width: 100%;
+            height: 100%;
+            border-radius: 13px * 0.45;
+            padding: 10px * 0.45;
+            & > img {
+              @include TarotModal.card-image(0);
+            }
+          }
+        }
+      }
+      // ! 켈틱크로스 오른쪽 4장(card-celtic-cross2)
+      & > div > div:nth-child(2) {
+        @include TarotCardTableForm.card-celtic-cross2(0.45, 0.115, 0.5, 0.2);
+        & > div {
+          @include TarotModal.card(0.45);
+          // background-color: transparent;
+
+          & > img {
+            @include TarotModal.card-image(0);
+          }
+        }
+      }
+      & div > div > img {
+        @include TarotModal.card-image(0);
+        width: 50%;
+        height: 50%;
+      }
+    }
+  }
+
+  //* 태블릿 아이패드, 아이패드 프로 가로
+  @media (min-device-width: 1025px) and (max-device-width: 1366px) {
+    //! 메인
+    div.spread-container {
+      @include TarotCardSpreadForm.celtic-cross-spread-container();
+      //! 켈틱크로스 전체 자리(card-celtic-cross-container)
+      & > div {
+        // grid gap 설정
+        @include TarotCardTableForm.card-celtic-cross-container(0.1);
+      }
+      // ! 켈틱크로스 왼쪽자리(card-celtic-cross1)
+      & > div > div:nth-child(1) {
+        @include TarotCardTableForm.card-celtic-cross1(0.4, 0.115, 0.5, 1);
+        // ! 켈틱크로스 왼쪽자리 4장 카드
+        & > div {
+          // background-color: transparent;
+          backface-visibility: hidden;
+          @include TarotModal.card(0.4);
+          & > img {
+            @include TarotModal.card-image(0);
+          }
+        }
+        // ! 켈틱 크로스 왼쪽 부분의 중간 자리
+        & > div:nth-child(5) {
+          //! 켈틱 크로스 왼쪽 부분의 첫번째 카드(중간카드)
+          & > div:first-child {
+            // background-color: transparent;
+            width: 100%;
+            @include TarotModal.card(0.4);
+            & > img {
+              @include TarotModal.card-image(0);
+            }
+          }
+          //! 켈틱 크로스 왼쪽 부분의 장애물 카드(중간카드)
+          & > div:last-child {
+            // background-color: transparent;
+            width: 100%;
+            height: 100%;
+            border-radius: 13px * 0.4;
+            padding: 10px * 0.4;
+            & > img {
+              @include TarotModal.card-image(0);
+            }
+          }
+        }
+      }
+      // ! 켈틱크로스 오른쪽 4장(card-celtic-cross2)
+      & > div > div:nth-child(2) {
+        @include TarotCardTableForm.card-celtic-cross2(0.4, 0.115, 0.5, 0.2);
+        & > div {
+          @include TarotModal.card(0.4);
+          // background-color: transparent;
+
+          & > img {
+            @include TarotModal.card-image(0);
+          }
+        }
+      }
+      & div > div > img {
+        @include TarotModal.card-image(0);
+        width: 50%;
+        height: 50%;
+      }
+    }
+  }
+
+  //* 태블릿 아이패드, 아이패드 프로 가로
+  @media (min-device-width: 933px) and (max-device-width: 1024px) {
+    //! 메인
+    div.spread-container {
+      @include TarotCardSpreadForm.celtic-cross-spread-container();
+      //! 켈틱크로스 전체 자리(card-celtic-cross-container)
+      & > div {
+        // grid gap 설정
+        @include TarotCardTableForm.card-celtic-cross-container(0.1);
+      }
+      // ! 켈틱크로스 왼쪽자리(card-celtic-cross1)
+      & > div > div:nth-child(1) {
+        @include TarotCardTableForm.card-celtic-cross1(0.35, 0.115, 0.5, 0.8);
+        // ! 켈틱크로스 왼쪽자리 4장 카드
+        & > div {
+          // background-color: transparent;
+          backface-visibility: hidden;
+          @include TarotModal.card(0.35);
+          & > img {
+            @include TarotModal.card-image(0);
+          }
+        }
+        // ! 켈틱 크로스 왼쪽 부분의 중간 자리
+        & > div:nth-child(5) {
+          //! 켈틱 크로스 왼쪽 부분의 첫번째 카드(중간카드)
+          & > div:first-child {
+            // background-color: transparent;
+            width: 100%;
+            @include TarotModal.card(0.35);
+            & > img {
+              @include TarotModal.card-image(0);
+            }
+          }
+          //! 켈틱 크로스 왼쪽 부분의 장애물 카드(중간카드)
+          & > div:last-child {
+            // background-color: transparent;
+            width: 100%;
+            height: 100%;
+            border-radius: 13px * 0.35;
+            padding: 10px * 0.35;
+            & > img {
+              @include TarotModal.card-image(0);
+            }
+          }
+        }
+      }
+      // ! 켈틱크로스 오른쪽 4장(card-celtic-cross2)
+      & > div > div:nth-child(2) {
+        @include TarotCardTableForm.card-celtic-cross2(0.35, 0.115, 0.5, 0.2);
+        & > div {
+          @include TarotModal.card(0.35);
+          // background-color: transparent;
+
+          & > img {
+            @include TarotModal.card-image(0);
+          }
+        }
+      }
+      & div > div > img {
+        @include TarotModal.card-image(0);
+        width: 50%;
+        height: 50%;
+      }
+    }
+  }
+
+  //* IPhon 14 Pro Max 가로모드
+  @media (min-device-width: 897px) and (max-device-width: 932px) {
+    //! 메인
+    div.spread-container {
+      @include TarotCardSpreadForm.celtic-cross-spread-container();
+      //! 켈틱크로스 전체 자리(card-celtic-cross-container)
+      & > div {
+        // grid gap 설정
+        @include TarotCardTableForm.card-celtic-cross-container(0.1);
+      }
+      // ! 켈틱크로스 왼쪽자리(card-celtic-cross1)
+      & > div > div:nth-child(1) {
+        @include TarotCardTableForm.card-celtic-cross1(0.32, 0.115, 0.5, 0.8);
+        // ! 켈틱크로스 왼쪽자리 4장 카드
+        & > div {
+          // background-color: transparent;
+          backface-visibility: hidden;
+          @include TarotModal.card(0.32);
+          & > img {
+            @include TarotModal.card-image(0);
+          }
+        }
+        // ! 켈틱 크로스 왼쪽 부분의 중간 자리
+        & > div:nth-child(5) {
+          //! 켈틱 크로스 왼쪽 부분의 첫번째 카드(중간카드)
+          & > div:first-child {
+            // background-color: transparent;
+            width: 100%;
+            @include TarotModal.card(0.32);
+            & > img {
+              @include TarotModal.card-image(0);
+            }
+          }
+          //! 켈틱 크로스 왼쪽 부분의 장애물 카드(중간카드)
+          & > div:last-child {
+            // background-color: transparent;
+            width: 100%;
+            height: 100%;
+            border-radius: 13px * 0.32;
+            padding: 10px * 0.32;
+            & > img {
+              @include TarotModal.card-image(0);
+            }
+          }
+        }
+      }
+      // ! 켈틱크로스 오른쪽 4장(card-celtic-cross2)
+      & > div > div:nth-child(2) {
+        @include TarotCardTableForm.card-celtic-cross2(0.32, 0.115, 0.5, 0.2);
+        & > div {
+          @include TarotModal.card(0.32);
+          // background-color: transparent;
+
+          & > img {
+            @include TarotModal.card-image(0);
+          }
+        }
+      }
+      & div > div > img {
+        @include TarotModal.card-image(0);
+        width: 50%;
+        height: 50%;
+      }
+    }
+  }
+
+  //* 아이폰XR 가로모드
+  @media (min-device-width: 668px) and (max-device-width: 896px) {
+    //! 메인
+    div.spread-container {
+      @include TarotCardSpreadForm.celtic-cross-spread-container();
+      //! 켈틱크로스 전체 자리(card-celtic-cross-container)
+      & > div {
+        // grid gap 설정
+        @include TarotCardTableForm.card-celtic-cross-container(0.1);
+      }
+      // ! 켈틱크로스 왼쪽자리(card-celtic-cross1)
+      & > div > div:nth-child(1) {
+        @include TarotCardTableForm.card-celtic-cross1(0.27, 0.115, 0.5, 0.8);
+        // ! 켈틱크로스 왼쪽자리 4장 카드
+        & > div {
+          // background-color: transparent;
+          backface-visibility: hidden;
+          @include TarotModal.card(0.27);
+          & > img {
+            @include TarotModal.card-image(0);
+          }
+        }
+        // ! 켈틱 크로스 왼쪽 부분의 중간 자리
+        & > div:nth-child(5) {
+          //! 켈틱 크로스 왼쪽 부분의 첫번째 카드(중간카드)
+          & > div:first-child {
+            // background-color: transparent;
+            width: 100%;
+            @include TarotModal.card(0.27);
+            & > img {
+              @include TarotModal.card-image(0);
+            }
+          }
+          //! 켈틱 크로스 왼쪽 부분의 장애물 카드(중간카드)
+          & > div:last-child {
+            // background-color: transparent;
+            width: 100%;
+            height: 100%;
+            border-radius: 13px * 0.27;
+            padding: 10px * 0.27;
+            & > img {
+              @include TarotModal.card-image(0);
+            }
+          }
+        }
+      }
+      // ! 켈틱크로스 오른쪽 4장(card-celtic-cross2)
+      & > div > div:nth-child(2) {
+        @include TarotCardTableForm.card-celtic-cross2(0.27, 0.115, 0.5, 0.2);
+        & > div {
+          @include TarotModal.card(0.27);
+          // background-color: transparent;
+
+          & > img {
+            @include TarotModal.card-image(0);
+          }
+        }
+      }
+      & div > div > img {
+        @include TarotModal.card-image(0);
+        width: 50%;
+        height: 50%;
+      }
+    }
+  }
+
+  //* 아이폰SE 가로모드
+  @media (min-device-width: 654px) and (max-device-width: 667px) {
+    //! 메인
+    div.spread-container {
+      @include TarotCardSpreadForm.celtic-cross-spread-container();
+      //! 켈틱크로스 전체 자리(card-celtic-cross-container)
+      & > div {
+        // grid gap 설정
+        @include TarotCardTableForm.card-celtic-cross-container(0.1);
+      }
+      // ! 켈틱크로스 왼쪽자리(card-celtic-cross1)
+      & > div > div:nth-child(1) {
+        @include TarotCardTableForm.card-celtic-cross1(0.25, 0.115, 0.5, 0.8);
+        // ! 켈틱크로스 왼쪽자리 4장 카드
+        & > div {
+          // background-color: transparent;
+          backface-visibility: hidden;
+          @include TarotModal.card(0.25);
+          & > img {
+            @include TarotModal.card-image(0);
+          }
+        }
+        // ! 켈틱 크로스 왼쪽 부분의 중간 자리
+        & > div:nth-child(5) {
+          //! 켈틱 크로스 왼쪽 부분의 첫번째 카드(중간카드)
+          & > div:first-child {
+            // background-color: transparent;
+            width: 100%;
+            @include TarotModal.card(0.25);
+            & > img {
+              @include TarotModal.card-image(0);
+            }
+          }
+          //! 켈틱 크로스 왼쪽 부분의 장애물 카드(중간카드)
+          & > div:last-child {
+            // background-color: transparent;
+            width: 100%;
+            height: 100%;
+            border-radius: 13px * 0.25;
+            padding: 10px * 0.25;
+            & > img {
+              @include TarotModal.card-image(0);
+            }
+          }
+        }
+      }
+      // ! 켈틱크로스 오른쪽 4장(card-celtic-cross2)
+      & > div > div:nth-child(2) {
+        @include TarotCardTableForm.card-celtic-cross2(0.25, 0.115, 0.5, 0.2);
+        & > div {
+          @include TarotModal.card(0.25);
+          // background-color: transparent;
+
+          & > img {
+            @include TarotModal.card-image(0);
+          }
+        }
+      }
+      & div > div > img {
+        @include TarotModal.card-image(0);
+        width: 50%;
+        height: 50%;
+      }
+    }
+  }
+
+  //* 갤럭시 폴드 가로모드
+  @media (max-device-width: 653px) {
+    //! 메인
+    div.spread-container {
+      @include TarotCardSpreadForm.celtic-cross-spread-container();
+      //! 켈틱크로스 전체 자리(card-celtic-cross-container)
+      & > div {
+        // grid gap 설정
+        @include TarotCardTableForm.card-celtic-cross-container(0.1);
+      }
+      // ! 켈틱크로스 왼쪽자리(card-celtic-cross1)
+      & > div > div:nth-child(1) {
+        @include TarotCardTableForm.card-celtic-cross1(0.2, 0.115, 0.5, 0.8);
+        // ! 켈틱크로스 왼쪽자리 4장 카드
+        & > div {
+          // background-color: transparent;
+          backface-visibility: hidden;
+          @include TarotModal.card(0.2);
+          & > img {
+            @include TarotModal.card-image(0);
+          }
+        }
+        // ! 켈틱 크로스 왼쪽 부분의 중간 자리
+        & > div:nth-child(5) {
+          //! 켈틱 크로스 왼쪽 부분의 첫번째 카드(중간카드)
+          & > div:first-child {
+            // background-color: transparent;
+            width: 100%;
+            @include TarotModal.card(0.2);
+            & > img {
+              @include TarotModal.card-image(0);
+            }
+          }
+          //! 켈틱 크로스 왼쪽 부분의 장애물 카드(중간카드)
+          & > div:last-child {
+            // background-color: transparent;
+            width: 100%;
+            height: 100%;
+            border-radius: 13px * 0.2;
+            padding: 10px * 0.2;
+            & > img {
+              @include TarotModal.card-image(0);
+            }
+          }
+        }
+      }
+      // ! 켈틱크로스 오른쪽 4장(card-celtic-cross2)
+      & > div > div:nth-child(2) {
+        @include TarotCardTableForm.card-celtic-cross2(0.2, 0.115, 0.5, 0.2);
+        & > div {
+          @include TarotModal.card(0.2);
+          // background-color: transparent;
+
+          & > img {
+            @include TarotModal.card-image(0);
+          }
+        }
+      }
+      & div > div > img {
+        @include TarotModal.card-image(0);
+        width: 50%;
+        height: 50%;
+      }
+    }
+  }
+}

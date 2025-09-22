@@ -1,0 +1,2379 @@
+.answerModalOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+  animation: fade-in 0.3s ease-out;
+}
+
+.answerModal {
+  position: relative;
+  width: 95%;
+  height: 100%;
+  max-width: 1400px;
+  max-height: 900px;
+  background: var(--gradient-cosmic);
+  border-radius: 20px;
+  border: 2px solid hsl(var(--border));
+  box-shadow: var(--shadow-cosmic), var(--glow-celestial);
+  overflow: hidden;
+  animation: slide-in 0.5s ease-out;
+  transition: var(--transition-cosmic);
+
+  &.fullscreen {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    border-radius: 0;
+  }
+}
+
+.cosmicBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+        ellipse at top,
+        rgba(147, 51, 234, 0.15) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        ellipse at bottom left,
+        rgba(59, 130, 246, 0.1) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        ellipse at bottom right,
+        rgba(168, 85, 247, 0.1) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        ellipse at center,
+        rgba(79, 70, 229, 0.08) 0%,
+        transparent 60%
+      );
+    animation: cosmic-drift 20s ease-in-out infinite;
+  }
+
+  .stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(1px 1px at 15px 25px, #fff, transparent),
+      radial-gradient(1px 1px at 45px 65px, #fff, transparent),
+      radial-gradient(0.5px 0.5px at 85px 35px, #fff, transparent),
+      radial-gradient(1px 1px at 125px 75px, #fff, transparent),
+      radial-gradient(0.5px 0.5px at 155px 25px, #fff, transparent),
+      radial-gradient(1px 1px at 185px 95px, #fff, transparent),
+      radial-gradient(0.5px 0.5px at 35px 105px, #fff, transparent),
+      radial-gradient(1px 1px at 165px 55px, #fff, transparent),
+      radial-gradient(0.5px 0.5px at 195px 15px, #fff, transparent),
+      radial-gradient(1px 1px at 25px 145px, #fff, transparent);
+    background-repeat: repeat;
+    background-size: 200px 150px;
+    animation: twinkle 6s ease-in-out infinite;
+    opacity: 0.8;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(
+          1.5px 1.5px at 65px 45px,
+          rgba(147, 197, 253, 0.8),
+          transparent
+        ),
+        radial-gradient(
+          1px 1px at 145px 85px,
+          rgba(196, 181, 253, 0.6),
+          transparent
+        ),
+        radial-gradient(
+          1px 1px at 95px 125px,
+          rgba(253, 186, 116, 0.5),
+          transparent
+        ),
+        radial-gradient(
+          0.5px 0.5px at 175px 35px,
+          rgba(252, 165, 165, 0.7),
+          transparent
+        );
+      background-repeat: repeat;
+      background-size: 220px 180px;
+      animation: twinkle 8s ease-in-out infinite reverse;
+    }
+  }
+
+  .stars2 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(1px 1px at 12% 18%, #fff, transparent),
+      radial-gradient(
+        1.5px 1.5px at 28% 72%,
+        rgba(196, 181, 253, 0.9),
+        transparent
+      ),
+      radial-gradient(1px 1px at 76% 24%, rgba(147, 197, 253, 0.9), transparent),
+      radial-gradient(
+        0.75px 0.75px at 54% 64%,
+        rgba(253, 186, 116, 0.8),
+        transparent
+      ),
+      radial-gradient(
+        0.5px 0.5px at 88% 42%,
+        rgba(252, 165, 165, 0.9),
+        transparent
+      );
+    background-repeat: repeat;
+    background-size: 300px 240px;
+    animation: twinkle 10s ease-in-out infinite;
+    opacity: 0.6;
+  }
+
+  .nebula {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        circle at 20% 30%,
+        rgba(139, 92, 246, 0.2) 0%,
+        transparent 40%
+      ),
+      radial-gradient(
+        circle at 80% 70%,
+        rgba(59, 130, 246, 0.15) 0%,
+        transparent 35%
+      ),
+      radial-gradient(
+        circle at 40% 80%,
+        rgba(168, 85, 247, 0.18) 0%,
+        transparent 45%
+      ),
+      linear-gradient(
+        45deg,
+        rgba(79, 70, 229, 0.1) 0%,
+        rgba(147, 51, 234, 0.05) 25%,
+        rgba(59, 130, 246, 0.08) 50%,
+        rgba(168, 85, 247, 0.06) 75%,
+        rgba(139, 92, 246, 0.12) 100%
+      );
+    opacity: 0.6;
+    animation: cosmic-pulse 12s ease-in-out infinite,
+      galactic-spin 25s linear infinite;
+  }
+
+  .milkyWay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      transparent 0%,
+      rgba(139, 92, 246, 0.05) 20%,
+      rgba(59, 130, 246, 0.08) 40%,
+      rgba(168, 85, 247, 0.06) 60%,
+      rgba(147, 51, 234, 0.04) 80%,
+      transparent 100%
+    );
+    animation: milky-way-drift 30s ease-in-out infinite;
+    opacity: 0.4;
+  }
+}
+
+/* Irregular extra stars overlay */
+.extraStars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(
+      1px 1px at 7% 12%,
+      rgba(255, 255, 255, 0.9),
+      transparent
+    ),
+    radial-gradient(
+      1.2px 1.2px at 22% 38%,
+      rgba(196, 181, 253, 0.9),
+      transparent
+    ),
+    radial-gradient(
+      0.8px 0.8px at 31% 9%,
+      rgba(147, 197, 253, 0.9),
+      transparent
+    ),
+    radial-gradient(
+      1.4px 1.4px at 46% 74%,
+      rgba(253, 186, 116, 0.8),
+      transparent
+    ),
+    radial-gradient(
+      0.9px 0.9px at 58% 21%,
+      rgba(252, 165, 165, 0.9),
+      transparent
+    ),
+    radial-gradient(1px 1px at 69% 63%, rgba(255, 255, 255, 0.85), transparent),
+    radial-gradient(
+      0.8px 0.8px at 77% 17%,
+      rgba(196, 181, 253, 0.75),
+      transparent
+    ),
+    radial-gradient(
+      1.3px 1.3px at 88% 49%,
+      rgba(147, 197, 253, 0.85),
+      transparent
+    ),
+    radial-gradient(1px 1px at 93% 27%, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(
+      1.1px 1.1px at 12% 81%,
+      rgba(255, 255, 255, 0.8),
+      transparent
+    );
+  background-repeat: no-repeat;
+  animation: twinkle-extra 10s ease-in-out infinite;
+  opacity: 0.35;
+  mix-blend-mode: screen;
+  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.2));
+  mask-image: radial-gradient(
+    closest-side,
+    rgba(0, 0, 0, 0.65),
+    rgba(0, 0, 0, 1) 70%
+  );
+  -webkit-mask-image: radial-gradient(
+    closest-side,
+    rgba(0, 0, 0, 0.65),
+    rgba(0, 0, 0, 1) 70%
+  );
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 2rem;
+  border-bottom: 1px solid hsl(var(--border));
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+
+  .modalTitle {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: hsl(var(--primary));
+    text-shadow: var(--glow-starlight);
+    margin: 0;
+
+    .titleIcon {
+      width: 1.5rem;
+      height: 1.5rem;
+      animation: cosmic-pulse 3s ease-in-out infinite;
+    }
+  }
+
+  .headerControls {
+    display: flex;
+    gap: 0.5rem;
+  }
+}
+
+.controlBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: hsl(var(--foreground));
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+  white-space: nowrap;
+
+  svg {
+    width: 0.875rem;
+    height: 0.875rem;
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  &.closeBtn {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: rgba(239, 68, 68, 0.3);
+
+    &:hover {
+      background: rgba(239, 68, 68, 0.3);
+    }
+  }
+
+  &.copyBtn {
+    background: rgba(59, 130, 246, 0.2);
+    border-color: rgba(59, 130, 246, 0.3);
+
+    &:hover {
+      background: rgba(59, 130, 246, 0.3);
+    }
+  }
+
+  &.downloadBtn {
+    background: rgba(34, 197, 94, 0.2);
+    border-color: rgba(34, 197, 94, 0.3);
+
+    &:hover {
+      background: rgba(34, 197, 94, 0.3);
+    }
+  }
+}
+
+.modalContent {
+  display: flex;
+  height: calc(100% - 60px);
+  overflow: auto;
+
+  &.fluidLeft {
+    display: flex;
+
+    > .cardsSection {
+      flex: 0 1 auto;
+      width: auto;
+      // max-width: 50%;
+      min-width: 320px;
+    }
+
+    > .answerSection {
+      flex: 1 1 0%;
+    }
+  }
+}
+
+.cardsSection {
+  flex: 0 0 auto;
+  padding: 2rem;
+  border-right: 1px solid hsl(var(--border));
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  overflow: hidden;
+  overscroll-behavior: contain;
+  // max-height: 55vh;
+
+  .cardsHeader {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+  }
+
+  // .cardsCenter {
+  //   flex: 1 1 auto;
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: center;
+  //   overflow: auto;
+  //   min-height: 0;
+  .cardsCenter {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column; /* 명확히 column 설정 */
+    overflow: auto;
+    min-height: 0;
+    /* align-items와 justify-content 제거 또는 flex-start로 변경 */
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    .innerWrapper {
+      /* 새 클래스 */
+      display: flex;
+      align-items: center; /* 중앙 정렬 여기로 이동 */
+      justify-content: center;
+      flex-grow: 1; /* 부모를 채움 */
+      width: 100%;
+      min-height: 100%; /* 오버플로 시 높이 유지 */
+    }
+
+    @supports not selector(::-webkit-scrollbar) {
+      scrollbar-width: thin;
+      scrollbar-color: hsl(var(--primary)) hsl(var(--muted));
+    }
+
+    &::-webkit-scrollbar {
+      width: 20px;
+      height: 20px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: hsl(var(--muted));
+      border-radius: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: linear-gradient(
+        180deg,
+        hsl(var(--primary)),
+        hsl(var(--accent))
+      );
+      border-radius: 8px;
+      border: 2px solid transparent;
+      background-clip: padding-box;
+
+      &:hover {
+        background: linear-gradient(
+          180deg,
+          hsl(var(--accent)),
+          hsl(var(--primary))
+        );
+      }
+    }
+  }
+
+  .toggleCardsBtn {
+    @extend .controlBtn;
+    align-self: center;
+    background: rgba(255, 255, 255, 0.1);
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+  }
+}
+
+.showCardsBtn {
+  @extend .controlBtn;
+  position: absolute;
+  top: 4rem;
+  right: 1.5rem;
+  left: auto;
+  z-index: 20;
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  box-shadow: var(--glow-starlight);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--glow-starlight), 0 8px 16px rgba(0, 0, 0, 0.3);
+  }
+}
+
+// celtic cross 용
+.cardsContainerWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Smart Card Sizing System */
+.cardsContainer {
+  display: grid;
+  grid-auto-flow: row;
+  align-content: start;
+  justify-items: center;
+  gap: clamp(0.4rem, 1.5vw, 1rem);
+  padding: 0.25rem;
+  place-content: center;
+
+  /* Base card sizes */
+  --card-small: 72px;
+  --card-medium: 112px;
+  --card-large: 132px;
+
+  /* Border thickness variables for each size */
+  --border-small: 0.2rem;
+  --border-medium: 0.3rem;
+  --border-large: 0.5rem;
+
+  /* Smart sizing: Prevent overflow for different card counts */
+  /* 1-3장 카드 */
+  &.count1-3-small {
+    --card-min: var(--card-small);
+    --card-border: var(--border-small);
+  }
+  &.count1-3-medium {
+    --card-min: var(--card-medium);
+    --card-border: var(--border-medium);
+  }
+  &.count1-3-large {
+    --card-min: var(--card-large);
+    --card-border: var(--border-large);
+  }
+
+  /* 4-5장 카드 */
+  &.count4-5-small {
+    --card-min: var(--card-small);
+    --card-border: var(--border-small);
+  }
+  &.count4-5-medium {
+    --card-min: calc(var(--card-medium) * 0.8);
+    --card-border: calc(var(--border-medium) * 0.8);
+  }
+  &.count4-5-large {
+    --card-min: calc(var(--card-large) * 0.9);
+    --card-border: calc(var(--border-large) * 0.65);
+  }
+  /* V자-5장 카드 */
+  &.count5-V-small {
+    --card-min: calc(var(--card-small) * 0.6);
+    --card-border: calc(var(--border-small) * 0.6);
+  }
+  &.count5-V-medium {
+    --card-min: calc(var(--card-medium) * 0.5);
+    --card-border: calc(var(--border-medium) * 0.5);
+  }
+  &.count5-V-large {
+    --card-min: calc(var(--card-large) * 0.5);
+    --card-border: calc(var(--border-large) * 0.5);
+  }
+
+  /* 6-7장 카드 */
+  &.count6-7-small {
+    --card-min: var(--card-small);
+    --card-border: var(--border-small);
+  }
+  &.count6-7-medium {
+    --card-min: calc(var(--card-medium) * 0.8);
+    --card-border: calc(var(--border-medium) * 0.8);
+  }
+  &.count6-7-large {
+    --card-min: calc(var(--card-large) * 0.9);
+    --card-border: calc(var(--border-large) * 0.65);
+  }
+
+  /* 8-10장 카드 */
+  &.count8-10-small {
+    --card-min: var(--card-small);
+    --card-border: var(--border-small);
+  }
+  &.count8-10-medium {
+    --card-min: clamp(70px, 8vw, 80px);
+    --card-border: var(--border-medium);
+  }
+  &.count8-10-large {
+    --card-min: calc(var(--card-large) * 0.7);
+    --card-border: calc(var(--border-large) * 0.65);
+  }
+
+  /* 11장 이상 */
+  &.count11Plus-small {
+    --card-min: clamp(60px, 6vw, 80px);
+    --card-border: var(--border-small);
+  }
+  &.count11Plus-medium {
+    --card-min: clamp(70px, 7vw, 90px);
+    --card-border: var(--border-medium);
+  }
+  &.count11Plus-large {
+    --card-min: clamp(80px, 8vw, 100px);
+    --card-border: var(--border-large);
+  }
+
+  /* Fallback for auto grid */
+  --card-min: 110px;
+  --card-border: var(--border-medium); /* 기본값 */
+
+  .tarotCard {
+    width: var(--card-min, 110px);
+    max-width: 100%;
+    aspect-ratio: 7 / 12;
+    position: relative;
+    cursor: pointer;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-4px) scale(1.02);
+      filter: brightness(1.1);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .cardInner {
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(
+        --card-border,
+        clamp(4px, 0.8vw, 8px)
+      ); //! 타로카드 테두리 두께
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 7px;
+      box-shadow: var(
+        --shadow-elegant,
+        0 10px 30px -10px hsl(var(--primary) / 0.3)
+      );
+      backdrop-filter: saturate(120%) blur(0.5px);
+    }
+
+    .cardFrame {
+      /* Enhanced frame styling if needed */
+      background-color: white; // 타로카드 테두리 색깔
+      border: 1px solid black;
+    }
+
+    .artwork {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 3px;
+      background: radial-gradient(
+        ellipse at 50% 50%,
+        rgba(255, 255, 255, 0.06),
+        rgba(255, 255, 255, 0.02)
+      );
+      overflow: hidden;
+
+      img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        display: block;
+        margin: 0;
+        border: 1px solid black;
+      }
+    }
+
+    .cardImage {
+      width: 100%;
+      height: 100%;
+      object-fit: contain !important;
+      display: block;
+
+      &.reversed {
+        transform: rotate(180deg);
+      }
+    }
+
+    .cardOverlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+      padding: 0.5rem;
+      opacity: 0;
+      transition: all 0.3s ease;
+
+      .cardName {
+        color: white;
+        font-size: 0.75rem;
+        font-weight: 500;
+        text-align: center;
+        line-height: 1.2;
+      }
+    }
+
+    &:hover .cardOverlay {
+      opacity: 1;
+    }
+  }
+}
+
+/* Auto grid에서 사용 */
+.autoGrid {
+  grid-template-columns: repeat(auto-fit, minmax(var(--card-min), 1fr));
+}
+
+/* Layout presets */
+.layout-1 {
+  display: grid;
+  grid-template-columns: minmax(var(--card-min, 110px), 1fr);
+}
+
+.layout-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(var(--card-min, 110px), 1fr));
+}
+
+.layout-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(var(--card-min, 110px), 1fr));
+}
+
+.layout-4-Row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(var(--card-min, 110px), 1fr));
+}
+
+// 특정 레이아웃에만 적용
+.layout-5-3-2 {
+  display: grid;
+  // 5장 3-2 레이아웃 전용 크기 설정
+  --card-min: 90px; // 원하는 크기로 직접 설정
+  --card-border: var(--border-medium);
+
+  // // 또는 반응형으로 설정
+  // --card-min: clamp(100px, 15vw, 150px);
+  grid-template-columns: repeat(3, minmax(var(--card-min, 110px), 1fr));
+  grid-auto-rows: 1fr;
+  justify-items: center;
+
+  .tarotCard:nth-child(1),
+  .tarotCard:nth-child(2),
+  .tarotCard:nth-child(3) {
+    grid-row: 1;
+  }
+
+  .tarotCard:nth-child(4) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .tarotCard:nth-child(5) {
+    grid-column: 3;
+    grid-row: 2;
+  }
+}
+
+.layout-5-V {
+  display: grid;
+  grid-template-rows: repeat(3, auto);
+  justify-items: center;
+  align-items: center;
+
+  .tarotCard:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .tarotCard:nth-child(2) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .tarotCard:nth-child(3) {
+    grid-column: 3;
+    grid-row: 3;
+  }
+
+  .tarotCard:nth-child(4) {
+    grid-column: 4;
+    grid-row: 2;
+  }
+
+  .tarotCard:nth-child(5) {
+    grid-column: 5;
+    grid-row: 1;
+  }
+}
+
+.layout-6-3-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(var(--card-min, 110px), 1fr));
+}
+
+.layout-10-5-5 {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(var(--card-min, 110px), 1fr));
+}
+
+/* ========================================
+    켈틱 크로스 레이아웃 - 개선된 반응형 처리
+    ======================================== */
+
+/* 기본 켈틱 크로스 레이아웃 */
+.celtic-cross {
+  /* 4x4 그리드 레이아웃 설정 - 왼쪽 1칸, 중앙 2칸, 오른쪽 스태프 1칸, 결과 칼럼 1칸 */
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  // grid-template-columns: 1fr 2fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+
+  /* 카드 간 간격 - 반응형으로 조정 (최소 0.5rem, 최대 1rem, 화면 크기에 따라 2vw) */
+  gap: clamp(0.5rem, 2vw, 1rem);
+
+  /* 그리드 아이템들을 각 셀의 중앙에 배치 */
+  justify-items: center;
+  align-items: center;
+
+  /* 전체 컨테이너 내부 여백 */
+  padding: 1rem;
+
+  /* 전체 컨테이너 최대 크기 제한 - 데스크탑 기준 */
+  max-width: 500px;
+  max-height: 400px;
+
+  /* 컨테이너를 화면 중앙에 배치 */
+  margin: 0 auto;
+
+  .tarotCard {
+    /* 카드 위치 조정을 위한 relative 포지션 */
+    position: relative;
+
+    /* === 중앙 십자가 영역 === */
+
+    /* 1번 카드: 현재 상황 - 중앙 십자가의 기준점 (가로 방향) */
+    &:nth-child(1) {
+      grid-column: 2; /* 2번째 컬럼 (중앙 영역) */
+      grid-row: 2; /* 2번째 행 (중앙 높이) */
+      transform: rotate(0deg); /* 정방향 (회전 없음) */
+      z-index: 1; /* 2번 카드보다 아래에 위치 */
+    }
+
+    /* 2번 카드: 도전/장애물 - 1번 카드와 겹쳐서 십자가 효과 생성 */
+    &:nth-child(2) {
+      grid-column: 2; /* 1번 카드와 같은 위치 */
+      grid-row: 2; /* 1번 카드와 같은 위치 */
+      /* 십자가 배치: 90도 회전 + 세로 방향 중앙 정렬을 위한 미세 조정 */
+      transform: rotate(90deg) translate(0%, 12%);
+      z-index: 2; /* 1번 카드 위에 표시 */
+    }
+
+    /* === 십자가 주변 4방향 카드 === */
+
+    /* 3번 카드: 먼 과거 - 십자가 아래쪽 */
+    &:nth-child(3) {
+      grid-column: 2; /* 중앙 컬럼 */
+      grid-row: 3; /* 3번째 행 (아래쪽) */
+    }
+
+    /* 4번 카드: 가능한 미래 - 십자가 왼쪽 */
+    &:nth-child(4) {
+      grid-column: 1; /* 1번째 컬럼 (왼쪽) */
+      grid-row: 2; /* 중앙 높이 */
+    }
+
+    /* 5번 카드: 가까운 과거 - 십자가 위쪽 */
+    &:nth-child(5) {
+      grid-column: 2; /* 중앙 컬럼 */
+      grid-row: 1; /* 1번째 행 (위쪽) */
+    }
+
+    /* 6번 카드: 가까운 미래 - 십자가 오른쪽 */
+    &:nth-child(6) {
+      grid-column: 3; /* 3번째 컬럼 (오른쪽) */
+      grid-row: 2; /* 중앙 높이 */
+    }
+
+    // /* === 오른쪽 스태프 영역 (세로 일렬) === */
+
+    // /* 7번 카드: 당신의 접근법 - 스태프 하단 */
+    // &:nth-child(7) {
+    //   grid-column: 4; /* 4번째 컬럼 (맨 오른쪽) */
+    //   grid-row: 4; /* 4번째 행 (맨 아래) */
+    // }
+
+    // /* 8번 카드: 외부 영향 - 스태프 중하단 */
+    // &:nth-child(8) {
+    //   grid-column: 4; /* 4번째 컬럼 */
+    //   grid-row: 3; /* 3번째 행 */
+    // }
+
+    // /* 9번 카드: 희망과 두려움 - 스태프 중상단 */
+    // &:nth-child(9) {
+    //   grid-column: 4; /* 4번째 컬럼 */
+    //   grid-row: 2; /* 2번째 행 (십자가와 같은 높이) */
+    // }
+
+    // /* 10번 카드: 최종 결과 - 스태프 상단 */
+    // &:nth-child(10) {
+    //   grid-column: 4; /* 4번째 컬럼 */
+    //   grid-row: 1; /* 1번째 행 (맨 위) */
+    // }
+  }
+}
+.celtic-cross-straight {
+  /* 4x4 그리드 레이아웃 설정 - 왼쪽 1칸, 중앙 2칸, 오른쪽 스태프 1칸, 결과 칼럼 1칸 */
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+
+  /* 카드 간 간격 - 반응형으로 조정 (최소 0.5rem, 최대 1rem, 화면 크기에 따라 2vw) */
+  gap: clamp(0.5rem, 2vw, 1rem);
+
+  /* 그리드 아이템들을 각 셀의 중앙에 배치 */
+  justify-items: center;
+  align-items: center;
+
+  /* 전체 컨테이너 내부 여백 */
+  padding: 1rem;
+
+  /* 전체 컨테이너 최대 크기 제한 - 데스크탑 기준 */
+  max-width: 500px;
+  max-height: 400px;
+
+  /* 컨테이너를 화면 중앙에 배치 */
+  margin: 0 auto;
+
+  .tarotCard {
+    /* 카드 위치 조정을 위한 relative 포지션 */
+    position: relative;
+
+    /* === 중앙 십자가 영역 === */
+
+    /* 1번 카드: 현재 상황 - 중앙 십자가의 기준점 (가로 방향) */
+    &:nth-child(1) {
+      grid-column: 1; /* 1번째 컬럼 (중앙 영역) */
+      grid-row: 1; /* 1번째 행 (중앙 높이) */
+    }
+
+    /* 2번 카드: 도전/장애물 - 1번 카드와 겹쳐서 십자가 효과 생성 */
+    &:nth-child(2) {
+      grid-column: 1; /* 1번 카드와 같은 위치 */
+      grid-row: 2; /* 1번 카드와 같은 위치 */
+    }
+
+    /* === 십자가 주변 4방향 카드 === */
+
+    /* 3번 카드: 먼 과거 - 십자가 아래쪽 */
+    &:nth-child(3) {
+      grid-column: 1; /* 중앙 컬럼 */
+      grid-row: 3; /* 3번째 행 (아래쪽) */
+    }
+
+    /* 4번 카드: 가능한 미래 - 십자가 왼쪽 */
+    &:nth-child(4) {
+      grid-column: 1; /* 1번째 컬럼 (왼쪽) */
+      grid-row: 4; /* 중앙 높이 */
+    }
+  }
+}
+
+/* 대안적인 켈틱 크로스 레이아웃 (더 전통적인 형태) */
+.celtic-cross-alt {
+  /* 기본 레이아웃은 동일 - 4x4 그리드 */
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+
+  /* 카드 간 간격 - 고정값 사용 (반응형 없음) */
+  gap: 0.5rem;
+
+  /* 그리드 정렬 */
+  justify-items: center;
+  align-items: center;
+
+  /* 컨테이너 크기 - 너비 100%, 가로세로 비율 1.2:1 */
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 1.2;
+
+  .tarotCard {
+    /* 카드 위치 조정을 위한 relative 포지션 */
+    position: relative;
+
+    /* === grid-area를 사용한 정확한 위치 지정 === */
+
+    /* 1번 카드: 현재 상황 - 정방향, 중앙 위치 */
+    &:nth-child(1) {
+      grid-area: 2 / 2 / 3 / 3; /* 행시작/열시작/행끝/열끝 */
+      transform: rotate(0deg); /* 회전 없음 */
+      z-index: 1; /* 레이어 순서 - 아래 */
+    }
+
+    /* 2번 카드: 십자가 (도전) - 1번 카드와 정확히 겹쳐 배치 */
+    &:nth-child(2) {
+      grid-area: 2 / 2 / 3 / 3; /* 1번 카드와 동일한 위치 */
+      /* 십자가 배치: 90도 회전하여 세로 방향으로 표시 */
+      transform: rotate(90deg) translate(0%, 0%);
+      z-index: 2; /* 레이어 순서 - 위 */
+    }
+
+    /* === 나머지 카드들의 배치 (간단한 grid-area 사용) === */
+
+    /* 3번 카드: 먼 과거 (아래쪽) */
+    &:nth-child(3) {
+      grid-area: 3 / 2 / 4 / 3;
+    }
+
+    /* 4번 카드: 가능한 미래 (제일 왼쪽) */
+    &:nth-child(4) {
+      grid-area: 2 / 1 / 3 / 2;
+    }
+
+    /* 5번 카드: 가까운 과거 (위쪽) */
+    &:nth-child(5) {
+      grid-area: 1 / 2 / 2 / 3;
+    }
+
+    /* 6번 카드: 가까운 미래 (오른쪽) */
+    &:nth-child(6) {
+      grid-area: 2 / 3 / 3 / 4;
+    }
+
+    /* 7번 카드: 당신의 접근법 (스태프 하단) */
+    &:nth-child(7) {
+      grid-area: 4 / 4 / 5 / 5;
+    }
+
+    /* 8번 카드: 외부 영향 (스태프 중하단) */
+    &:nth-child(8) {
+      grid-area: 3 / 4 / 4 / 5;
+    }
+
+    /* 9번 카드: 희망과 두려움 (스태프 중상단) */
+    &:nth-child(9) {
+      grid-area: 2 / 4 / 3 / 5;
+    }
+
+    /* 10번 카드: 최종 결과 (스태프 상단) */
+    &:nth-child(10) {
+      grid-area: 1 / 4 / 2 / 5;
+    }
+  }
+}
+
+/* JavaScript에서 사용할 클래스명과 CSS 클래스명 통일을 위한 별칭 */
+/* @extend를 사용하여 .celtic-cross의 모든 스타일을 상속 */
+.celticCross {
+  @extend .celtic-cross;
+}
+.celticCrossStraight {
+  @extend .celtic-cross-straight;
+}
+
+/* ========================================
+    켈틱 크로스 카드 크기 시스템 (일관성 개선)
+    ======================================== */
+
+/* 켈틱 크로스 카드 크기 - 기본 데스크탑 설정 */
+.celtic-cross .tarotCard,
+.celtic-cross-alt .tarotCard,
+.celticCross .tarotCard {
+  /* CSS 변수로 켈틱 크로스 전용 카드 크기 정의 */
+  --celtic-card-size: 45px; /* 카드의 너비 (높이는 aspect-ratio로 자동 계산) */
+  --celtic-border-size: 0.17rem; /* 카드 테두리(패딩) 두께 */
+
+  /* 변수로 정의된 크기를 실제로 적용 */
+  width: var(--celtic-card-size);
+
+  .cardInner {
+    /* 테두리 두께도 변수로 적용 - 카드 내부 패딩 */
+    padding: var(--celtic-border-size);
+  }
+
+  /* 십자가 카드(2번)의 특별 처리 - 겹쳐진 카드 회전 효과 */
+  &:nth-child(2) {
+    /* 기본 십자가 효과를 위한 90도 회전 */
+    transform: rotate(0deg) translate(50%, 20%);
+
+    /* 모바일에서는 십자가 카드의 위치 미세 조정 */
+    /* 화면이 작아질수록 겹침 정도를 줄여서 가독성 향상 */
+    @media (max-width: 768px) {
+      /* 모바일: 약간 아래로 이동하여 겹침 최적화 */
+      transform: rotate(0deg) translate(50%, 20%);
+    }
+
+    @media (max-width: 480px) {
+      /* 작은 모바일: 겹침 더 줄임 */
+      transform: rotate(0deg) translate(50%, 20%);
+    }
+  }
+}
+
+.celtic-cross-straight .tarotCard,
+.celtic-cross-alt .tarotCard,
+.celticCrossStraight .tarotCard {
+  /* CSS 변수로 켈틱 크로스 전용 카드 크기 정의 */
+  --celtic-card-size: 45px; /* 카드의 너비 (높이는 aspect-ratio로 자동 계산) */
+  --celtic-border-size: 0.17rem; /* 카드 테두리(패딩) 두께 */
+
+  /* 변수로 정의된 크기를 실제로 적용 */
+  width: var(--celtic-card-size);
+
+  .cardInner {
+    /* 테두리 두께도 변수로 적용 - 카드 내부 패딩 */
+    padding: var(--celtic-border-size);
+  }
+}
+/* ========================================
+    켈틱 크로스 카드 크기별 클래스 (일관성)
+    ======================================== */
+
+/* 작은 크기 - 사용자가 "작게" 옵션을 선택했을 때 */
+.celtic-cross.count10-small,
+.celtic-cross-alt.count10-small,
+.celticCross.count10-small {
+  .tarotCard {
+    --celtic-card-size: 40px; /* 기본보다 5px 작게 */
+    --celtic-border-size: 0.15rem; /* 테두리도 비례적으로 축소 */
+  }
+}
+
+/* 보통 크기 - 기본 크기 (사용자가 "보통" 옵션을 선택했을 때) */
+.celtic-cross.count10-medium,
+.celtic-cross-alt.count10-medium,
+.celticCross.count10-medium {
+  .tarotCard {
+    --celtic-card-size: 45px; /* 기본 크기 유지 */
+    --celtic-border-size: 0.17rem; /* 기본 테두리 유지 */
+  }
+}
+
+/* 큰 크기 - 사용자가 "크게" 옵션을 선택했을 때 */
+.celtic-cross.count10-large,
+.celtic-cross-alt.count10-large,
+.celticCross.count10-large {
+  .tarotCard {
+    --celtic-card-size: 50px; /* 기본보다 5px 크게 */
+    --celtic-border-size: 0.2rem; /* 테두리도 비례적으로 확대 */
+  }
+}
+
+.readingText {
+  font-family: 'Noto Serif KR', serif;
+  line-height: 1.85;
+
+  p {
+    text-indent: 1rem;
+    margin: 0 0 0.85em;
+  }
+
+  h3,
+  h4 {
+    text-indent: 0;
+    margin-top: 1rem;
+  }
+}
+
+.controlsScrollable {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Method Panel */
+.methodPanel {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  width: min(420px, 90%);
+  height: calc(100% - 80px);
+  background: rgba(0, 0, 0, 0.45);
+  border-left: 1px solid hsl(var(--border));
+  backdrop-filter: blur(12px);
+  transform: translateX(100%);
+  transition: var(--transition-cosmic);
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  &.open {
+    transform: translateX(0);
+  }
+
+  .methodHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid hsl(var(--border));
+    background: rgba(0, 0, 0, 0.35);
+  }
+
+  .methodContent {
+    padding: 1rem 1.25rem;
+    overflow-y: auto;
+    line-height: 1.6;
+
+    @supports not selector(::-webkit-scrollbar) {
+      scrollbar-width: thin;
+      scrollbar-color: hsl(var(--primary)) transparent;
+    }
+
+    &::-webkit-scrollbar {
+      width: 20px;
+      height: 20px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: linear-gradient(
+        180deg,
+        hsl(var(--primary)),
+        hsl(var(--accent))
+      );
+      border-radius: 8px;
+      border: 2px solid transparent;
+      background-clip: padding-box;
+    }
+  }
+
+  h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: hsl(var(--primary));
+  }
+
+  h4 {
+    margin: 0.75rem 0 0.5rem;
+    font-size: 0.9rem;
+    color: hsl(var(--accent));
+  }
+
+  ul {
+    padding-left: 1rem;
+    margin: 0.5rem 0 0.75rem;
+  }
+
+  p {
+    margin: 0.25rem 0;
+  }
+}
+
+.answerSection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.answerContent {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+  line-height: 1.6;
+  color: hsl(var(--foreground));
+
+  @supports not selector(::-webkit-scrollbar) {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--primary)) hsl(var(--muted));
+  }
+
+  &::-webkit-scrollbar {
+    width: 20px;
+    height: 20px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+    border-radius: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+      180deg,
+      hsl(var(--primary)),
+      hsl(var(--accent))
+    );
+    border-radius: 8px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+
+    &:hover {
+      background: linear-gradient(
+        180deg,
+        hsl(var(--accent)),
+        hsl(var(--primary))
+      );
+    }
+  }
+
+  h3 {
+    color: hsl(var(--primary));
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-shadow: var(--glow-starlight);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    &::before {
+      content: '✨';
+      font-size: 1.25rem;
+    }
+  }
+
+  .questionInfo,
+  .answerText,
+  .cardMeanings {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid hsl(var(--border));
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+
+    p {
+      margin-bottom: 0.75rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      strong {
+        color: hsl(var(--primary));
+        font-weight: 600;
+      }
+    }
+  }
+
+  .answerParagraphs p,
+  .meaningsContent p {
+    text-align: justify;
+    text-indent: 1.5rem;
+
+    &:first-child {
+      text-indent: 0;
+    }
+  }
+}
+
+.goldShimmer {
+  background: linear-gradient(
+    90deg,
+    hsl(45 90% 62%),
+    hsl(48 96% 72%),
+    hsl(42 85% 58%),
+    hsl(50 100% 78%),
+    hsl(45 90% 62%)
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer-gold 4.5s linear infinite;
+  text-shadow: 0 0 8px hsl(45 90% 62% / 0.25);
+}
+
+.answerControls {
+  position: sticky;
+  bottom: 0;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  border-top: 1px solid hsl(var(--border));
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+
+  .leftControls,
+  .rightControls {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .cardSizeControls {
+    display: flex;
+    gap: 0.375rem;
+    align-items: center;
+    padding: 0.375rem 0.75rem;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+
+    label {
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-right: 0.25rem;
+      white-space: nowrap;
+    }
+
+    select {
+      background: rgba(0, 0, 0, 0.3);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+      padding: 0.2rem 0.4rem;
+      font-size: 0.7rem;
+      min-width: 80px;
+
+      &:focus {
+        outline: none;
+        border-color: rgba(255, 255, 255, 0.4);
+      }
+
+      option {
+        background: hsl(var(--background));
+        color: hsl(var(--foreground));
+      }
+    }
+  }
+}
+
+/* Animations */
+@keyframes cosmic-drift {
+  0%,
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+  25% {
+    transform: translateX(10px) translateY(-5px);
+  }
+  50% {
+    transform: translateX(-5px) translateY(10px);
+  }
+  75% {
+    transform: translateX(-10px) translateY(-5px);
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes twinkle-extra {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes cosmic-pulse {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes galactic-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes milky-way-drift {
+  0%,
+  100% {
+    transform: translateX(0) skewY(0deg);
+  }
+  25% {
+    transform: translateX(-20px) skewY(1deg);
+  }
+  50% {
+    transform: translateX(20px) skewY(-1deg);
+  }
+  75% {
+    transform: translateX(-10px) skewY(0.5deg);
+  }
+}
+
+@keyframes shimmer-gold {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    transform: scale(0.95) translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+//! 높이에 따른 카드 크기 조정
+@media (max-height: 670px) {
+  // 3장 카드의 크기 조정 추가
+  // 카드 크기 및 테두리 조정
+  .cardsContainer {
+    /* Base card sizes */
+    --card-small: 72px;
+    --card-medium: 112px;
+    --card-large: 132px;
+
+    /* Border thickness variables for each size */
+    --border-small: 0.2rem;
+    --border-medium: 0.3rem;
+    --border-large: 0.5rem;
+
+    /* Smart sizing: Prevent overflow for different card counts */
+    // 1-3장 카드를 위한 모바일 최적화
+    &.count1-3-small,
+    &.count1-3-medium {
+      --card-min: var(--card-small);
+      --card-border: var(--border-small); // 모바일에서는 중간 테두리 사용
+      gap: clamp(0.5rem, 2vw, 0.75rem);
+    }
+
+    // 3장 카드 레이아웃 최적화
+    &.layout-3 {
+      grid-template-columns: repeat(3, minmax(85px, 1fr));
+      gap: clamp(0.4rem, 1.5vw, 0.6rem);
+      padding: 0.5rem;
+    }
+
+    // 4-5장 카드 조정
+    &.count4-5-small,
+    &.count4-5-medium {
+      --card-min: calc(var(--card-small) * 0.9);
+      --card-border: calc(var(--border-small) * 1.2); // 작은 테두리 사용
+    }
+
+    // 5장 카드 V자형
+    &.count5-V-small,
+    &.count5-V-medium {
+      --card-min: calc(var(--card-small) * 0.49);
+      --card-border: calc(var(--border-small) * 0.49);
+    }
+
+    // 6-7장 카드 조정
+    &.count6-7-small,
+    &.count6-7-medium {
+      --card-min: calc(var(--card-small) * 0.9);
+      --card-border: calc(var(--border-small) * 1.2); // 작은 테두리 사용
+    }
+
+    // 8-10장 카드 조정
+    &.count8-10-small,
+    &.count8-10-medium {
+      --card-min: var(--card-small);
+      --card-border: var(--border-small); // 작은 테두리 사용
+    }
+
+    // 11장 이상 카드 조정
+    &.count11Plus-small,
+    &.count11Plus-medium {
+      --card-min: var(--card-small);
+      --card-border: var(--border-small); // 작은 테두리 사용
+    }
+
+    /* 1-3장 카드 */
+    &.count1-3-large {
+      --card-min: var(--card-large);
+      --card-border: var(--border-large);
+    }
+
+    /* 4-5장 카드 */
+    &.count4-5-large {
+      --card-min: calc(var(--card-large) * 0.65);
+      --card-border: calc(var(--border-large) * 0.65);
+    }
+
+    /* 5장 카드 V자형 */
+    &.count5-V-large {
+      --card-min: calc(var(--card-small) * 0.49);
+      --card-border: calc(var(--border-small) * 0.49);
+    }
+
+    /* 6-7장 카드 */
+    &.count6-7-large {
+      --card-min: calc(var(--card-large) * 0.65);
+      --card-border: calc(var(--border-large) * 0.65);
+    }
+
+    /* 8-10장 카드 */
+    &.count8-10-large {
+      --card-min: clamp(80px, 7vw, 90px);
+      --card-border: var(--border-large);
+    }
+
+    /* 11장 이상 */
+    &.count11Plus-large {
+      --card-min: clamp(80px, 8vw, 100px);
+      --card-border: var(--border-large);
+    }
+  }
+}
+
+/* Responsive Design */
+@media (orientation: landscape) {
+  .cardsSection {
+    // max-height: 85vh;
+  }
+}
+
+@media (max-width: 1020px) {
+  .answerModal {
+    width: 98%;
+    height: 95%;
+  }
+
+  .modalContent {
+    flex-direction: column;
+    overflow-y: auto;
+
+    &.fluidLeft {
+      flex-direction: column;
+
+      > .cardsSection {
+        flex: 0 0 auto;
+        width: 100%;
+        // max-width: 100%;
+        min-width: 0;
+        border-right: none;
+        border-bottom: 1px solid hsl(var(--border));
+      }
+
+      > .answerSection {
+        flex: 1 1 auto;
+      }
+    }
+
+    &::-webkit-scrollbar {
+      width: 20px;
+      height: 20px;
+    }
+
+    @supports not selector(::-webkit-scrollbar) {
+      scrollbar-width: thin;
+      scrollbar-color: hsl(var(--primary)) hsl(var(--muted));
+    }
+
+    &::-webkit-scrollbar-track {
+      background: hsl(var(--muted));
+      border-radius: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: linear-gradient(
+        180deg,
+        hsl(var(--primary)),
+        hsl(var(--accent))
+      );
+      border-radius: 8px;
+      border: 2px solid transparent;
+      background-clip: padding-box;
+
+      &:hover {
+        background: linear-gradient(
+          180deg,
+          hsl(var(--accent)),
+          hsl(var(--primary))
+        );
+      }
+    }
+  }
+
+  .methodPanel {
+    top: 65px;
+  }
+
+  .answerControls {
+    //! 대신 여기서 카드들의 크기를 일정화시켜야 함. 4장부터 시켜야 함 (점프)
+    .cardSizeControls {
+      display: none;
+    }
+  }
+
+  // 카드 크기 및 테두리 조정
+  .cardsContainer {
+    /* 1-3장 카드를 위한 모바일 최적화 */
+    &.count1-3-small,
+    &.count1-3-medium,
+    &.count1-3-large {
+      --card-min: var(--card-large);
+      --card-border: var(--border-large);
+    }
+
+    /* 4-5장 카드를 위한 모바일 최적화 */
+    &.count4-5-small,
+    &.count4-5-medium,
+    &.count4-5-large {
+      --card-min: calc(var(--card-large) * 0.8);
+      --card-border: calc(var(--border-large) * 0.65);
+    }
+    /* V자-5장 카드 */
+    &.count5-V-small,
+    &.count5-V-medium,
+    &.count5-V-large {
+      // --card-min: calc(var(--card-small) * 0.6);
+      // --card-border: calc(var(--border-small) * 0.6);
+      --card-min: calc(var(--card-medium) * 0.5);
+      --card-border: calc(var(--border-medium) * 0.5);
+    }
+
+    // 6-7장 카드 조정
+    &.count6-7-small,
+    &.count6-7-medium,
+    &.count6-7-large {
+      --card-min: calc(var(--card-large) * 0.7);
+      --card-border: calc(var(--border-large) * 0.65);
+    }
+
+    // 8-10장 카드 조정
+    &.count8-10-small,
+    &.count8-10-medium,
+    &.count8-10-large {
+      --card-min: calc(var(--card-large) * 0.7);
+      --card-border: calc(var(--border-large) * 0.65);
+    }
+
+    //   // 11장 이상 카드 조정
+    //   &.count11Plus-small,
+    //   &.count11Plus-medium,
+    //   &.count11Plus-large {
+    //     --card-min: var(--card-small);
+    //     --card-border: var(--border-small); // 작은 테두리 사용
+    //   }
+  }
+
+  //! ~ 켈틱크로스용 카드 크기 및 테두리 조정
+  .celtic-cross,
+  .celtic-cross-alt,
+  .celticCross {
+    /* 전체 컨테이너 크기 축소 - 데스크탑 대비 약 70% 크기 */
+    max-width: 350px;
+    max-height: 350px;
+
+    /* 카드 간 간격 축소 - 공간 절약을 위해 */
+    /* 최소 0.3rem, 화면 크기에 따라 1.5vw, 최대 0.8rem */
+    gap: clamp(0.3rem, 1.5vw, 0.8rem);
+
+    .tarotCard {
+      /* 모든 크기에 공통 적용되는 카드 크기 통일 조정 */
+      /* 최소 40px, 화면 크기에 따라 8vw, 최대 50px */
+      --celtic-card-size: clamp(40px, 8vw, 50px);
+      /* 테두리도 화면 크기에 맞춰 조정 */
+      --celtic-border-size: clamp(0.12rem, 0.3vw, 0.18rem);
+    }
+  }
+
+  /* 태블릿에서도 사용자 선택 크기별 세분화 적용 */
+
+  /* 작은 크기 선택시 - 태블릿에서 더 작게 */
+  .celtic-cross.count10-small,
+  .celtic-cross-alt.count10-small,
+  .celticCross.count10-small {
+    .tarotCard {
+      --celtic-card-size: clamp(35px, 7vw, 45px); /* 기본보다 5px씩 작게 */
+      --celtic-border-size: clamp(0.1rem, 0.25vw, 0.15rem); /* 테두리도 축소 */
+    }
+  }
+
+  /* 보통 크기 선택시 - 위에서 정의한 기본값 사용 */
+  .celtic-cross.count10-medium,
+  .celtic-cross-alt.count10-medium,
+  .celticCross.count10-medium {
+    .tarotCard {
+      --celtic-card-size: clamp(40px, 8vw, 50px); /* 기본값 */
+      --celtic-border-size: clamp(0.12rem, 0.3vw, 0.18rem);
+    }
+  }
+
+  /* 큰 크기 선택시 - 태블릿에서도 좀 더 크게 */
+  .celtic-cross.count10-large,
+  .celtic-cross-alt.count10-large,
+  .celticCross.count10-large {
+    .tarotCard {
+      --celtic-card-size: clamp(45px, 9vw, 55px); /* 기본보다 5px씩 크게 */
+      --celtic-border-size: clamp(0.15rem, 0.35vw, 0.2rem); /* 테두리도 확대 */
+    }
+  }
+  //~!
+
+  .answerContent {
+    padding: 1.5rem;
+  }
+
+  .answerControls {
+    position: sticky;
+    bottom: 0;
+    flex-direction: row;
+    gap: 0.5rem 0.75rem;
+    z-index: 5;
+
+    .leftControls,
+    .rightControls {
+      width: auto;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .modalHeader {
+    padding: 1rem 1.5rem;
+
+    .modalTitle {
+      font-size: 1.5rem;
+
+      .titleIcon {
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+    }
+  }
+
+  .controlBtn {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.7rem;
+
+    svg {
+      width: 0.75rem;
+      height: 0.75rem;
+    }
+  }
+
+  .answerContent {
+    padding: 1rem;
+
+    h3 {
+      font-size: 1.25rem;
+    }
+  }
+
+  .answerControls {
+    //! 대신 여기서 카드들의 크기를 일정화시켜야 함. 4장부터 시켜야 함 (점프)
+    .cardSizeControls {
+      display: none;
+    }
+  }
+
+  .cardsSection {
+    padding: 1rem;
+    // max-height: 50vh;
+  }
+
+  // // 3장 카드의 크기 조정 추가
+  // // 카드 크기 및 테두리 조정
+  // .cardsContainer {
+  //   // 모바일용 테두리 두께 변수 재정의
+  //   --border-small: 0.2rem;
+  //   --border-medium: 0.3rem;
+  //   --border-large: 0.5rem;
+
+  //   // 1-3장 카드를 위한 모바일 최적화
+  //   &.count1-3-small,
+  //   &.count1-3-medium,
+  //   &.count1-3-large {
+  //     --card-min: var(--card-small);
+  //     --card-border: var(--border-small); // 모바일에서는 중간 테두리 사용
+  //     gap: clamp(0.5rem, 2vw, 0.75rem);
+  //   }
+
+  //   // 3장 카드 레이아웃 최적화
+  //   &.layout-3 {
+  //     grid-template-columns: repeat(3, minmax(85px, 1fr));
+  //     gap: clamp(0.4rem, 1.5vw, 0.6rem);
+  //     padding: 0.5rem;
+  //   }
+
+  //   // 4-5장 카드 조정
+  //   &.count4-5-small,
+  //   &.count4-5-medium,
+  //   &.count4-5-large {
+  //     --card-min: calc(var(--card-small) * 0.85);
+  //     --card-border: calc(var(--border-small) * 1.2); // 작은 테두리 사용
+  //   }
+
+  //   // 6-7장 카드 조정
+  //   &.count6-7-small,
+  //   &.count6-7-medium,
+  //   &.count6-7-large {
+  //     --card-min: calc(var(--card-small) * 0.85);
+  //     --card-border: calc(var(--border-small) * 1.2); // 작은 테두리 사용
+  //   }
+
+  //   // 8-10장 카드 조정
+  //   &.count8-10-small,
+  //   &.count8-10-medium,
+  //   &.count8-10-large {
+  //     --card-min: var(--card-small);
+  //     --card-border: var(--border-small); // 작은 테두리 사용
+  //   }
+
+  //   // 11장 이상 카드 조정
+  //   &.count11Plus-small,
+  //   &.count11Plus-medium,
+  //   &.count11Plus-large {
+  //     --card-min: var(--card-small);
+  //     --card-border: var(--border-small); // 작은 테두리 사용
+  //   }
+  // }
+
+  //! ~ 켈틱크로스용 카드 크기 및 테두리 조정
+  .celtic-cross,
+  .celtic-cross-alt,
+  .celticCross {
+    /* 전체 컨테이너 크기 더 축소 - 모바일 화면에 맞춤 */
+    max-width: 300px;
+    max-height: 300px;
+
+    /* 카드 간 간격 더 축소 - 공간 효율성 증대 */
+    /* 최소 0.25rem, 화면 크기에 따라 1vw, 최대 0.6rem */
+    gap: clamp(0.25rem, 1vw, 0.6rem);
+
+    /* 컨테이너 내부 여백 축소 */
+    padding: 0.5rem;
+
+    .tarotCard {
+      /* 모바일용 카드 크기 - 화면에 맞춰 유연하게 조정 */
+      --celtic-card-size: clamp(35px, 7vw, 45px);
+      --celtic-border-size: clamp(0.1rem, 0.25vw, 0.15rem);
+    }
+  }
+
+  /* 모바일에서도 사용자 선택 크기별 세분화 적용 */
+
+  /* 작은 크기 선택시 - 모바일에서 최소 크기 */
+  .celtic-cross.count10-small,
+  .celtic-cross-alt.count10-small,
+  .celticCross.count10-small {
+    .tarotCard {
+      --celtic-card-size: clamp(30px, 6vw, 40px); /* 모바일 최소 크기 */
+      --celtic-border-size: clamp(0.08rem, 0.2vw, 0.12rem); /* 얇은 테두리 */
+    }
+  }
+
+  /* 보통 크기 선택시 - 모바일 기본 크기 */
+  .celtic-cross.count10-medium,
+  .celtic-cross-alt.count10-medium,
+  .celticCross.count10-medium {
+    .tarotCard {
+      --celtic-card-size: clamp(35px, 7vw, 45px); /* 모바일 기본 크기 */
+      --celtic-border-size: clamp(0.1rem, 0.25vw, 0.15rem);
+    }
+  }
+
+  /* 큰 크기 선택시 - 모바일에서도 가능한 큰 크기 */
+  .celtic-cross.count10-large,
+  .celtic-cross-alt.count10-large,
+  .celticCross.count10-large {
+    .tarotCard {
+      --celtic-card-size: clamp(40px, 8vw, 50px); /* 모바일 최대 크기 */
+      --celtic-border-size: clamp(0.12rem, 0.3vw, 0.18rem);
+    }
+  }
+
+  //~!
+
+  .showCardsBtn {
+    top: 4rem;
+    right: 0.75rem;
+  }
+}
+
+@media (max-width: 530px) {
+  .cardsContainer {
+    // 4-5장 카드 조정
+    &.count4-5-small,
+    &.count4-5-medium,
+    &.count4-5-large {
+      --card-min: calc(var(--card-large) * 0.65);
+      --card-border: calc(var(--border-large) * 0.6);
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .modalContent,
+  .answerContent {
+    @supports not selector(::-webkit-scrollbar) {
+      scrollbar-width: thin;
+      scrollbar-color: hsl(var(--primary)) hsl(var(--muted));
+    }
+
+    &::-webkit-scrollbar {
+      width: 12px;
+      height: 12px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: hsl(var(--muted));
+      border-radius: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: linear-gradient(
+        180deg,
+        hsl(var(--primary)),
+        hsl(var(--accent))
+      );
+      border-radius: 8px;
+      border: 2px solid transparent;
+      background-clip: padding-box;
+
+      &:hover {
+        background: linear-gradient(
+          180deg,
+          hsl(var(--accent)),
+          hsl(var(--primary))
+        );
+      }
+    }
+  }
+  .cardsSection {
+    padding: 0.5rem;
+  }
+
+  .answerModal {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+
+  .modalHeader {
+    .modalTitle {
+      font-size: 1.25rem;
+    }
+
+    .headerControls {
+      gap: 0.25rem;
+    }
+  }
+
+  .controlBtn {
+    padding: 0.4rem;
+    font-size: 0.65rem;
+
+    span {
+      display: none;
+    }
+
+    svg {
+      width: 0.7rem;
+      height: 0.7rem;
+    }
+  }
+
+  .answerControls {
+    padding: 1rem;
+
+    .leftControls,
+    .rightControls {
+      gap: 0.5rem;
+    }
+
+    //! 대신 여기서 카드들의 크기를 일정화시켜야 함. 4장부터 시켜야 함 (점프)
+    .cardSizeControls {
+      display: none;
+    }
+  }
+  // 3장 카드의 크기 조정 추가
+  // 카드 크기 및 테두리 조정
+  .cardsContainer {
+    // 1-3장 카드를 위한 모바일 최적화
+    &.count1-3-small,
+    &.count1-3-medium,
+    &.count1-3-large {
+      --card-min: calc(var(--card-small) * 1.4);
+      --card-border: calc(
+        var(--border-small) * 1.4
+      ); // 모바일에서는 중간 테두리 사용
+      // gap: clamp(0.5rem, 2vw, 0.75rem);
+    }
+
+    // // 3장 카드 레이아웃 최적화
+    // &.layout-3 {
+    //   grid-template-columns: repeat(3, minmax(85px, 1fr));
+    //   gap: clamp(0.4rem, 1.5vw, 0.6rem);
+    //   padding: 0.5rem;
+    // }
+
+    // 4-5장 카드 조정
+    &.count4-5-small,
+    &.count4-5-medium,
+    &.count4-5-large {
+      --card-min: calc(var(--card-small) * 0.9);
+      --card-border: calc(var(--border-small) * 1.2); // 작은 테두리 사용
+    }
+
+    // 6-7장 카드 조정
+    &.count6-7-small,
+    &.count6-7-medium,
+    &.count6-7-large {
+      --card-min: calc(var(--card-small) * 0.9);
+      --card-border: calc(var(--border-small) * 1.2); // 작은 테두리 사용
+    }
+
+    // 8-10장 카드 조정
+    &.count8-10-small,
+    &.count8-10-medium,
+    &.count8-10-large {
+      --card-min: calc(var(--card-small) * 0.85);
+      --card-border: calc(var(--border-small) * 1.15); // 작은 테두리 사용
+    }
+
+    // 11장 이상 카드 조정
+    &.count11Plus-small,
+    &.count11Plus-medium,
+    &.count11Plus-large {
+      --card-min: var(--card-small);
+      --card-border: var(--border-small); // 작은 테두리 사용
+    }
+  }
+
+  //! ~ 켈틱크로스용 카드 크기 및 테두리 조정
+  .celtic-cross,
+  .celtic-cross-alt,
+  .celticCross {
+    /* 최소 크기로 축소 - 소형 화면 대응 */
+    max-width: 280px;
+    max-height: 280px;
+
+    /* 카드 간 간격 최소화 - 공간 절약 극대화 */
+    /* 최소 0.2rem, 화면 크기에 따라 0.8vw, 최대 0.5rem */
+    gap: clamp(0.2rem, 0.8vw, 0.5rem);
+
+    .tarotCard {
+      /* 작은 모바일용 카드 크기 */
+      --celtic-card-size: clamp(30px, 6vw, 40px);
+      --celtic-border-size: clamp(0.08rem, 0.2vw, 0.12rem);
+    }
+  }
+
+  /* 작은 모바일에서도 사용자 선택 크기별 세분화 */
+
+  /* 작은 크기 선택시 */
+  .celtic-cross.count10-small,
+  .celtic-cross-alt.count10-small,
+  .celticCross.count10-small {
+    .tarotCard {
+      --celtic-card-size: clamp(25px, 5vw, 35px); /* 극소 크기 */
+      --celtic-border-size: clamp(0.06rem, 0.15vw, 0.1rem);
+    }
+  }
+
+  /* 보통 크기 선택시 */
+  .celtic-cross.count10-medium,
+  .celtic-cross-alt.count10-medium,
+  .celticCross.count10-medium {
+    .tarotCard {
+      --celtic-card-size: clamp(30px, 6vw, 40px); /* 작은 모바일 기본 */
+      --celtic-border-size: clamp(0.08rem, 0.2vw, 0.12rem);
+    }
+  }
+
+  /* 큰 크기 선택시 */
+  .celtic-cross.count10-large,
+  .celtic-cross-alt.count10-large,
+  .celticCross.count10-large {
+    .tarotCard {
+      --celtic-card-size: clamp(35px, 7vw, 45px); /* 작은 모바일 최대 */
+      --celtic-border-size: clamp(0.1rem, 0.25vw, 0.15rem);
+    }
+  }
+  //~!
+}
+@media (max-width: 380px) {
+  // 3장 카드의 크기 조정 추가
+  // 카드 크기 및 테두리 조정
+  .cardsContainer {
+    // 1-3장 카드를 위한 모바일 최적화
+    &.count1-3-small,
+    &.count1-3-medium,
+    &.count1-3-large {
+      --card-min: var(--card-small);
+      --card-border: var(--border-small); // 모바일에서는 중간 테두리 사용
+      // gap: clamp(0.5rem, 2vw, 0.75rem);
+    }
+
+    // // 3장 카드 레이아웃 최적화
+    // &.layout-3 {
+    //   grid-template-columns: repeat(3, minmax(85px, 1fr));
+    //   gap: clamp(0.4rem, 1.5vw, 0.6rem);
+    //   padding: 0.5rem;
+    // }
+
+    /* V자-5장 카드 */
+    &.count5-V-small,
+    &.count5-V-medium,
+    &.count5-V-large {
+      --card-min: calc(var(--card-small) * 0.6);
+      --card-border: calc(var(--border-small) * 0.6);
+      // --card-min: calc(var(--card-medium) * 0.5);
+      // --card-border: calc(var(--border-medium) * 0.5);
+    }
+
+    // 6-7장 카드 조정
+    &.count6-7-small,
+    &.count6-7-medium,
+    &.count6-7-large {
+      --card-min: calc(var(--card-small) * 0.9);
+      --card-border: calc(var(--border-small) * 1.2); // 작은 테두리 사용
+    }
+
+    // 8-10장 카드 조정
+    &.count8-10-small,
+    &.count8-10-medium,
+    &.count8-10-large {
+      --card-min: calc(var(--card-small) * 0.7);
+      --card-border: calc(var(--border-small) * 1); // 작은 테두리 사용
+    }
+
+    // 11장 이상 카드 조정
+    &.count11Plus-small,
+    &.count11Plus-medium,
+    &.count11Plus-large {
+      --card-min: var(--card-small);
+      --card-border: var(--border-small); // 작은 테두리 사용
+    }
+  }
+
+  //! ~ 켈틱크로스용 카드 크기 및 테두리 조정
+  .celtic-cross,
+  .celtic-cross-alt,
+  .celticCross {
+    /* 최소 크기 더 축소 */
+    max-width: 260px;
+    max-height: 260px;
+
+    /* 카드 간 간격 더 최소화 */
+    /* 최소 0.15rem, 화면 크기에 따라 0.6vw, 최대 0.4rem */
+    gap: clamp(0.15rem, 0.6vw, 0.4rem);
+
+    .tarotCard {
+      /* 매우 작은 모바일용 카드 크기 */
+      --celtic-card-size: clamp(25px, 5vw, 35px);
+      --celtic-border-size: clamp(0.06rem, 0.15vw, 0.1rem);
+    }
+  }
+  //~!
+}
+@media (max-width: 320px) {
+  .answerModal {
+    overflow: auto;
+    @supports not selector(::-webkit-scrollbar) {
+      scrollbar-width: thin;
+      scrollbar-color: hsl(var(--primary)) hsl(var(--muted));
+    }
+
+    &::-webkit-scrollbar {
+      width: 12px;
+      height: 12px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: hsl(var(--muted));
+      border-radius: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: linear-gradient(
+        180deg,
+        hsl(var(--primary)),
+        hsl(var(--accent))
+      );
+      border-radius: 8px;
+      border: 2px solid transparent;
+      background-clip: padding-box;
+
+      &:hover {
+        background: linear-gradient(
+          180deg,
+          hsl(var(--accent)),
+          hsl(var(--primary))
+        );
+      }
+    }
+  }
+
+  // 3장 카드의 크기 조정 추가
+  // 카드 크기 및 테두리 조정
+  .cardsContainer {
+    // 4-5장 카드 조정
+    &.count4-5-small,
+    &.count4-5-medium,
+    &.count4-5-large {
+      --card-min: calc(var(--card-small) * 0.7);
+      --card-border: calc(var(--border-small) * 1); // 작은 테두리 사용
+    }
+
+    /* V자-5장 카드 */
+    &.count5-V-small,
+    &.count5-V-medium,
+    &.count5-V-large {
+      --card-min: calc(var(--card-small) * 0.5);
+      --card-border: calc(var(--border-small) * 0.5);
+      // --card-min: calc(var(--card-medium) * 0.5);
+      // --card-border: calc(var(--border-medium) * 0.5);
+    }
+
+    // 8-10장 카드 조정
+    &.count8-10-small,
+    &.count8-10-medium,
+    &.count8-10-large {
+      --card-min: calc(var(--card-small) * 0.55);
+      --card-border: calc(var(--border-small) * 0.85); // 작은 테두리 사용
+    }
+  }
+
+  //! ~ 켈틱크로스용 카드 크기 및 테두리 조정
+  .celtic-cross,
+  .celtic-cross-alt,
+  .celticCross {
+    /* 최소 크기 한계점 */
+    max-width: 240px;
+    max-height: 240px;
+
+    /* 카드 간 간격 한계점 */
+    /* 최소 0.1rem, 화면 크기에 따라 0.5vw, 최대 0.3rem */
+    gap: clamp(0.1rem, 0.5vw, 0.3rem);
+
+    .tarotCard {
+      /* 초소형 모바일용 카드 크기 - 가독성 한계 고려 */
+      --celtic-card-size: clamp(22px, 4.5vw, 30px);
+      --celtic-border-size: clamp(0.05rem, 0.12vw, 0.08rem);
+    }
+  }
+  //~!
+  .showCardsBtn {
+    top: auto;
+    bottom: 3.7rem;
+    right: 1.5rem;
+    left: auto;
+  }
+}

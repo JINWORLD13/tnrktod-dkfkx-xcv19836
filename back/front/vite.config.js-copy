@@ -1,0 +1,339 @@
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import { VitePWA } from 'vite-plugin-pwa';
+import viteImagemin from 'vite-plugin-imagemin';
+import { ssr } from 'vite-plugin-ssr/plugin'
+
+export default defineConfig({
+  plugins: [
+    react(),
+    ssr({
+      pageFiles: {
+        include: ['./prerender']
+      }
+    }),
+    VitePWA({
+      registerType: 'autoUpdate',
+      devOptions: {
+        enabled: true,
+      },
+      manifest: {
+        name: 'Cosmos Tarot',
+        short_name: 'Cosmos Tarot',
+        start_url: '/',
+        display: 'standalone',
+        background_color: '#ffffff',
+        lang: 'en',
+        scope: '/',
+        description:
+          'Read the hearts of the person you would like to know about',
+        theme_color: '#000000',
+        icons: [
+          {
+            src: 'assets/cosmos_tarot_favicon/android-icon-36x36.png',
+            sizes: '36x36',
+            type: 'image/png',
+            density: '0.75',
+            purpose: 'any',
+          },
+          {
+            src: 'assets/cosmos_tarot_favicon/android-icon-48x48.png',
+            sizes: '48x48',
+            type: 'image/png',
+            density: '1.0',
+            purpose: 'any',
+          },
+          {
+            src: 'assets/cosmos_tarot_favicon/android-icon-72x72.png',
+            sizes: '72x72',
+            type: 'image/png',
+            density: '1.5',
+            purpose: 'any',
+          },
+          {
+            src: 'assets/cosmos_tarot_favicon/android-icon-96x96.png',
+            sizes: '96x96',
+            type: 'image/png',
+            density: '2.0',
+            purpose: 'any',
+          },
+          {
+            src: 'assets/cosmos_tarot_favicon/android-icon-144x144.png',
+            sizes: '144x144',
+            type: 'image/png',
+            density: '3.0',
+            purpose: 'any',
+          },
+          {
+            src: 'assets/cosmos_tarot_favicon/android-icon-192x192.png',
+            sizes: '192x192',
+            type: 'image/png',
+            density: '4.0',
+            purpose: 'any',
+          },
+          {
+            src: 'assets/cosmos_tarot_favicon/cosmos_tarot-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'any',
+          },
+          {
+            src: 'assets/cosmos_tarot_favicon/cosmos_tarot-512x512-maskable.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'maskable',
+          },
+        ],
+        id: 'com.cosmostarot.cosmostarot',
+      },
+
+      //! workbox 사용시 활성
+      // strategies: 'generateSW', // workbox용.
+      // // 빌드 후 생성될 서비스 워커 파일의 경로를 지정합니다.
+      // swDest: 'dist/sw.js', // workbox용.
+
+      //? injecdtManifest 사용시 활성
+      /**
+       * injectManifest'로 설정하면 사용자가 직접 작성한 Service Worker 파일을 사용
+       * injectManifest 전략을 사용하면 개발자가 직접 작성한 서비스 워커 파일을 기반으로 Workbox가 필요한 매니페스트(캐싱할 파일 목록)를 주입합니다.
+       * Workbox는 swSrc에 지정된 파일을 읽고, 내부에 self.__WB_MANIFEST 자리 표시자를 찾아 실제 캐싱할 파일 목록으로 대체한 후, swDest에 지정된 경로에 새로운 서비스 워커 파일을 생성합니다.
+       */
+      // strategies: 'injectManifest'를 사용하면서 injectManifest 옵션을 별도로 지정하지 않은 상태에서 injectManifest 옵션 없이 workbox 옵션만 있는 것은 적절하지 않습니다.
+      strategies: 'injectManifest',
+      // 소스 코드의 루트 디렉토리를 지정합니다.
+      srcDir: './',
+      // 빌드 후 생성할 서비스 워커 파일명을 지정합니다.
+      filename: 'sw.js',
+      // injectManifest 전략을 사용할 때 swSrc와 swDest는 injectManifest 옵션 내부에 설정하는 것이 맞습니다.
+      injectManifest: {
+        // 서비스 워커 소스 파일의 경로를 지정합니다.
+        swSrc: './sw.js',
+        // 빌드 후 생성될 서비스 워커 파일의 경로를 지정합니다.
+        swDest: 'dist/sw.js',
+        //& sw.js에 precache 관련해서 설정돼 있으니 여기서 굳이 안해도 됨.
+        // // 사전 캐싱할 파일을 검색할 기본 디렉토리를 지정합니다
+        // globDirectory: 'public',
+        // globDirectory: 'dist',
+        // 사전 캐싱할 파일의 패턴을 지정합니다.
+        // globPatterns: [
+        //   '**/index.html',
+        //   // '/registerSW.js',
+        //   '**/manifest.webmanifest',
+        //   '/assets/model/character-fbx/textures/*.jpg', // 무용지물
+        //   '/assets/images/*.jpg', // 무용지물
+        // ], // 프리캐싱할 파일 패턴
+        // globIgnores: [
+        //   '**/node_modules/**/*',
+        //   '**/*icon*/*.*',
+        //   '**/*512x512*/*.*',
+        // ], // 무시할 파일 패턴(암만걸어도, 아이콘과 매니페스트는 고정인가보다.)
+      },
+      /**
+       * injectManifest 전략을 사용하면 개발자가 서비스 워커 파일을 직접 제어할 수 있으므로 더 세밀한 제어가 가능하지만, 서비스 워커 코드를 직접 작성해야 합니다. 반면 다른 전략(예: GenerateSW)을 사용하면 Workbox가 서비스 워커 파일을 자동으로 생성해주므로 간편하게 사용할 수 있습니다.
+       */
+      /**
+       * Workbox는 Google에서 개발한 JavaScript 라이브러리로, 서비스 워커 생성, 캐싱 전략 구현, 백그라운드 동기화 등 PWA 개발에 필요한 기능을 제공합니다.
+       * Workbox를 사용하면 서비스 워커 코드를 쉽게 작성하고 관리할 수 있으며, 효율적인 캐싱 전략을 적용할 수 있습니다.
+       * Workbox는 다양한 캐싱 전략(예: StaleWhileRevalidate, NetworkFirst 등)을 제공하여 네트워크 요청을 최적화하고 오프라인 경험을 향상시킵니다. workbox 옵션은 Workbox 관련 설정을 지정하는 데 사용됩니다.
+       */
+      workbox: {
+        //! workbox 사용시 활성
+        // // workbox 옵션에 globPatterns를 직접 포함시키는 것도 가능합니다. 이렇게 하면 injectManifest 옵션을 사용하지 않고도 Workbox에서 사전 캐싱할 파일을 지정할 수 있습니다.
+        // //! workbox는 runtimeCache와 상관없이 precache에 html 있어도 구글oauth 로그인 되는데, index-xx.css와 index--xx.js가 없으니 되는듯. 같이 있으면 안되었음. html을 하지 말고 css, js만 넣어도 됨.
+        // //! 프리캐싱은 설정하든 안하든, workbox나 injectManfiest나 manifest와 거기에 쓰여 있는 icon 파일은 무조건 잡음. injectManifest의 경우, 청크js 파일들 그리고 html도 자동으로 수집함.
+        // globPatterns: [
+        //   '**/index.html',
+        //   // '**/index-*.js',
+        //   // '**/index-*.css',
+        //   // // '**/*.{js, css}'
+        // ],
+        // // 사정 캐싱할 파일들 일일이 이렇게 지정 가능(globPatterns와 대조됨)
+        // // revision은 Workbox의 precaching(사전 캐싱) 기능에서 사용되는 옵션 중 하나입니다. 이 옵션은 캐싱된 파일의 버전 또는 리비전을 나타내는 데 사용됩니다.
+        // //  Workbox는 revision 값을 비교하여 파일의 변경 여부를 판단하고, 변경된 파일만 선택적으로 캐시를 업데이트할 수 있습니다. revision 옵션은 일반적으로 파일의 해시 값, 타임스탬프, 버전 번호 등을 사용하여 지정합니다. 예를 들어:
+        // // precaching: [
+        // //   {
+        // //     url: 'index.html',
+        // //     revision: '1234567890',
+        // //   },
+        // //   {
+        // //     url: 'styles/main.css',
+        // //     revision: '0987654321',
+        // //   },
+        // // ],
+        // runtimeCaching: [
+        //   {
+        //     urlPattern: /\/.*/i,
+        //     handler: 'NetworkFirst',
+        //     options: {
+        //       cacheName: 'api-cache',
+        //       expiration: {
+        //         maxEntries: 50,
+        //         maxAgeSeconds: 60 * 60 * 24, // 24 hours
+        //       },
+        //     },
+        //   },
+        //   // {
+        //   //   urlPattern: /^https:\/\/cosmos-tarot\.com\/.*/i,
+        //   //   // StaleWhileRevalidate 전략을 사용하면 사용자는 캐시된 콘텐츠를 빠르게 볼 수 있으며, 동시에 백그라운드에서 최신 콘텐츠를 가져와 캐시를 업데이트할 수 있습니다. 이를 통해 사용자 경험을 향상시키면서도 최신 콘텐츠를 제공할 수 있습니다.
+        //   //   handler: 'StaleWhileRevalidate',
+        //   //   options: {
+        //   //     cacheName: 'google-fonts-cache',
+        //   //     expiration: {
+        //   //       maxEntries: 20,
+        //   //       maxAgeSeconds: 30 * 60 * 60 * 24, // 30 days
+        //   //     },
+        //   //   },
+        //   // },
+        //   // {
+        //   //   urlPattern: /\.(?:html)$/i,
+        //   //   handler: 'CacheFirst',
+        //   //   options: {
+        //   //     cacheName: 'html',
+        //   //     expiration: {
+        //   //       maxEntries: 1,
+        //   //       maxAgeSeconds: 30 * 24 * 60 * 60, // 30일
+        //   //     },
+        //   //     cacheableResponse: {
+        //   //       statuses: [0, 200],
+        //   //     },
+        //   //   },
+        //   // },
+        //   // {
+        //   //   urlPattern: /\.(?:js)$/i,
+        //   //   handler: 'CacheFirst',
+        //   //   options: {
+        //   //     cacheName: 'js',
+        //   //     expiration: {
+        //   //       maxEntries: 1,
+        //   //       maxAgeSeconds: 30 * 24 * 60 * 60, // 30일
+        //   //     },
+        //   //     cacheableResponse: {
+        //   //       statuses: [0, 200],
+        //   //     },
+        //   //   },
+        //   // },
+        //   // {
+        //   //   urlPattern: /\.(?:css)$/i,
+        //   //   handler: 'CacheFirst',
+        //   //   options: {
+        //   //     cacheName: 'css',
+        //   //     expiration: {
+        //   //       maxEntries: 1,
+        //   //       maxAgeSeconds: 30 * 24 * 60 * 60, // 30일
+        //   //     },
+        //   //     cacheableResponse: {
+        //   //       statuses: [0, 200],
+        //   //     },
+        //   //   },
+        //   // },
+        //   // {
+        //   //   urlPattern: /\.(?:png|jpg|jpeg|svg|gif|ico)$/i,
+        //   //   handler: 'CacheFirst',
+        //   //   options: {
+        //   //     cacheName: 'images',
+        //   //     expiration: {
+        //   //       maxEntries: 150,
+        //   //       maxAgeSeconds: 30 * 24 * 60 * 60, // 30일
+        //   //     },
+        //   //     cacheableResponse: {
+        //   //       statuses: [0, 200],
+        //   //     },
+        //   //   },
+        //   // },
+        //   // {
+        //   //   urlPattern: /\.(?:pttf|gltf|bin)$/i,
+        //   //   handler: 'CacheFirst',
+        //   //   options: {
+        //   //     cacheName: 'assets',
+        //   //     expiration: {
+        //   //       maxEntries: 50,
+        //   //       maxAgeSeconds: 30 * 24 * 60 * 60, // 30일
+        //   //     },
+        //   //     cacheableResponse: {
+        //   //       statuses: [0, 200],
+        //   //     },
+        //   //   },
+        //   // },
+        // ],
+        //~ maximumFileSizeToCacheInBytes, cleanupOutdatedCaches, skipWaiting, clientsClaim과 같은 workbox 옵션은 injectManifest 전략을 사용할 때도 적용됨. 그리고 이들은 workbox 옵션에만 써야 함.
+        /**
+         * skipWaiting: true를 추가하여 새로운 서비스 워커가 즉시 활성화되도록 설정합니다. 이렇게 하면 이전 캐시 스토리지가 제거되고 새로운 캐시 스토리지로 대체됩니다.
+         * clientsClaim: true를 추가하여 새로운 서비스 워커가 기존 클라이언트를 제어하도록 설정합니다. 이렇게 하면 새로운 서비스 워커가 기존 클라이언트에 적용되어 일관된 캐시 관리가 가능해집니다.
+         * cleanupOutdatedCaches과 skipWaiting 두 옵션 모두 이전 캐시를 제거하고 새로운 캐시를 구축하는 효과가 있지만, cleanupOutdatedCaches는 배포 버전이 변경될 때 작동하며, skipWaiting은 새로운 서비스 워커가 활성화될 때 작동합니다.
+         */
+        //& maximumFileSizeToCacheInBytes : sw.js에 precache 관련해서 설정돼 있으니 여기서 굳이 안해도 됨.
+        // maximumFileSizeToCacheInBytes: 9 * 1024 * 1024, // 9MB
+        skipWaiting: true, // 새로운 서비스 워커 활성화시
+        clientsClaim: true, // 기존 클라이언트 제어
+        cleanupOutdatedCaches: true, // 캐시 배포 버전 다를 시
+      },
+    }),
+    viteImagemin({
+      gifsicle: {
+        optimizationLevel: 7,
+        interlaced: false,
+      },
+      optipng: {
+        optimizationLevel: 7,
+      },
+      mozjpeg: {
+        quality: 60,
+      },
+      pngquant: {
+        quality: [0.8, 0.9],
+        speed: 4,
+      },
+      svgo: {
+        plugins: [
+          {
+            name: 'removeViewBox',
+          },
+          {
+            name: 'removeEmptyAttrs',
+            active: false,
+          },
+        ],
+      },
+    }),
+  ],
+  build: {
+    // outDir: 'dist', // 명시적으로 빌드 결과물의 위치를 변경하는 옵션
+    rollupOptions: {
+      output: {
+        entryFileNames: '[name].js', // 자바스크립트 엔트리 파일명 패턴(index.js)
+        chunkFileNames: 'assets/[name].js', // 코드 분할 시 청크 파일명 패턴
+        assetFileNames: assetInfo => {
+          if (assetInfo.name === 'PottaOne-Regular.ttf') {
+            return 'assets/font/Potta_One/[name].[ext]';
+          }
+          const fileNameArr = assetInfo.name.split('.');
+          const extenstion = assetInfo.name.split('.')[fileNameArr.length - 1];
+          const prefix = assetInfo.name.split('_')[0];
+          const num_prefix = Number(prefix);
+
+          if (fileNameArr[0] === 'tarot_card_back') {
+            return 'assets/images/[name].[ext]';
+          }
+
+          if (
+            typeof num_prefix === 'number' &&
+            extenstion === 'jpg' &&
+            assetInfo.name !== 'universe.jpg'
+          ) {
+            return 'assets/images/deck/[name].[ext]';
+          }
+
+          if (fileNameArr[0].slice(0, 8) === 'durumagi') {
+            return 'assets/images/[name].[ext]';
+          }
+
+          if (fileNameArr[0] === 'universe') {
+            return 'assets/images/[name].[ext]';
+          }
+
+          return 'assets/[name].[ext]'; // assets/[name]-[hash].[ext] 하니까 index-해쉬값.js가 항상 엉뚱하게 캐시에 들어왔음...(index.css 및 59_Ten_of_Swords.js 같은거)
+        },
+      },
+    },
+  },
+});

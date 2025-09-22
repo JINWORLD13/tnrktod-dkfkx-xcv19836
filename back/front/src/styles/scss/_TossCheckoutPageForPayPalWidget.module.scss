@@ -1,0 +1,81 @@
+@use '_App.module.scss';
+@use '_TarotCardSpreadForm.module.scss';
+
+.widget-container {
+  height: auto;
+  max-height: calc(100% - 130px);
+  overflow-y: auto;
+}
+@include App.scrollBar-custom-className(
+  widget-container,
+  5px,
+  10px,
+  purple,
+  lightyellow
+);
+.payment-widget {
+  height: auto;
+  // overflow-y: auto;
+}
+.btn-box {
+  width: 100%;
+}
+
+.btn-pay {
+  min-width: 90px;
+}
+
+.btn-pay-cancel {
+  min-width: 90px;
+}
+
+
+//* 아이패드 프로 가로
+@media screen and (orientation: landscape) and (min-device-width: 1025px) and (max-device-width: 1366px) {
+  .widget-container {
+    height: auto;
+    max-height: 100%;
+    overflow-y: auto;
+  }
+  
+}
+//* 태블릿 아이패드, 아이패드 프로 가로
+@media screen and (orientation: landscape) and (min-device-width: 933px) and (max-device-width: 1024px) {
+  .widget-container {
+    height: auto;
+    max-height: 100%;
+    overflow-y: auto;
+  }
+}
+//* IPhon 14 Pro Max 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 897px) and (max-device-width: 932px) {
+  .widget-container {
+    height: auto;
+    max-height: 100%;
+    overflow-y: auto;
+  }
+}
+//* 아이폰XR 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 668px) and (max-device-width: 896px) {
+  .widget-container {
+    height: auto;
+    max-height: 100%;
+    overflow-y: auto;
+  }
+}
+//* 아이폰SE 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 654px) and (max-device-width: 667px) {
+  .widget-container {
+    height: auto;
+    max-height: 100%;
+    overflow-y: auto;
+  }
+}
+//* 갤럭시 폴드 가로모드
+@media screen and (orientation: landscape) and (max-device-width: 653px) {
+  .widget-container {
+    height: auto;
+    max-height: 100%;
+    overflow-y: auto;
+  }
+}

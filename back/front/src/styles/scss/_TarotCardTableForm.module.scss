@@ -1,0 +1,1338 @@
+@use '_App.module.scss';
+@use '_TarotModal.module.scss';
+@use '_TarotCardSpreadForm.module.scss';
+
+//! 일렬로 나열하는 전체 카드 스프레드(태그 구조 잘보기)
+@mixin card-linear-spread(
+  $normal-size,
+  $spread-modal-size,
+  $answer-modal-size
+) {
+  width: 100%;
+  height: 100%;
+  @include App.flex-box-center(row);
+  flex-wrap: wrap;
+
+  & > div {
+    @include TarotModal.card($normal-size);
+    & > img {
+      @include TarotModal.card-image(0);
+    }
+  }
+  & > div.spread-modal {
+    @include TarotModal.card($spread-modal-size);
+    & > img {
+      @include TarotModal.card-image(0);
+    }
+  }
+  & > div.answer-modal {
+    @include TarotModal.card($answer-modal-size);
+    & > img {
+      @include TarotModal.card-image(0);
+    }
+  }
+}
+
+//! 수직으로 일렬로 나열하는 전체 카드 스프레드(태그 구조 잘보기)
+@mixin card-linear-vertical-spread(
+  $normal-size,
+  $spread-modal-size,
+  $answer-modal-size
+) {
+  width: 100%;
+  height: 100%;
+  @include App.flex-box-center(column);
+  flex-wrap: wrap;
+
+  & > div {
+    width: 100%;
+    @include App.flex-box-center(row);
+  }
+  & > div:first-child {
+    @include App.flex-box-center(row);
+    justify-content: space-between;
+  }
+  & > div:nth-child(2) {
+    width: auto;
+    @include App.flex-box-center(row);
+    gap: 15px;
+  }
+
+  & > div > div {
+    @include TarotModal.card($normal-size);
+    & > img {
+      @include TarotModal.card-image(0);
+    }
+  }
+  & > div > div.spread-modal {
+    @include TarotModal.card($spread-modal-size);
+    & > img {
+      @include TarotModal.card-image(0);
+    }
+  }
+  & > div > div.answer-modal {
+    @include TarotModal.card($answer-modal-size);
+    & > img {
+      @include TarotModal.card-image(0);
+    }
+  }
+}
+
+//! 병렬형(태그 구조 잘보기)
+@mixin card-grid-spread($normal-size, $spread-modal-size, $answer-modal-size) {
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  @include App.grid-gap(0.1);
+
+  & > div {
+    @include TarotModal.card($normal-size);
+    & > img {
+      @include TarotModal.card-image(0);
+    }
+  }
+  & > div.spread-modal {
+    @include TarotModal.card($spread-modal-size);
+    & > img {
+      @include TarotModal.card-image(0);
+    }
+  }
+  & > div.answer-modal {
+    @include TarotModal.card($answer-modal-size);
+    & > img {
+      @include TarotModal.card-image(0);
+    }
+  }
+}
+
+// ! 이 페이지에선 스피드 타로결과를 제외한 나머지 고치면 됨. 첫번째 인자 제외한 나머지 인자 고치면 됨 _TarotCardTableForm.module.scss에서 하면됨.
+//! spread-modal-size 부분 입력하면 통함.
+
+//! 켈틱크로스 전체 자리(태그 구조 잘보기)
+@mixin card-celtic-cross-container($flex-gap) {
+  width: 100%;
+  height: 100%;
+  @include App.flex-box-center(row);
+  @include App.flex-gap($flex-gap);
+}
+//& 켈틱크로스 왼쪽 메인자리
+@mixin card-celtic-cross1(
+  $normal-size,
+  $spread-modal-size,
+  $answer-modal-size,
+  $grid-gap
+) {
+  height: 100%;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  @include App.grid-gap($grid-gap);
+  @include App.flex-grow(4);
+
+  & > div {
+    @include TarotModal.card($normal-size);
+    & > img {
+      @include TarotModal.card-image(0);
+    }
+  }
+  & > div.spread-modal {
+    @include TarotModal.card($spread-modal-size);
+    & > img {
+      @include TarotModal.card-image(0);
+    }
+  }
+  & > div.answer-modal {
+    @include TarotModal.card($answer-modal-size);
+    & > img {
+      @include TarotModal.card-image(0);
+    }
+  }
+  & > div:nth-child(1),
+  & > div:nth-child(3),
+  & > div:nth-child(5),
+  & > div:nth-child(7),
+  & > div:nth-child(9),
+  & > div.spread-modal:nth-child(1),
+  & > div.spread-modal:nth-child(3),
+  & > div.spread-modal:nth-child(5),
+  & > div.spread-modal:nth-child(7),
+  & > div.spread-modal:nth-child(9) {
+    background-color: transparent;
+    border: none;
+  }
+}
+// ? 켈틱크로스 왼쪽 메인자리 중 가운데 자리(태그 구조 잘보기)
+@mixin card-celtic-cross1-center(
+  $normal-size,
+  $spread-modal-size,
+  $answer-modal-size,
+  $answer-modal-reversed-top,
+  $answer-modal-reversed-left,
+  $normal-top,
+  $normal-left
+) {
+  @include TarotModal.card($normal-size);
+  position: relative;
+  // ~ div:first-child는 카드 테두리임. styles['answerModal'] 붙는 곳
+  // ? 첫번째 카드
+  & > div:first-child {
+    @include TarotModal.card($normal-size);
+    @include App.position-absolute-center();
+    z-index: 0;
+    & > img {
+      @include TarotModal.card-image(0);
+    }
+  }
+  // ? 장애물 카드
+  & > div:last-child {
+    @include TarotModal.card($normal-size);
+    @include App.position-absolute-right-half();
+    transform: translate($normal-top, $normal-left);
+    z-index: 1;
+    & > img {
+      @include TarotModal.card-image(0);
+    }
+  }
+  //? 켈틱크로스 가운데 자리 첫번째 카드 리버스.
+  & > div:first-child.front-for-answer-modal-reversed {
+    @include TarotModal.card($normal-size);
+    @include App.position-absolute-center();
+    top: 0%;
+    left: 0%;
+    @include TarotCardSpreadForm.front-for-answer-modal-reversed();
+    z-index: 1;
+    & > img {
+      @include TarotModal.card-image(0);
+    }
+  }
+  //? 켈틱크로스 가운데 자리 장애물 카드 리버스.
+  & > div:last-child.front-for-answer-modal-reversed {
+    @include TarotModal.card($normal-size);
+    @include App.position-absolute-right-half();
+    top: $answer-modal-reversed-top;
+    left: $answer-modal-reversed-left;
+    transform: translate($normal-top, $normal-left);
+    @include TarotCardSpreadForm.front-for-answer-modal-reversed();
+    z-index: 2;
+    & > img {
+      @include TarotModal.card-image(0);
+    }
+  }
+  //! 스프레드 모달용 켈틱크로스 가운데 자리.
+  //! 배치를 back(리버스 불요)으로 하고 컴포넌트를 따로 분리시킴.
+  &.spread-modal {
+    @include TarotModal.card($spread-modal-size);
+    position: relative;
+  }
+  &.spread-modal > div:first-child.spread-modal {
+    @include TarotModal.card($spread-modal-size);
+    @include App.position-absolute-center();
+    z-index: 0;
+    & > img {
+      @include TarotModal.card-image(0);
+    }
+  }
+  &.spread-modal > div:last-child.spread-modal {
+    @include TarotModal.card($spread-modal-size);
+    @include App.position-absolute-right-half();
+    transform: translate($normal-top, $normal-left);
+    z-index: 1;
+    & > img {
+      @include TarotModal.card-image(0);
+    }
+  }
+
+  //~ 질문타로 및 마이페이지용 answer의 켈틱크로스 가운데 자리.
+  &.answer-modal {
+    @include TarotModal.card($answer-modal-size);
+    position: relative;
+  }
+  &.answer-modal > div:first-child.answer-modal {
+    @include TarotModal.card($answer-modal-size);
+    @include App.position-absolute-center();
+    z-index: 0;
+    & > img {
+      @include TarotModal.card-image(0);
+    }
+  }
+  &.answer-modal > div:last-child.answer-modal {
+    @include TarotModal.card($answer-modal-size);
+    @include App.position-absolute-right-half();
+    transform: translate($normal-top, $normal-left);
+    z-index: 1;
+    & > img {
+      @include TarotModal.card-image(0);
+    }
+  }
+
+  //~ 질문타로 및 마이페이지용 answer의 켈틱크로스 가운데 자리 리버스.
+  &.answer-modal
+    > div:first-child.answer-modal.front-for-answer-modal-reversed {
+    @include TarotModal.card($answer-modal-size);
+    @include App.position-absolute-center();
+    top: 0%;
+    left: 0%;
+    @include TarotCardSpreadForm.front-for-answer-modal-reversed();
+    z-index: 1;
+    & > img {
+      @include TarotModal.card-image(0);
+    }
+  }
+  &.answer-modal > div:last-child.answer-modal.front-for-answer-modal-reversed {
+    @include TarotModal.card($answer-modal-size);
+    @include App.position-absolute-right-half();
+    top: $answer-modal-reversed-top;
+    left: $answer-modal-reversed-left;
+    transform: translate($normal-top, $normal-left);
+    @include TarotCardSpreadForm.front-for-answer-modal-reversed();
+    z-index: 2;
+    & > img {
+      @include TarotModal.card-image(0);
+    }
+  }
+}
+// ~ 켈틱크로스 오른쪽 사이드 부분 4장 카드 자리(태그 구조 잘보기)
+@mixin card-celtic-cross2(
+  $normal-size,
+  $spread-modal-size,
+  $answer-modal-size,
+  $grid-gap
+) {
+  height: 100%;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: 1fr;
+  @include App.grid-gap($grid-gap);
+  @include App.flex-grow(1);
+
+  & > div {
+    @include TarotModal.card($normal-size);
+    & > img {
+      @include TarotModal.card-image(0);
+    }
+  }
+  & > div.spread-modal {
+    @include TarotModal.card($spread-modal-size);
+    & > img {
+      @include TarotModal.card-image(0);
+    }
+  }
+  & > div.answer-modal {
+    @include TarotModal.card($answer-modal-size);
+    & > img {
+      @include TarotModal.card-image(0);
+    }
+  }
+
+  // 미스테리
+  // & > div:nth-child(1),
+  // & > div:nth-child(2),
+  // & > div:nth-child(3),
+  // & > div:nth-child(4),
+  // & > div.spread-modal:nth-child(1),
+  // & > div.spread-modal:nth-child(2),
+  // & > div.spread-modal:nth-child(3),
+  // & > div.spread-modal:nth-child(4) {
+  //   background-color: transparent;
+  //   border: none;
+  // }
+}
+
+.container {
+  width: 100vw;
+  min-width: auto;
+  height: auto;
+  min-height: calc(100vh - 150px);
+  padding: 50px;
+  background-image: url('/assets/images/universe.jpg'); //& 배경 이미지.
+  background-size: cover;
+  text-align: center;
+  @include App.flex-box-center(column);
+
+  & > div {
+    @include App.flex-box-center(row);
+  }
+}
+.title {
+  display: inline-block;
+  width: auto;
+  height: auto;
+}
+
+.spread-container {
+  width: 400px;
+  height: 350px;
+  padding: 10px;
+  padding-bottom: 35px;
+  margin: 20px;
+  font-weight: 800;
+  font-size: 1.5rem;
+}
+.spread-box {
+  height: 100%;
+  width: 100%;
+  background-color: purple;
+  border-radius: 15px;
+}
+
+.card-back {
+  @include TarotModal.card(1);
+  & > img {
+    @include TarotModal.card-image(0);
+  }
+}
+
+.card-single {
+  @include card-linear-spread(0.5, 0.4, 1);
+}
+.card-two {
+  @include card-linear-spread(0.3, 0.3, 0.9);
+}
+.card-three {
+  @include card-linear-spread(0.2, 0.2, 0.8);
+}
+.card-four {
+  @include card-linear-spread(0.65, 0.15, 0.65);
+}
+.card-five {
+  @include card-linear-vertical-spread(0.65, 0.15, 0.5);
+}
+.card-six-spread-box {
+  width: 100%;
+  height: 100%;
+  @include App.flex-box-center(row);
+}
+.card-six {
+  @include card-grid-spread(0.65, 0.18, 0.65);
+}
+
+.card-celtic-cross-container {
+  @include card-celtic-cross-container(0);
+}
+
+.card-celtic-cross1 {
+  @include card-celtic-cross1(0.1, 0.115, 0.38, 0);
+  .card-celtic-cross1-center {
+    @include card-celtic-cross1-center(0.1, 0.115, 0.38, 40%, 40%, -10%, -10%);
+  }
+}
+
+.card-celtic-cross2 {
+  @include card-celtic-cross2(0.1, 0.115, 0.38, 0);
+}
+
+.card-container {
+  @include App.flex-box-center(row);
+  width: 1150px;
+  height: 650px;
+  margin: auto;
+}
+
+.flip {
+  @include TarotCardSpreadForm.flip();
+  @include TarotModal.card(0.5);
+}
+.flip-click {
+  @include TarotCardSpreadForm.flip-click();
+}
+.front {
+  @include TarotCardSpreadForm.front();
+}
+.front-reversed {
+  @include TarotCardSpreadForm.front-reversed();
+  z-index: 1;
+}
+.front-for-answer-modal-reversed {
+  @include TarotCardSpreadForm.front-for-answer-modal-reversed();
+  z-index: 1;
+}
+.back {
+  @include TarotCardSpreadForm.back();
+  @include TarotModal.card(0.6);
+
+  & > img {
+    @include TarotModal.card-image(0);
+  }
+}
+
+// .card-celtic-cross1-center > div:first-child {
+//   @include TarotModal.card(0.5);
+//   @include App.position-absolute-center();
+//   z-index: 0;
+//   & > img {
+//     @include TarotModal.card-image(0);
+//   }
+// }
+// .card-celtic-cross1-center > div:last-child {
+//   @include TarotModal.card(0.5);
+//   @include App.position-absolute-right-half();
+//   transform: translate(-10%, -10%);
+//   z-index: 1;
+//   & > img {
+//     @include TarotModal.card-image(0);
+//   }
+// }
+
+//! MAX-HEIGHT 설정하니,, 스피드 타로 말고 나머지 타로모드 용 스프레드만 조정되네...하... CelticCrossSpreadForm.module.scss에서 해도 스피드 타로 스프레드 조정 안되니까 그쪽은 지웠다.
+@media (max-height: 670px) {
+  .card-celtic-cross1 {
+    @include card-celtic-cross1(0.5, 0.095, 0.3, 0);
+    .card-celtic-cross1-center {
+      @include card-celtic-cross1-center(0.5, 0.095, 0.3, 40%, 40%, -10%, -10%);
+    }
+  }
+  .card-celtic-cross2 {
+    @include card-celtic-cross2(0.5, 0.095, 0.3, 0);
+  }
+}
+@media (max-height: 590px) {
+  .card-celtic-cross1 {
+    @include card-celtic-cross1(0.5, 0.08, 0.2, 0);
+    .card-celtic-cross1-center {
+      @include card-celtic-cross1-center(0.5, 0.08, 0.2, 40%, 40%, -10%, -10%);
+    }
+  }
+  .card-celtic-cross2 {
+    @include card-celtic-cross2(0.5, 0.08, 0.2, 0);
+  }
+}
+
+//~ 디바이스
+@media (min-device-width: 1024px) and (max-device-width: 1366px) {
+}
+
+//~ 태블릿, 아이패드, 아이패드 프로
+@media (min-device-width: 768px) and (max-device-width: 1024px) {
+  .card-single {
+    @include card-linear-spread(0.5, 0.35, 0.9);
+  }
+  .card-two {
+    @include card-linear-spread(0.3, 0.3, 0.9);
+  }
+  .card-three {
+    @include card-linear-spread(0.2, 0.2, 0.8);
+  }
+  .card-four {
+    @include card-linear-spread(0.65, 0.15, 0.6);
+  }
+  .card-five {
+    @include card-linear-vertical-spread(0.65, 0.13, 0.5);
+  }
+  .card-six {
+    @include card-grid-spread(0.65, 0.16, 0.6);
+  }
+  .card-celtic-cross-container {
+    @include card-celtic-cross-container(0);
+  }
+  .card-celtic-cross1 {
+    @include card-celtic-cross1(0.5, 0.1, 0.36, 0);
+    .card-celtic-cross1-center {
+      @include card-celtic-cross1-center(0.5, 0.1, 0.36, 40%, 40%, -10%, -10%);
+    }
+  }
+  .card-celtic-cross2 {
+    @include card-celtic-cross2(0.5, 0.1, 0.36, 0);
+  }
+}
+//~ 650px ~ 768px 및 태블릿
+@media (min-device-width: 650px) and (max-device-width: 768px) {
+  .card-single {
+    @include card-linear-spread(0.5, 0.33, 0.6);
+  }
+  .card-two {
+    @include card-linear-spread(0.3, 0.25, 0.6);
+  }
+  .card-three {
+    @include card-linear-spread(0.2, 0.16, 0.5);
+  }
+  .card-four {
+    @include card-linear-spread(0.65, 0.11, 0.4);
+  }
+  .card-five {
+    @include card-linear-vertical-spread(0.65, 0.14, 0.4);
+  }
+  .card-six {
+    @include card-grid-spread(0.65, 0.15, 0.4);
+  }
+  .card-celtic-cross-container {
+    @include card-celtic-cross-container(0);
+  }
+  .card-celtic-cross1 {
+    @include card-celtic-cross1(0.5, 0.095, 0.3, 0);
+    .card-celtic-cross1-center {
+      @include card-celtic-cross1-center(0.5, 0.095, 0.3, 40%, 40%, -10%, -10%);
+    }
+  }
+  .card-celtic-cross2 {
+    @include card-celtic-cross2(0.5, 0.095, 0.3, 0);
+  }
+}
+//~ 550px ~ 650px 및 태블릿
+@media (min-device-width: 550px) and (max-device-width: 650px) {
+  .card-single {
+    @include card-linear-spread(0.5, 0.3, 0.6);
+  }
+  .card-two {
+    @include card-linear-spread(0.3, 0.21, 0.6);
+  }
+  .card-three {
+    @include card-linear-spread(0.2, 0.14, 0.5);
+  }
+  .card-four {
+    @include card-linear-spread(0.65, 0.11, 0.4);
+  }
+  .card-five {
+    @include card-linear-vertical-spread(0.65, 0.12, 0.4);
+  }
+  .card-six {
+    @include card-grid-spread(0.65, 0.13, 0.4);
+  }
+  .card-celtic-cross-container {
+    @include card-celtic-cross-container(0);
+  }
+  .card-celtic-cross1 {
+    @include card-celtic-cross1(0.5, 0.085, 0.3, 0);
+    .card-celtic-cross1-center {
+      @include card-celtic-cross1-center(0.5, 0.085, 0.3, 40%, 40%, -10%, -10%);
+    }
+  }
+  .card-celtic-cross2 {
+    @include card-celtic-cross2(0.5, 0.085, 0.3, 0);
+  }
+}
+//~ 480px ~ 550px 및 태블릿
+@media (min-device-width: 480px) and (max-device-width: 550px) {
+  .card-single {
+    @include card-linear-spread(0.5, 0.27, 0.6);
+  }
+  .card-two {
+    @include card-linear-spread(0.3, 0.17, 0.6);
+  }
+  .card-three {
+    @include card-linear-spread(0.2, 0.12, 0.5);
+  }
+  .card-four {
+    @include card-linear-spread(0.65, 0.11, 0.4);
+  }
+  .card-five {
+    @include card-linear-vertical-spread(0.65, 0.12, 0.4);
+  }
+  .card-six {
+    @include card-grid-spread(0.65, 0.12, 0.4);
+  }
+  .card-celtic-cross-container {
+    @include card-celtic-cross-container(0);
+  }
+  .card-celtic-cross1 {
+    @include card-celtic-cross1(0.5, 0.08, 0.3, 0);
+    .card-celtic-cross1-center {
+      @include card-celtic-cross1-center(0.5, 0.08, 0.3, 40%, 40%, -10%, -10%);
+    }
+  }
+  .card-celtic-cross2 {
+    @include card-celtic-cross2(0.5, 0.08, 0.3, 0);
+  }
+}
+//~ IPhone 14 Pro Max(430px) - 여기서부터 타로 모달창이 화면을 꽉채우니 위의 사이즈보다 값을 크게 매김
+@media only screen and (min-device-width: 415px) and (max-device-width: 480px) {
+  .card-single {
+    @include card-linear-spread(0.5, 0.28, 0.7);
+  }
+  .card-two {
+    @include card-linear-spread(0.3, 0.2, 0.6);
+  }
+  .card-three {
+    @include card-linear-spread(0.2, 0.14, 0.5);
+  }
+  .card-four {
+    @include card-linear-spread(0.65, 0.12, 0.4);
+  }
+  .card-five {
+    @include card-linear-vertical-spread(0.65, 0.12, 0.35);
+  }
+  .card-six {
+    @include card-grid-spread(0.2, 0.13, 0.5);
+  }
+  .card-celtic-cross-container {
+    @include card-celtic-cross-container(0);
+  }
+  .card-celtic-cross1 {
+    @include card-celtic-cross1(0.5, 0.085, 0.26, 0);
+    .card-celtic-cross1-center {
+      @include card-celtic-cross1-center(
+        0.5,
+        0.085,
+        0.26,
+        40%,
+        40%,
+        -10%,
+        -10%
+      );
+    }
+  }
+  .card-celtic-cross2 {
+    @include card-celtic-cross2(0.5, 0.085, 0.26, 0);
+  }
+}
+
+//~ 아이폰XR
+@media (min-device-width: 376px) and (max-device-width: 415px) {
+  .card-single {
+    @include card-linear-spread(0.5, 0.27, 0.6);
+  }
+  .card-two {
+    @include card-linear-spread(0.3, 0.19, 0.6);
+  }
+  .card-three {
+    @include card-linear-spread(0.2, 0.13, 0.4);
+  }
+  .card-four {
+    @include card-linear-spread(0.65, 0.1, 0.3);
+  }
+  .card-five {
+    @include card-linear-vertical-spread(0.65, 0.11, 0.3);
+  }
+  .card-six {
+    @include card-grid-spread(0.2, 0.12, 0.4);
+  }
+  .card-celtic-cross-container {
+    @include card-celtic-cross-container(0);
+  }
+  .card-celtic-cross1 {
+    @include card-celtic-cross1(0.5, 0.083, 0.24, 0);
+    .card-celtic-cross1-center {
+      @include card-celtic-cross1-center(
+        0.5,
+        0.083,
+        0.24,
+        40%,
+        40%,
+        -10%,
+        -10%
+      );
+    }
+  }
+  .card-celtic-cross2 {
+    @include card-celtic-cross2(0.5, 0.083, 0.24, 0);
+  }
+}
+//~ 아이폰 SE 2
+@media (min-device-width: 320px) and (max-device-width: 376px) {
+  .card-single {
+    @include card-linear-spread(0.5, 0.25, 0.5);
+  }
+  .card-two {
+    @include card-linear-spread(0.3, 0.18, 0.5);
+  }
+  .card-three {
+    @include card-linear-spread(0.2, 0.12, 0.4);
+  }
+  .card-four {
+    @include card-linear-spread(0.65, 0.095, 0.3);
+  }
+  .card-five {
+    @include card-linear-vertical-spread(0.65, 0.1, 0.25);
+  }
+  .card-six {
+    @include card-grid-spread(0.2, 0.11, 0.4);
+  }
+  .card-celtic-cross-container {
+    @include card-celtic-cross-container(0);
+  }
+  .card-celtic-cross1 {
+    @include card-celtic-cross1(0.5, 0.08, 0.2, 0);
+    .card-celtic-cross1-center {
+      @include card-celtic-cross1-center(0.5, 0.08, 0.2, 40%, 40%, -10%, -10%);
+    }
+  }
+  .card-celtic-cross2 {
+    @include card-celtic-cross2(0.5, 0.08, 0.2, 0);
+  }
+}
+//~ 아이폰 SE 1
+@media (min-device-width: 280px) and (max-device-width: 320px) {
+  .card-single {
+    @include card-linear-spread(0.5, 0.23, 0.5);
+  }
+  .card-two {
+    @include card-linear-spread(0.3, 0.15, 0.5);
+  }
+  .card-three {
+    @include card-linear-spread(0.2, 0.1, 0.4);
+  }
+  .card-four {
+    @include card-linear-spread(0.65, 0.08, 0.3);
+  }
+  .card-five {
+    @include card-linear-vertical-spread(0.65, 0.11, 0.25);
+  }
+  .card-six {
+    @include card-grid-spread(0.2, 0.1, 0.4);
+  }
+  .card-celtic-cross-container {
+    @include card-celtic-cross-container(0);
+  }
+  .card-celtic-cross1 {
+    @include card-celtic-cross1(0.5, 0.08, 0.2, 0);
+    .card-celtic-cross1-center {
+      @include card-celtic-cross1-center(0.5, 0.08, 0.2, 40%, 40%, -10%, -10%);
+    }
+  }
+  .card-celtic-cross2 {
+    @include card-celtic-cross2(0.5, 0.08, 0.2, 0);
+  }
+}
+
+//~ 갤럭시 폴드
+@media (max-device-width: 280px) {
+  .card-single {
+    @include card-linear-spread(0.5, 0.2, 0.45);
+  }
+  .card-two {
+    @include card-linear-spread(0.3, 0.15, 0.4);
+  }
+  .card-three {
+    @include card-linear-spread(0.2, 0.1, 0.35);
+  }
+  .card-four {
+    @include card-linear-spread(0.65, 0.08, 0.25);
+  }
+  .card-five {
+    @include card-linear-vertical-spread(0.65, 0.08, 0.25);
+  }
+  .card-six {
+    @include card-grid-spread(0.2, 0.1, 0.35);
+  }
+  .card-celtic-cross-container {
+    @include card-celtic-cross-container(0);
+  }
+  .card-celtic-cross1 {
+    @include card-celtic-cross1(0.5, 0.08, 0.17, 0.2);
+    .card-celtic-cross1-center {
+      @include card-celtic-cross1-center(0.5, 0.08, 0.17, 40%, 40%, -10%, -10%);
+    }
+  }
+  .card-celtic-cross2 {
+    @include card-celtic-cross2(0.5, 0.08, 0.17, 0);
+  }
+}
+
+//* 아이패드 프로 가로
+@media screen and (orientation: landscape) and (min-device-width: 1024px) and (max-device-width: 1366px) {
+}
+
+//* 태블릿 아이패드, 아이패드 프로 가로
+@media screen and (orientation: landscape) and (min-device-width: 932px) and (max-device-width: 1024px) {
+  div.card-single {
+    @include card-linear-spread(0.5, 0.35, 0.9);
+  }
+  div.card-two {
+    @include card-linear-spread(0.3, 0.3, 0.9);
+  }
+  div.card-three {
+    @include card-linear-spread(0.2, 0.2, 0.8);
+  }
+  div.card-four {
+    @include card-linear-spread(0.65, 0.15, 0.6);
+  }
+  div.card-five {
+    @include card-linear-vertical-spread(0.65, 0.13, 0.5);
+  }
+  div.card-six {
+    @include card-grid-spread(0.65, 0.16, 0.6);
+  }
+  div.card-celtic-cross-container {
+    @include card-celtic-cross-container(0);
+  }
+  div.card-celtic-cross1 {
+    @include card-celtic-cross1(0.5, 0.1, 0.36, 0);
+    .card-celtic-cross1-center {
+      @include card-celtic-cross1-center(0.5, 0.1, 0.36, 40%, 40%, -10%, -10%);
+    }
+  }
+  div.card-celtic-cross2 {
+    @include card-celtic-cross2(0.5, 0.1, 0.36, 0);
+  }
+}
+
+//* IPhon 14 Pro Max 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 896px) and (max-device-width: 932px) {
+  div.card-single {
+    @include card-linear-spread(0.5, 0.35, 0.9);
+  }
+  div.card-two {
+    @include card-linear-spread(0.3, 0.3, 0.9);
+  }
+  div.card-three {
+    @include card-linear-spread(0.2, 0.2, 0.8);
+  }
+  div.card-four {
+    @include card-linear-spread(0.65, 0.15, 0.6);
+  }
+  div.card-five {
+    @include card-linear-vertical-spread(0.65, 0.13, 0.5);
+  }
+  div.card-six {
+    @include card-grid-spread(0.65, 0.16, 0.6);
+  }
+  div.card-celtic-cross-container {
+    @include card-celtic-cross-container(0);
+  }
+  div.card-celtic-cross1 {
+    @include card-celtic-cross1(0.5, 0.1, 0.36, 0);
+    .card-celtic-cross1-center {
+      @include card-celtic-cross1-center(0.5, 0.1, 0.36, 40%, 40%, -10%, -10%);
+    }
+  }
+  div.card-celtic-cross2 {
+    @include card-celtic-cross2(0.5, 0.1, 0.36, 0);
+  }
+}
+
+//* 아이폰XR 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 667px) and (max-device-width: 896px) {
+  div.card-single {
+    @include card-linear-spread(0.5, 0.28, 0.7);
+  }
+  div.card-two {
+    @include card-linear-spread(0.3, 0.2, 0.6);
+  }
+  div.card-three {
+    @include card-linear-spread(0.2, 0.14, 0.5);
+  }
+  div.card-four {
+    @include card-linear-spread(0.65, 0.12, 0.4);
+  }
+  div.card-five {
+    @include card-linear-vertical-spread(0.65, 0.12, 0.35);
+  }
+  div.card-six {
+    @include card-grid-spread(0.2, 0.13, 0.5);
+  }
+  div.card-celtic-cross-container {
+    @include card-celtic-cross-container(0);
+  }
+  div.card-celtic-cross1 {
+    @include card-celtic-cross1(0.5, 0.085, 0.26, 0);
+    .card-celtic-cross1-center {
+      @include card-celtic-cross1-center(
+        0.5,
+        0.085,
+        0.26,
+        40%,
+        40%,
+        -10%,
+        -10%
+      );
+    }
+  }
+  div.card-celtic-cross2 {
+    @include card-celtic-cross2(0.5, 0.085, 0.26, 0);
+  }
+}
+
+//* 아이폰SE 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 653px) and (max-device-width: 667px) {
+  div.card-single {
+    @include card-linear-spread(0.5, 0.28, 0.7);
+  }
+  div.card-two {
+    @include card-linear-spread(0.3, 0.2, 0.6);
+  }
+  div.card-three {
+    @include card-linear-spread(0.2, 0.14, 0.5);
+  }
+  div.card-four {
+    @include card-linear-spread(0.65, 0.12, 0.4);
+  }
+  div.card-five {
+    @include card-linear-vertical-spread(0.65, 0.12, 0.35);
+  }
+  div.card-six {
+    @include card-grid-spread(0.2, 0.13, 0.5);
+  }
+  div.card-celtic-cross-container {
+    @include card-celtic-cross-container(0);
+  }
+  div.card-celtic-cross1 {
+    @include card-celtic-cross1(0.5, 0.085, 0.26, 0);
+    .card-celtic-cross1-center {
+      @include card-celtic-cross1-center(
+        0.5,
+        0.085,
+        0.26,
+        40%,
+        40%,
+        -10%,
+        -10%
+      );
+    }
+  }
+  div.card-celtic-cross2 {
+    @include card-celtic-cross2(0.5, 0.085, 0.26, 0);
+  }
+}
+
+//* 갤럭시 폴드 가로모드
+@media screen and (orientation: landscape) and (max-device-width: 653px) {
+  div.card-single {
+    @include card-linear-spread(0.5, 0.28, 0.7);
+  }
+  div.card-two {
+    @include card-linear-spread(0.3, 0.2, 0.6);
+  }
+  div.card-three {
+    @include card-linear-spread(0.2, 0.14, 0.5);
+  }
+  div.card-four {
+    @include card-linear-spread(0.65, 0.12, 0.4);
+  }
+  div.card-five {
+    @include card-linear-vertical-spread(0.65, 0.12, 0.35);
+  }
+  div.card-six {
+    @include card-grid-spread(0.2, 0.13, 0.5);
+  }
+  div.card-celtic-cross-container {
+    @include card-celtic-cross-container(0);
+  }
+  div.card-celtic-cross1 {
+    @include card-celtic-cross1(0.5, 0.085, 0.26, 0);
+    .card-celtic-cross1-center {
+      @include card-celtic-cross1-center(
+        0.5,
+        0.085,
+        0.26,
+        40%,
+        40%,
+        -10%,
+        -10%
+      );
+    }
+  }
+  div.card-celtic-cross2 {
+    @include card-celtic-cross2(0.5, 0.085, 0.26, 0);
+  }
+}
+
+//!
+//~ 디바이스
+@media (min-width: 1024px) and (max-width: 1366px) {
+}
+
+//~ 태블릿, 아이패드, 아이패드 프로
+@media (min-width: 768px) and (max-width: 1024px) {
+  .card-single {
+    @include card-linear-spread(0.5, 0.35, 0.9);
+  }
+  .card-two {
+    @include card-linear-spread(0.3, 0.3, 0.9);
+  }
+  .card-three {
+    @include card-linear-spread(0.2, 0.2, 0.8);
+  }
+  .card-four {
+    @include card-linear-spread(0.65, 0.15, 0.6);
+  }
+  .card-five {
+    @include card-linear-vertical-spread(0.65, 0.13, 0.5);
+  }
+  .card-six {
+    @include card-grid-spread(0.65, 0.16, 0.6);
+  }
+  .card-celtic-cross-container {
+    @include card-celtic-cross-container(0);
+  }
+  .card-celtic-cross1 {
+    @include card-celtic-cross1(0.5, 0.1, 0.36, 0);
+    .card-celtic-cross1-center {
+      @include card-celtic-cross1-center(0.5, 0.1, 0.36, 40%, 40%, -10%, -10%);
+    }
+  }
+  .card-celtic-cross2 {
+    @include card-celtic-cross2(0.5, 0.1, 0.36, 0);
+  }
+}
+//~ 650px ~ 768px 및 태블릿
+@media (min-width: 650px) and (max-width: 768px) {
+  .card-single {
+    @include card-linear-spread(0.5, 0.33, 0.6);
+  }
+  .card-two {
+    @include card-linear-spread(0.3, 0.25, 0.6);
+  }
+  .card-three {
+    @include card-linear-spread(0.2, 0.16, 0.5);
+  }
+  .card-four {
+    @include card-linear-spread(0.65, 0.11, 0.4);
+  }
+  .card-five {
+    @include card-linear-vertical-spread(0.65, 0.14, 0.4);
+  }
+  .card-six {
+    @include card-grid-spread(0.65, 0.15, 0.4);
+  }
+  .card-celtic-cross-container {
+    @include card-celtic-cross-container(0);
+  }
+  .card-celtic-cross1 {
+    @include card-celtic-cross1(0.5, 0.095, 0.3, 0);
+    .card-celtic-cross1-center {
+      @include card-celtic-cross1-center(0.5, 0.095, 0.3, 40%, 40%, -10%, -10%);
+    }
+  }
+  .card-celtic-cross2 {
+    @include card-celtic-cross2(0.5, 0.095, 0.3, 0);
+  }
+}
+//~ 550px ~ 650px 및 태블릿
+@media (min-width: 550px) and (max-width: 650px) {
+  .card-single {
+    @include card-linear-spread(0.5, 0.3, 0.6);
+  }
+  .card-two {
+    @include card-linear-spread(0.3, 0.21, 0.6);
+  }
+  .card-three {
+    @include card-linear-spread(0.2, 0.14, 0.5);
+  }
+  .card-four {
+    @include card-linear-spread(0.65, 0.11, 0.4);
+  }
+  .card-five {
+    @include card-linear-vertical-spread(0.65, 0.12, 0.4);
+  }
+  .card-six {
+    @include card-grid-spread(0.65, 0.13, 0.4);
+  }
+  .card-celtic-cross-container {
+    @include card-celtic-cross-container(0);
+  }
+  .card-celtic-cross1 {
+    @include card-celtic-cross1(0.5, 0.085, 0.3, 0);
+    .card-celtic-cross1-center {
+      @include card-celtic-cross1-center(0.5, 0.085, 0.3, 40%, 40%, -10%, -10%);
+    }
+  }
+  .card-celtic-cross2 {
+    @include card-celtic-cross2(0.5, 0.085, 0.3, 0);
+  }
+}
+//~ 480px ~ 550px 및 태블릿
+@media (min-width: 480px) and (max-width: 550px) {
+  .card-single {
+    @include card-linear-spread(0.5, 0.27, 0.6);
+  }
+  .card-two {
+    @include card-linear-spread(0.3, 0.17, 0.6);
+  }
+  .card-three {
+    @include card-linear-spread(0.2, 0.12, 0.5);
+  }
+  .card-four {
+    @include card-linear-spread(0.65, 0.11, 0.4);
+  }
+  .card-five {
+    @include card-linear-vertical-spread(0.65, 0.12, 0.4);
+  }
+  .card-six {
+    @include card-grid-spread(0.65, 0.12, 0.4);
+  }
+  .card-celtic-cross-container {
+    @include card-celtic-cross-container(0);
+  }
+  .card-celtic-cross1 {
+    @include card-celtic-cross1(0.5, 0.08, 0.3, 0);
+    .card-celtic-cross1-center {
+      @include card-celtic-cross1-center(0.5, 0.08, 0.3, 40%, 40%, -10%, -10%);
+    }
+  }
+  .card-celtic-cross2 {
+    @include card-celtic-cross2(0.5, 0.08, 0.3, 0);
+  }
+}
+//~ IPhone 14 Pro Max(430px) - 여기서부터 타로 모달창이 화면을 꽉채우니 위의 사이즈보다 값을 크게 매김
+@media only screen and (min-width: 415px) and (max-width: 480px) {
+  .card-single {
+    @include card-linear-spread(0.5, 0.28, 0.7);
+  }
+  .card-two {
+    @include card-linear-spread(0.3, 0.2, 0.6);
+  }
+  .card-three {
+    @include card-linear-spread(0.2, 0.14, 0.5);
+  }
+  .card-four {
+    @include card-linear-spread(0.65, 0.12, 0.4);
+  }
+  .card-five {
+    @include card-linear-vertical-spread(0.65, 0.12, 0.35);
+  }
+  .card-six {
+    @include card-grid-spread(0.2, 0.13, 0.5);
+  }
+  .card-celtic-cross-container {
+    @include card-celtic-cross-container(0);
+  }
+  .card-celtic-cross1 {
+    @include card-celtic-cross1(0.5, 0.085, 0.26, 0);
+    .card-celtic-cross1-center {
+      @include card-celtic-cross1-center(
+        0.5,
+        0.085,
+        0.26,
+        40%,
+        40%,
+        -10%,
+        -10%
+      );
+    }
+  }
+  .card-celtic-cross2 {
+    @include card-celtic-cross2(0.5, 0.085, 0.26, 0);
+  }
+}
+
+//~ 아이폰XR
+@media (min-width: 376px) and (max-width: 415px) {
+  .card-single {
+    @include card-linear-spread(0.5, 0.27, 0.6);
+  }
+  .card-two {
+    @include card-linear-spread(0.3, 0.19, 0.6);
+  }
+  .card-three {
+    @include card-linear-spread(0.2, 0.13, 0.4);
+  }
+  .card-four {
+    @include card-linear-spread(0.65, 0.1, 0.3);
+  }
+  .card-five {
+    @include card-linear-vertical-spread(0.65, 0.11, 0.3);
+  }
+  .card-six {
+    @include card-grid-spread(0.2, 0.12, 0.4);
+  }
+  .card-celtic-cross-container {
+    @include card-celtic-cross-container(0);
+  }
+  .card-celtic-cross1 {
+    @include card-celtic-cross1(0.5, 0.083, 0.24, 0);
+    .card-celtic-cross1-center {
+      @include card-celtic-cross1-center(
+        0.5,
+        0.083,
+        0.24,
+        40%,
+        40%,
+        -10%,
+        -10%
+      );
+    }
+  }
+  .card-celtic-cross2 {
+    @include card-celtic-cross2(0.5, 0.083, 0.24, 0);
+  }
+}
+//~ 아이폰 SE 2
+@media (min-width: 320px) and (max-width: 376px) {
+  .card-single {
+    @include card-linear-spread(0.5, 0.25, 0.5);
+  }
+  .card-two {
+    @include card-linear-spread(0.3, 0.18, 0.5);
+  }
+  .card-three {
+    @include card-linear-spread(0.2, 0.12, 0.4);
+  }
+  .card-four {
+    @include card-linear-spread(0.65, 0.095, 0.3);
+  }
+  .card-five {
+    @include card-linear-vertical-spread(0.65, 0.1, 0.25);
+  }
+  .card-six {
+    @include card-grid-spread(0.2, 0.11, 0.4);
+  }
+  .card-celtic-cross-container {
+    @include card-celtic-cross-container(0);
+  }
+  .card-celtic-cross1 {
+    @include card-celtic-cross1(0.5, 0.08, 0.2, 0);
+    .card-celtic-cross1-center {
+      @include card-celtic-cross1-center(0.5, 0.08, 0.2, 40%, 40%, -10%, -10%);
+    }
+  }
+  .card-celtic-cross2 {
+    @include card-celtic-cross2(0.5, 0.08, 0.2, 0);
+  }
+}
+//~ 아이폰 SE 1
+@media (min-width: 280px) and (max-width: 320px) {
+  .card-single {
+    @include card-linear-spread(0.5, 0.23, 0.5);
+  }
+  .card-two {
+    @include card-linear-spread(0.3, 0.15, 0.5);
+  }
+  .card-three {
+    @include card-linear-spread(0.2, 0.1, 0.4);
+  }
+  .card-four {
+    @include card-linear-spread(0.65, 0.08, 0.3);
+  }
+  .card-five {
+    @include card-linear-vertical-spread(0.65, 0.11, 0.25);
+  }
+  .card-six {
+    @include card-grid-spread(0.2, 0.1, 0.4);
+  }
+  .card-celtic-cross-container {
+    @include card-celtic-cross-container(0);
+  }
+  .card-celtic-cross1 {
+    @include card-celtic-cross1(0.5, 0.08, 0.2, 0);
+    .card-celtic-cross1-center {
+      @include card-celtic-cross1-center(0.5, 0.08, 0.2, 40%, 40%, -10%, -10%);
+    }
+  }
+  .card-celtic-cross2 {
+    @include card-celtic-cross2(0.5, 0.08, 0.2, 0);
+  }
+}
+//~ 갤럭시 폴드
+@media (max-width: 280px) {
+  .card-single {
+    @include card-linear-spread(0.5, 0.2, 0.45);
+  }
+  .card-two {
+    @include card-linear-spread(0.3, 0.15, 0.4);
+  }
+  .card-three {
+    @include card-linear-spread(0.2, 0.1, 0.35);
+  }
+  .card-four {
+    @include card-linear-spread(0.65, 0.08, 0.25);
+  }
+  .card-five {
+    @include card-linear-vertical-spread(0.65, 0.08, 0.25);
+  }
+  .card-six {
+    @include card-grid-spread(0.2, 0.1, 0.35);
+  }
+  .card-celtic-cross-container {
+    @include card-celtic-cross-container(0);
+  }
+  .card-celtic-cross1 {
+    @include card-celtic-cross1(0.5, 0.08, 0.17, 0.2);
+    .card-celtic-cross1-center {
+      @include card-celtic-cross1-center(0.5, 0.08, 0.17, 40%, 40%, -10%, -10%);
+    }
+  }
+  .card-celtic-cross2 {
+    @include card-celtic-cross2(0.5, 0.08, 0.17, 0);
+  }
+}

@@ -1,0 +1,842 @@
+@use '_App.module.scss';
+
+@include App.scrollBar-custom-className(
+  container,
+  10px,
+  10px,
+  purple,
+  transparent
+);
+.no-scroll {
+  overflow: hidden;
+}
+.container {
+  @include App.no-select;
+  width: 100vw;
+  height: calc(100vh - 130px);
+  background-image: url('/assets/images/universe.jpg'); //& 배경 이미지.
+  background-size: cover;
+  color: gold;
+  overflow-x: hidden;
+  overflow-y: auto;
+  @include App.flex-box-center(column);
+  justify-content: start;
+  position: relative;
+  padding-bottom: 130px;
+  //& grid 쓰면 복사, 저장완료 모달뜰때 일그러짐.
+  // display: grid;
+  // grid-template-rows: 1fr;
+  // grid-template-columns: 180px 1fr;
+}
+.container-box1 {
+  width: 100%;
+  //! height를 box1, box2 전부 auto로 해서, 일본어 폰트만 line-height 조정하든가, margin-bottom 혹은 padding-bottom 조정하든가..
+  height: auto;
+  overflow: unset;
+  flex-grow: 0;
+}
+.container-box1-folded {
+  width: 100%;
+  height: auto;
+}
+// 환불 알림창 올리고, 내리기 기능
+.container-box1:nth-child(3) {
+  width: 100%;
+  //! height를 box1, box2 전부 auto로 해서, 일본어 폰트만 line-height 조정하든가, margin-bottom 혹은 padding-bottom 조정하든가..
+  height: auto;
+  overflow: unset;
+  flex-grow: 0;
+  @include App.flex-box-center(row);
+  justify-content: end;
+}
+.container-box1-folded:nth-child(3) {
+  width: 100%;
+  height: auto;
+  @include App.flex-box-center(row);
+  justify-content: end;
+}
+.container-box2 {
+  width: 100%;
+  //! height를 box1, box2 전부 auto로 해서, 일본어 폰트만 line-height 조정하든가, margin-bottom 혹은 padding-bottom 조정하든가..
+  height: auto;
+  height: calc(100% - 180px);
+  position: relative;
+  flex-grow: 1;
+}
+
+.answer-container {
+  width: 100%;
+  height: 100%;
+  @include App.position-absolute-center();
+  z-index: 1;
+}
+//환불요청 총금액
+.total-price-info-container {
+  position: fixed;
+  background-color: rgb(218, 165, 32, 1);
+  border: 1px solid purple;
+  color: black;
+  min-width: 200px;
+  min-height: 50px;
+  padding: 10px;
+  bottom: 80px;
+  right: 0px;
+  z-index: 1;
+  @include App.dongle-font(2rem);
+  line-height: 0.85;
+  user-select: none; // 드래그 금지
+  -webkit-user-drag: none; // 드래그 금지
+  & > div:nth-child(2) {
+    @include App.flex-box-center(row);
+  }
+}
+
+.menu-folding-button-box {
+  position: relative;
+  width: 50px;
+  height: 30px;
+  color: goldenrod;
+  border: 1px solid goldenrod;
+}
+.menu-folding-button {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  color: goldenrod;
+  font-size: 1.5rem;
+}
+
+//! 일본어 버전
+//환불요청 총금액
+.total-price-info-container-japanese {
+  position: fixed;
+  background-color: rgb(218, 165, 32, 1);
+  border: 1px solid purple;
+  color: black;
+  min-width: 200px;
+  min-height: 50px;
+  padding: 10px;
+  bottom: 80px;
+  right: 0px;
+  z-index: 0;
+  @include App.potta-font(1.3rem);
+  line-height: 1;
+  user-select: none; // 드래그 금지
+  -webkit-user-drag: none; // 드래그 금지
+  & > div:nth-child(2) {
+    @include App.flex-box-center(row);
+  }
+}
+.btn-box {
+  width: 100%;
+  @include App.flex-box-center(row);
+  justify-content: space-between;
+}
+
+//~ 디바이스
+@media (min-device-width: 1025px) and (max-device-width: 1366px) {
+  .container {
+    width: 100vw;
+    height: Calc(100vh - 130px);
+    @include App.flex-box-center(column);
+    justify-content: start;
+  }
+  .container-box1 {
+    width: 100%;
+    //! height를 box1, box2 전부 auto로 해서, 일본어 폰트만 line-height 조정하든가, margin-bottom 혹은 padding-bottom 조정하든가..
+    height: auto;
+    // height: 120px;
+    overflow: unset;
+    // flex-grow:0;
+  }
+  .container-box2 {
+    width: 100%;
+    //! height를 box1, box2 전부 auto로 해서, 일본어 폰트만 line-height 조정하든가, margin-bottom 혹은 padding-bottom 조정하든가..
+    height: auto;
+    // height: calc(100% - 120px);
+    position: relative;
+    // flex-grow:1;
+  }
+  .answer-container {
+    width: 100%;
+    height: 100%;
+    @include App.position-absolute-center();
+  }
+}
+//~ 태블릿, 아이패드, 아이패드 프로
+@media (min-device-width: 769px) and (max-device-width: 1024px) {
+  .container {
+    width: 100vw;
+    height: Calc(100vh - 130px);
+
+    @include App.flex-box-center(column);
+    justify-content: start;
+  }
+  .container-box1 {
+    width: 100%;
+    //! height를 box1, box2 전부 auto로 해서, 일본어 폰트만 line-height 조정하든가, margin-bottom 혹은 padding-bottom 조정하든가..
+    height: auto;
+    // height: 110px;
+    overflow: unset;
+    // flex-grow:0;
+  }
+  .container-box2 {
+    width: 100%;
+    //! height를 box1, box2 전부 auto로 해서, 일본어 폰트만 line-height 조정하든가, margin-bottom 혹은 padding-bottom 조정하든가..
+    height: auto;
+    // height: calc(100% - 110px);
+    position: relative;
+    // flex-grow:1;
+  }
+  .answer-container {
+    width: 100%;
+    height: 100%;
+    @include App.position-absolute-center();
+  }
+  .menu-folding-button {
+    font-size: 1.4rem;
+  }
+}
+//~ 481px ~ 768px 및 태블릿
+@media (min-device-width: 481px) and (max-device-width: 768px) {
+  .container {
+    width: 100vw;
+    height: Calc(100vh - 130px);
+
+    @include App.flex-box-center(column);
+    justify-content: start;
+  }
+  .container-box1 {
+    width: 100%;
+    //! height를 box1, box2 전부 auto로 해서, 일본어 폰트만 line-height 조정하든가, margin-bottom 혹은 padding-bottom 조정하든가..
+    height: auto;
+    // height: 110px;
+    overflow: unset;
+    // flex-grow:0;
+  }
+  .container-box2 {
+    width: 100%;
+    //! height를 box1, box2 전부 auto로 해서, 일본어 폰트만 line-height 조정하든가, margin-bottom 혹은 padding-bottom 조정하든가..
+    height: auto;
+    // height: calc(100% - 110px);
+    position: relative;
+    // flex-grow:1;
+  }
+  .answer-container {
+    width: 100%;
+    height: 100%;
+    @include App.position-absolute-center();
+  }
+  .menu-folding-button {
+    font-size: 1.3rem;
+  }
+}
+//~ IPhone 14 Pro Max(430px)
+@media only screen and (min-device-width: 415px) and (max-device-width: 480px) {
+  .container {
+    width: 100vw;
+    height: Calc(100vh - 130px);
+
+    @include App.flex-box-center(column);
+    justify-content: start;
+  }
+  .container-box1 {
+    width: 100%;
+    //! height를 box1, box2 전부 auto로 해서, 일본어 폰트만 line-height 조정하든가, margin-bottom 혹은 padding-bottom 조정하든가..
+    height: auto;
+    // height: 90px;
+    overflow: unset;
+    // flex-grow:0;
+  }
+  .container-box2 {
+    width: 100%;
+    //! height를 box1, box2 전부 auto로 해서, 일본어 폰트만 line-height 조정하든가, margin-bottom 혹은 padding-bottom 조정하든가..
+    height: auto;
+    // height: calc(100% - 90px);
+    position: relative;
+    // flex-grow:1;
+  }
+  .answer-container {
+    width: 100%;
+    height: 100%;
+    @include App.position-absolute-center();
+  }
+  .menu-folding-button {
+    font-size: 1.3rem;
+  }
+}
+//~ 아이폰XR
+@media (min-device-width: 376px) and (max-device-width: 414px) {
+  .container {
+    width: 100vw;
+    height: Calc(100vh - 130px);
+
+    @include App.flex-box-center(column);
+    justify-content: start;
+  }
+  .container-box1 {
+    width: 100%;
+    //! height를 box1, box2 전부 auto로 해서, 일본어 폰트만 line-height 조정하든가, margin-bottom 혹은 padding-bottom 조정하든가..
+    height: auto;
+    // height: 90px;
+    overflow: unset;
+    // flex-grow:0;
+  }
+  .container-box2 {
+    width: 100%;
+    //! height를 box1, box2 전부 auto로 해서, 일본어 폰트만 line-height 조정하든가, margin-bottom 혹은 padding-bottom 조정하든가..
+    height: auto;
+    // height: calc(100% - 90px);
+    position: relative;
+    // flex-grow:1;
+  }
+  .answer-container {
+    width: 100%;
+    height: 100%;
+    @include App.position-absolute-center();
+  }
+  .menu-folding-button {
+    font-size: 1.2rem;
+  }
+}
+//~ 아이폰 SE
+@media (min-device-width: 281px) and (max-device-width: 375px) {
+  .container {
+    width: 100vw;
+    height: Calc(100vh - 130px);
+
+    @include App.flex-box-center(column);
+    justify-content: start;
+  }
+  .container-box1 {
+    width: 100%;
+    //! height를 box1, box2 전부 auto로 해서, 일본어 폰트만 line-height 조정하든가, margin-bottom 혹은 padding-bottom 조정하든가..
+    height: auto;
+    // height: 90px;
+    overflow: unset;
+    // flex-grow:0;
+  }
+  .container-box2 {
+    width: 100%;
+    //! height를 box1, box2 전부 auto로 해서, 일본어 폰트만 line-height 조정하든가, margin-bottom 혹은 padding-bottom 조정하든가..
+    height: auto;
+    // height: calc(100% - 90px);
+    position: relative;
+    // flex-grow:1;
+  }
+  .answer-container {
+    width: 100%;
+    height: 100%;
+    @include App.position-absolute-center();
+  }
+  .menu-folding-button {
+    font-size: 1.1rem;
+  }
+}
+
+//~ 갤럭시 폴드
+@media (max-device-width: 280px) {
+  .container {
+    width: 100vw;
+    height: Calc(100vh - 130px);
+
+    @include App.flex-box-center(column);
+    justify-content: start;
+  }
+  .container-box1 {
+    width: 100%;
+    //! height를 box1, box2 전부 auto로 해서, 일본어 폰트만 line-height 조정하든가, margin-bottom 혹은 padding-bottom 조정하든가..
+    height: auto;
+    // height: 90px;
+    overflow: unset;
+    // flex-grow:0;
+  }
+  .container-box2 {
+    width: 100%;
+    //! height를 box1, box2 전부 auto로 해서, 일본어 폰트만 line-height 조정하든가, margin-bottom 혹은 padding-bottom 조정하든가..
+    height: auto;
+    // height: calc(100% - 90px);
+    position: relative;
+    // flex-grow:1;
+  }
+  .answer-container {
+    width: 90%;
+    height: 90%;
+    @include App.position-absolute-center();
+  }
+  .menu-folding-button {
+    font-size: 1rem;
+  }
+}
+
+//! 반응형 웹브라우저
+//~ 디바이스
+@media (min-width: 1025px) and (max-width: 1366px) {
+  .container {
+    width: 100vw;
+    height: Calc(100vh - 130px);
+
+    @include App.flex-box-center(column);
+    justify-content: start;
+  }
+  .container-box1 {
+    width: 100%;
+    //! height를 box1, box2 전부 auto로 해서, 일본어 폰트만 line-height 조정하든가, margin-bottom 혹은 padding-bottom 조정하든가..
+    height: auto;
+    // height: 120px;
+    overflow: unset;
+    // flex-grow:0;
+  }
+  .container-box2 {
+    width: 100%;
+    //! height를 box1, box2 전부 auto로 해서, 일본어 폰트만 line-height 조정하든가, margin-bottom 혹은 padding-bottom 조정하든가..
+    height: auto;
+    // height: calc(100% - 120px);
+    position: relative;
+    // flex-grow:1;
+  }
+  .answer-container {
+    width: 100%;
+    height: 100%;
+    @include App.position-absolute-center();
+  }
+}
+//~ 태블릿, 아이패드, 아이패드 프로
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    width: 100vw;
+    height: Calc(100vh - 130px);
+
+    @include App.flex-box-center(column);
+    justify-content: start;
+  }
+  .container-box1 {
+    width: 100%;
+    //! height를 box1, box2 전부 auto로 해서, 일본어 폰트만 line-height 조정하든가, margin-bottom 혹은 padding-bottom 조정하든가..
+    height: auto;
+    // height: 110px;
+    overflow: unset;
+    // flex-grow:0;
+  }
+  .container-box2 {
+    width: 100%;
+    //! height를 box1, box2 전부 auto로 해서, 일본어 폰트만 line-height 조정하든가, margin-bottom 혹은 padding-bottom 조정하든가..
+    height: auto;
+    // height: calc(100% - 110px);
+    position: relative;
+    // flex-grow:1;
+  }
+  .answer-container {
+    width: 100%;
+    height: 100%;
+    @include App.position-absolute-center();
+  }
+  .menu-folding-button {
+    font-size: 1.4rem;
+  }
+}
+//~ 481px ~ 768px 및 태블릿
+@media (min-width: 481px) and (max-width: 768px) {
+  .container {
+    width: 100vw;
+    height: Calc(100vh - 130px);
+
+    @include App.flex-box-center(column);
+    justify-content: start;
+  }
+  .container-box1 {
+    width: 100%;
+    //! height를 box1, box2 전부 auto로 해서, 일본어 폰트만 line-height 조정하든가, margin-bottom 혹은 padding-bottom 조정하든가..
+    height: auto;
+    // height: 110px;
+    overflow: unset;
+    // flex-grow:0;
+  }
+  .container-box2 {
+    width: 100%;
+    //! height를 box1, box2 전부 auto로 해서, 일본어 폰트만 line-height 조정하든가, margin-bottom 혹은 padding-bottom 조정하든가..
+    height: auto;
+    // height: calc(100% - 110px);
+    position: relative;
+    // flex-grow:1;
+  }
+  .answer-container {
+    width: 100%;
+    height: 100%;
+    @include App.position-absolute-center();
+  }
+  .menu-folding-button {
+    font-size: 1.3rem;
+  }
+}
+//~ IPhone 14 Pro Max(430px)
+@media only screen and (min-width: 415px) and (max-width: 480px) {
+  .container {
+    width: 100vw;
+    height: Calc(100vh - 130px);
+
+    @include App.flex-box-center(column);
+    justify-content: start;
+  }
+  .container-box1 {
+    width: 100%;
+    //! height를 box1, box2 전부 auto로 해서, 일본어 폰트만 line-height 조정하든가, margin-bottom 혹은 padding-bottom 조정하든가..
+    height: auto;
+    // height: 90px;
+    overflow: unset;
+    // flex-grow:0;
+  }
+  .container-box2 {
+    width: 100%;
+    //! height를 box1, box2 전부 auto로 해서, 일본어 폰트만 line-height 조정하든가, margin-bottom 혹은 padding-bottom 조정하든가..
+    height: auto;
+    // height: calc(100% - 90px);
+    position: relative;
+    // flex-grow:1;
+  }
+  .answer-container {
+    width: 100%;
+    height: 100%;
+    @include App.position-absolute-center();
+  }
+  .menu-folding-button {
+    font-size: 1.3rem;
+  }
+}
+//~ 아이폰XR
+@media (min-width: 376px) and (max-width: 414px) {
+  .container {
+    width: 100vw;
+    height: Calc(100vh - 130px);
+
+    @include App.flex-box-center(column);
+    justify-content: start;
+  }
+  .container-box1 {
+    width: 100%;
+    //! height를 box1, box2 전부 auto로 해서, 일본어 폰트만 line-height 조정하든가, margin-bottom 혹은 padding-bottom 조정하든가..
+    height: auto;
+    // height: 90px;
+    overflow: unset;
+    // flex-grow:0;
+  }
+  .container-box2 {
+    width: 100%;
+    //! height를 box1, box2 전부 auto로 해서, 일본어 폰트만 line-height 조정하든가, margin-bottom 혹은 padding-bottom 조정하든가..
+    height: auto;
+    // height: calc(100% - 90px);
+    position: relative;
+    // flex-grow:1;
+  }
+  .answer-container {
+    width: 100%;
+    height: 100%;
+    @include App.position-absolute-center();
+  }
+  .menu-folding-button {
+    font-size: 1.2rem;
+  }
+}
+//~ 아이폰 SE
+@media (min-width: 281px) and (max-width: 375px) {
+  .container {
+    width: 100vw;
+    height: Calc(100vh - 130px);
+
+    @include App.flex-box-center(column);
+    justify-content: start;
+  }
+  .container-box1 {
+    width: 100%;
+    //! height를 box1, box2 전부 auto로 해서, 일본어 폰트만 line-height 조정하든가, margin-bottom 혹은 padding-bottom 조정하든가..
+    height: auto;
+    // height: 90px;
+    overflow: unset;
+    // flex-grow:0;
+  }
+  .container-box2 {
+    width: 100%;
+    //! height를 box1, box2 전부 auto로 해서, 일본어 폰트만 line-height 조정하든가, margin-bottom 혹은 padding-bottom 조정하든가..
+    height: auto;
+    // height: calc(100% - 90px);
+    position: relative;
+    // flex-grow:1;
+  }
+  .answer-container {
+    width: 100%;
+    height: 100%;
+    @include App.position-absolute-center();
+  }
+  .menu-folding-button {
+    font-size: 1.1rem;
+  }
+}
+
+//~ 갤럭시 폴드
+@media (max-width: 280px) {
+  .container {
+    width: 100vw;
+    height: Calc(100vh - 130px);
+
+    @include App.flex-box-center(column);
+    justify-content: start;
+  }
+  .container-box1 {
+    width: 100%;
+    //! height를 box1, box2 전부 auto로 해서, 일본어 폰트만 line-height 조정하든가, margin-bottom 혹은 padding-bottom 조정하든가..
+    height: auto;
+    // height: 90px;
+    overflow: unset;
+    // flex-grow:0;
+  }
+  .container-box2 {
+    width: 100%;
+    //! height를 box1, box2 전부 auto로 해서, 일본어 폰트만 line-height 조정하든가, margin-bottom 혹은 padding-bottom 조정하든가..
+    height: auto;
+    // height: calc(100% - 90px);
+    position: relative;
+    // flex-grow:1;
+  }
+  .answer-container {
+    width: 90%;
+    height: 90%;
+    @include App.position-absolute-center();
+  }
+  .menu-folding-button {
+    font-size: 1rem;
+  }
+}
+
+//* 아이패드 프로 가로
+@media screen and (orientation: landscape) and (min-device-width: 1025px) and (max-device-width: 1366px) {
+  div.container {
+    width: 100vw;
+    height: Calc(100vh - 130px);
+    overflow-y: auto;
+    @include App.flex-box-center(column);
+    justify-content: start;
+    align-items: start;
+    padding-bottom: 130px;
+  }
+  div.container-box1 {
+    width: 100%;
+    height: auto;
+    overflow: unset;
+    // flex-grow:0;
+  }
+  div.container-box2 {
+    width: 100%;
+    height: auto;
+    position: relative;
+    // flex-grow:1;
+  }
+  div.answer-container {
+    width: 100%;
+    height: 100%;
+    @include App.position-absolute-center();
+    position: fixed;
+  }
+  div.total-price-info-container {
+    bottom: 0;
+    z-index: 10;
+  }
+  div.total-price-info-container-japanese {
+    bottom: 0;
+    z-index: 10;
+  }
+}
+
+//* 태블릿 아이패드, 아이패드 프로 가로
+@media screen and (orientation: landscape) and (min-device-width: 933px) and (max-device-width: 1024px) {
+  div.container {
+    width: 100vw;
+    height: Calc(100vh - 130px);
+    overflow-y: auto;
+    @include App.flex-box-center(column);
+    justify-content: start;
+    align-items: start;
+    padding-bottom: 130px;
+  }
+  div.container-box1 {
+    width: 100%;
+    height: auto;
+    overflow: unset;
+    // flex-grow:0;
+  }
+  div.container-box2 {
+    width: 100%;
+    height: auto;
+    position: relative;
+    // flex-grow:1;
+  }
+  div.answer-container {
+    width: 100%;
+    height: 100%;
+    @include App.position-absolute-center();
+    position: fixed;
+  }
+  div.total-price-info-container {
+    bottom: 0;
+    z-index: 10;
+  }
+  div.total-price-info-container-japanese {
+    bottom: 0;
+    z-index: 10;
+  }
+}
+
+//* IPhon 14 Pro Max 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 897px) and (max-device-width: 932px) {
+  div.container {
+    width: 100vw;
+    height: 100vh;
+    overflow-y: auto;
+    @include App.flex-box-center(column);
+    justify-content: start;
+    align-items: start;
+    padding-bottom: 130px;
+  }
+  div.container-box1 {
+    width: 100%;
+    height: auto;
+    overflow: unset;
+    // flex-grow:0;
+  }
+  div.container-box2 {
+    width: 100%;
+    height: auto;
+    position: relative;
+    // flex-grow:1;
+  }
+  div.answer-container {
+    width: 100%;
+    height: 100%;
+    @include App.position-absolute-center();
+    position: fixed;
+  }
+  div.total-price-info-container {
+    bottom: 0;
+    z-index: 10;
+  }
+  div.total-price-info-container-japanese {
+    bottom: 0;
+    z-index: 10;
+  }
+}
+
+//* 아이폰XR 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 668px) and (max-device-width: 896px) {
+  div.container {
+    width: 100vw;
+    height: 100vh;
+    overflow-y: auto;
+    @include App.flex-box-center(column);
+    justify-content: start;
+    align-items: start;
+    padding-bottom: 130px;
+  }
+  div.container-box1 {
+    width: 100%;
+    height: auto;
+    overflow: unset;
+    // flex-grow:0;
+  }
+  div.container-box2 {
+    width: 100%;
+    height: auto;
+    position: relative;
+    // flex-grow:1;
+  }
+  div.answer-container {
+    width: 100%;
+    height: 100%;
+    @include App.position-absolute-center();
+    position: fixed;
+  }
+  div.total-price-info-container {
+    bottom: 0;
+    z-index: 10;
+  }
+  div.total-price-info-container-japanese {
+    bottom: 0;
+    z-index: 10;
+  }
+}
+
+//* 아이폰SE 가로모드
+@media screen and (orientation: landscape) and (min-device-width: 654px) and (max-device-width: 667px) {
+  div.container {
+    width: 100vw;
+    height: 100vh;
+    overflow-y: auto;
+    @include App.flex-box-center(column);
+    justify-content: start;
+    align-items: start;
+    padding-bottom: 130px;
+  }
+  div.container-box1 {
+    width: 100%;
+    height: auto;
+    overflow: unset;
+    // flex-grow:0;
+  }
+  div.container-box2 {
+    width: 100%;
+    height: auto;
+    position: relative;
+    // flex-grow:1;
+  }
+  div.answer-container {
+    width: 100%;
+    height: 100%;
+    @include App.position-absolute-center();
+    position: fixed;
+  }
+  div.total-price-info-container {
+    bottom: 0;
+    z-index: 10;
+  }
+  div.total-price-info-container-japanese {
+    bottom: 0;
+    z-index: 10;
+  }
+}
+
+//* 갤럭시 폴드 가로모드 (653px 아래 세팅하고 겹쳐지니 div.으로 구체화 시킴.)
+@media screen and (orientation: landscape) and (max-device-width: 653px) {
+  div.container {
+    width: 100vw;
+    height: 100vh;
+    overflow-y: auto;
+    @include App.flex-box-center(column);
+    justify-content: start;
+    align-items: start;
+    padding-bottom: 130px;
+  }
+  div.container-box1 {
+    width: 100%;
+    height: auto;
+    overflow: unset;
+    // flex-grow:0;
+  }
+  div.container-box2 {
+    width: 100%;
+    height: auto;
+    position: relative;
+    // flex-grow:1;
+  }
+  div.answer-container {
+    width: 100%;
+    height: 100%;
+    @include App.position-absolute-center();
+    position: fixed;
+  }
+  div.total-price-info-container {
+    bottom: 0;
+    z-index: 10;
+  }
+  div.total-price-info-container-japanese {
+    bottom: 0;
+    z-index: 10;
+  }
+}
